@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260623-hints";
-import { QUESTION_BANK } from "../data/questions.js?v=20260623-hints";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260623-flashcard-flow";
+import { QUESTION_BANK } from "../data/questions.js?v=20260623-flashcard-flow";
 
-const APP_VERSION = "20260623-hints";
+const APP_VERSION = "20260623-flashcard-flow";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -51,7 +51,7 @@ function wordKeyFromText(text, unit) {
   });
 }
 
-function updateWordStats(wordId, isCorrect) {
+function updateWordStats(wordId, isCorrect, options = {}) {
   const word = words.find((item) => item.id === wordId);
   if (!word) return;
 
@@ -72,7 +72,9 @@ function updateWordStats(wordId, isCorrect) {
   stats[wordId] = current;
   words = buildWords();
   saveState();
-  renderAll();
+  if (options.render !== false) {
+    renderAll();
+  }
 }
 
 function setProficiency(wordId, offset) {
@@ -187,8 +189,13 @@ function moveFlashcard(offset) {
 
 function recordFlashcard(isCorrect) {
   if (!flashList.length) return;
-  updateWordStats(flashList[flashIndex].id, isCorrect);
-  flashList[flashIndex] = words.find((word) => word.id === flashList[flashIndex].id) || flashList[flashIndex];
+  const currentIndex = flashIndex;
+  const currentWordId = flashList[currentIndex].id;
+
+  updateWordStats(currentWordId, isCorrect, { render: false });
+  flashList[currentIndex] = words.find((word) => word.id === currentWordId) || flashList[currentIndex];
+  renderDashboard();
+  renderLibrary();
   moveFlashcard(1);
   toast(isCorrect ? "已記錄答對，熟練度 +1" : "已記錄還不熟，熟練度 -1");
 }
