@@ -214,5 +214,125 @@ export const QUESTION_BANK = [
     answer: "altogether",
     explanation:
       "altogether 可表示「完全地」。stopped altogether 表示「完全停下來」。"
+  },
+  {
+    id: "u4-fill-appeared",
+    unit: 4,
+    type: "fill",
+    difficulty: "medium",
+    targetWord: "appear",
+    prompt: "The first dinosaur ____ around 225 or 230 million years ago.",
+    choices: ["apply", "appear"],
+    answer: "appeared",
+    explanation:
+      "appear 是「出現」。句子時間是 years ago，描述過去發生的事，所以要改成過去式 appeared。"
+  },
+  {
+    id: "u4-fill-arrive",
+    unit: 4,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "arrive",
+    prompt: "We have sent you a package which should ____ within a couple of days.",
+    choices: ["argue", "arrive"],
+    answer: "arrive",
+    explanation:
+      "arrive 是「到達」。包裹應該會在幾天內抵達，所以 should 後面接原形動詞 arrive。"
+  },
+  {
+    id: "u4-fill-appetite",
+    unit: 4,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "appetite",
+    prompt: "I lost my ____ for meat after seeing a television program about the treatment of animals on some farms.",
+    choices: ["appetite", "appearance"],
+    answer: "appetite",
+    explanation:
+      "appetite 是「胃口、食慾」。lost my appetite for meat 表示「失去吃肉的胃口」。appearance 是「出現、露面」，不符合句意。"
+  },
+  {
+    id: "u4-fill-armed",
+    unit: 4,
+    type: "fill",
+    difficulty: "medium",
+    targetWord: "arm",
+    prompt: "The bank was robbed this afternoon by a man ____ with a large knife.",
+    choices: ["arrest", "arm"],
+    answer: "armed",
+    explanation:
+      "arm 作動詞可表示「武裝」。a man armed with a large knife 表示「一名持大刀武裝的男子」，這裡要用過去分詞 armed。"
+  },
+  {
+    id: "u4-fill-argument",
+    unit: 4,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "argument",
+    prompt: "He and his girlfriend split up after having a big ____ at the party.",
+    choices: ["arrangement", "argument"],
+    answer: "argument",
+    explanation:
+      "argument 是「爭吵、爭論」。having a big argument 表示「大吵一架」，符合分手的情境。"
+  },
+  {
+    id: "u4-mcq-argued",
+    unit: 4,
+    type: "mcq",
+    difficulty: "medium",
+    targetWord: "argue",
+    prompt: "I ____ with my roommate because she always takes too long in the shower.",
+    options: ["applied", "appeared", "argued", "armed"],
+    answer: "argued",
+    explanation:
+      "argue with someone 表示「和某人爭吵」。句子原因是室友洗澡總是太久，所以選 argued。"
+  },
+  {
+    id: "u4-mcq-apartment",
+    unit: 4,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "apartment",
+    prompt: "The average rent for a two-bedroom ____ in this city is probably about $700 a month now.",
+    options: ["apartment", "apron", "appetite", "area"],
+    answer: "apartment",
+    explanation:
+      "apartment 是「公寓」。two-bedroom apartment 表示「兩房公寓」，可以接 rent（租金）。"
+  },
+  {
+    id: "u4-mcq-arrange",
+    unit: 4,
+    type: "mcq",
+    difficulty: "medium",
+    targetWord: "arrange",
+    prompt: "We are quite busy today, but I'll see if I can ____ a meeting for sometime tomorrow morning.",
+    options: ["appear", "apply", "arrest", "arrange"],
+    answer: "arrange",
+    explanation:
+      "arrange a meeting 表示「安排會議」。句子意思是看看明天早上能不能安排會議。"
+  },
+  {
+    id: "u4-mcq-arrest",
+    unit: 4,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "arrest",
+    prompt: "I hope they'll ____ the guy that has been breaking into cars all over the neighborhood soon.",
+    options: ["arrange", "arrest", "arrive", "argue"],
+    answer: "arrest",
+    explanation:
+      "arrest 是「逮捕」。闖入車子的男子應該要被逮捕，所以選 arrest。"
+  },
+  {
+    id: "u4-mcq-areas",
+    unit: 4,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "area",
+    prompt: "There are a number of different ____ in the city where crime has become a serious problem.",
+    options: ["aprons", "armchairs", "areas", "arrows"],
+    answer: "areas",
+    explanation:
+      "area 是「區域」。a number of different 後面接複數名詞，因此要選 areas，表示城市裡有好幾個不同區域。"
   }
 ];
