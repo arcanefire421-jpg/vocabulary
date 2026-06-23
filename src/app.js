@@ -1,5 +1,5 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js";
-import { QUESTION_BANK } from "../data/questions.js";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260623-unit3";
+import { QUESTION_BANK } from "../data/questions.js?v=20260623-unit3";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
