@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VocabMaster 單字學習</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">VocabMaster</p>
+        <h1>單字學習與題庫練習</h1>
+      </div>
+      <div class="header-actions">
+        <button class="ghost-button" id="exportBtn" type="button"><i data-lucide="download"></i><span>匯出資料</span></button>
+        <label class="ghost-button file-button">
+          <i data-lucide="upload"></i><span>匯入資料</span>
+          <input id="importInput" type="file" accept="application/json" />
+        </label>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <nav class="tabs" aria-label="主要功能">
+        <button class="tab is-active" data-tab="dashboard" type="button"><i data-lucide="layout-dashboard"></i><span>總覽</span></button>
+        <button class="tab" data-tab="flashcards" type="button"><i data-lucide="copy"></i><span>閃記卡</span></button>
+        <button class="tab" data-tab="practice" type="button"><i data-lucide="file-question"></i><span>題庫練習</span></button>
+        <button class="tab" data-tab="library" type="button"><i data-lucide="book-open"></i><span>單字庫</span></button>
+      </nav>
+
+      <section class="panel is-active" id="dashboard">
+        <div class="summary-band">
+          <div>
+            <p class="eyebrow">學習狀態</p>
+            <h2>用答對率與熟練度追蹤每個單字</h2>
+          </div>
+          <div class="stat-grid">
+            <div><span id="totalWords">0</span><small>單字</small></div>
+            <div><span id="masteredWords">0</span><small>已熟練</small></div>
+            <div><span id="totalAttempts">0</span><small>練習次數</small></div>
+            <div><span id="accuracyRate">0%</span><small>答對率</small></div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="section-card">
+            <h3>熟練度分布</h3>
+            <div id="levelBars" class="level-bars"></div>
+          </article>
+          <article class="section-card">
+            <h3>建議複習</h3>
+            <div id="reviewList" class="review-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="flashcards">
+        <div class="toolbar">
+          <div>
+            <h2>閃記卡</h2>
+            <p>先看英文，翻面確認中文、搭配詞與例句。</p>
+          </div>
+          <div class="control-row">
+            <select id="flashUnit"></select>
+            <select id="flashLevel">
+              <option value="all">全部熟練度</option>
+              <option value="new">新單字 Lv.0</option>
+              <option value="learning">學習中 Lv.1-4</option>
+              <option value="mastered">已熟練 Lv.5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flashcard-wrap">
+          <button class="flashcard" id="flashcard" type="button" aria-label="翻面">
+            <div class="flash-face flash-front">
+              <div class="card-meta"><span id="flashProgress"></span><span id="flashBadge"></span></div>
+              <div class="word-main">
+                <strong id="flashWord">ability</strong>
+                <span id="flashPhonetic">[əˈbɪləti]</span>
+                <small id="flashPos">n.</small>
+              </div>
+              <p class="hint">點卡片翻面</p>
+            </div>
+            <div class="flash-face flash-back">
+              <div class="card-meta"><span>答案</span><span id="flashLevelBadge"></span></div>
+              <div class="answer-main">
+                <strong id="flashTranslation">能力</strong>
+                <p id="flashCollocation"></p>
+                <blockquote>
+                  <span id="flashExample"></span>
+                  <small id="flashExampleTr"></small>
+                </blockquote>
+              </div>
+              <p class="hint">再次點卡片回到正面</p>
+            </div>
+          </button>
+        </div>
+        <div class="flash-actions">
+          <button class="danger-button" id="unknownBtn" type="button"><i data-lucide="x-circle"></i><span>還不熟</span></button>
+          <button class="primary-button" id="knownBtn" type="button"><i data-lucide="check-circle"></i><span>我答對</span></button>
+        </div>
+        <div class="pager">
+          <button id="prevCard" type="button"><i data-lucide="chevron-left"></i><span>上一張</span></button>
+          <button id="nextCard" type="button"><span>下一張</span><i data-lucide="chevron-right"></i></button>
+        </div>
+      </section>
+
+      <section class="panel" id="practice">
+        <div class="toolbar">
+          <div>
+            <h2>題庫練習</h2>
+            <p>題目與詳解來自獨立題庫，也會自動用單字例句產生新題。</p>
+          </div>
+          <div class="control-row">
+            <select id="practiceUnit"></select>
+            <select id="practiceMode">
+              <option value="mixed">混合題型</option>
+              <option value="fill">填空題</option>
+              <option value="mcq">選擇題</option>
+            </select>
+            <button class="primary-button" id="newQuestion" type="button"><i data-lucide="shuffle"></i><span>換一題</span></button>
+          </div>
+        </div>
+        <article class="question-card" id="questionCard"></article>
+      </section>
+
+      <section class="panel" id="library">
+        <div class="toolbar">
+          <div>
+            <h2>單字庫</h2>
+            <p>基礎單字、手動新增單字與學習紀錄會分開保存。</p>
+          </div>
+          <div class="control-row">
+            <input id="searchWord" type="search" placeholder="搜尋英文或中文" />
+            <select id="libraryUnit"></select>
+          </div>
+        </div>
+
+        <details class="add-word-box">
+          <summary><i data-lucide="plus"></i><span>新增單字</span></summary>
+          <form id="addWordForm" class="word-form">
+            <input name="word" required placeholder="英文單字 *" />
+            <input name="translation" required placeholder="中文翻譯 *" />
+            <input name="pos" required placeholder="詞性 *" />
+            <input name="phonetic" placeholder="音標" />
+            <input name="collocation" placeholder="搭配詞" />
+            <input name="example" placeholder="英文例句" />
+            <input name="exampleTr" placeholder="例句翻譯" />
+            <button class="primary-button" type="submit"><i data-lucide="save"></i><span>存入單字庫</span></button>
+          </form>
+        </details>
+
+        <div class="word-grid" id="wordGrid"></div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
