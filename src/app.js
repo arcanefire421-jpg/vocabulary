@@ -1,5 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260623-unit4";
-import { QUESTION_BANK } from "../data/questions.js?v=20260623-unit4";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260623-hints";
+import { QUESTION_BANK } from "../data/questions.js?v=20260623-hints";
+
+const APP_VERSION = "20260623-hints";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -196,9 +198,10 @@ function generatedQuestions() {
     .filter((word) => word.example && word.word && !word.word.includes("/"))
     .map((word) => {
       const escaped = word.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      const prompt = word.example.replace(new RegExp(`\\b${escaped}\\b`, "i"), "____");
+      const prompt = word.example.replace(new RegExp(`\\b${escaped}\\b`, "gi"), "____");
       const type = prompt.includes("____") ? "fill" : "mcq";
       const options = buildOptions(word);
+      const choices = buildFillChoices(word, options);
       return {
         id: `auto-${word.id}`,
         unit: word.unit,
@@ -207,11 +210,17 @@ function generatedQuestions() {
         targetWord: word.word,
         prompt: type === "fill" ? prompt : `${word.example}\n\n這句話中的 ${word.translation} 對應哪個英文單字？`,
         options,
-        choices: options.slice(0, 2),
+        choices,
         answer: word.word,
         explanation: `${word.word} 是「${word.translation}」。例句：${word.example}${word.exampleTr ? `（${word.exampleTr}）` : ""}`
       };
     });
+}
+
+function buildFillChoices(answerWord, options) {
+  const answer = answerWord.word;
+  const distractors = options.filter((option) => normalize(option) !== normalize(answer));
+  return shuffle([answer, ...distractors.slice(0, 1)]);
 }
 
 function buildOptions(answerWord) {
@@ -245,7 +254,7 @@ function renderQuestion() {
   }
 
   const label = `${currentQuestion.unit ? `Unit ${currentQuestion.unit}` : "自訂"} · ${currentQuestion.type === "fill" ? "填空題" : "選擇題"}`;
-  const choiceText = currentQuestion.choices?.length ? `<p>候選詞：${currentQuestion.choices.join(" / ")}</p>` : "";
+  const choiceText = currentQuestion.choices?.length ? `<p>小提示：${formatChoices(currentQuestion)}</p>` : "";
 
   if (currentQuestion.type === "fill") {
     card.innerHTML = `
@@ -282,6 +291,31 @@ function checkFillAnswer() {
   checkQuestion($("#fillAnswer").value.trim());
 }
 
+function formatChoices(question) {
+  const choices = ensureAnswerInChoices(question).map((choice) => escapeHtml(choice));
+  const note = answerUsesChangedForm(question) ? "（正確答案可能需要變化字形）" : "";
+  return `${choices.join(" / ")}${note}`;
+}
+
+function ensureAnswerInChoices(question) {
+  const choices = Array.isArray(question.choices) ? [...question.choices] : [];
+  const answer = String(question.answer || "").trim();
+  const target = String(question.targetWord || "").trim();
+  const hasAnswer = choices.some((choice) => normalize(choice) === normalize(answer));
+  const hasTarget = target && choices.some((choice) => normalize(choice) === normalize(target));
+
+  if (!hasAnswer && !hasTarget) {
+    choices.unshift(answer);
+  }
+
+  return [...new Set(choices.filter(Boolean))];
+}
+
+function answerUsesChangedForm(question) {
+  if (!question.targetWord || !question.answer) return false;
+  return normalize(question.targetWord) !== normalize(question.answer);
+}
+
 function checkQuestion(answer) {
   if (!currentQuestion) return;
   const isCorrect = normalize(answer) === normalize(currentQuestion.answer);
@@ -300,6 +334,15 @@ function normalize(value) {
 
 function escapeAttr(value) {
   return String(value).replaceAll('"', "&quot;");
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function renderLibrary() {
@@ -449,6 +492,7 @@ function toast(message) {
 }
 
 function boot() {
+  document.documentElement.dataset.appVersion = APP_VERSION;
   setupTabs();
   setupUnitSelects();
   renderAll();
