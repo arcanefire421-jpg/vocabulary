@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260624-unit10-pages49-50";
-import { QUESTION_BANK } from "../data/questions.js?v=20260624-unit10-pages49-50";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260624-unit8-9-complete";
+import { QUESTION_BANK } from "../data/questions.js?v=20260624-unit8-9-complete";
 
-const APP_VERSION = "20260624-unit10-pages49-50";
+const APP_VERSION = "20260624-unit8-9-complete";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";

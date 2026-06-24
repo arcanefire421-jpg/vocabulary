@@ -336,6 +336,126 @@ export const QUESTION_BANK = [
       "area 是「區域」。a number of different 後面接複數名詞，因此要選 areas，表示城市裡有好幾個不同區域。"
   },
   {
+    id: "u9-fill-bottom",
+    unit: 9,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "bottom",
+    prompt: "He stood at the ____ of the stairs and called up to me.",
+    choices: ["bookcase", "bottom"],
+    answer: "bottom",
+    explanation:
+      "bottom 是「底部」。at the bottom of the stairs 表示「在樓梯底部」。bookcase 是「書櫃」，不符合句意。"
+  },
+  {
+    id: "u9-fill-bloody",
+    unit: 9,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "bloody",
+    prompt: "I stared in horror at his ____ mouth.",
+    choices: ["boring", "bloody"],
+    answer: "bloody",
+    explanation:
+      "bloody 是「流血的、血腥的」。in horror 表示驚恐地看著，所以 bloody mouth 符合句意。boring 是「無聊的」。"
+  },
+  {
+    id: "u9-fill-block",
+    unit: 9,
+    type: "fill",
+    difficulty: "medium",
+    targetWord: "block",
+    prompt: "He put his hands over his ears to ____ out the noise.",
+    choices: ["block", "blow"],
+    answer: "block",
+    explanation:
+      "block out 表示「擋住、隔絕」。用手蓋住耳朵是為了 block out the noise。blow out 是「吹熄」，不符合。"
+  },
+  {
+    id: "u9-fill-blind",
+    unit: 9,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "blind",
+    prompt: "A ____ man cannot judge colors.",
+    choices: ["blank", "blind"],
+    answer: "blind",
+    explanation:
+      "blind 是「眼盲的」。看不見的人無法判斷顏色，所以選 blind。blank 是「空白的」。"
+  },
+  {
+    id: "u9-fill-bomb",
+    unit: 9,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "bomb",
+    prompt: "Several people were injured in a ____ explosion.",
+    choices: ["bomb", "block"],
+    answer: "bomb",
+    explanation:
+      "bomb explosion 表示「炸彈爆炸」。block 是「街區、阻擋」，不能用來形容 explosion。"
+  },
+  {
+    id: "u9-mcq-bookcase",
+    unit: 9,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "bookcase",
+    prompt: "The ____ can easily be assembled with a screwdriver.",
+    options: ["bone", "bomb", "bookcase", "blood"],
+    answer: "bookcase",
+    explanation:
+      "bookcase 是「書櫃」。能用螺絲起子組裝的是書櫃，不是 bone、bomb 或 blood。"
+  },
+  {
+    id: "u9-mcq-blank",
+    unit: 9,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "blank",
+    prompt: "He turned to a ____ page in his notebook, and began to write.",
+    options: ["blind", "block", "bloody", "blank"],
+    answer: "blank",
+    explanation:
+      "blank page 是「空白頁」。句子說他翻到筆記本的一頁並開始寫，所以應選 blank。"
+  },
+  {
+    id: "u9-mcq-boiling",
+    unit: 9,
+    type: "mcq",
+    difficulty: "medium",
+    targetWord: "boil",
+    prompt: "After the volcano erupted, ____ lava poured down the side of the mountain.",
+    options: ["boiling", "boring", "bloody", "bony"],
+    answer: "boiling",
+    explanation:
+      "boiling 是 boil 的現在分詞，可作形容詞表示「滾燙的」。火山爆發後流下的是滾燙的岩漿。"
+  },
+  {
+    id: "u9-mcq-borrow",
+    unit: 9,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "borrow",
+    prompt: "I don't want to ____ money from the bank to buy a car; I'd rather pay for it in cash.",
+    options: ["boil", "bomb", "borrow", "blow"],
+    answer: "borrow",
+    explanation:
+      "borrow money from the bank 表示「向銀行借錢」。句子後面說寧可付現，所以是不想 borrow。"
+  },
+  {
+    id: "u9-mcq-boring",
+    unit: 9,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "boring",
+    prompt: "This job is so ____; I wish I could do something more creative.",
+    options: ["bottom", "boring", "blue", "bored"],
+    answer: "boring",
+    explanation:
+      "boring 是「令人無聊的」，用來形容 job。bored 是「感到無聊的」，通常形容人。"
+  },
+  {
     id: "u10-fill-brightly",
     unit: 10,
     type: "fill",
