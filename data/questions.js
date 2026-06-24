@@ -334,5 +334,125 @@ export const QUESTION_BANK = [
     answer: "areas",
     explanation:
       "area 是「區域」。a number of different 後面接複數名詞，因此要選 areas，表示城市裡有好幾個不同區域。"
+  },
+  {
+    id: "u10-fill-brightly",
+    unit: 10,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "brightly",
+    prompt: "The sun shines ____ on the swimmers at the beach.",
+    choices: ["bright", "brightly"],
+    answer: "brightly",
+    explanation:
+      "brightly 是副詞，表示「明亮地」。shines 是動詞，修飾動詞要用副詞 brightly；bright 是形容詞。"
+  },
+  {
+    id: "u10-fill-bridge",
+    unit: 10,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "bridge",
+    prompt: "The island is joined to the mainland by a ____.",
+    choices: ["break", "bridge"],
+    answer: "bridge",
+    explanation:
+      "bridge 是「橋」。島和本土被一座橋連接，所以答案是 bridge。break 是「裂縫、破損」，不符合句意。"
+  },
+  {
+    id: "u10-fill-bread",
+    unit: 10,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "bread",
+    prompt: "I had three pieces of ____ for breakfast this morning.",
+    choices: ["bread", "bridge"],
+    answer: "bread",
+    explanation:
+      "bread 是「麵包」。three pieces of bread 表示「三片麵包」，符合早餐情境。"
+  },
+  {
+    id: "u10-fill-busy",
+    unit: 10,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "busy",
+    prompt: "Sandy is a very ____ teenager; she leaves for school at 7 in the morning and arrives home at 9 at night.",
+    choices: ["bright", "busy"],
+    answer: "busy",
+    explanation:
+      "busy 是「忙碌的」。句子後面說 Sandy 早上七點出門、晚上九點回家，表示她非常忙。"
+  },
+  {
+    id: "u10-fill-butter",
+    unit: 10,
+    type: "fill",
+    difficulty: "easy",
+    targetWord: "butter",
+    prompt: "She had only a slice of bread and ____ for breakfast.",
+    choices: ["butterfly", "butter"],
+    answer: "butter",
+    explanation:
+      "butter 是「奶油」。a slice of bread and butter 表示「一片麵包和奶油」。butterfly 是「蝴蝶」，不符合早餐內容。"
+  },
+  {
+    id: "u10-mcq-brave",
+    unit: 10,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "brave",
+    prompt: "When I was little, my dad was my hero because he seemed so big and strong and ____.",
+    options: ["bright", "brown", "busy", "brave"],
+    answer: "brave",
+    explanation:
+      "brave 是「勇敢的」。big、strong、brave 都是形容英雄的正面特質，所以選 brave。"
+  },
+  {
+    id: "u10-mcq-building",
+    unit: 10,
+    type: "mcq",
+    difficulty: "medium",
+    targetWord: "build",
+    prompt: "They're ____ a new school in the village.",
+    options: ["building", "bugging", "breaking", "caging"],
+    answer: "building",
+    explanation:
+      "build 是「建造」。They're 後面接現在分詞 building，表示「他們正在村子裡建造一所新學校」。"
+  },
+  {
+    id: "u10-mcq-break",
+    unit: 10,
+    type: "mcq",
+    difficulty: "medium",
+    targetWord: "break",
+    prompt: "We have to ____ into the house as we've lost the key.",
+    options: ["build", "break", "bring", "bridge"],
+    answer: "break",
+    explanation:
+      "break into 表示「闖入、破門而入」。因為鑰匙不見了，所以必須 break into the house。"
+  },
+  {
+    id: "u10-mcq-cage",
+    unit: 10,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "cage",
+    prompt: "In the zoo we saw many monkeys running around the ____.",
+    options: ["bug", "building", "cage", "bread"],
+    answer: "cage",
+    explanation:
+      "cage 是「籠子」。動物園裡猴子在籠子周圍跑來跑去，因此選 cage。"
+  },
+  {
+    id: "u10-mcq-businessman",
+    unit: 10,
+    type: "mcq",
+    difficulty: "easy",
+    targetWord: "businessman",
+    prompt: "The rich ____ gave his whole fortune to the hospital.",
+    options: ["building", "cage", "businessman", "butterfly"],
+    answer: "businessman",
+    explanation:
+      "businessman 是「商人」。句子主詞需要一個人，且 rich businessman 表示「富有的商人」。"
   }
 ];
