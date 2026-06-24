@@ -293,10 +293,49 @@ svg {
   background: transparent;
   transform-style: preserve-3d;
   transition: transform 0.45s ease;
+  touch-action: pan-y;
 }
 
 .flashcard.is-flipped {
   transform: rotateY(180deg);
+}
+
+.flashcard.is-dragging {
+  transition: none;
+}
+
+.flashcard::before,
+.flashcard::after {
+  position: absolute;
+  top: 18px;
+  z-index: 3;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 900;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.flashcard::before {
+  left: 18px;
+  content: "還不熟";
+  color: var(--red);
+  background: var(--red-2);
+  border: 2px solid var(--red);
+}
+
+.flashcard::after {
+  right: 18px;
+  content: "我答對";
+  color: var(--green);
+  background: var(--green-2);
+  border: 2px solid var(--green);
+}
+
+.flashcard[data-swipe="unknown"]::before,
+.flashcard[data-swipe="known"]::after {
+  opacity: 1;
 }
 
 .flash-face {
@@ -334,7 +373,8 @@ svg {
 
 .word-main strong {
   display: block;
-  font-size: clamp(42px, 8vw, 64px);
+  font-size: clamp(58px, 10vw, 88px);
+  line-height: 1.02;
 }
 
 .word-main span,
@@ -355,7 +395,8 @@ blockquote small {
 
 .answer-main strong {
   color: var(--green);
-  font-size: clamp(28px, 5vw, 40px);
+  font-size: clamp(34px, 6vw, 52px);
+  line-height: 1.15;
 }
 
 blockquote {

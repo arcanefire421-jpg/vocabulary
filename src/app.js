@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260623-flashcard-flow";
-import { QUESTION_BANK } from "../data/questions.js?v=20260623-flashcard-flow";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260624-swipe-random";
+import { QUESTION_BANK } from "../data/questions.js?v=20260624-swipe-random";
 
-const APP_VERSION = "20260623-flashcard-flow";
+const APP_VERSION = "20260624-swipe-random";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -12,6 +12,7 @@ let words = buildWords();
 let flashList = [];
 let flashIndex = 0;
 let currentQuestion = null;
+let flashDrag = null;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -157,12 +158,14 @@ function initFlashcards() {
   if (level === "learning") flashList = flashList.filter((word) => word.proficiency >= 1 && word.proficiency <= 4);
   if (level === "mastered") flashList = flashList.filter((word) => word.proficiency >= 5);
   if (!flashList.length) flashList = filteredByUnit(words, unit);
+  flashList = shuffle(flashList);
   flashIndex = 0;
   renderFlashcard();
 }
 
 function renderFlashcard() {
   const card = $("#flashcard");
+  card.style.transform = "";
   card.classList.remove("is-flipped");
   if (!flashList.length) {
     $("#flashWord").textContent = "沒有單字";
@@ -198,6 +201,53 @@ function recordFlashcard(isCorrect) {
   renderLibrary();
   moveFlashcard(1);
   toast(isCorrect ? "已記錄答對，熟練度 +1" : "已記錄還不熟，熟練度 -1");
+}
+
+function beginFlashDrag(event) {
+  if (event.pointerType === "mouse" && event.button !== 0) return;
+  flashDrag = {
+    id: event.pointerId,
+    startX: event.clientX,
+    startY: event.clientY,
+    moved: false
+  };
+  $("#flashcard").setPointerCapture?.(event.pointerId);
+}
+
+function moveFlashDrag(event) {
+  if (!flashDrag || flashDrag.id !== event.pointerId) return;
+  const dx = event.clientX - flashDrag.startX;
+  const dy = event.clientY - flashDrag.startY;
+  if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+  flashDrag.moved = true;
+  if (Math.abs(dx) > Math.abs(dy)) event.preventDefault();
+
+  const card = $("#flashcard");
+  const rotate = Math.max(-10, Math.min(10, dx / 18));
+  card.classList.add("is-dragging");
+  card.dataset.swipe = dx > 24 ? "known" : dx < -24 ? "unknown" : "";
+  card.style.transform = `translateX(${dx}px) rotate(${rotate}deg)`;
+}
+
+function endFlashDrag(event) {
+  if (!flashDrag || flashDrag.id !== event.pointerId) return;
+  const dx = event.clientX - flashDrag.startX;
+  const moved = flashDrag.moved;
+  flashDrag = null;
+
+  const card = $("#flashcard");
+  card.classList.remove("is-dragging");
+  card.dataset.swipe = "";
+  card.style.transform = "";
+
+  if (Math.abs(dx) >= 90) {
+    recordFlashcard(dx > 0);
+    return;
+  }
+
+  if (!moved) {
+    card.classList.toggle("is-flipped");
+  }
 }
 
 function generatedQuestions() {
@@ -507,7 +557,15 @@ function boot() {
 
   $("#flashUnit").addEventListener("change", initFlashcards);
   $("#flashLevel").addEventListener("change", initFlashcards);
-  $("#flashcard").addEventListener("click", () => $("#flashcard").classList.toggle("is-flipped"));
+  $("#flashcard").addEventListener("pointerdown", beginFlashDrag);
+  $("#flashcard").addEventListener("pointermove", moveFlashDrag);
+  $("#flashcard").addEventListener("pointerup", endFlashDrag);
+  $("#flashcard").addEventListener("pointercancel", () => {
+    flashDrag = null;
+    $("#flashcard").classList.remove("is-dragging");
+    $("#flashcard").dataset.swipe = "";
+    $("#flashcard").style.transform = "";
+  });
   $("#prevCard").addEventListener("click", () => moveFlashcard(-1));
   $("#nextCard").addEventListener("click", () => moveFlashcard(1));
   $("#knownBtn").addEventListener("click", () => recordFlashcard(true));
