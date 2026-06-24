@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260624-unit8-9-complete";
-import { QUESTION_BANK } from "../data/questions.js?v=20260624-unit8-9-complete";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260624-swipe-level-feedback";
+import { QUESTION_BANK } from "../data/questions.js?v=20260624-swipe-level-feedback";
 
-const APP_VERSION = "20260624-unit8-9-complete";
+const APP_VERSION = "20260624-swipe-level-feedback";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -54,13 +54,14 @@ function wordKeyFromText(text, unit) {
 
 function updateWordStats(wordId, isCorrect, options = {}) {
   const word = words.find((item) => item.id === wordId);
-  if (!word) return;
+  if (!word) return null;
 
   const current = stats[wordId] ?? {
     correct: word.correct ?? 0,
     total: word.total ?? 0,
     proficiency: word.proficiency ?? 0
   };
+  const previousProficiency = current.proficiency ?? 0;
 
   current.total += 1;
   if (isCorrect) {
@@ -76,6 +77,11 @@ function updateWordStats(wordId, isCorrect, options = {}) {
   if (options.render !== false) {
     renderAll();
   }
+  return {
+    word: words.find((item) => item.id === wordId),
+    previousProficiency,
+    nextProficiency: current.proficiency
+  };
 }
 
 function setProficiency(wordId, offset) {
@@ -194,13 +200,34 @@ function recordFlashcard(isCorrect) {
   if (!flashList.length) return;
   const currentIndex = flashIndex;
   const currentWordId = flashList[currentIndex].id;
+  const currentWordLabel = flashList[currentIndex].word;
 
-  updateWordStats(currentWordId, isCorrect, { render: false });
-  flashList[currentIndex] = words.find((word) => word.id === currentWordId) || flashList[currentIndex];
+  const result = updateWordStats(currentWordId, isCorrect, { render: false });
+  const updatedWord = result?.word || words.find((word) => word.id === currentWordId) || flashList[currentIndex];
+  flashList[currentIndex] = updatedWord;
   renderDashboard();
   renderLibrary();
-  moveFlashcard(1);
-  toast(isCorrect ? "已記錄答對，熟練度 +1" : "已記錄還不熟，熟練度 -1");
+
+  const level = $("#flashLevel").value || "all";
+  if (
+    (level === "new" && updatedWord.proficiency > 0) ||
+    (level === "learning" && (updatedWord.proficiency === 0 || updatedWord.proficiency >= 5)) ||
+    (level === "mastered" && updatedWord.proficiency < 5)
+  ) {
+    flashList.splice(currentIndex, 1);
+    if (!flashList.length) {
+      initFlashcards();
+    } else {
+      flashIndex = currentIndex % flashList.length;
+      renderFlashcard();
+    }
+  } else {
+    moveFlashcard(1);
+  }
+
+  const previous = result?.previousProficiency ?? updatedWord.proficiency ?? 0;
+  const next = result?.nextProficiency ?? updatedWord.proficiency ?? 0;
+  toast(`${currentWordLabel} ${isCorrect ? "答對" : "還不熟"}：Lv.${previous} → Lv.${next}`);
 }
 
 function beginFlashDrag(event) {
