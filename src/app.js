@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-desktop-layout";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-desktop-layout";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-flashcard-autoplay";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-flashcard-autoplay";
 
-const APP_VERSION = "20260628-desktop-layout";
+const APP_VERSION = "20260628-flashcard-autoplay";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -15,6 +15,8 @@ let flashList = [];
 let flashIndex = 0;
 let currentQuestion = null;
 let flashDrag = null;
+let autoPlayEnabled = false;
+let autoPlayRunId = 0;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -236,6 +238,7 @@ function initFlashcards() {
 }
 
 function activateTab(tabName, options = {}) {
+  if (tabName !== "flashcards") stopAutoPlay();
   $$(".tab").forEach((tab) => tab.classList.toggle("is-active", tab.dataset.tab === tabName));
   $$(".panel").forEach((panel) => panel.classList.toggle("is-active", panel.id === tabName));
   if (tabName === "flashcards" && options.initFlashcards !== false) initFlashcards();
@@ -245,6 +248,7 @@ function activateTab(tabName, options = {}) {
 function openFlashcardForWord(id) {
   const word = words.find((item) => item.id === id);
   if (!word) return;
+  stopAutoPlay();
 
   $("#flashUnit").value = word.unit ? String(word.unit) : "custom";
   $("#flashLevel").value = "all";
@@ -256,7 +260,7 @@ function openFlashcardForWord(id) {
 }
 
 function renderFlashcard() {
-  stopSpeech();
+  if (!autoPlayEnabled) stopSpeech();
   const card = $("#flashcard");
   card.style.transform = "";
   card.classList.remove("is-flipped");
@@ -291,12 +295,16 @@ function stopSpeech() {
   }
 }
 
-function speakText(rawText, label, message) {
+function canSpeak() {
   if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
     toast("這個瀏覽器不支援發音");
     return false;
   }
+  return true;
+}
 
+function speakText(rawText, label, message) {
+  if (!canSpeak()) return false;
   const text = speechTextFor(rawText);
   if (!text) return false;
 
@@ -310,7 +318,96 @@ function speakText(rawText, label, message) {
   return true;
 }
 
+function speakTextAsync(rawText, lang = "en-US") {
+  if (!canSpeak()) return Promise.resolve(false);
+  const text = speechTextFor(rawText);
+  if (!text) return Promise.resolve(false);
+
+  return new Promise((resolve) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang;
+    utterance.rate = lang.startsWith("zh") ? 0.95 : 0.85;
+    utterance.pitch = 1;
+    utterance.onend = () => resolve(true);
+    utterance.onerror = () => resolve(false);
+    window.speechSynthesis.speak(utterance);
+  });
+}
+
+function waitAutoPlay(ms, runId) {
+  return new Promise((resolve) => {
+    window.setTimeout(() => resolve(autoPlayEnabled && runId === autoPlayRunId), ms);
+  });
+}
+
+function updateAutoPlayButton() {
+  const button = $("#autoPlayBtn");
+  if (!button) return;
+  button.classList.toggle("is-active", autoPlayEnabled);
+  button.setAttribute("aria-pressed", String(autoPlayEnabled));
+  button.querySelector("span").textContent = autoPlayEnabled ? "停止播放" : "自動播放";
+  button.querySelector("i")?.setAttribute("data-lucide", autoPlayEnabled ? "pause-circle" : "play-circle");
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function stopAutoPlay(message) {
+  if (!autoPlayEnabled && !message) return;
+  autoPlayEnabled = false;
+  autoPlayRunId += 1;
+  stopSpeech();
+  updateAutoPlayButton();
+  if (message) toast(message);
+}
+
+async function autoPlayLoop(runId) {
+  while (autoPlayEnabled && runId === autoPlayRunId && flashList.length) {
+    const word = flashList[flashIndex];
+    $("#flashcard").classList.remove("is-flipped");
+    toast(`自動播放：${word.word}`);
+
+    if (speechTextFor(word.word)) {
+      await speakTextAsync(word.word, "en-US");
+      if (!(await waitAutoPlay(1000, runId))) return;
+    }
+    if (speechTextFor(word.translation)) {
+      await speakTextAsync(word.translation, "zh-TW");
+      if (!(await waitAutoPlay(1000, runId))) return;
+    }
+
+    $("#flashcard").classList.add("is-flipped");
+    if (speechTextFor(word.example)) {
+      await speakTextAsync(word.example, "en-US");
+      if (!(await waitAutoPlay(1000, runId))) return;
+    }
+    if (speechTextFor(word.exampleTr)) {
+      await speakTextAsync(word.exampleTr, "zh-TW");
+      if (!(await waitAutoPlay(1000, runId))) return;
+    }
+
+    if (!autoPlayEnabled || runId !== autoPlayRunId) return;
+    flashIndex = (flashIndex + 1) % flashList.length;
+    renderFlashcard();
+    if (!(await waitAutoPlay(1000, runId))) return;
+  }
+}
+
+function toggleAutoPlay() {
+  if (autoPlayEnabled) {
+    stopAutoPlay("已停止自動播放");
+    return;
+  }
+  if (!flashList.length) return;
+  if (!canSpeak()) return;
+
+  autoPlayEnabled = true;
+  autoPlayRunId += 1;
+  stopSpeech();
+  updateAutoPlayButton();
+  autoPlayLoop(autoPlayRunId);
+}
+
 function speakFlashcard() {
+  stopAutoPlay();
   if (!flashList.length) return;
   const word = flashList[flashIndex];
   const isBack = $("#flashcard").classList.contains("is-flipped");
@@ -319,12 +416,14 @@ function speakFlashcard() {
 }
 
 function speakLibraryWord(id) {
+  stopAutoPlay();
   const word = words.find((item) => item.id === id);
   if (!word) return;
   speakText(word.word, word.word);
 }
 
 function speakLibraryExample(id) {
+  stopAutoPlay();
   const word = words.find((item) => item.id === id);
   if (!word?.example) return;
   speakText(word.example, word.word, `播放例句：${word.word}`);
@@ -332,12 +431,14 @@ function speakLibraryExample(id) {
 
 function moveFlashcard(offset) {
   if (!flashList.length) return;
+  stopAutoPlay();
   flashIndex = (flashIndex + offset + flashList.length) % flashList.length;
   renderFlashcard();
 }
 
 function recordFlashcard(isCorrect) {
   if (!flashList.length) return;
+  stopAutoPlay();
   const currentIndex = flashIndex;
   const currentWordId = flashList[currentIndex].id;
   const currentWordLabel = flashList[currentIndex].word;
@@ -372,6 +473,7 @@ function recordFlashcard(isCorrect) {
 
 function beginFlashDrag(event) {
   if (event.pointerType === "mouse" && event.button !== 0) return;
+  stopAutoPlay();
   flashDrag = {
     id: event.pointerId,
     startX: event.clientX,
@@ -734,8 +836,14 @@ function boot() {
   renderAll();
   nextQuestion();
 
-  $("#flashUnit").addEventListener("change", initFlashcards);
-  $("#flashLevel").addEventListener("change", initFlashcards);
+  $("#flashUnit").addEventListener("change", () => {
+    stopAutoPlay();
+    initFlashcards();
+  });
+  $("#flashLevel").addEventListener("change", () => {
+    stopAutoPlay();
+    initFlashcards();
+  });
   $("#flashcard").addEventListener("pointerdown", beginFlashDrag);
   $("#flashcard").addEventListener("pointermove", moveFlashDrag);
   $("#flashcard").addEventListener("pointerup", endFlashDrag);
@@ -748,6 +856,7 @@ function boot() {
   $("#prevCard").addEventListener("click", () => moveFlashcard(-1));
   $("#nextCard").addEventListener("click", () => moveFlashcard(1));
   $("#speakBtn").addEventListener("click", speakFlashcard);
+  $("#autoPlayBtn").addEventListener("click", toggleAutoPlay);
   $("#knownBtn").addEventListener("click", () => recordFlashcard(true));
   $("#unknownBtn").addEventListener("click", () => recordFlashcard(false));
   $("#practiceUnit").addEventListener("change", nextQuestion);
