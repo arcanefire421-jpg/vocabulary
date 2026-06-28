@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260624-swipe-level-feedback";
-import { QUESTION_BANK } from "../data/questions.js?v=20260624-swipe-level-feedback";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-flashcard-speech";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-flashcard-speech";
 
-const APP_VERSION = "20260624-swipe-level-feedback";
+const APP_VERSION = "20260628-flashcard-speech";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -170,6 +170,7 @@ function initFlashcards() {
 }
 
 function renderFlashcard() {
+  stopSpeech();
   const card = $("#flashcard");
   card.style.transform = "";
   card.classList.remove("is-flipped");
@@ -188,6 +189,39 @@ function renderFlashcard() {
   $("#flashCollocation").textContent = word.collocation || "尚未設定搭配詞";
   $("#flashExample").textContent = word.example || "尚未設定例句";
   $("#flashExampleTr").textContent = word.exampleTr || "";
+}
+
+function speechTextFor(word) {
+  return (word?.word || "")
+    .replace(/\s*\/\s*/g, ", ")
+    .replace(/\([^)]*\)/g, "")
+    .trim();
+}
+
+function stopSpeech() {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+}
+
+function speakFlashcard() {
+  if (!flashList.length) return;
+  if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+    toast("這個瀏覽器不支援發音");
+    return;
+  }
+
+  const word = flashList[flashIndex];
+  const text = speechTextFor(word);
+  if (!text) return;
+
+  stopSpeech();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.85;
+  utterance.pitch = 1;
+  window.speechSynthesis.speak(utterance);
+  toast(`播放發音：${word.word}`);
 }
 
 function moveFlashcard(offset) {
@@ -595,6 +629,7 @@ function boot() {
   });
   $("#prevCard").addEventListener("click", () => moveFlashcard(-1));
   $("#nextCard").addEventListener("click", () => moveFlashcard(1));
+  $("#speakBtn").addEventListener("click", speakFlashcard);
   $("#knownBtn").addEventListener("click", () => recordFlashcard(true));
   $("#unknownBtn").addEventListener("click", () => recordFlashcard(false));
   $("#practiceUnit").addEventListener("change", nextQuestion);

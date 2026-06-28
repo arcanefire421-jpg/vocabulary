@@ -96,6 +96,7 @@ button {
 
 .tab,
 .ghost-button,
+.secondary-button,
 .primary-button,
 .danger-button,
 .pager button {
@@ -254,6 +255,13 @@ input {
   padding: 0 13px;
   color: var(--ink);
   background: #eef2f6;
+}
+
+.secondary-button {
+  padding: 0 14px;
+  color: var(--green);
+  background: #fff;
+  border: 1px solid var(--line);
 }
 
 .primary-button {
@@ -423,6 +431,10 @@ blockquote small {
 .pager {
   justify-content: center;
   margin-top: 14px;
+}
+
+.flash-actions {
+  flex-wrap: wrap;
 }
 
 .pager button {
@@ -648,7 +660,8 @@ blockquote small {
   }
 
   .control-row > *,
-  .header-actions > * {
+  .header-actions > *,
+  .flash-actions > * {
     flex: 1 1 160px;
   }
 }

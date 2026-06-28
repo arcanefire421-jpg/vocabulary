@@ -6,7 +6,7 @@
     <title>VocabMaster 單字學習</title>
     <link rel="stylesheet" href="./src/styles.css" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=20260624-swipe-level-feedback"></script>
+    <script type="module" src="./src/app.js?v=20260628-flashcard-speech"></script>
   </head>
   <body>
     <header class="app-header">
@@ -100,6 +100,7 @@
           </button>
         </div>
         <div class="flash-actions">
+          <button class="secondary-button" id="speakBtn" type="button"><i data-lucide="volume-2"></i><span>發音</span></button>
           <button class="danger-button" id="unknownBtn" type="button"><i data-lucide="x-circle"></i><span>還不熟</span></button>
           <button class="primary-button" id="knownBtn" type="button"><i data-lucide="check-circle"></i><span>我答對</span></button>
         </div>
