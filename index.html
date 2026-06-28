@@ -6,7 +6,7 @@
     <title>VocabMaster 單字學習</title>
     <link rel="stylesheet" href="./src/styles.css" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=20260628-dim-standalone"></script>
+    <script type="module" src="./src/app.js?v=20260628-dim-global-header"></script>
   </head>
   <body>
     <header class="app-header">
@@ -15,6 +15,7 @@
         <h1>單字學習與題庫練習</h1>
       </div>
       <div class="header-actions">
+        <button class="ghost-button dim-button" id="dimScreenBtn" type="button" aria-pressed="false"><i data-lucide="moon"></i><span>暗屏</span></button>
         <button class="ghost-button" id="exportBtn" type="button"><i data-lucide="download"></i><span>匯出資料</span></button>
         <label class="ghost-button file-button">
           <i data-lucide="upload"></i><span>匯入資料</span>
@@ -101,7 +102,6 @@
         </div>
         <div class="flash-actions">
           <button class="secondary-button" id="speakBtn" type="button"><i data-lucide="volume-2"></i><span>發音</span></button>
-          <button class="secondary-button dim-button" id="dimScreenBtn" type="button" aria-pressed="false"><i data-lucide="moon"></i><span>暗屏</span></button>
           <button class="secondary-button autoplay-button" id="autoPlayBtn" type="button" aria-pressed="false"><i data-lucide="play-circle"></i><span>自動播放</span></button>
           <button class="danger-button" id="unknownBtn" type="button"><i data-lucide="x-circle"></i><span>還不熟</span></button>
           <button class="primary-button" id="knownBtn" type="button"><i data-lucide="check-circle"></i><span>我會了</span></button>
