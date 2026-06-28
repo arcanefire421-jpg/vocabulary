@@ -179,6 +179,35 @@ body.is-dimmed .dim-button.is-active {
   box-shadow: none;
 }
 
+body.is-dimmed .tabs {
+  background: #0e1a17;
+  border-color: #2e5b4d;
+}
+
+body.is-dimmed .tab {
+  color: #a8bbb4;
+}
+
+body.is-dimmed .tab:nth-child(1).is-active {
+  color: #07110f;
+  background: #8fd6ba;
+}
+
+body.is-dimmed .tab:nth-child(2).is-active {
+  color: #07110f;
+  background: #8bc7df;
+}
+
+body.is-dimmed .tab:nth-child(3).is-active {
+  color: #07110f;
+  background: #d9c781;
+}
+
+body.is-dimmed .tab:nth-child(4).is-active {
+  color: #07110f;
+  background: #c4b5fd;
+}
+
 button,
 input,
 select {
@@ -243,7 +272,7 @@ button {
   grid-template-columns: repeat(4, 1fr);
   padding: 4px;
   margin-bottom: 14px;
-  background: #e8edf2;
+  background: #eef3f5;
   border: 1px solid var(--line);
   border-radius: 8px;
 }
@@ -270,9 +299,27 @@ button {
 }
 
 .tab.is-active {
-  color: var(--green);
-  background: #fff;
   box-shadow: 0 4px 14px rgba(31, 41, 55, 0.07);
+}
+
+.tab:nth-child(1).is-active {
+  color: #0f6f52;
+  background: #e5f5ee;
+}
+
+.tab:nth-child(2).is-active {
+  color: #155e75;
+  background: #e3f5fb;
+}
+
+.tab:nth-child(3).is-active {
+  color: #8a5b12;
+  background: #fff3d6;
+}
+
+.tab:nth-child(4).is-active {
+  color: #5b4b8a;
+  background: #eee9ff;
 }
 
 .panel {

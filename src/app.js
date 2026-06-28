@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-dim-global-header";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-dim-global-header";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-tab-colors";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-tab-colors";
 
-const APP_VERSION = "20260628-dim-global-header";
+const APP_VERSION = "20260628-tab-colors";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
