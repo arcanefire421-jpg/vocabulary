@@ -684,6 +684,28 @@ blockquote small {
     grid-template-columns: 1fr;
   }
 
+  .flashcard {
+    aspect-ratio: 1 / 1.05;
+  }
+
+  .flash-face {
+    padding: 20px;
+  }
+
+  blockquote {
+    padding: 16px;
+  }
+
+  blockquote span {
+    font-size: 24px;
+    line-height: 1.32;
+  }
+
+  blockquote small {
+    font-size: 18px;
+    line-height: 1.42;
+  }
+
   .control-row > *,
   .header-actions > *,
   .flash-actions > * {
