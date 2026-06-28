@@ -223,9 +223,27 @@ button {
 .review-pill {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 10px;
+  width: 100%;
+  min-height: 46px;
   padding: 10px 0;
+  border: 0;
   border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  color: inherit;
+  background: transparent;
+  text-align: left;
+}
+
+.review-pill:hover {
+  color: var(--green);
+  background: #f7faf9;
+}
+
+.review-pill span {
+  color: var(--muted);
+  font-weight: 800;
 }
 
 .toolbar {

@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-library-word-example-speech";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-library-word-example-speech";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-review-to-flashcard";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-review-to-flashcard";
 
-const APP_VERSION = "20260628-library-word-example-speech";
+const APP_VERSION = "20260628-review-to-flashcard";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -148,8 +148,18 @@ function renderDashboard() {
     .sort((a, b) => (a.proficiency || 0) - (b.proficiency || 0) || (a.total || 0) - (b.total || 0))
     .slice(0, 6);
   $("#reviewList").innerHTML = reviewWords
-    .map((word) => `<div class="review-pill"><strong>${word.word}</strong><span>Lv.${word.proficiency || 0} · ${accuracyFor(word)}%</span></div>`)
+    .map(
+      (word) => `
+        <button class="review-pill" type="button" data-review-word="${word.id}">
+          <strong>${escapeHtml(word.word)}</strong>
+          <span>Lv.${word.proficiency || 0} · ${accuracyFor(word)}%</span>
+        </button>
+      `
+    )
     .join("");
+  $$("[data-review-word]").forEach((button) => {
+    button.addEventListener("click", () => openFlashcardForWord(Number(button.dataset.reviewWord)));
+  });
 }
 
 function accuracyFor(word) {
@@ -167,6 +177,26 @@ function initFlashcards() {
   flashList = shuffle(flashList);
   flashIndex = 0;
   renderFlashcard();
+}
+
+function activateTab(tabName, options = {}) {
+  $$(".tab").forEach((tab) => tab.classList.toggle("is-active", tab.dataset.tab === tabName));
+  $$(".panel").forEach((panel) => panel.classList.toggle("is-active", panel.id === tabName));
+  if (tabName === "flashcards" && options.initFlashcards !== false) initFlashcards();
+  if (tabName === "practice" && !currentQuestion) nextQuestion();
+}
+
+function openFlashcardForWord(id) {
+  const word = words.find((item) => item.id === id);
+  if (!word) return;
+
+  $("#flashUnit").value = word.unit ? String(word.unit) : "custom";
+  $("#flashLevel").value = "all";
+  flashList = shuffle(filteredByUnit(words, $("#flashUnit").value || "all"));
+  flashIndex = Math.max(0, flashList.findIndex((item) => item.id === id));
+  activateTab("flashcards", { initFlashcards: false });
+  renderFlashcard();
+  toast(`已開啟 ${word.word} 的閃卡`);
 }
 
 function renderFlashcard() {
@@ -612,14 +642,7 @@ async function importData(event) {
 
 function setupTabs() {
   $$(".tab").forEach((button) => {
-    button.addEventListener("click", () => {
-      $$(".tab").forEach((tab) => tab.classList.remove("is-active"));
-      $$(".panel").forEach((panel) => panel.classList.remove("is-active"));
-      button.classList.add("is-active");
-      $(`#${button.dataset.tab}`).classList.add("is-active");
-      if (button.dataset.tab === "flashcards") initFlashcards();
-      if (button.dataset.tab === "practice" && !currentQuestion) nextQuestion();
-    });
+    button.addEventListener("click", () => activateTab(button.dataset.tab));
   });
 }
 
