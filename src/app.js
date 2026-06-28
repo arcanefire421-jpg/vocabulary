@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-flashcard-speech";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-flashcard-speech";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-flashcard-sentence-speech";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-flashcard-sentence-speech";
 
-const APP_VERSION = "20260628-flashcard-speech";
+const APP_VERSION = "20260628-flashcard-sentence-speech";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -191,10 +191,11 @@ function renderFlashcard() {
   $("#flashExampleTr").textContent = word.exampleTr || "";
 }
 
-function speechTextFor(word) {
-  return (word?.word || "")
+function speechTextFor(text) {
+  return (text || "")
     .replace(/\s*\/\s*/g, ", ")
     .replace(/\([^)]*\)/g, "")
+    .replace(/_{2,}/g, "")
     .trim();
 }
 
@@ -212,7 +213,9 @@ function speakFlashcard() {
   }
 
   const word = flashList[flashIndex];
-  const text = speechTextFor(word);
+  const isBack = $("#flashcard").classList.contains("is-flipped");
+  const rawText = isBack && word.example ? word.example : word.word;
+  const text = speechTextFor(rawText);
   if (!text) return;
 
   stopSpeech();
@@ -221,7 +224,7 @@ function speakFlashcard() {
   utterance.rate = 0.85;
   utterance.pitch = 1;
   window.speechSynthesis.speak(utterance);
-  toast(`播放發音：${word.word}`);
+  toast(isBack ? "播放例句發音" : `播放發音：${word.word}`);
 }
 
 function moveFlashcard(offset) {

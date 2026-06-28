@@ -259,9 +259,9 @@ input {
 
 .secondary-button {
   padding: 0 14px;
-  color: var(--green);
-  background: #fff;
-  border: 1px solid var(--line);
+  color: #155e75;
+  background: #dff6ff;
+  border: 1px solid #9bd8ea;
 }
 
 .primary-button {
@@ -272,8 +272,9 @@ input {
 
 .danger-button {
   padding: 0 14px;
-  color: var(--red);
-  background: var(--red-2);
+  color: #8a2d18;
+  background: #ffe2d4;
+  border: 1px solid #f2a383;
 }
 
 .file-button input {
@@ -434,7 +435,18 @@ blockquote small {
 }
 
 .flash-actions {
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(520px, 100%);
+  margin-inline: auto;
+}
+
+.flash-actions > button {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding-inline: 10px;
+  white-space: nowrap;
 }
 
 .pager button {
