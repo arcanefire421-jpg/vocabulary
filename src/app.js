@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-expanded-practice";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-expanded-practice";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-timed-autoplay-dim";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-timed-autoplay-dim";
 
-const APP_VERSION = "20260628-expanded-practice";
+const APP_VERSION = "20260628-timed-autoplay-dim";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -17,6 +17,9 @@ let currentQuestion = null;
 let flashDrag = null;
 let autoPlayEnabled = false;
 let autoPlayRunId = 0;
+let autoPlayTimer = null;
+let autoPlayEndsAt = 0;
+let wakeLock = null;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -343,10 +346,12 @@ function waitAutoPlay(ms, runId) {
 function updateAutoPlayButton() {
   const button = $("#autoPlayBtn");
   if (!button) return;
+  document.body.classList.toggle("is-autoplaying", autoPlayEnabled && $("#dimDuringAutoplay")?.checked);
   button.classList.toggle("is-active", autoPlayEnabled);
   button.setAttribute("aria-pressed", String(autoPlayEnabled));
   button.querySelector("span").textContent = autoPlayEnabled ? "停止播放" : "自動播放";
   button.querySelector("i")?.setAttribute("data-lucide", autoPlayEnabled ? "pause-circle" : "play-circle");
+  $("#autoPlayDuration").disabled = autoPlayEnabled;
   if (window.lucide) window.lucide.createIcons();
 }
 
@@ -354,9 +359,44 @@ function stopAutoPlay(message) {
   if (!autoPlayEnabled && !message) return;
   autoPlayEnabled = false;
   autoPlayRunId += 1;
+  if (autoPlayTimer) window.clearTimeout(autoPlayTimer);
+  autoPlayTimer = null;
+  autoPlayEndsAt = 0;
+  releaseWakeLock();
   stopSpeech();
   updateAutoPlayButton();
   if (message) toast(message);
+}
+
+function startAutoPlayTimer() {
+  const minutes = Number($("#autoPlayDuration").value || 0);
+  if (!minutes) return;
+  autoPlayEndsAt = Date.now() + minutes * 60 * 1000;
+  autoPlayTimer = window.setTimeout(() => {
+    stopAutoPlay("自動播放時間到，已停止");
+  }, minutes * 60 * 1000);
+}
+
+async function requestWakeLock() {
+  if (!("wakeLock" in navigator)) return;
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    wakeLock.addEventListener("release", () => {
+      wakeLock = null;
+    });
+  } catch {
+    wakeLock = null;
+  }
+}
+
+async function releaseWakeLock() {
+  if (!wakeLock) return;
+  try {
+    await wakeLock.release();
+  } catch {
+    // Some browsers release wake locks automatically when the tab is hidden.
+  }
+  wakeLock = null;
 }
 
 async function autoPlayLoop(runId) {
@@ -402,7 +442,11 @@ function toggleAutoPlay() {
   autoPlayEnabled = true;
   autoPlayRunId += 1;
   stopSpeech();
+  startAutoPlayTimer();
+  requestWakeLock();
   updateAutoPlayButton();
+  const minutes = Number($("#autoPlayDuration").value || 0);
+  toast(minutes ? `自動播放開始，${minutes === 60 ? "1小時" : `${minutes}分鐘`}後停止` : "自動播放開始");
   autoPlayLoop(autoPlayRunId);
 }
 
@@ -923,6 +967,7 @@ function boot() {
   $("#nextCard").addEventListener("click", () => moveFlashcard(1));
   $("#speakBtn").addEventListener("click", speakFlashcard);
   $("#autoPlayBtn").addEventListener("click", toggleAutoPlay);
+  $("#dimDuringAutoplay").addEventListener("change", updateAutoPlayButton);
   $("#knownBtn").addEventListener("click", () => recordFlashcard(true));
   $("#unknownBtn").addEventListener("click", () => recordFlashcard(false));
   $("#practiceUnit").addEventListener("change", nextQuestion);

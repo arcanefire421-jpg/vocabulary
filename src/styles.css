@@ -26,6 +26,35 @@ body {
   font-family: "Inter", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
 }
 
+body.is-autoplaying {
+  background: #07110f;
+}
+
+body.is-autoplaying .app-header,
+body.is-autoplaying .tabs,
+body.is-autoplaying .toolbar,
+body.is-autoplaying .pager {
+  opacity: 0.2;
+}
+
+body.is-autoplaying .flash-face {
+  background: #0d1b18;
+  color: #eef7f3;
+  border-color: #255f4c;
+  box-shadow: none;
+}
+
+body.is-autoplaying .word-main span,
+body.is-autoplaying .answer-main p,
+body.is-autoplaying blockquote small,
+body.is-autoplaying .hint {
+  color: #b9cbc5;
+}
+
+body.is-autoplaying blockquote {
+  background: #102720;
+}
+
 button,
 input,
 select {
@@ -478,17 +507,43 @@ blockquote small {
 
 .flash-actions {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   width: min(760px, 100%);
   margin-inline: auto;
 }
 
-.flash-actions > button {
+.flash-actions > button,
+.flash-actions > select,
+.dim-toggle {
   width: 100%;
   min-width: 0;
   min-height: 48px;
   padding-inline: 10px;
   white-space: nowrap;
+}
+
+.autoplay-duration {
+  border-color: #9bd8ea;
+  color: #155e75;
+  background: #fff;
+  font-weight: 800;
+  text-align: center;
+}
+
+.dim-toggle {
+  border: 1px solid #9bd8ea;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #155e75;
+  background: #fff;
+  font-weight: 800;
+}
+
+.dim-toggle input {
+  min-height: 0;
 }
 
 .autoplay-button.is-active {
