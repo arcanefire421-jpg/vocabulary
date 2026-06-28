@@ -546,6 +546,31 @@ blockquote small {
   min-height: 0;
 }
 
+.autoplay-options {
+  width: min(760px, 100%);
+  margin: 10px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.autoplay-options label {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: var(--muted);
+  background: #fff;
+  font-weight: 800;
+}
+
+.autoplay-options input {
+  min-height: 0;
+}
+
 .autoplay-button.is-active {
   color: #fff;
   background: #235f9c;
@@ -877,6 +902,11 @@ blockquote small {
   }
 
   .flash-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(520px, 100%);
+  }
+
+  .autoplay-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: min(520px, 100%);
   }

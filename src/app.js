@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-timed-autoplay-dim";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-timed-autoplay-dim";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-autoplay-parts";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-autoplay-parts";
 
-const APP_VERSION = "20260628-timed-autoplay-dim";
+const APP_VERSION = "20260628-autoplay-parts";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -399,27 +399,38 @@ async function releaseWakeLock() {
   wakeLock = null;
 }
 
+function autoplayParts() {
+  return Object.fromEntries(
+    $$("[data-autoplay-part]").map((input) => [input.dataset.autoplayPart, input.checked])
+  );
+}
+
+function hasAutoplayParts() {
+  return Object.values(autoplayParts()).some(Boolean);
+}
+
 async function autoPlayLoop(runId) {
   while (autoPlayEnabled && runId === autoPlayRunId && flashList.length) {
     const word = flashList[flashIndex];
+    const parts = autoplayParts();
     $("#flashcard").classList.remove("is-flipped");
     toast(`自動播放：${word.word}`);
 
-    if (speechTextFor(word.word)) {
+    if (parts.word && speechTextFor(word.word)) {
       await speakTextAsync(word.word, "en-US");
       if (!(await waitAutoPlay(1000, runId))) return;
     }
-    if (speechTextFor(word.translation)) {
+    if (parts.translation && speechTextFor(word.translation)) {
       await speakTextAsync(word.translation, "zh-TW");
       if (!(await waitAutoPlay(1000, runId))) return;
     }
 
-    $("#flashcard").classList.add("is-flipped");
-    if (speechTextFor(word.example)) {
+    if (parts.example || parts.exampleTr) $("#flashcard").classList.add("is-flipped");
+    if (parts.example && speechTextFor(word.example)) {
       await speakTextAsync(word.example, "en-US");
       if (!(await waitAutoPlay(1000, runId))) return;
     }
-    if (speechTextFor(word.exampleTr)) {
+    if (parts.exampleTr && speechTextFor(word.exampleTr)) {
       await speakTextAsync(word.exampleTr, "zh-TW");
       if (!(await waitAutoPlay(1000, runId))) return;
     }
@@ -438,6 +449,10 @@ function toggleAutoPlay() {
   }
   if (!flashList.length) return;
   if (!canSpeak()) return;
+  if (!hasAutoplayParts()) {
+    toast("請至少選擇一個自動播放內容");
+    return;
+  }
 
   autoPlayEnabled = true;
   autoPlayRunId += 1;
