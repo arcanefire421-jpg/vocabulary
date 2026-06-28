@@ -1,10 +1,12 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-review-to-flashcard";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-review-to-flashcard";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-smart-review";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-smart-review";
 
-const APP_VERSION = "20260628-review-to-flashcard";
+const APP_VERSION = "20260628-smart-review";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
+const DAY_MS = 24 * 60 * 60 * 1000;
+const REVIEW_INTERVALS = [0, 1 * 60 * 60 * 1000, 1 * DAY_MS, 3 * DAY_MS, 7 * DAY_MS, 14 * DAY_MS];
 
 let stats = loadJson(STORAGE_KEY, {});
 let customWords = loadJson(CUSTOM_KEY, []);
@@ -36,7 +38,10 @@ function baseWord(word) {
     ...word,
     correct: wordStats.correct ?? word.correct ?? 0,
     total: wordStats.total ?? word.total ?? 0,
-    proficiency: wordStats.proficiency ?? word.proficiency ?? 0
+    proficiency: wordStats.proficiency ?? word.proficiency ?? 0,
+    lastReviewed: wordStats.lastReviewed ?? word.lastReviewed ?? 0,
+    nextReview: wordStats.nextReview ?? word.nextReview ?? 0,
+    lastResult: wordStats.lastResult ?? word.lastResult ?? null
   };
 }
 
@@ -59,9 +64,13 @@ function updateWordStats(wordId, isCorrect, options = {}) {
   const current = stats[wordId] ?? {
     correct: word.correct ?? 0,
     total: word.total ?? 0,
-    proficiency: word.proficiency ?? 0
+    proficiency: word.proficiency ?? 0,
+    lastReviewed: word.lastReviewed ?? 0,
+    nextReview: word.nextReview ?? 0,
+    lastResult: word.lastResult ?? null
   };
   const previousProficiency = current.proficiency ?? 0;
+  const now = Date.now();
 
   current.total += 1;
   if (isCorrect) {
@@ -70,6 +79,9 @@ function updateWordStats(wordId, isCorrect, options = {}) {
   } else {
     current.proficiency = Math.max(0, current.proficiency - 1);
   }
+  current.lastReviewed = now;
+  current.lastResult = isCorrect ? "correct" : "wrong";
+  current.nextReview = isCorrect ? now + REVIEW_INTERVALS[current.proficiency] : now;
 
   stats[wordId] = current;
   words = buildWords();
@@ -90,7 +102,10 @@ function setProficiency(wordId, offset) {
   const current = stats[wordId] ?? {
     correct: word.correct ?? 0,
     total: word.total ?? 0,
-    proficiency: word.proficiency ?? 0
+    proficiency: word.proficiency ?? 0,
+    lastReviewed: word.lastReviewed ?? 0,
+    nextReview: word.nextReview ?? 0,
+    lastResult: word.lastResult ?? null
   };
   current.proficiency = Math.max(0, Math.min(5, current.proficiency + offset));
   stats[wordId] = current;
@@ -116,6 +131,45 @@ function filteredByUnit(list, unitValue) {
   if (unitValue === "all") return list;
   if (unitValue === "custom") return list.filter((word) => !word.unit);
   return list.filter((word) => String(word.unit) === unitValue);
+}
+
+function reviewInfo(word, now = Date.now()) {
+  const total = word.total || 0;
+  const proficiency = word.proficiency || 0;
+  const wrongRate = total ? 1 - (word.correct || 0) / total : 0.45;
+  const due = !word.nextReview || word.nextReview <= now;
+  const daysSinceReview = word.lastReviewed ? Math.max(0, (now - word.lastReviewed) / DAY_MS) : 30;
+  const overdueDays = word.nextReview && word.nextReview < now ? Math.min(14, (now - word.nextReview) / DAY_MS) : 0;
+
+  const score =
+    (due ? 45 : 0) +
+    (5 - proficiency) * 12 +
+    wrongRate * 35 +
+    Math.min(18, daysSinceReview * 2) +
+    overdueDays * 3 +
+    (word.lastResult === "wrong" ? 24 : 0) +
+    (total === 0 ? 12 : 0);
+
+  let reason = "新單字";
+  if (word.lastResult === "wrong") reason = "剛答錯";
+  else if (total && wrongRate >= 0.5) reason = "錯誤率高";
+  else if (due && word.nextReview) reason = "到期複習";
+  else if (proficiency <= 1) reason = "熟練度低";
+  else if (daysSinceReview >= 7) reason = "久未練習";
+
+  return {
+    score,
+    reason,
+    meta: `Lv.${proficiency} · ${accuracyFor(word)}% · ${reason}`
+  };
+}
+
+function reviewStatusText(word) {
+  if (!word.lastReviewed) return "尚未練習";
+  if (!word.nextReview || word.nextReview <= Date.now()) return "現在可複習";
+  const hours = Math.ceil((word.nextReview - Date.now()) / (60 * 60 * 1000));
+  if (hours < 24) return `${hours} 小時後複習`;
+  return `${Math.ceil(hours / 24)} 天後複習`;
 }
 
 function renderDashboard() {
@@ -144,15 +198,17 @@ function renderDashboard() {
     })
     .join("");
 
+  const now = Date.now();
   const reviewWords = [...words]
-    .sort((a, b) => (a.proficiency || 0) - (b.proficiency || 0) || (a.total || 0) - (b.total || 0))
+    .map((word) => ({ word, review: reviewInfo(word, now) }))
+    .sort((a, b) => b.review.score - a.review.score || (a.word.total || 0) - (b.word.total || 0))
     .slice(0, 6);
   $("#reviewList").innerHTML = reviewWords
     .map(
-      (word) => `
+      ({ word, review }) => `
         <button class="review-pill" type="button" data-review-word="${word.id}">
           <strong>${escapeHtml(word.word)}</strong>
-          <span>Lv.${word.proficiency || 0} · ${accuracyFor(word)}%</span>
+          <span>${review.meta}</span>
         </button>
       `
     )
@@ -548,7 +604,7 @@ function renderLibrary() {
             : ""
         }
         <footer class="word-footer">
-          <span>答對率 ${accuracyFor(word)}% (${word.correct || 0}/${word.total || 0})</span>
+          <span>答對率 ${accuracyFor(word)}% (${word.correct || 0}/${word.total || 0}) · ${reviewStatusText(word)}</span>
           <div class="mini-actions">
             <button type="button" data-level="${word.id}" data-offset="-1" title="降低熟練度">-</button>
             <button type="button" data-level="${word.id}" data-offset="1" title="提高熟練度">+</button>
