@@ -43,8 +43,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 18px clamp(16px, 4vw, 44px);
+  gap: 18px;
+  padding: 10px clamp(22px, 4vw, 56px);
   background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
@@ -58,13 +58,14 @@ button {
 }
 
 .app-header h1 {
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.15;
 }
 
 .eyebrow {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   color: var(--green);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -80,15 +81,15 @@ button {
 }
 
 .app-shell {
-  width: min(1180px, calc(100% - 28px));
-  margin: 24px auto 56px;
+  width: min(1500px, calc(100% - 56px));
+  margin: 16px auto 48px;
 }
 
 .tabs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 5px;
-  margin-bottom: 18px;
+  padding: 4px;
+  margin-bottom: 14px;
   background: #e8edf2;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -100,7 +101,7 @@ button {
 .primary-button,
 .danger-button,
 .pager button {
-  min-height: 42px;
+  min-height: 38px;
   border: 0;
   border-radius: 8px;
   display: inline-flex;
@@ -118,7 +119,7 @@ button {
 .tab.is-active {
   color: var(--green);
   background: #fff;
-  box-shadow: 0 8px 22px rgba(31, 41, 55, 0.08);
+  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.07);
 }
 
 .panel {
@@ -275,6 +276,11 @@ input {
   background: #eef2f6;
 }
 
+.header-actions .ghost-button,
+.header-actions .file-button {
+  min-height: 38px;
+}
+
 .secondary-button {
   padding: 0 14px;
   color: #155e75;
@@ -306,7 +312,7 @@ svg {
 }
 
 .flashcard-wrap {
-  width: min(520px, 100%);
+  width: min(760px, 100%);
   margin: 0 auto;
   perspective: 1200px;
 }
@@ -314,7 +320,7 @@ svg {
 .flashcard {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   padding: 0;
   border: 0;
   background: transparent;
@@ -745,6 +751,17 @@ blockquote small {
     position: static;
     align-items: stretch;
     flex-direction: column;
+    gap: 16px;
+    padding: 18px clamp(16px, 4vw, 44px);
+  }
+
+  .app-header h1 {
+    font-size: clamp(22px, 7vw, 32px);
+  }
+
+  .app-shell {
+    width: min(1180px, calc(100% - 28px));
+    margin: 24px auto 56px;
   }
 
   .header-actions {
@@ -787,6 +804,10 @@ blockquote small {
 
   .flashcard {
     aspect-ratio: 1 / 1.05;
+  }
+
+  .flashcard-wrap {
+    width: min(520px, 100%);
   }
 
   .flash-face {

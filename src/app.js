@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-smart-review";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-smart-review";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-desktop-layout";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-desktop-layout";
 
-const APP_VERSION = "20260628-smart-review";
+const APP_VERSION = "20260628-desktop-layout";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
