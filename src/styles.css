@@ -26,45 +26,45 @@ body {
   font-family: "Inter", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
 }
 
-body.is-autoplaying {
+body.is-dimmed {
   background: #07110f;
 }
 
-body.is-autoplaying .app-header,
-body.is-autoplaying .tabs,
-body.is-autoplaying .toolbar,
-body.is-autoplaying .pager {
+body.is-dimmed .app-header,
+body.is-dimmed .tabs,
+body.is-dimmed .toolbar,
+body.is-dimmed .pager {
   opacity: 0.2;
 }
 
-body.is-autoplaying .flash-face {
+body.is-dimmed .flash-face {
   background: #0d1b18;
   color: #eef7f3;
   border-color: #255f4c;
   box-shadow: none;
 }
 
-body.is-autoplaying .word-main span,
-body.is-autoplaying .answer-main p,
-body.is-autoplaying blockquote small,
-body.is-autoplaying .hint {
+body.is-dimmed .word-main span,
+body.is-dimmed .answer-main p,
+body.is-dimmed blockquote small,
+body.is-dimmed .hint {
   color: #b9cbc5;
 }
 
-body.is-autoplaying blockquote {
+body.is-dimmed blockquote {
   background: #102720;
 }
 
-body.is-autoplaying .autoplay-panel,
-body.is-autoplaying .autoplay-options label,
-body.is-autoplaying .dim-toggle,
-body.is-autoplaying .autoplay-duration {
+body.is-dimmed .autoplay-panel,
+body.is-dimmed .autoplay-options label,
+body.is-dimmed .dim-toggle,
+body.is-dimmed .autoplay-duration {
   color: #d7eee7;
   background: #0a1714;
   border-color: #255f4c;
 }
 
-body.is-autoplaying .autoplay-label {
+body.is-dimmed .autoplay-label {
   color: #92e0c5;
 }
 
@@ -520,7 +520,7 @@ blockquote small {
 
 .flash-actions {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   width: min(760px, 100%);
   margin-inline: auto;
 }
@@ -544,7 +544,7 @@ blockquote small {
 
 .autoplay-controls {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr 1fr 1.35fr;
+  grid-template-columns: 1fr 1.2fr 1.8fr;
   gap: 8px;
   align-items: center;
 }
@@ -620,6 +620,12 @@ blockquote small {
   color: #fff;
   background: #235f9c;
   border-color: #235f9c;
+}
+
+.dim-button.is-active {
+  color: #f8f4d8;
+  background: #1b2f2a;
+  box-shadow: inset 0 0 0 1px #64b99d;
 }
 
 .pager button {

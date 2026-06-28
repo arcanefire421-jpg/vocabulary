@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-autoplay-layout-i-know";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-autoplay-layout-i-know";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-dim-standalone";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-dim-standalone";
 
-const APP_VERSION = "20260628-autoplay-layout-i-know";
+const APP_VERSION = "20260628-dim-standalone";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -23,6 +23,7 @@ let autoPlayTimer = null;
 let autoPlayEndsAt = 0;
 let wakeLock = null;
 let wakeLockReleaseTimer = null;
+let dimModeEnabled = false;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -355,13 +356,29 @@ function waitAutoPlay(ms, runId) {
 function updateAutoPlayButton() {
   const button = $("#autoPlayBtn");
   if (!button) return;
-  document.body.classList.toggle("is-autoplaying", autoPlayEnabled && $("#dimDuringAutoplay")?.checked);
   button.classList.toggle("is-active", autoPlayEnabled);
   button.setAttribute("aria-pressed", String(autoPlayEnabled));
   button.querySelector("span").textContent = autoPlayEnabled ? "停止播放" : "自動播放";
   button.querySelector("i")?.setAttribute("data-lucide", autoPlayEnabled ? "pause-circle" : "play-circle");
   $("#autoPlayDuration").disabled = autoPlayEnabled;
   if (window.lucide) window.lucide.createIcons();
+}
+
+function updateDimButton() {
+  const button = $("#dimScreenBtn");
+  if (!button) return;
+  document.body.classList.toggle("is-dimmed", dimModeEnabled);
+  button.classList.toggle("is-active", dimModeEnabled);
+  button.setAttribute("aria-pressed", String(dimModeEnabled));
+  button.querySelector("span").textContent = dimModeEnabled ? "關閉暗屏" : "暗屏";
+  button.querySelector("i")?.setAttribute("data-lucide", dimModeEnabled ? "sun" : "moon");
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function toggleDimMode() {
+  dimModeEnabled = !dimModeEnabled;
+  updateDimButton();
+  toast(dimModeEnabled ? "已開啟暗屏" : "已關閉暗屏");
 }
 
 function stopAutoPlay(message, options = {}) {
@@ -1008,7 +1025,7 @@ function boot() {
   $("#nextCard").addEventListener("click", () => moveFlashcard(1));
   $("#speakBtn").addEventListener("click", speakFlashcard);
   $("#autoPlayBtn").addEventListener("click", toggleAutoPlay);
-  $("#dimDuringAutoplay").addEventListener("change", updateAutoPlayButton);
+  $("#dimScreenBtn").addEventListener("click", toggleDimMode);
   $("#knownBtn").addEventListener("click", () => recordFlashcard(true));
   $("#unknownBtn").addEventListener("click", () => recordFlashcard(false));
   $("#practiceUnit").addEventListener("change", nextQuestion);

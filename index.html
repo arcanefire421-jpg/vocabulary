@@ -6,7 +6,7 @@
     <title>VocabMaster 單字學習</title>
     <link rel="stylesheet" href="./src/styles.css" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=20260628-autoplay-layout-i-know"></script>
+    <script type="module" src="./src/app.js?v=20260628-dim-standalone"></script>
   </head>
   <body>
     <header class="app-header">
@@ -101,23 +101,20 @@
         </div>
         <div class="flash-actions">
           <button class="secondary-button" id="speakBtn" type="button"><i data-lucide="volume-2"></i><span>發音</span></button>
+          <button class="secondary-button dim-button" id="dimScreenBtn" type="button" aria-pressed="false"><i data-lucide="moon"></i><span>暗屏</span></button>
+          <button class="secondary-button autoplay-button" id="autoPlayBtn" type="button" aria-pressed="false"><i data-lucide="play-circle"></i><span>自動播放</span></button>
           <button class="danger-button" id="unknownBtn" type="button"><i data-lucide="x-circle"></i><span>還不熟</span></button>
           <button class="primary-button" id="knownBtn" type="button"><i data-lucide="check-circle"></i><span>我會了</span></button>
         </div>
         <div class="autoplay-panel">
           <div class="autoplay-controls">
-            <span class="autoplay-label">自動播放</span>
-            <button class="secondary-button autoplay-button" id="autoPlayBtn" type="button" aria-pressed="false"><i data-lucide="play-circle"></i><span>自動播放</span></button>
+            <span class="autoplay-label">自動播放設定</span>
             <select class="autoplay-duration" id="autoPlayDuration" aria-label="自動播放時間">
               <option value="0">不限時</option>
               <option value="10">10分鐘</option>
               <option value="30">30分鐘</option>
               <option value="60">1小時</option>
             </select>
-            <label class="dim-toggle">
-              <input id="dimDuringAutoplay" type="checkbox" />
-              <span>暗屏</span>
-            </label>
             <label class="dim-toggle">
               <input id="sleepAfterAutoplay" type="checkbox" checked />
               <span>結束前三分鐘準備休眠</span>
