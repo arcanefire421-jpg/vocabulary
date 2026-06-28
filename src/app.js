@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-flashcard-autoplay";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-flashcard-autoplay";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-expanded-practice";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-expanded-practice";
 
-const APP_VERSION = "20260628-flashcard-autoplay";
+const APP_VERSION = "20260628-expanded-practice";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -520,33 +520,81 @@ function endFlashDrag(event) {
 }
 
 function generatedQuestions() {
-  return words
-    .filter((word) => word.example && word.word && !word.word.includes("/"))
-    .map((word) => {
-      const escaped = word.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      const prompt = word.example.replace(new RegExp(`\\b${escaped}\\b`, "gi"), "____");
-      const type = prompt.includes("____") ? "fill" : "mcq";
-      const options = buildOptions(word);
-      const choices = buildFillChoices(word, options);
-      return {
-        id: `auto-${word.id}`,
+  return words.flatMap((word) => {
+    const questions = [];
+    const wordOptions = buildOptions(word);
+    const translationOptions = buildTranslationOptions(word);
+    const examplePrompt = blankExampleFor(word);
+
+    if (examplePrompt) {
+      questions.push({
+        id: `auto-${word.id}-example-fill`,
         unit: word.unit,
-        type,
+        type: "fill",
         difficulty: "auto",
         targetWord: word.word,
-        prompt: type === "fill" ? prompt : `${word.example}\n\n這句話中的 ${word.translation} 對應哪個英文單字？`,
-        options,
-        choices,
+        prompt: examplePrompt,
+        choices: buildFillChoices(word, wordOptions),
         answer: word.word,
-        explanation: `${word.word} 是「${word.translation}」。例句：${word.example}${word.exampleTr ? `（${word.exampleTr}）` : ""}`
-      };
+        explanation: `${word.word} 是「${word.translation}」。這題要依照例句語意填入正確英文單字。例句：${word.example}${word.exampleTr ? `（${word.exampleTr}）` : ""}`
+      });
+    }
+
+    questions.push({
+      id: `auto-${word.id}-zh-to-en`,
+      unit: word.unit,
+      type: "mcq",
+      difficulty: "auto",
+      targetWord: word.word,
+      prompt: `「${word.translation}」對應哪個英文單字？`,
+      options: wordOptions,
+      answer: word.word,
+      explanation: `${word.word} 的中文是「${word.translation}」。${word.example ? `例句：${word.example}` : ""}`
     });
+
+    if (translationOptions.length >= 2) {
+      questions.push({
+        id: `auto-${word.id}-en-to-zh`,
+        unit: word.unit,
+        type: "mcq",
+        difficulty: "auto",
+        targetWord: word.word,
+        prompt: `${word.word} 的中文意思最接近哪一個？`,
+        options: translationOptions,
+        answer: word.translation,
+        explanation: `${word.word} 是「${word.translation}」。${word.exampleTr ? `可搭配例句理解：${word.exampleTr}` : ""}`
+      });
+    }
+
+    if (word.collocation) {
+      questions.push({
+        id: `auto-${word.id}-collocation`,
+        unit: word.unit,
+        type: "mcq",
+        difficulty: "auto",
+        targetWord: word.word,
+        prompt: `搭配詞「${word.collocation}」主要是在練習哪個單字？`,
+        options: wordOptions,
+        answer: word.word,
+        explanation: `${word.collocation} 是 ${word.word} 的常見搭配或用法。${word.translation ? `${word.word}：${word.translation}` : ""}`
+      });
+    }
+
+    return questions;
+  });
+}
+
+function blankExampleFor(word) {
+  if (!word.example || !word.word || word.word.includes("/")) return "";
+  const escaped = word.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const prompt = word.example.replace(new RegExp(`\\b${escaped}\\b`, "gi"), "____");
+  return prompt.includes("____") ? prompt : "";
 }
 
 function buildFillChoices(answerWord, options) {
   const answer = answerWord.word;
   const distractors = options.filter((option) => normalize(option) !== normalize(answer));
-  return shuffle([answer, ...distractors.slice(0, 1)]);
+  return uniqueOptions(shuffle([answer, ...distractors.slice(0, 1)]));
 }
 
 function buildOptions(answerWord) {
@@ -554,7 +602,24 @@ function buildOptions(answerWord) {
     .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit)
     .map((word) => word.word)
     .filter((word) => !word.includes("/"));
-  return shuffle([answerWord.word, ...shuffle(pool).slice(0, 3)]);
+  return uniqueOptions(shuffle([answerWord.word, ...shuffle(pool).slice(0, 3)]));
+}
+
+function buildTranslationOptions(answerWord) {
+  const pool = words
+    .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit && word.translation)
+    .map((word) => word.translation);
+  return uniqueOptions(shuffle([answerWord.translation, ...shuffle(pool).slice(0, 3)]));
+}
+
+function uniqueOptions(options) {
+  const seen = new Set();
+  return options.filter((option) => {
+    const key = normalize(option);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function questionPool() {
@@ -568,6 +633,7 @@ function questionPool() {
 
 function nextQuestion() {
   const pool = questionPool();
+  $("#practiceCount").textContent = `目前可練習 ${pool.length} 題`;
   currentQuestion = pool.length ? shuffle(pool)[0] : null;
   renderQuestion();
 }

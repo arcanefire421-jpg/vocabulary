@@ -260,6 +260,11 @@ button {
   color: var(--muted);
 }
 
+.practice-count {
+  font-weight: 800;
+  color: var(--green) !important;
+}
+
 select,
 input {
   min-height: 42px;
