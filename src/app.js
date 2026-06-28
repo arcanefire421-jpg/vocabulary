@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-library-speech";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-library-speech";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-library-word-example-speech";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-library-word-example-speech";
 
-const APP_VERSION = "20260628-library-speech";
+const APP_VERSION = "20260628-library-word-example-speech";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -236,6 +236,12 @@ function speakLibraryWord(id) {
   const word = words.find((item) => item.id === id);
   if (!word) return;
   speakText(word.word, word.word);
+}
+
+function speakLibraryExample(id) {
+  const word = words.find((item) => item.id === id);
+  if (!word?.example) return;
+  speakText(word.example, word.word, `播放例句：${word.word}`);
 }
 
 function moveFlashcard(offset) {
@@ -503,7 +509,14 @@ function renderLibrary() {
         <p class="translation">${word.translation}</p>
         <p>${word.phonetic || ""}</p>
         ${word.collocation ? `<p><strong>搭配：</strong>${word.collocation}</p>` : ""}
-        ${word.example ? `<div class="example">${word.example}<br />${word.exampleTr || ""}</div>` : ""}
+        ${
+          word.example
+            ? `<button class="example example-speak-button" type="button" data-speak-example="${word.id}" title="播放 ${escapeAttr(word.word)} 例句">
+                <span>${escapeHtml(word.example)}</span>
+                ${word.exampleTr ? `<small>${escapeHtml(word.exampleTr)}</small>` : ""}
+              </button>`
+            : ""
+        }
         <footer class="word-footer">
           <span>答對率 ${accuracyFor(word)}% (${word.correct || 0}/${word.total || 0})</span>
           <div class="mini-actions">
@@ -524,6 +537,9 @@ function renderLibrary() {
   });
   $$("[data-speak-word]").forEach((button) => {
     button.addEventListener("click", () => speakLibraryWord(Number(button.dataset.speakWord)));
+  });
+  $$("[data-speak-example]").forEach((button) => {
+    button.addEventListener("click", () => speakLibraryExample(Number(button.dataset.speakExample)));
   });
   if (window.lucide) window.lucide.createIcons();
 }
