@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-flashcard-sentence-speech";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-flashcard-sentence-speech";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-library-speech";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-library-speech";
 
-const APP_VERSION = "20260628-flashcard-sentence-speech";
+const APP_VERSION = "20260628-library-speech";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -205,18 +205,14 @@ function stopSpeech() {
   }
 }
 
-function speakFlashcard() {
-  if (!flashList.length) return;
+function speakText(rawText, label, message) {
   if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
     toast("這個瀏覽器不支援發音");
-    return;
+    return false;
   }
 
-  const word = flashList[flashIndex];
-  const isBack = $("#flashcard").classList.contains("is-flipped");
-  const rawText = isBack && word.example ? word.example : word.word;
   const text = speechTextFor(rawText);
-  if (!text) return;
+  if (!text) return false;
 
   stopSpeech();
   const utterance = new SpeechSynthesisUtterance(text);
@@ -224,7 +220,22 @@ function speakFlashcard() {
   utterance.rate = 0.85;
   utterance.pitch = 1;
   window.speechSynthesis.speak(utterance);
-  toast(isBack ? "播放例句發音" : `播放發音：${word.word}`);
+  toast(message || `播放發音：${label || text}`);
+  return true;
+}
+
+function speakFlashcard() {
+  if (!flashList.length) return;
+  const word = flashList[flashIndex];
+  const isBack = $("#flashcard").classList.contains("is-flipped");
+  const rawText = isBack && word.example ? word.example : word.word;
+  speakText(rawText, word.word, isBack ? "播放例句發音" : `播放發音：${word.word}`);
+}
+
+function speakLibraryWord(id) {
+  const word = words.find((item) => item.id === id);
+  if (!word) return;
+  speakText(word.word, word.word);
 }
 
 function moveFlashcard(offset) {
@@ -478,7 +489,12 @@ function renderLibrary() {
     .sort((a, b) => a.word.localeCompare(b.word))
     .map((word) => `
       <article class="word-card">
-        <h3>${word.word}</h3>
+        <div class="word-title-row">
+          <button class="word-speak-button" type="button" data-speak-word="${word.id}" title="播放 ${escapeAttr(word.word)} 發音">
+            <span>${escapeHtml(word.word)}</span>
+            <i data-lucide="volume-2"></i>
+          </button>
+        </div>
         <div class="tag-row">
           <span class="tag">${word.pos || "詞性未填"}</span>
           <span class="tag">${word.unit ? `Unit ${word.unit}` : "自訂"}</span>
@@ -506,6 +522,10 @@ function renderLibrary() {
   $$("[data-delete]").forEach((button) => {
     button.addEventListener("click", () => deleteCustomWord(Number(button.dataset.delete)));
   });
+  $$("[data-speak-word]").forEach((button) => {
+    button.addEventListener("click", () => speakLibraryWord(Number(button.dataset.speakWord)));
+  });
+  if (window.lucide) window.lucide.createIcons();
 }
 
 function addCustomWord(event) {

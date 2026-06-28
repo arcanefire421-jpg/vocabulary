@@ -556,9 +556,39 @@ blockquote small {
   border-radius: 8px;
 }
 
-.word-card h3 {
-  margin: 0;
-  font-size: 22px;
+.word-title-row {
+  display: flex;
+  align-items: center;
+}
+
+.word-speak-button {
+  min-height: 42px;
+  max-width: 100%;
+  padding: 0 10px 0 0;
+  border: 0;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+  background: transparent;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: left;
+}
+
+.word-speak-button span {
+  overflow-wrap: anywhere;
+}
+
+.word-speak-button svg {
+  width: 20px;
+  height: 20px;
+  color: #155e75;
+}
+
+.word-speak-button:hover {
+  background: #eefbf6;
 }
 
 .word-card .translation {
