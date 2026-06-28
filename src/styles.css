@@ -507,8 +507,8 @@ blockquote small {
 
 .flash-actions {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  width: min(760px, 100%);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: min(900px, 100%);
   margin-inline: auto;
 }
 

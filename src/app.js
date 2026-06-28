@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-autoplay-parts";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-autoplay-parts";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-autoplay-sleep-option";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-autoplay-sleep-option";
 
-const APP_VERSION = "20260628-autoplay-parts";
+const APP_VERSION = "20260628-autoplay-sleep-option";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -20,6 +20,7 @@ let autoPlayRunId = 0;
 let autoPlayTimer = null;
 let autoPlayEndsAt = 0;
 let wakeLock = null;
+let wakeLockReleaseTimer = null;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -112,11 +113,13 @@ function setProficiency(wordId, offset) {
     nextReview: word.nextReview ?? 0,
     lastResult: word.lastResult ?? null
   };
+  const previous = current.proficiency ?? 0;
   current.proficiency = Math.max(0, Math.min(5, current.proficiency + offset));
   stats[wordId] = current;
   words = buildWords();
   saveState();
   renderAll();
+  toast(`${word.word} 熟練度：Lv.${previous} → Lv.${current.proficiency}`);
 }
 
 function getUnits() {
@@ -355,14 +358,21 @@ function updateAutoPlayButton() {
   if (window.lucide) window.lucide.createIcons();
 }
 
-function stopAutoPlay(message) {
+function stopAutoPlay(message, options = {}) {
   if (!autoPlayEnabled && !message) return;
+  const shouldReleaseWakeLock = options.releaseWakeLock ?? true;
   autoPlayEnabled = false;
   autoPlayRunId += 1;
   if (autoPlayTimer) window.clearTimeout(autoPlayTimer);
   autoPlayTimer = null;
   autoPlayEndsAt = 0;
-  releaseWakeLock();
+  if (wakeLockReleaseTimer) window.clearTimeout(wakeLockReleaseTimer);
+  wakeLockReleaseTimer = null;
+  if (shouldReleaseWakeLock) {
+    releaseWakeLock();
+  } else {
+    wakeLockReleaseTimer = window.setTimeout(() => releaseWakeLock(), 10 * 60 * 1000);
+  }
   stopSpeech();
   updateAutoPlayButton();
   if (message) toast(message);
@@ -373,7 +383,8 @@ function startAutoPlayTimer() {
   if (!minutes) return;
   autoPlayEndsAt = Date.now() + minutes * 60 * 1000;
   autoPlayTimer = window.setTimeout(() => {
-    stopAutoPlay("自動播放時間到，已停止");
+    const releaseWakeLockAfterEnd = $("#sleepAfterAutoplay")?.checked !== false;
+    stopAutoPlay("自動播放時間到，已停止", { releaseWakeLock: releaseWakeLockAfterEnd });
   }, minutes * 60 * 1000);
 }
 
