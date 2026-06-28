@@ -1,12 +1,14 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-autoplay-sleep-option";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-autoplay-sleep-option";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-autoplay-layout-i-know";
+import { QUESTION_BANK } from "../data/questions.js?v=20260628-autoplay-layout-i-know";
 
-const APP_VERSION = "20260628-autoplay-sleep-option";
+const APP_VERSION = "20260628-autoplay-layout-i-know";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
 const DAY_MS = 24 * 60 * 60 * 1000;
+const MINUTE_MS = 60 * 1000;
 const REVIEW_INTERVALS = [0, 1 * 60 * 60 * 1000, 1 * DAY_MS, 3 * DAY_MS, 7 * DAY_MS, 14 * DAY_MS];
+const ENCOURAGEMENTS = ["我會了", "我好棒", "我真棒", "我真聰明", "我真厲害", "超厲害", "100分", "真讚"];
 
 let stats = loadJson(STORAGE_KEY, {});
 let customWords = loadJson(CUSTOM_KEY, []);
@@ -24,6 +26,10 @@ let wakeLockReleaseTimer = null;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
+
+function randomEncouragement() {
+  return ENCOURAGEMENTS[Math.floor(Math.random() * ENCOURAGEMENTS.length)];
+}
 
 function loadJson(key, fallback) {
   try {
@@ -381,11 +387,20 @@ function stopAutoPlay(message, options = {}) {
 function startAutoPlayTimer() {
   const minutes = Number($("#autoPlayDuration").value || 0);
   if (!minutes) return;
-  autoPlayEndsAt = Date.now() + minutes * 60 * 1000;
+  const durationMs = minutes * MINUTE_MS;
+  autoPlayEndsAt = Date.now() + durationMs;
+
+  if ($("#sleepAfterAutoplay")?.checked !== false) {
+    const earlyReleaseMs = Math.max(0, durationMs - 3 * MINUTE_MS);
+    wakeLockReleaseTimer = window.setTimeout(() => {
+      releaseWakeLock();
+      toast("播放即將結束，已允許螢幕休眠");
+    }, earlyReleaseMs);
+  }
+
   autoPlayTimer = window.setTimeout(() => {
-    const releaseWakeLockAfterEnd = $("#sleepAfterAutoplay")?.checked !== false;
-    stopAutoPlay("自動播放時間到，已停止", { releaseWakeLock: releaseWakeLockAfterEnd });
-  }, minutes * 60 * 1000);
+    stopAutoPlay("自動播放時間到，已停止");
+  }, durationMs);
 }
 
 async function requestWakeLock() {
@@ -538,7 +553,7 @@ function recordFlashcard(isCorrect) {
 
   const previous = result?.previousProficiency ?? updatedWord.proficiency ?? 0;
   const next = result?.nextProficiency ?? updatedWord.proficiency ?? 0;
-  toast(`${currentWordLabel} ${isCorrect ? "答對" : "還不熟"}：Lv.${previous} → Lv.${next}`);
+  toast(`${currentWordLabel} ${isCorrect ? randomEncouragement() : "還不熟"}：Lv.${previous} → Lv.${next}`);
 }
 
 function beginFlashDrag(event) {

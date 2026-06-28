@@ -55,6 +55,19 @@ body.is-autoplaying blockquote {
   background: #102720;
 }
 
+body.is-autoplaying .autoplay-panel,
+body.is-autoplaying .autoplay-options label,
+body.is-autoplaying .dim-toggle,
+body.is-autoplaying .autoplay-duration {
+  color: #d7eee7;
+  background: #0a1714;
+  border-color: #255f4c;
+}
+
+body.is-autoplaying .autoplay-label {
+  color: #92e0c5;
+}
+
 button,
 input,
 select {
@@ -394,7 +407,7 @@ svg {
 
 .flashcard::after {
   right: 18px;
-  content: "我答對";
+  content: "我會了";
   color: var(--green);
   background: var(--green-2);
   border: 2px solid var(--green);
@@ -507,17 +520,48 @@ blockquote small {
 
 .flash-actions {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  width: min(900px, 100%);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(760px, 100%);
   margin-inline: auto;
 }
 
-.flash-actions > button,
-.flash-actions > select,
-.dim-toggle {
+.flash-actions > button {
   width: 100%;
   min-width: 0;
   min-height: 48px;
+  padding-inline: 10px;
+  white-space: nowrap;
+}
+
+.autoplay-panel {
+  width: min(760px, 100%);
+  margin: 12px auto 0;
+  padding: 12px;
+  border: 1px solid #cfe4ec;
+  border-radius: 8px;
+  background: #f7fcff;
+}
+
+.autoplay-controls {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr 1fr 1.35fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.autoplay-label {
+  color: #155e75;
+  font-size: 14px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.autoplay-controls > button,
+.autoplay-controls > select,
+.dim-toggle {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
   padding-inline: 10px;
   white-space: nowrap;
 }
@@ -540,6 +584,8 @@ blockquote small {
   color: #155e75;
   background: #fff;
   font-weight: 800;
+  line-height: 1.25;
+  white-space: normal;
 }
 
 .dim-toggle input {
@@ -547,8 +593,7 @@ blockquote small {
 }
 
 .autoplay-options {
-  width: min(760px, 100%);
-  margin: 10px auto 0;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
@@ -904,6 +949,15 @@ blockquote small {
   .flash-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: min(520px, 100%);
+  }
+
+  .autoplay-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .autoplay-label {
+    grid-column: 1 / -1;
+    text-align: left;
   }
 
   .autoplay-options {

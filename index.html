@@ -6,7 +6,7 @@
     <title>VocabMaster 單字學習</title>
     <link rel="stylesheet" href="./src/styles.css" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=20260628-autoplay-sleep-option"></script>
+    <script type="module" src="./src/app.js?v=20260628-autoplay-layout-i-know"></script>
   </head>
   <body>
     <header class="app-header">
@@ -101,29 +101,34 @@
         </div>
         <div class="flash-actions">
           <button class="secondary-button" id="speakBtn" type="button"><i data-lucide="volume-2"></i><span>發音</span></button>
-          <button class="secondary-button autoplay-button" id="autoPlayBtn" type="button" aria-pressed="false"><i data-lucide="play-circle"></i><span>自動播放</span></button>
-          <select class="autoplay-duration" id="autoPlayDuration" aria-label="自動播放時間">
-            <option value="0">不限時</option>
-            <option value="10">10分鐘</option>
-            <option value="30">30分鐘</option>
-            <option value="60">1小時</option>
-          </select>
-          <label class="dim-toggle">
-            <input id="dimDuringAutoplay" type="checkbox" />
-            <span>暗屏</span>
-          </label>
-          <label class="dim-toggle">
-            <input id="sleepAfterAutoplay" type="checkbox" checked />
-            <span>結束休眠</span>
-          </label>
           <button class="danger-button" id="unknownBtn" type="button"><i data-lucide="x-circle"></i><span>還不熟</span></button>
-          <button class="primary-button" id="knownBtn" type="button"><i data-lucide="check-circle"></i><span>我答對</span></button>
+          <button class="primary-button" id="knownBtn" type="button"><i data-lucide="check-circle"></i><span>我會了</span></button>
         </div>
-        <div class="autoplay-options" aria-label="自動播放內容">
-          <label><input type="checkbox" data-autoplay-part="word" checked />英文單字</label>
-          <label><input type="checkbox" data-autoplay-part="translation" checked />中文翻譯</label>
-          <label><input type="checkbox" data-autoplay-part="example" checked />英文例句</label>
-          <label><input type="checkbox" data-autoplay-part="exampleTr" checked />例句翻譯</label>
+        <div class="autoplay-panel">
+          <div class="autoplay-controls">
+            <span class="autoplay-label">自動播放</span>
+            <button class="secondary-button autoplay-button" id="autoPlayBtn" type="button" aria-pressed="false"><i data-lucide="play-circle"></i><span>自動播放</span></button>
+            <select class="autoplay-duration" id="autoPlayDuration" aria-label="自動播放時間">
+              <option value="0">不限時</option>
+              <option value="10">10分鐘</option>
+              <option value="30">30分鐘</option>
+              <option value="60">1小時</option>
+            </select>
+            <label class="dim-toggle">
+              <input id="dimDuringAutoplay" type="checkbox" />
+              <span>暗屏</span>
+            </label>
+            <label class="dim-toggle">
+              <input id="sleepAfterAutoplay" type="checkbox" checked />
+              <span>結束前三分鐘準備休眠</span>
+            </label>
+          </div>
+          <div class="autoplay-options" aria-label="自動播放內容">
+            <label><input type="checkbox" data-autoplay-part="word" checked />英文單字</label>
+            <label><input type="checkbox" data-autoplay-part="translation" checked />中文翻譯</label>
+            <label><input type="checkbox" data-autoplay-part="example" checked />英文例句</label>
+            <label><input type="checkbox" data-autoplay-part="exampleTr" checked />例句翻譯</label>
+          </div>
         </div>
         <div class="pager">
           <button id="prevCard" type="button"><i data-lucide="chevron-left"></i><span>上一張</span></button>
