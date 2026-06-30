@@ -6,7 +6,7 @@
     <title>VocabMaster 單字學習</title>
     <link rel="stylesheet" href="./src/styles.css" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=20260628-tab-colors"></script>
+    <script type="module" src="./src/app.js?v=20260630-phrases"></script>
   </head>
   <body>
     <header class="app-header">
@@ -90,7 +90,15 @@
               <div class="card-meta"><span>答案</span><span id="flashLevelBadge"></span></div>
               <div class="answer-main">
                 <strong id="flashTranslation">能力</strong>
-                <p id="flashCollocation"></p>
+                <section class="phrase-panel" id="flashPhrasePanel" hidden>
+                  <p class="phrase-label">片語</p>
+                  <strong id="flashPhrase"></strong>
+                  <span id="flashPhraseTr"></span>
+                  <blockquote id="flashPhraseExampleBlock" hidden>
+                    <span id="flashPhraseExample"></span>
+                    <small id="flashPhraseExampleTr"></small>
+                  </blockquote>
+                </section>
                 <blockquote>
                   <span id="flashExample"></span>
                   <small id="flashExampleTr"></small>
@@ -123,6 +131,7 @@
           <div class="autoplay-options" aria-label="自動播放內容">
             <label><input type="checkbox" data-autoplay-part="word" checked />英文單字</label>
             <label><input type="checkbox" data-autoplay-part="translation" checked />中文翻譯</label>
+            <label><input type="checkbox" data-autoplay-part="phrase" checked />英文片語</label>
             <label><input type="checkbox" data-autoplay-part="example" checked />英文例句</label>
             <label><input type="checkbox" data-autoplay-part="exampleTr" checked />例句翻譯</label>
           </div>
@@ -172,7 +181,10 @@
             <input name="translation" required placeholder="中文翻譯 *" />
             <input name="pos" required placeholder="詞性 *" />
             <input name="phonetic" placeholder="音標" />
-            <input name="collocation" placeholder="搭配詞" />
+            <input name="phrase" placeholder="片語，例如 come across" />
+            <input name="phraseTr" placeholder="片語翻譯，例如 偶然遇見" />
+            <input name="phraseExample" placeholder="片語英文例句" />
+            <input name="phraseExampleTr" placeholder="片語例句翻譯" />
             <input name="example" placeholder="英文例句" />
             <input name="exampleTr" placeholder="例句翻譯" />
             <button class="primary-button" type="submit"><i data-lucide="save"></i><span>存入單字庫</span></button>

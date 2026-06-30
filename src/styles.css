@@ -90,11 +90,15 @@ body.is-dimmed .example-speak-button:hover {
 }
 
 body.is-dimmed .word-card .translation,
-body.is-dimmed .example {
+body.is-dimmed .example,
+body.is-dimmed .phrase-panel,
+body.is-dimmed .phrase-chip {
   color: #edf7f2;
 }
 
-body.is-dimmed .example {
+body.is-dimmed .example,
+body.is-dimmed .phrase-panel,
+body.is-dimmed .phrase-chip {
   background: #132720;
   border-left-color: #8fd6ba;
 }
@@ -663,6 +667,39 @@ blockquote small {
   line-height: 1.45;
 }
 
+.phrase-panel {
+  margin-top: 12px;
+  padding: 14px;
+  background: #f7faf9;
+  border-left: 4px solid var(--green);
+  border-radius: 8px;
+}
+
+.phrase-panel .phrase-label {
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.phrase-panel strong {
+  display: block;
+  color: var(--green);
+  font-size: clamp(22px, 4.8vw, 30px);
+  line-height: 1.2;
+}
+
+.phrase-panel > span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.phrase-panel blockquote {
+  margin-top: 10px;
+}
+
 .hint {
   margin: 0;
   color: #9aa5b1;
@@ -753,7 +790,7 @@ blockquote small {
 .autoplay-options {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -950,6 +987,35 @@ blockquote small {
   line-height: 1.38;
   font-weight: 800;
   text-align: left;
+}
+
+.phrase-chip {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: #f7faf9;
+  border-left: 3px solid var(--green);
+  border-radius: 8px;
+}
+
+.phrase-chip strong,
+.phrase-chip span {
+  display: block;
+}
+
+.phrase-chip strong {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.phrase-chip span {
+  margin-top: 3px;
+  font-size: 18px;
+  font-weight: 850;
+}
+
+.phrase-example {
+  border-left-color: var(--green);
 }
 
 .example-speak-button {

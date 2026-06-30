@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260628-tab-colors";
-import { QUESTION_BANK } from "../data/questions.js?v=20260628-tab-colors";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260630-phrases";
+import { QUESTION_BANK } from "../data/questions.js?v=20260630-phrases";
 
-const APP_VERSION = "20260628-tab-colors";
+const APP_VERSION = "20260630-phrases";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -60,6 +60,17 @@ function baseWord(word) {
 
 function buildWords() {
   return [...BASE_VOCABULARY.map(baseWord), ...customWords.map(baseWord)];
+}
+
+function phraseInfo(word) {
+  const source = word.phrase || word.collocation || "";
+  const match = source.match(/^(.+?)\s*[（(]([^）)]+)[）)]\s*$/);
+  return {
+    phrase: (word.phrase || (match ? match[1] : source)).trim(),
+    phraseTr: (word.phraseTr || word.phraseTranslation || (match ? match[2] : "")).trim(),
+    phraseExample: (word.phraseExample || "").trim(),
+    phraseExampleTr: (word.phraseExampleTr || "").trim()
+  };
 }
 
 function wordKeyFromText(text, unit) {
@@ -289,7 +300,13 @@ function renderFlashcard() {
   $("#flashPos").textContent = word.pos || "";
   $("#flashLevelBadge").textContent = `Lv.${word.proficiency || 0}`;
   $("#flashTranslation").textContent = word.translation || "";
-  $("#flashCollocation").textContent = word.collocation || "尚未設定搭配詞";
+  const phrase = phraseInfo(word);
+  $("#flashPhrasePanel").hidden = !phrase.phrase;
+  $("#flashPhrase").textContent = phrase.phrase;
+  $("#flashPhraseTr").textContent = phrase.phraseTr ? `（${phrase.phraseTr}）` : "";
+  $("#flashPhraseExampleBlock").hidden = !phrase.phraseExample;
+  $("#flashPhraseExample").textContent = phrase.phraseExample;
+  $("#flashPhraseExampleTr").textContent = phrase.phraseExampleTr;
   $("#flashExample").textContent = word.example || "尚未設定例句";
   $("#flashExampleTr").textContent = word.exampleTr || "";
 }
@@ -467,8 +484,17 @@ async function autoPlayLoop(runId) {
       await speakTextAsync(word.translation, "zh-TW");
       if (!(await waitAutoPlay(1000, runId))) return;
     }
+    const phrase = phraseInfo(word);
+    if (parts.phrase && speechTextFor(phrase.phrase)) {
+      await speakTextAsync(phrase.phrase, "en-US");
+      if (!(await waitAutoPlay(1000, runId))) return;
+      if (speechTextFor(phrase.phraseTr)) {
+        await speakTextAsync(phrase.phraseTr, "zh-TW");
+        if (!(await waitAutoPlay(1000, runId))) return;
+      }
+    }
 
-    if (parts.example || parts.exampleTr) $("#flashcard").classList.add("is-flipped");
+    if (parts.phrase || parts.example || parts.exampleTr) $("#flashcard").classList.add("is-flipped");
     if (parts.example && speechTextFor(word.example)) {
       await speakTextAsync(word.example, "en-US");
       if (!(await waitAutoPlay(1000, runId))) return;
@@ -668,18 +694,22 @@ function generatedQuestions() {
       });
     }
 
-    if (word.collocation) {
-      questions.push({
-        id: `auto-${word.id}-collocation`,
-        unit: word.unit,
-        type: "mcq",
-        difficulty: "auto",
-        targetWord: word.word,
-        prompt: `搭配詞「${word.collocation}」主要是在練習哪個單字？`,
-        options: wordOptions,
-        answer: word.word,
-        explanation: `${word.collocation} 是 ${word.word} 的常見搭配或用法。${word.translation ? `${word.word}：${word.translation}` : ""}`
-      });
+    const phrase = phraseInfo(word);
+    if (phrase.phrase) {
+      const phraseOptions = buildPhraseOptions(word);
+      if (phraseOptions.length >= 2) {
+        questions.push({
+          id: `auto-${word.id}-phrase`,
+          unit: word.unit,
+          type: "mcq",
+          difficulty: "auto",
+          targetWord: word.word,
+          prompt: `${word.word} 的常見片語是哪一個？`,
+          options: phraseOptions,
+          answer: phrase.phrase,
+          explanation: `${phrase.phrase} 是 ${word.word} 的片語${phrase.phraseTr ? `，意思是「${phrase.phraseTr}」` : ""}。${phrase.phraseExample ? `片語例句：${phrase.phraseExample}` : ""}`
+        });
+      }
     }
 
     return questions;
@@ -705,6 +735,15 @@ function buildOptions(answerWord) {
     .map((word) => word.word)
     .filter((word) => !word.includes("/"));
   return uniqueOptions(shuffle([answerWord.word, ...shuffle(pool).slice(0, 3)]));
+}
+
+function buildPhraseOptions(answerWord) {
+  const answer = phraseInfo(answerWord).phrase;
+  const pool = words
+    .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit)
+    .map((word) => phraseInfo(word).phrase)
+    .filter(Boolean);
+  return uniqueOptions(shuffle([answer, ...shuffle(pool).slice(0, 3)]));
 }
 
 function buildTranslationOptions(answerWord) {
@@ -844,12 +883,17 @@ function renderLibrary() {
   const query = $("#searchWord").value.trim().toLowerCase();
   let list = filteredByUnit(words, unit);
   if (query) {
-    list = list.filter((word) => `${word.word} ${word.translation} ${word.exampleTr || ""}`.toLowerCase().includes(query));
+    list = list.filter((word) => {
+      const phrase = phraseInfo(word);
+      return `${word.word} ${word.translation} ${phrase.phrase} ${phrase.phraseTr} ${word.exampleTr || ""}`.toLowerCase().includes(query);
+    });
   }
 
   $("#wordGrid").innerHTML = list
     .sort((a, b) => a.word.localeCompare(b.word))
-    .map((word) => `
+    .map((word) => {
+      const phrase = phraseInfo(word);
+      return `
       <article class="word-card">
         <div class="word-title-row">
           <button class="word-speak-button" type="button" data-speak-word="${word.id}" title="播放 ${escapeAttr(word.word)} 發音">
@@ -864,13 +908,28 @@ function renderLibrary() {
         </div>
         <p class="translation">${word.translation}</p>
         <p>${word.phonetic || ""}</p>
-        ${word.collocation ? `<p><strong>搭配：</strong>${word.collocation}</p>` : ""}
+        ${
+          phrase.phrase
+            ? `<div class="phrase-chip">
+                <strong>片語</strong>
+                <span>${escapeHtml(phrase.phrase)}${phrase.phraseTr ? `（${escapeHtml(phrase.phraseTr)}）` : ""}</span>
+              </div>`
+            : ""
+        }
         ${
           word.example
             ? `<button class="example example-speak-button" type="button" data-speak-example="${word.id}" title="播放 ${escapeAttr(word.word)} 例句">
                 <span>${escapeHtml(word.example)}</span>
                 ${word.exampleTr ? `<small>${escapeHtml(word.exampleTr)}</small>` : ""}
               </button>`
+            : ""
+        }
+        ${
+          phrase.phraseExample
+            ? `<div class="example phrase-example">
+                <span>${escapeHtml(phrase.phraseExample)}</span>
+                ${phrase.phraseExampleTr ? `<small>${escapeHtml(phrase.phraseExampleTr)}</small>` : ""}
+              </div>`
             : ""
         }
         <footer class="word-footer">
@@ -882,7 +941,8 @@ function renderLibrary() {
           </div>
         </footer>
       </article>
-    `)
+    `;
+    })
     .join("");
 
   $$("[data-level]").forEach((button) => {
@@ -910,7 +970,11 @@ function addCustomWord(event) {
     translation: data.get("translation").trim(),
     pos: data.get("pos").trim(),
     phonetic: data.get("phonetic").trim(),
-    collocation: data.get("collocation").trim(),
+    phrase: data.get("phrase").trim(),
+    phraseTr: data.get("phraseTr").trim(),
+    phraseExample: data.get("phraseExample").trim(),
+    phraseExampleTr: data.get("phraseExampleTr").trim(),
+    collocation: "",
     example: data.get("example").trim(),
     exampleTr: data.get("exampleTr").trim(),
     correct: 0,
