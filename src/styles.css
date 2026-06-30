@@ -157,21 +157,58 @@ body.is-dimmed .toolbar p {
   color: #a8bbb4;
 }
 
+body.is-dimmed select,
+body.is-dimmed input,
+body.is-dimmed textarea {
+  color: #edf7f2;
+  background: #0e1a17;
+  border-color: #5f8f80;
+  box-shadow: 0 0 0 1px rgba(143, 214, 186, 0.2);
+}
+
+body.is-dimmed select:focus,
+body.is-dimmed input:focus,
+body.is-dimmed textarea:focus {
+  border-color: #8fd6ba;
+  outline: 3px solid rgba(143, 214, 186, 0.28);
+}
+
+body.is-dimmed select option {
+  color: #edf7f2;
+  background: #0e1a17;
+}
+
+body.is-dimmed input::placeholder,
+body.is-dimmed textarea::placeholder {
+  color: #d7eee7;
+  opacity: 0.85;
+}
+
 body.is-dimmed .secondary-button,
 body.is-dimmed .ghost-button,
 body.is-dimmed .pager button {
-  color: #c6eef0;
-  background: #12303a;
+  color: #e5fbff;
+  background: #123848;
+  border: 1px solid #5aa9bd;
+}
+
+body.is-dimmed .secondary-button:hover,
+body.is-dimmed .ghost-button:hover,
+body.is-dimmed .pager button:hover {
+  color: #07110f;
+  background: #8bc7df;
 }
 
 body.is-dimmed .primary-button {
   color: #07110f;
   background: #8fd6ba;
+  border: 1px solid #8fd6ba;
 }
 
 body.is-dimmed .danger-button {
-  color: #ffd7cc;
-  background: #3a211d;
+  color: #fff0eb;
+  background: #6e2d22;
+  border: 1px solid #f0a28d;
 }
 
 body.is-dimmed .autoplay-button.is-active {
@@ -191,7 +228,13 @@ body.is-dimmed .tabs {
 }
 
 body.is-dimmed .tab {
-  color: #a8bbb4;
+  color: #d7eee7;
+  border: 1px solid transparent;
+}
+
+body.is-dimmed .tab:hover {
+  color: #edf7f2;
+  background: #132720;
 }
 
 body.is-dimmed .tab:nth-child(1).is-active {

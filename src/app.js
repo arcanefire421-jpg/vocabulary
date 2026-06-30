@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260630-units16";
-import { QUESTION_BANK } from "../data/questions.js?v=20260630-units16";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260630-examplescontrast";
+import { QUESTION_BANK } from "../data/questions.js?v=20260630-examplescontrast";
 
-const APP_VERSION = "20260630-units16";
+const APP_VERSION = "20260630-examplescontrast";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
