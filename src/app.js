@@ -305,6 +305,7 @@ function renderFlashcard() {
   $("#flashPhrase").textContent = phrase.phrase;
   $("#flashPhraseTr").textContent = phrase.phraseTr ? `（${phrase.phraseTr}）` : "";
   $("#flashPhraseExampleBlock").hidden = !phrase.phraseExample;
+  $("#flashPhraseExampleLabel").hidden = !phrase.phraseExample;
   $("#flashPhraseExample").textContent = phrase.phraseExample;
   $("#flashPhraseExampleTr").textContent = phrase.phraseExampleTr;
   $("#flashExample").textContent = word.example || "尚未設定例句";
@@ -909,6 +910,15 @@ function renderLibrary() {
         <p class="translation">${word.translation}</p>
         <p>${word.phonetic || ""}</p>
         ${
+          word.example
+            ? `<button class="example example-speak-button" type="button" data-speak-example="${word.id}" title="播放 ${escapeAttr(word.word)} 例句">
+                <strong class="example-label">單字例句</strong>
+                <span>${escapeHtml(word.example)}</span>
+                ${word.exampleTr ? `<small>${escapeHtml(word.exampleTr)}</small>` : ""}
+              </button>`
+            : ""
+        }
+        ${
           phrase.phrase
             ? `<div class="phrase-chip">
                 <strong>片語</strong>
@@ -917,16 +927,9 @@ function renderLibrary() {
             : ""
         }
         ${
-          word.example
-            ? `<button class="example example-speak-button" type="button" data-speak-example="${word.id}" title="播放 ${escapeAttr(word.word)} 例句">
-                <span>${escapeHtml(word.example)}</span>
-                ${word.exampleTr ? `<small>${escapeHtml(word.exampleTr)}</small>` : ""}
-              </button>`
-            : ""
-        }
-        ${
           phrase.phraseExample
             ? `<div class="example phrase-example">
+                <strong class="example-label">片語例句</strong>
                 <span>${escapeHtml(phrase.phraseExample)}</span>
                 ${phrase.phraseExampleTr ? `<small>${escapeHtml(phrase.phraseExampleTr)}</small>` : ""}
               </div>`

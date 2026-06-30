@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VocabMaster 單字學習</title>
-    <link rel="stylesheet" href="./src/styles.css?v=20260630-flashgroups" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260630-wordphraseorder" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
     <script type="module" src="./src/app.js?v=20260630-units16"></script>
   </head>
@@ -90,8 +90,9 @@
               <div class="card-meta"><span>答案</span><span id="flashLevelBadge"></span></div>
               <div class="answer-main">
                 <section class="meaning-panel">
-                  <p class="phrase-label">原意</p>
+                  <p class="phrase-label">單字</p>
                   <strong id="flashTranslation">能力</strong>
+                  <p class="phrase-label example-block-label">單字例句</p>
                   <blockquote>
                     <span id="flashExample"></span>
                     <small id="flashExampleTr"></small>
@@ -101,6 +102,7 @@
                   <p class="phrase-label">片語</p>
                   <strong id="flashPhrase"></strong>
                   <span id="flashPhraseTr"></span>
+                  <p class="phrase-label example-block-label" id="flashPhraseExampleLabel" hidden>片語例句</p>
                   <blockquote id="flashPhraseExampleBlock" hidden>
                     <span id="flashPhraseExample"></span>
                     <small id="flashPhraseExampleTr"></small>

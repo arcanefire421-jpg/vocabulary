@@ -707,6 +707,10 @@ blockquote small {
   font-weight: 900;
 }
 
+.example-block-label {
+  margin-top: 12px;
+}
+
 .phrase-panel strong {
   display: block;
   color: var(--green);
@@ -1078,6 +1082,14 @@ blockquote small {
 .example span,
 .example small {
   display: block;
+}
+
+.example-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .example small {
