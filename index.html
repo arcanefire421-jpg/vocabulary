@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VocabMaster 單字學習</title>
-    <link rel="stylesheet" href="./src/styles.css?v=20260630-flashfit" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260630-flashgroups" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
     <script type="module" src="./src/app.js?v=20260630-units16"></script>
   </head>
@@ -89,7 +89,14 @@
             <div class="flash-face flash-back">
               <div class="card-meta"><span>答案</span><span id="flashLevelBadge"></span></div>
               <div class="answer-main">
-                <strong id="flashTranslation">能力</strong>
+                <section class="meaning-panel">
+                  <p class="phrase-label">原意</p>
+                  <strong id="flashTranslation">能力</strong>
+                  <blockquote>
+                    <span id="flashExample"></span>
+                    <small id="flashExampleTr"></small>
+                  </blockquote>
+                </section>
                 <section class="phrase-panel" id="flashPhrasePanel" hidden>
                   <p class="phrase-label">片語</p>
                   <strong id="flashPhrase"></strong>
@@ -99,10 +106,6 @@
                     <small id="flashPhraseExampleTr"></small>
                   </blockquote>
                 </section>
-                <blockquote>
-                  <span id="flashExample"></span>
-                  <small id="flashExampleTr"></small>
-                </blockquote>
               </div>
               <p class="hint">再次點卡片回到正面</p>
             </div>

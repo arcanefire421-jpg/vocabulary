@@ -91,12 +91,14 @@ body.is-dimmed .example-speak-button:hover {
 
 body.is-dimmed .word-card .translation,
 body.is-dimmed .example,
+body.is-dimmed .meaning-panel,
 body.is-dimmed .phrase-panel,
 body.is-dimmed .phrase-chip {
   color: #edf7f2;
 }
 
 body.is-dimmed .example,
+body.is-dimmed .meaning-panel,
 body.is-dimmed .phrase-panel,
 body.is-dimmed .phrase-chip {
   background: #132720;
@@ -641,7 +643,8 @@ blockquote small {
   font-weight: 800;
 }
 
-.answer-main strong {
+.answer-main > strong,
+.meaning-panel > strong {
   color: var(--green);
   font-size: clamp(32px, 5vw, 50px);
   line-height: 1.15;
@@ -676,6 +679,7 @@ blockquote small {
   line-height: 1.45;
 }
 
+.meaning-panel,
 .phrase-panel {
   margin-top: 12px;
   padding: 14px;
@@ -685,6 +689,15 @@ blockquote small {
   background: #f7faf9;
   border-left: 4px solid var(--green);
   border-radius: 8px;
+}
+
+.meaning-panel {
+  border-left-color: #235f9c;
+  background: #f5f9fd;
+}
+
+.meaning-panel > strong {
+  display: block;
 }
 
 .phrase-panel .phrase-label {
@@ -708,6 +721,7 @@ blockquote small {
   font-weight: 800;
 }
 
+.meaning-panel blockquote,
 .phrase-panel blockquote {
   margin-top: 10px;
 }
