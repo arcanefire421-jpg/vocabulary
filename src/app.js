@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260630-examplescontrast";
-import { QUESTION_BANK } from "../data/questions.js?v=20260630-examplescontrast";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260701-speechorder";
+import { QUESTION_BANK } from "../data/questions.js?v=20260701-speechorder";
 
-const APP_VERSION = "20260630-examplescontrast";
+const APP_VERSION = "20260701-speechorder";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -486,22 +486,29 @@ async function autoPlayLoop(runId) {
       if (!(await waitAutoPlay(1000, runId))) return;
     }
     const phrase = phraseInfo(word);
-    if (parts.phrase && speechTextFor(phrase.phrase)) {
-      await speakTextAsync(phrase.phrase, "en-US");
-      if (!(await waitAutoPlay(1000, runId))) return;
-      if (speechTextFor(phrase.phraseTr)) {
-        await speakTextAsync(phrase.phraseTr, "zh-TW");
-        if (!(await waitAutoPlay(1000, runId))) return;
-      }
-    }
-
-    if (parts.phrase || parts.example || parts.exampleTr) $("#flashcard").classList.add("is-flipped");
+    if (parts.example || parts.exampleTr || parts.phrase || parts.phraseTr || parts.phraseExample || parts.phraseExampleTr) $("#flashcard").classList.add("is-flipped");
     if (parts.example && speechTextFor(word.example)) {
       await speakTextAsync(word.example, "en-US");
       if (!(await waitAutoPlay(1000, runId))) return;
     }
     if (parts.exampleTr && speechTextFor(word.exampleTr)) {
       await speakTextAsync(word.exampleTr, "zh-TW");
+      if (!(await waitAutoPlay(1000, runId))) return;
+    }
+    if (parts.phrase && speechTextFor(phrase.phrase)) {
+      await speakTextAsync(phrase.phrase, "en-US");
+      if (!(await waitAutoPlay(1000, runId))) return;
+    }
+    if (parts.phraseTr && speechTextFor(phrase.phraseTr)) {
+      await speakTextAsync(phrase.phraseTr, "zh-TW");
+      if (!(await waitAutoPlay(1000, runId))) return;
+    }
+    if (parts.phraseExample && speechTextFor(phrase.phraseExample)) {
+      await speakTextAsync(phrase.phraseExample, "en-US");
+      if (!(await waitAutoPlay(1000, runId))) return;
+    }
+    if (parts.phraseExampleTr && speechTextFor(phrase.phraseExampleTr)) {
+      await speakTextAsync(phrase.phraseExampleTr, "zh-TW");
       if (!(await waitAutoPlay(1000, runId))) return;
     }
 
@@ -556,6 +563,22 @@ function speakLibraryExample(id) {
   const word = words.find((item) => item.id === id);
   if (!word?.example) return;
   speakText(word.example, word.word, `播放例句：${word.word}`);
+}
+
+function speakLibraryPhrase(id) {
+  stopAutoPlay();
+  const word = words.find((item) => item.id === id);
+  const phrase = word ? phraseInfo(word) : null;
+  if (!phrase?.phrase) return;
+  speakText(phrase.phrase, phrase.phrase, `播放片語：${phrase.phrase}`);
+}
+
+function speakLibraryPhraseExample(id) {
+  stopAutoPlay();
+  const word = words.find((item) => item.id === id);
+  const phrase = word ? phraseInfo(word) : null;
+  if (!phrase?.phraseExample) return;
+  speakText(phrase.phraseExample, phrase.phrase || word.word, `播放片語例句：${phrase.phrase || word.word}`);
 }
 
 function moveFlashcard(offset) {
@@ -920,19 +943,19 @@ function renderLibrary() {
         }
         ${
           phrase.phrase
-            ? `<div class="phrase-chip">
+            ? `<button class="phrase-chip phrase-speak-button" type="button" data-speak-phrase="${word.id}" title="播放片語 ${escapeAttr(phrase.phrase)}">
                 <strong>片語</strong>
                 <span>${escapeHtml(phrase.phrase)}${phrase.phraseTr ? `（${escapeHtml(phrase.phraseTr)}）` : ""}</span>
-              </div>`
+              </button>`
             : ""
         }
         ${
           phrase.phraseExample
-            ? `<div class="example phrase-example">
+            ? `<button class="example phrase-example example-speak-button" type="button" data-speak-phrase-example="${word.id}" title="播放片語例句">
                 <strong class="example-label">片語例句</strong>
                 <span>${escapeHtml(phrase.phraseExample)}</span>
                 ${phrase.phraseExampleTr ? `<small>${escapeHtml(phrase.phraseExampleTr)}</small>` : ""}
-              </div>`
+              </button>`
             : ""
         }
         <footer class="word-footer">
@@ -948,19 +971,44 @@ function renderLibrary() {
     })
     .join("");
 
-  $$("[data-level]").forEach((button) => {
-    button.addEventListener("click", () => setProficiency(Number(button.dataset.level), Number(button.dataset.offset)));
-  });
-  $$("[data-delete]").forEach((button) => {
-    button.addEventListener("click", () => deleteCustomWord(Number(button.dataset.delete)));
-  });
-  $$("[data-speak-word]").forEach((button) => {
-    button.addEventListener("click", () => speakLibraryWord(Number(button.dataset.speakWord)));
-  });
-  $$("[data-speak-example]").forEach((button) => {
-    button.addEventListener("click", () => speakLibraryExample(Number(button.dataset.speakExample)));
-  });
   if (window.lucide) window.lucide.createIcons();
+}
+
+function handleLibraryClick(event) {
+  const levelButton = event.target.closest("[data-level]");
+  if (levelButton) {
+    setProficiency(Number(levelButton.dataset.level), Number(levelButton.dataset.offset));
+    return;
+  }
+
+  const deleteButton = event.target.closest("[data-delete]");
+  if (deleteButton) {
+    deleteCustomWord(Number(deleteButton.dataset.delete));
+    return;
+  }
+
+  const wordButton = event.target.closest("[data-speak-word]");
+  if (wordButton) {
+    speakLibraryWord(Number(wordButton.dataset.speakWord));
+    return;
+  }
+
+  const exampleButton = event.target.closest("[data-speak-example]");
+  if (exampleButton) {
+    speakLibraryExample(Number(exampleButton.dataset.speakExample));
+    return;
+  }
+
+  const phraseButton = event.target.closest("[data-speak-phrase]");
+  if (phraseButton) {
+    speakLibraryPhrase(Number(phraseButton.dataset.speakPhrase));
+    return;
+  }
+
+  const phraseExampleButton = event.target.closest("[data-speak-phrase-example]");
+  if (phraseExampleButton) {
+    speakLibraryPhraseExample(Number(phraseExampleButton.dataset.speakPhraseExample));
+  }
 }
 
 function addCustomWord(event) {
@@ -1100,6 +1148,7 @@ function boot() {
   $("#newQuestion").addEventListener("click", nextQuestion);
   $("#searchWord").addEventListener("input", renderLibrary);
   $("#libraryUnit").addEventListener("change", renderLibrary);
+  $("#wordGrid").addEventListener("click", handleLibraryClick);
   $("#addWordForm").addEventListener("submit", addCustomWord);
   $("#exportBtn").addEventListener("click", exportData);
   $("#importInput").addEventListener("change", importData);
