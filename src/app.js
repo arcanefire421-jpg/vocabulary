@@ -1,10 +1,14 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260702-autoflip";
-import { QUESTION_BANK } from "../data/questions.js?v=20260702-autoflip";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260702-series";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260702-series";
+import { QUESTION_BANK } from "../data/questions.js?v=20260702-series";
 
-const APP_VERSION = "20260702-autoflip";
+const APP_VERSION = "20260702-series";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
+const DEFAULT_SERIES = "東山英文單字表";
+const JUNIOR_SERIES = "教育部 1200 基本字彙";
+const CUSTOM_SERIES = "自訂單字";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MINUTE_MS = 60 * 1000;
 const REVIEW_INTERVALS = [0, 1 * 60 * 60 * 1000, 1 * DAY_MS, 3 * DAY_MS, 7 * DAY_MS, 14 * DAY_MS];
@@ -49,6 +53,7 @@ function baseWord(word) {
   const wordStats = stats[word.id] ?? {};
   return {
     ...word,
+    series: word.series || (word.unit ? DEFAULT_SERIES : CUSTOM_SERIES),
     correct: wordStats.correct ?? word.correct ?? 0,
     total: wordStats.total ?? word.total ?? 0,
     proficiency: wordStats.proficiency ?? word.proficiency ?? 0,
@@ -59,7 +64,10 @@ function baseWord(word) {
 }
 
 function buildWords() {
-  return [...BASE_VOCABULARY.map(baseWord), ...customWords.map(baseWord)];
+  const base = BASE_VOCABULARY.map((word) => baseWord({ ...word, series: word.series || DEFAULT_SERIES }));
+  const junior = JUNIOR_1200_VOCABULARY.map((word) => baseWord({ ...word, series: word.series || JUNIOR_SERIES }));
+  const custom = customWords.map((word) => baseWord({ ...word, series: word.series || CUSTOM_SERIES }));
+  return [...base, ...junior, ...custom];
 }
 
 function phraseInfo(word) {
@@ -73,11 +81,12 @@ function phraseInfo(word) {
   };
 }
 
-function wordKeyFromText(text, unit) {
+function wordKeyFromText(text, unit, series = "all") {
   const lower = text.toLowerCase();
   return words.find((word) => {
     const candidates = word.word.toLowerCase().split("/").map((part) => part.trim());
-    return word.unit === unit && candidates.some((part) => part === lower || part.includes(lower));
+    const sameSeries = series === "all" || (word.series || DEFAULT_SERIES) === series;
+    return sameSeries && word.unit === unit && candidates.some((part) => part === lower || part.includes(lower));
   });
 }
 
@@ -140,23 +149,48 @@ function setProficiency(wordId, offset) {
   toast(`${word.word} 熟練度：Lv.${previous} → Lv.${current.proficiency}`);
 }
 
-function getUnits() {
-  const units = [...new Set(words.map((word) => word.unit).filter(Boolean))].sort((a, b) => a - b);
+function getSeries() {
+  const preferred = [DEFAULT_SERIES, JUNIOR_SERIES, CUSTOM_SERIES];
+  const available = new Set(words.map((word) => word.series || DEFAULT_SERIES));
+  return preferred.filter((series) => available.has(series));
+}
+
+function fillSeriesSelect(select) {
+  const current = select.value || "all";
+  select.innerHTML = `<option value="all">全部系列</option>${getSeries()
+    .map((series) => `<option value="${escapeAttr(series)}">${escapeHtml(series)}</option>`)
+    .join("")}`;
+  select.value = [...select.options].some((option) => option.value === current) ? current : "all";
+}
+
+function getUnits(seriesValue = "all") {
+  const source = filteredBySeries(words, seriesValue);
+  const units = [...new Set(source.map((word) => word.unit).filter(Boolean))].sort((a, b) => a - b);
   return units;
 }
 
-function fillUnitSelect(select, label = "全部單元") {
+function fillUnitSelect(select, label = "全部單元", seriesValue = "all") {
   const current = select.value || "all";
-  select.innerHTML = `<option value="all">${label}</option>${getUnits()
+  const hasCustom = filteredBySeries(words, seriesValue).some((word) => !word.unit);
+  select.innerHTML = `<option value="all">${label}</option>${getUnits(seriesValue)
     .map((unit) => `<option value="${unit}">Unit ${unit}</option>`)
-    .join("")}<option value="custom">自訂單字</option>`;
+    .join("")}${hasCustom ? `<option value="custom">自訂單字</option>` : ""}`;
   select.value = [...select.options].some((option) => option.value === current) ? current : "all";
+}
+
+function filteredBySeries(list, seriesValue) {
+  if (seriesValue === "all") return list;
+  return list.filter((word) => (word.series || DEFAULT_SERIES) === seriesValue);
 }
 
 function filteredByUnit(list, unitValue) {
   if (unitValue === "all") return list;
   if (unitValue === "custom") return list.filter((word) => !word.unit);
   return list.filter((word) => String(word.unit) === unitValue);
+}
+
+function filteredBySeriesAndUnit(list, seriesValue, unitValue) {
+  return filteredByUnit(filteredBySeries(list, seriesValue), unitValue);
 }
 
 function reviewInfo(word, now = Date.now()) {
@@ -249,13 +283,14 @@ function accuracyFor(word) {
 }
 
 function initFlashcards() {
+  const series = $("#flashSeries").value || "all";
   const unit = $("#flashUnit").value || "all";
   const level = $("#flashLevel").value || "all";
-  flashList = filteredByUnit(words, unit);
+  flashList = filteredBySeriesAndUnit(words, series, unit);
   if (level === "new") flashList = flashList.filter((word) => word.proficiency === 0);
   if (level === "learning") flashList = flashList.filter((word) => word.proficiency >= 1 && word.proficiency <= 4);
   if (level === "mastered") flashList = flashList.filter((word) => word.proficiency >= 5);
-  if (!flashList.length) flashList = filteredByUnit(words, unit);
+  if (!flashList.length) flashList = filteredBySeriesAndUnit(words, series, unit);
   flashList = shuffle(flashList);
   flashIndex = 0;
   renderFlashcard();
@@ -274,9 +309,11 @@ function openFlashcardForWord(id) {
   if (!word) return;
   stopAutoPlay();
 
+  $("#flashSeries").value = word.series || DEFAULT_SERIES;
+  fillUnitSelect($("#flashUnit"), "全部單元", $("#flashSeries").value || "all");
   $("#flashUnit").value = word.unit ? String(word.unit) : "custom";
   $("#flashLevel").value = "all";
-  flashList = shuffle(filteredByUnit(words, $("#flashUnit").value || "all"));
+  flashList = shuffle(filteredBySeriesAndUnit(words, $("#flashSeries").value || "all", $("#flashUnit").value || "all"));
   flashIndex = Math.max(0, flashList.findIndex((item) => item.id === id));
   activateTab("flashcards", { initFlashcards: false });
   renderFlashcard();
@@ -294,12 +331,14 @@ function renderFlashcard() {
   }
   const word = flashList[flashIndex];
   $("#flashProgress").textContent = `${flashIndex + 1} / ${flashList.length}`;
-  $("#flashBadge").textContent = `${word.unit ? `Unit ${word.unit}` : "自訂"} · Lv.${word.proficiency || 0}`;
+  $("#flashBadge").textContent = `${word.series || DEFAULT_SERIES} · ${word.unit ? `Unit ${word.unit}` : "自訂"} · Lv.${word.proficiency || 0}`;
   $("#flashWord").textContent = word.word;
   $("#flashPhonetic").textContent = word.phonetic || "";
   $("#flashPos").textContent = word.pos || "";
   $("#flashLevelBadge").textContent = `Lv.${word.proficiency || 0}`;
   $("#flashTranslation").textContent = word.translation || "";
+  $("#flashExampleLabel").hidden = !word.example;
+  $("#flashExampleBlock").hidden = !word.example;
   const phrase = phraseInfo(word);
   $("#flashPhrasePanel").hidden = !phrase.phrase;
   $("#flashPhrase").textContent = phrase.phrase;
@@ -686,6 +725,7 @@ function generatedQuestions() {
     if (examplePrompt) {
       questions.push({
         id: `auto-${word.id}-example-fill`,
+        series: word.series || DEFAULT_SERIES,
         unit: word.unit,
         type: "fill",
         difficulty: "auto",
@@ -699,6 +739,7 @@ function generatedQuestions() {
 
     questions.push({
       id: `auto-${word.id}-zh-to-en`,
+      series: word.series || DEFAULT_SERIES,
       unit: word.unit,
       type: "mcq",
       difficulty: "auto",
@@ -712,6 +753,7 @@ function generatedQuestions() {
     if (translationOptions.length >= 2) {
       questions.push({
         id: `auto-${word.id}-en-to-zh`,
+        series: word.series || DEFAULT_SERIES,
         unit: word.unit,
         type: "mcq",
         difficulty: "auto",
@@ -729,6 +771,7 @@ function generatedQuestions() {
       if (phraseOptions.length >= 2) {
         questions.push({
           id: `auto-${word.id}-phrase`,
+          series: word.series || DEFAULT_SERIES,
           unit: word.unit,
           type: "mcq",
           difficulty: "auto",
@@ -760,7 +803,7 @@ function buildFillChoices(answerWord, options) {
 
 function buildOptions(answerWord) {
   const pool = words
-    .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit)
+    .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit && (word.series || DEFAULT_SERIES) === (answerWord.series || DEFAULT_SERIES))
     .map((word) => word.word)
     .filter((word) => !word.includes("/"));
   return uniqueOptions(shuffle([answerWord.word, ...shuffle(pool).slice(0, 3)]));
@@ -769,7 +812,7 @@ function buildOptions(answerWord) {
 function buildPhraseOptions(answerWord) {
   const answer = phraseInfo(answerWord).phrase;
   const pool = words
-    .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit)
+    .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit && (word.series || DEFAULT_SERIES) === (answerWord.series || DEFAULT_SERIES))
     .map((word) => phraseInfo(word).phrase)
     .filter(Boolean);
   return uniqueOptions(shuffle([answer, ...shuffle(pool).slice(0, 3)]));
@@ -777,7 +820,7 @@ function buildPhraseOptions(answerWord) {
 
 function buildTranslationOptions(answerWord) {
   const pool = words
-    .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit && word.translation)
+    .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit && (word.series || DEFAULT_SERIES) === (answerWord.series || DEFAULT_SERIES) && word.translation)
     .map((word) => word.translation);
   return uniqueOptions(shuffle([answerWord.translation, ...shuffle(pool).slice(0, 3)]));
 }
@@ -793,9 +836,14 @@ function uniqueOptions(options) {
 }
 
 function questionPool() {
+  const series = $("#practiceSeries").value || "all";
   const unit = $("#practiceUnit").value || "all";
   const mode = $("#practiceMode").value || "mixed";
-  let pool = [...QUESTION_BANK, ...generatedQuestions()];
+  let pool = [
+    ...QUESTION_BANK.map((question) => ({ ...question, series: question.series || DEFAULT_SERIES })),
+    ...generatedQuestions()
+  ];
+  if (series !== "all") pool = pool.filter((question) => (question.series || DEFAULT_SERIES) === series);
   if (unit !== "all") pool = pool.filter((question) => String(question.unit) === unit || (unit === "custom" && !question.unit));
   if (mode !== "mixed") pool = pool.filter((question) => question.type === mode);
   return pool;
@@ -815,7 +863,7 @@ function renderQuestion() {
     return;
   }
 
-  const label = `${currentQuestion.unit ? `Unit ${currentQuestion.unit}` : "自訂"} · ${currentQuestion.type === "fill" ? "填空題" : "選擇題"}`;
+  const label = `${currentQuestion.series || DEFAULT_SERIES} · ${currentQuestion.unit ? `Unit ${currentQuestion.unit}` : "自訂"} · ${currentQuestion.type === "fill" ? "填空題" : "選擇題"}`;
   const choiceText = currentQuestion.choices?.length ? `<p>小提示：${formatChoices(currentQuestion)}</p>` : "";
 
   if (currentQuestion.type === "fill") {
@@ -881,7 +929,7 @@ function answerUsesChangedForm(question) {
 function checkQuestion(answer) {
   if (!currentQuestion) return;
   const isCorrect = normalize(answer) === normalize(currentQuestion.answer);
-  const target = wordKeyFromText(currentQuestion.targetWord || currentQuestion.answer, currentQuestion.unit);
+  const target = wordKeyFromText(currentQuestion.targetWord || currentQuestion.answer, currentQuestion.unit, currentQuestion.series || "all");
   if (target) updateWordStats(target.id, isCorrect);
 
   const result = $("#questionResult");
@@ -908,9 +956,10 @@ function escapeHtml(value) {
 }
 
 function renderLibrary() {
+  const series = $("#librarySeries").value || "all";
   const unit = $("#libraryUnit").value || "all";
   const query = $("#searchWord").value.trim().toLowerCase();
-  let list = filteredByUnit(words, unit);
+  let list = filteredBySeriesAndUnit(words, series, unit);
   if (query) {
     list = list.filter((word) => {
       const phrase = phraseInfo(word);
@@ -931,6 +980,7 @@ function renderLibrary() {
           </button>
         </div>
         <div class="tag-row">
+          <span class="tag">${escapeHtml(word.series || DEFAULT_SERIES)}</span>
           <span class="tag">${word.pos || "詞性未填"}</span>
           <span class="tag">${word.unit ? `Unit ${word.unit}` : "自訂"}</span>
           <span class="tag">Lv.${word.proficiency || 0}</span>
@@ -1021,6 +1071,7 @@ function addCustomWord(event) {
   const data = new FormData(event.currentTarget);
   const word = {
     id: Date.now(),
+    series: CUSTOM_SERIES,
     unit: null,
     word: data.get("word").trim(),
     translation: data.get("translation").trim(),
@@ -1093,9 +1144,16 @@ function setupTabs() {
 }
 
 function setupUnitSelects() {
-  fillUnitSelect($("#flashUnit"));
-  fillUnitSelect($("#practiceUnit"));
-  fillUnitSelect($("#libraryUnit"));
+  fillSeriesSelect($("#flashSeries"));
+  fillSeriesSelect($("#practiceSeries"));
+  fillSeriesSelect($("#librarySeries"));
+  fillUnitSelect($("#flashUnit"), "全部單元", $("#flashSeries").value || "all");
+  fillUnitSelect($("#practiceUnit"), "全部單元", $("#practiceSeries").value || "all");
+  fillUnitSelect($("#libraryUnit"), "全部單元", $("#librarySeries").value || "all");
+}
+
+function refreshUnitSelectFor(seriesSelector, unitSelector) {
+  fillUnitSelect($(unitSelector), "全部單元", $(seriesSelector).value || "all");
 }
 
 function renderAll() {
@@ -1124,6 +1182,11 @@ function boot() {
   renderAll();
   nextQuestion();
 
+  $("#flashSeries").addEventListener("change", () => {
+    stopAutoPlay();
+    refreshUnitSelectFor("#flashSeries", "#flashUnit");
+    initFlashcards();
+  });
   $("#flashUnit").addEventListener("change", () => {
     stopAutoPlay();
     initFlashcards();
@@ -1148,10 +1211,18 @@ function boot() {
   $("#dimScreenBtn").addEventListener("click", toggleDimMode);
   $("#knownBtn").addEventListener("click", () => recordFlashcard(true));
   $("#unknownBtn").addEventListener("click", () => recordFlashcard(false));
+  $("#practiceSeries").addEventListener("change", () => {
+    refreshUnitSelectFor("#practiceSeries", "#practiceUnit");
+    nextQuestion();
+  });
   $("#practiceUnit").addEventListener("change", nextQuestion);
   $("#practiceMode").addEventListener("change", nextQuestion);
   $("#newQuestion").addEventListener("click", nextQuestion);
   $("#searchWord").addEventListener("input", renderLibrary);
+  $("#librarySeries").addEventListener("change", () => {
+    refreshUnitSelectFor("#librarySeries", "#libraryUnit");
+    renderLibrary();
+  });
   $("#libraryUnit").addEventListener("change", renderLibrary);
   $("#wordGrid").addEventListener("click", handleLibraryClick);
   $("#addWordForm").addEventListener("submit", addCustomWord);

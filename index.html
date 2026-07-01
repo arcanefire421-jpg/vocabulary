@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VocabMaster 單字學習</title>
-    <link rel="stylesheet" href="./src/styles.css?v=20260702-autoflip" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260702-series" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=20260702-autoflip"></script>
+    <script type="module" src="./src/app.js?v=20260702-series"></script>
   </head>
   <body>
     <header class="app-header">
@@ -65,6 +65,7 @@
             <p>先看英文，翻面確認中文、搭配詞與例句。</p>
           </div>
           <div class="control-row">
+            <select id="flashSeries"></select>
             <select id="flashUnit"></select>
             <select id="flashLevel">
               <option value="all">全部熟練度</option>
@@ -92,8 +93,8 @@
                 <section class="meaning-panel">
                   <p class="phrase-label">單字</p>
                   <strong id="flashTranslation">能力</strong>
-                  <p class="phrase-label example-block-label">單字例句</p>
-                  <blockquote>
+                  <p class="phrase-label example-block-label" id="flashExampleLabel">單字例句</p>
+                  <blockquote id="flashExampleBlock">
                     <span id="flashExample"></span>
                     <small id="flashExampleTr"></small>
                   </blockquote>
@@ -158,6 +159,7 @@
             <p class="practice-count" id="practiceCount"></p>
           </div>
           <div class="control-row">
+            <select id="practiceSeries"></select>
             <select id="practiceUnit"></select>
             <select id="practiceMode">
               <option value="mixed">混合題型</option>
@@ -178,6 +180,7 @@
           </div>
           <div class="control-row">
             <input id="searchWord" type="search" placeholder="搜尋英文或中文" />
+            <select id="librarySeries"></select>
             <select id="libraryUnit"></select>
           </div>
         </div>
