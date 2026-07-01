@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260702-series";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260702-series";
-import { QUESTION_BANK } from "../data/questions.js?v=20260702-series";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260702-jr1200u1";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260702-jr1200u1";
+import { QUESTION_BANK } from "../data/questions.js?v=20260702-jr1200u1";
 
-const APP_VERSION = "20260702-series";
+const APP_VERSION = "20260702-jr1200u1";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
