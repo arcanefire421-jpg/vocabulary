@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260701-speechorder";
-import { QUESTION_BANK } from "../data/questions.js?v=20260701-speechorder";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260701-phraseexamples";
+import { QUESTION_BANK } from "../data/questions.js?v=20260701-phraseexamples";
 
-const APP_VERSION = "20260701-speechorder";
+const APP_VERSION = "20260701-phraseexamples";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
