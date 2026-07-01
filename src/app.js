@@ -1,7 +1,7 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260701-phraseexamples";
-import { QUESTION_BANK } from "../data/questions.js?v=20260701-phraseexamples";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260702-autoflip";
+import { QUESTION_BANK } from "../data/questions.js?v=20260702-autoflip";
 
-const APP_VERSION = "20260701-phraseexamples";
+const APP_VERSION = "20260702-autoflip";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -470,6 +470,10 @@ function hasAutoplayParts() {
   return Object.values(autoplayParts()).some(Boolean);
 }
 
+function showFlashcardBack() {
+  $("#flashcard").classList.add("is-flipped");
+}
+
 async function autoPlayLoop(runId) {
   while (autoPlayEnabled && runId === autoPlayRunId && flashList.length) {
     const word = flashList[flashIndex];
@@ -482,11 +486,12 @@ async function autoPlayLoop(runId) {
       if (!(await waitAutoPlay(1000, runId))) return;
     }
     if (parts.translation && speechTextFor(word.translation)) {
+      showFlashcardBack();
       await speakTextAsync(word.translation, "zh-TW");
       if (!(await waitAutoPlay(1000, runId))) return;
     }
     const phrase = phraseInfo(word);
-    if (parts.example || parts.exampleTr || parts.phrase || parts.phraseTr || parts.phraseExample || parts.phraseExampleTr) $("#flashcard").classList.add("is-flipped");
+    if (parts.example || parts.exampleTr || parts.phrase || parts.phraseTr || parts.phraseExample || parts.phraseExampleTr) showFlashcardBack();
     if (parts.example && speechTextFor(word.example)) {
       await speakTextAsync(word.example, "en-US");
       if (!(await waitAutoPlay(1000, runId))) return;
