@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260702-dodgeball";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260702-dodgeball";
-import { QUESTION_BANK } from "../data/questions.js?v=20260702-dodgeball";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260702-dodgeball-spacing";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260702-dodgeball-spacing";
+import { QUESTION_BANK } from "../data/questions.js?v=20260702-dodgeball-spacing";
 
-const APP_VERSION = "20260702-dodgeball";
+const APP_VERSION = "20260702-dodgeball-spacing";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
