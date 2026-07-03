@@ -144,6 +144,9 @@ for (const word of words) {
   if (phrase.phrase && !phrase.phraseExample) {
     issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: missing phrase example`);
   }
+  if (word.needsReview) {
+    warnings.push(`OCR review suggested: ${word.series}::${word.word}`);
+  }
 
   const key = `${word.series}::${normalizeText(word.word)}`;
   duplicates.set(key, [...(duplicates.get(key) || []), word]);

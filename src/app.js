@@ -1303,6 +1303,9 @@ function dataHealthReport() {
     if (word.example && word.word && !word.word.includes("/") && !normalizeText(word.example).includes(normalizeText(word.word))) {
       warnings.push(issueItem("例句提醒", word, `單字例句可能沒有使用「${word.word}」`));
     }
+    if (word.needsReview) {
+      warnings.push(issueItem("OCR校正", word, word.reviewNote || "OCR 匯入資料建議人工確認"));
+    }
 
     const key = `${word.series || DEFAULT_SERIES}::${normalizeText(word.word)}`;
     duplicateMap.set(key, [...(duplicateMap.get(key) || []), word]);
@@ -1357,7 +1360,7 @@ function renderAudit() {
     type,
     items: report.issues.filter((issue) => issue.type === type)
   }));
-  const warningGrouped = ["例句提醒", "重複提醒"].map((type) => ({
+  const warningGrouped = ["OCR校正", "例句提醒", "重複提醒"].map((type) => ({
     type,
     items: report.warnings.filter((issue) => issue.type === type)
   }));
