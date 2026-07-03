@@ -1,13 +1,15 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-nanshan-series";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-nanshan-series";
-import { QUESTION_BANK } from "../data/questions.js?v=20260703-nanshan-series";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-high-school-series";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-high-school-series";
+import { HIGH_SCHOOL_VOCABULARY } from "../data/highschool.js?v=20260703-high-school-series";
+import { QUESTION_BANK } from "../data/questions.js?v=20260703-high-school-series";
 
-const APP_VERSION = "20260703-nanshan-series";
+const APP_VERSION = "20260703-high-school-series";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
 const DEFAULT_SERIES = "南山國中單字表";
 const JUNIOR_SERIES = "教育部 1200 基本字彙";
+const HIGH_SCHOOL_SERIES = "大考中心高中英文參考詞彙表";
 const CUSTOM_SERIES = "自訂單字";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MINUTE_MS = 60 * 1000;
@@ -68,8 +70,9 @@ function baseWord(word) {
 function buildWords() {
   const base = BASE_VOCABULARY.map((word) => baseWord({ ...word, series: word.series || DEFAULT_SERIES }));
   const junior = JUNIOR_1200_VOCABULARY.map((word) => baseWord({ ...word, series: word.series || JUNIOR_SERIES }));
+  const highSchool = HIGH_SCHOOL_VOCABULARY.map((word) => baseWord({ ...word, series: word.series || HIGH_SCHOOL_SERIES }));
   const custom = customWords.map((word) => baseWord({ ...word, series: word.series || CUSTOM_SERIES }));
-  return [...base, ...junior, ...custom];
+  return [...base, ...junior, ...highSchool, ...custom];
 }
 
 function phraseInfo(word) {
@@ -152,9 +155,11 @@ function setProficiency(wordId, offset) {
 }
 
 function getSeries() {
-  const preferred = [DEFAULT_SERIES, JUNIOR_SERIES, CUSTOM_SERIES];
+  const preferred = [DEFAULT_SERIES, JUNIOR_SERIES, HIGH_SCHOOL_SERIES, CUSTOM_SERIES];
   const available = new Set(words.map((word) => word.series || DEFAULT_SERIES));
-  return preferred.filter((series) => available.has(series));
+  const ordered = preferred.filter((series) => available.has(series));
+  const remaining = [...available].filter((series) => !preferred.includes(series)).sort((a, b) => a.localeCompare(b));
+  return [...ordered, ...remaining];
 }
 
 function fillSeriesSelect(select) {
@@ -175,9 +180,23 @@ function fillUnitSelect(select, label = "全部單元", seriesValue = "all") {
   const current = select.value || "all";
   const hasCustom = filteredBySeries(words, seriesValue).some((word) => !word.unit);
   select.innerHTML = `<option value="all">${label}</option>${getUnits(seriesValue)
-    .map((unit) => `<option value="${unit}">Unit ${unit}</option>`)
+    .map((unit) => `<option value="${unit}">${escapeHtml(unitLabel(seriesValue, unit))}</option>`)
     .join("")}${hasCustom ? `<option value="custom">自訂單字</option>` : ""}`;
   select.value = [...select.options].some((option) => option.value === current) ? current : "all";
+}
+
+function unitLabel(seriesValue, unit) {
+  return seriesValue === HIGH_SCHOOL_SERIES ? `Level ${unit}` : `Unit ${unit}`;
+}
+
+function wordUnitLabel(word) {
+  if (!word.unit) return "自訂";
+  return unitLabel(word.series || DEFAULT_SERIES, word.unit);
+}
+
+function questionUnitLabel(question) {
+  if (!question.unit) return "自訂";
+  return unitLabel(question.series || DEFAULT_SERIES, question.unit);
 }
 
 function filteredBySeries(list, seriesValue) {
@@ -333,7 +352,7 @@ function renderFlashcard() {
   }
   const word = flashList[flashIndex];
   $("#flashProgress").textContent = `${flashIndex + 1} / ${flashList.length}`;
-  $("#flashBadge").textContent = `${word.series || DEFAULT_SERIES} · ${word.unit ? `Unit ${word.unit}` : "自訂"} · Lv.${word.proficiency || 0}`;
+  $("#flashBadge").textContent = `${word.series || DEFAULT_SERIES} · ${wordUnitLabel(word)} · Lv.${word.proficiency || 0}`;
   $("#flashWord").textContent = word.word;
   $("#flashPhonetic").textContent = word.phonetic || "";
   $("#flashPos").textContent = word.pos || "";
@@ -780,6 +799,7 @@ function endFlashDrag(event) {
 
 function generatedQuestions() {
   return words.flatMap((word) => {
+    if (word.referenceOnly) return [];
     const questions = [];
     const wordOptions = buildOptions(word);
     const translationOptions = buildTranslationOptions(word);
@@ -964,7 +984,7 @@ function renderQuestion() {
     return;
   }
 
-  const label = `${currentQuestion.series || DEFAULT_SERIES} · ${currentQuestion.unit ? `Unit ${currentQuestion.unit}` : "自訂"} · ${currentQuestion.type === "fill" ? "填空題" : "選擇題"}`;
+  const label = `${currentQuestion.series || DEFAULT_SERIES} · ${questionUnitLabel(currentQuestion)} · ${currentQuestion.type === "fill" ? "填空題" : "選擇題"}`;
   const choiceText = currentQuestion.choices?.length ? `<p>小提示：${formatChoices(currentQuestion)}</p>` : "";
 
   if (currentQuestion.type === "fill") {
@@ -1152,13 +1172,18 @@ function dataHealthReport() {
   const duplicateMap = new Map();
 
   scopedWords.forEach((word) => {
-    const required = [
-      ["英文單字", word.word],
-      ["中文翻譯", word.translation],
-      ["詞性", word.pos],
-      ["英文例句", word.example],
-      ["例句翻譯", word.exampleTr]
-    ];
+    const required = word.referenceOnly
+      ? [
+          ["英文單字", word.word],
+          ["詞性", word.pos]
+        ]
+      : [
+          ["英文單字", word.word],
+          ["中文翻譯", word.translation],
+          ["詞性", word.pos],
+          ["英文例句", word.example],
+          ["例句翻譯", word.exampleTr]
+        ];
     required.forEach(([label, value]) => {
       if (!String(value || "").trim()) issues.push(issueItem("缺資料", word, `缺少${label}`));
     });
@@ -1291,7 +1316,7 @@ function renderAuditList(items) {
       (issue) => `
         <li>
           <strong>${escapeHtml(issue.word)}</strong>
-          <span>${escapeHtml(issue.series)}${issue.unit ? ` · Unit ${issue.unit}` : ""}</span>
+          <span>${escapeHtml(issue.series)}${issue.unit ? ` · ${escapeHtml(unitLabel(issue.series, issue.unit))}` : ""}</span>
           <p>${escapeHtml(issue.message)}</p>
         </li>
       `
@@ -1326,7 +1351,7 @@ function renderLibrary() {
         <div class="tag-row">
           <span class="tag">${escapeHtml(word.series || DEFAULT_SERIES)}</span>
           <span class="tag">${word.pos || "詞性未填"}</span>
-          <span class="tag">${word.unit ? `Unit ${word.unit}` : "自訂"}</span>
+          <span class="tag">${escapeHtml(wordUnitLabel(word))}</span>
           <span class="tag">Lv.${word.proficiency || 0}</span>
         </div>
         <p class="translation">${word.translation}</p>

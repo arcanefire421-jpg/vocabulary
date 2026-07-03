@@ -1,13 +1,16 @@
 import { BASE_VOCABULARY } from "../data/vocabulary.js";
 import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js";
+import { HIGH_SCHOOL_VOCABULARY } from "../data/highschool.js";
 import { QUESTION_BANK } from "../data/questions.js";
 
 const DEFAULT_SERIES = "南山國中單字表";
 const JUNIOR_SERIES = "教育部 1200 基本字彙";
+const HIGH_SCHOOL_SERIES = "大考中心高中英文參考詞彙表";
 
 const words = [
   ...BASE_VOCABULARY.map((word) => ({ ...word, series: word.series || DEFAULT_SERIES })),
-  ...JUNIOR_1200_VOCABULARY.map((word) => ({ ...word, series: word.series || JUNIOR_SERIES }))
+  ...JUNIOR_1200_VOCABULARY.map((word) => ({ ...word, series: word.series || JUNIOR_SERIES })),
+  ...HIGH_SCHOOL_VOCABULARY.map((word) => ({ ...word, series: word.series || HIGH_SCHOOL_SERIES }))
 ];
 
 function normalize(value) {
@@ -103,13 +106,20 @@ const warnings = [];
 const duplicates = new Map();
 
 for (const word of words) {
-  for (const [label, value] of [
-    ["word", word.word],
-    ["translation", word.translation],
-    ["pos", word.pos],
-    ["example", word.example],
-    ["exampleTr", word.exampleTr]
-  ]) {
+  const required = word.referenceOnly
+    ? [
+        ["word", word.word],
+        ["pos", word.pos]
+      ]
+    : [
+        ["word", word.word],
+        ["translation", word.translation],
+        ["pos", word.pos],
+        ["example", word.example],
+        ["exampleTr", word.exampleTr]
+      ];
+
+  for (const [label, value] of required) {
     if (!String(value || "").trim()) issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word || "(empty)"} missing ${label}`);
   }
 
