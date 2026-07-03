@@ -94,14 +94,18 @@ body.is-dimmed .word-card .translation,
 body.is-dimmed .example,
 body.is-dimmed .meaning-panel,
 body.is-dimmed .phrase-panel,
-body.is-dimmed .phrase-chip {
+body.is-dimmed .phrase-chip,
+body.is-dimmed .audit-card,
+body.is-dimmed .audit-summary > div {
   color: #edf7f2;
 }
 
 body.is-dimmed .example,
 body.is-dimmed .meaning-panel,
 body.is-dimmed .phrase-panel,
-body.is-dimmed .phrase-chip {
+body.is-dimmed .phrase-chip,
+body.is-dimmed .audit-card,
+body.is-dimmed .audit-summary > div {
   background: #132720;
   border-left-color: #8fd6ba;
 }
@@ -117,8 +121,24 @@ body.is-dimmed .mini-actions button {
   background: #162a24;
 }
 
+body.is-dimmed .audit-card li {
+  background: #101c19;
+  border-color: #27493f;
+}
+
+body.is-dimmed .audit-card li span,
+body.is-dimmed .audit-card li p,
+body.is-dimmed .audit-empty,
+body.is-dimmed .audit-more {
+  color: #b9cbc5;
+}
+
 body.is-dimmed .word-footer {
   border-top-color: #2e5b4d;
+}
+
+body.is-dimmed .flash-actions {
+  background: rgba(7, 17, 15, 0.94);
 }
 
 body.is-dimmed .autoplay-panel,
@@ -1181,6 +1201,133 @@ blockquote small {
   font-weight: 900;
 }
 
+.audit-report {
+  display: grid;
+  gap: 18px;
+}
+
+.audit-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.audit-summary > div {
+  min-height: 98px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.audit-summary strong {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1;
+}
+
+.audit-summary span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.audit-summary .is-ok {
+  border-left-color: var(--green);
+}
+
+.audit-summary .is-warning {
+  border-left-color: var(--amber);
+}
+
+.audit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.audit-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.audit-card h3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+}
+
+.audit-card h3 span {
+  min-width: 34px;
+  height: 34px;
+  padding-inline: 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  background: var(--green-2);
+  font-size: 14px;
+}
+
+.audit-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.audit-card li {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--amber);
+  border-radius: 8px;
+  background: #fbfcfd;
+}
+
+.audit-card li strong,
+.audit-card li span,
+.audit-card li p {
+  display: block;
+}
+
+.audit-card li strong {
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.audit-card li span,
+.audit-card li p,
+.audit-empty,
+.audit-more {
+  color: var(--muted);
+}
+
+.audit-card li span {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.audit-card li p {
+  margin: 6px 0 0;
+  line-height: 1.45;
+}
+
+.audit-empty,
+.audit-more {
+  margin: 0;
+  font-weight: 800;
+}
+
 .toast {
   position: fixed;
   right: 18px;
@@ -1204,7 +1351,8 @@ blockquote small {
 @media (max-width: 900px) {
   .summary-band,
   .dashboard-grid,
-  .toolbar {
+  .toolbar,
+  .audit-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1252,6 +1400,7 @@ blockquote small {
   }
 
   .stat-grid,
+  .audit-summary,
   .word-grid,
   .word-form {
     grid-template-columns: 1fr;
@@ -1292,6 +1441,15 @@ blockquote small {
   .flash-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: min(520px, 100%);
+    position: sticky;
+    bottom: 8px;
+    z-index: 8;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(246, 247, 249, 0.94);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
   }
 
   .autoplay-controls {
@@ -1330,5 +1488,10 @@ blockquote small {
   .header-actions > *,
   .flash-actions > * {
     flex: 1 1 160px;
+  }
+
+  .audit-card,
+  .audit-summary > div {
+    padding: 14px;
   }
 }

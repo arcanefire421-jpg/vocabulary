@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "python -m http.server 4173",
-    "check": "node --check src/app.js"
+    "check": "node --check src/app.js",
+    "validate:data": "node scripts/validate-data.mjs"
   }
 }

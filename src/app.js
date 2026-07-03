@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-ios-speech";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-ios-speech";
-import { QUESTION_BANK } from "../data/questions.js?v=20260703-ios-speech";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-study-quality";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-study-quality";
+import { QUESTION_BANK } from "../data/questions.js?v=20260703-study-quality";
 
-const APP_VERSION = "20260703-ios-speech";
+const APP_VERSION = "20260703-study-quality";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -832,6 +832,21 @@ function generatedQuestions() {
     if (phrase.phrase) {
       const phraseOptions = buildPhraseOptions(word);
       if (phraseOptions.length >= 2) {
+        if (phrase.phraseTr) {
+          questions.push({
+            id: `auto-${word.id}-phrase-zh-to-en`,
+            series: word.series || DEFAULT_SERIES,
+            unit: word.unit,
+            type: "mcq",
+            difficulty: "auto",
+            targetWord: word.word,
+            prompt: `「${phrase.phraseTr}」對應哪個英文片語？`,
+            options: phraseOptions,
+            answer: phrase.phrase,
+            explanation: `${phrase.phrase} 的意思是「${phrase.phraseTr}」。${phrase.phraseExample ? `片語例句：${phrase.phraseExample}${phrase.phraseExampleTr ? `（${phrase.phraseExampleTr}）` : ""}` : ""}`
+          });
+        }
+
         questions.push({
           id: `auto-${word.id}-phrase`,
           series: word.series || DEFAULT_SERIES,
@@ -845,6 +860,22 @@ function generatedQuestions() {
           explanation: `${phrase.phrase} 是 ${word.word} 的片語${phrase.phraseTr ? `，意思是「${phrase.phraseTr}」` : ""}。${phrase.phraseExample ? `片語例句：${phrase.phraseExample}` : ""}`
         });
       }
+
+      const phraseExamplePrompt = blankPhraseExampleFor(phrase);
+      if (phraseExamplePrompt) {
+        questions.push({
+          id: `auto-${word.id}-phrase-fill`,
+          series: word.series || DEFAULT_SERIES,
+          unit: word.unit,
+          type: "fill",
+          difficulty: "auto",
+          targetWord: word.word,
+          prompt: phraseExamplePrompt,
+          choices: buildFillChoices({ word: phrase.phrase }, phraseOptions),
+          answer: phrase.phrase,
+          explanation: `${phrase.phrase} 是片語${phrase.phraseTr ? `，意思是「${phrase.phraseTr}」` : ""}。片語例句：${phrase.phraseExample}${phrase.phraseExampleTr ? `（${phrase.phraseExampleTr}）` : ""}`
+        });
+      }
     }
 
     return questions;
@@ -855,6 +886,13 @@ function blankExampleFor(word) {
   if (!word.example || !word.word || word.word.includes("/")) return "";
   const escaped = word.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const prompt = word.example.replace(new RegExp(`\\b${escaped}\\b`, "gi"), "____");
+  return prompt.includes("____") ? prompt : "";
+}
+
+function blankPhraseExampleFor(phrase) {
+  if (!phrase.phraseExample || !phrase.phrase) return "";
+  const escaped = phrase.phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
+  const prompt = phrase.phraseExample.replace(new RegExp(`\\b${escaped}\\b`, "gi"), "____");
   return prompt.includes("____") ? prompt : "";
 }
 
@@ -1016,6 +1054,220 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function normalizeText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[’']/g, "'")
+    .replace(/[^a-z0-9\u4e00-\u9fff']+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function phraseExampleUsesPhrase(phrase, example) {
+  const normalizedExample = normalizeText(example);
+  if (!phrase || !normalizedExample) return false;
+  return phraseCoreOptions(phrase).some((option) => phraseWordsInExample(option, normalizedExample));
+}
+
+function phraseCoreOptions(phrase) {
+  return String(phrase)
+    .replace(/[（(][^）)]*[）)]/g, "")
+    .split(/[;；]/)
+    .map((option) =>
+      normalizeText(option)
+        .replace(/\bsb's\b/g, " ")
+        .replace(/\b(sb|sth|someone|something|one's|one|a|the)\b/g, " ")
+        .replace(/\s+/g, " ")
+        .trim()
+    )
+    .filter(Boolean)
+    .map((option) => (option.startsWith("be ") ? option.slice(3) : option));
+}
+
+function phraseWordsInExample(option, normalizedExample) {
+  const wordsToFind = option.split(" ").filter(Boolean);
+  if (!wordsToFind.length) return false;
+  const exampleWords = normalizedExample.split(" ");
+  let cursor = 0;
+  return wordsToFind.every((target) => {
+    const targetStem = simpleStem(target);
+    const index = exampleWords.findIndex((word, currentIndex) => currentIndex >= cursor && simpleStem(word) === targetStem);
+    if (index === -1) return false;
+    cursor = index + 1;
+    return true;
+  });
+}
+
+function simpleStem(word) {
+  const irregular = {
+    came: "come",
+    has: "have",
+    had: "have",
+    fell: "fall",
+    dug: "dig",
+    drove: "drive",
+    driven: "drive",
+    dried: "dry",
+    kept: "keep",
+    wrote: "write",
+    argued: "argue",
+    arguing: "argue",
+    arrived: "arrive",
+    arriving: "arrive"
+  };
+  let value = String(word || "").replace(/'s$/, "");
+  value = irregular[value] || value;
+  if (value.length > 4) value = value.replace(/(ing|ed|es)$/, "");
+  if (value.length > 4) value = value.replace(/s$/, "");
+  if (value.length > 3) value = value.replace(/e$/, "");
+  return value;
+}
+
+function issueItem(type, word, message) {
+  return {
+    type,
+    word: word?.word || "",
+    series: word?.series || DEFAULT_SERIES,
+    unit: word?.unit || null,
+    message
+  };
+}
+
+function selectedAuditWords() {
+  const series = $("#auditSeries")?.value || "all";
+  const unit = $("#auditUnit")?.value || "all";
+  return filteredBySeriesAndUnit(words, series, unit);
+}
+
+function dataHealthReport() {
+  const scopedWords = selectedAuditWords();
+  const auditSeries = $("#auditSeries")?.value || "all";
+  const auditUnit = $("#auditUnit")?.value || "all";
+  const issues = [];
+  const duplicateMap = new Map();
+
+  scopedWords.forEach((word) => {
+    const required = [
+      ["英文單字", word.word],
+      ["中文翻譯", word.translation],
+      ["詞性", word.pos],
+      ["英文例句", word.example],
+      ["例句翻譯", word.exampleTr]
+    ];
+    required.forEach(([label, value]) => {
+      if (!String(value || "").trim()) issues.push(issueItem("缺資料", word, `缺少${label}`));
+    });
+
+    const phrase = phraseInfo(word);
+    if (phrase.phrase && !phrase.phraseTr) issues.push(issueItem("片語", word, `片語「${phrase.phrase}」缺少中文解釋`));
+    if (phrase.phrase && !phrase.phraseExample) issues.push(issueItem("片語", word, `片語「${phrase.phrase}」缺少片語例句`));
+    if (phrase.phrase && phrase.phraseExample && !phraseExampleUsesPhrase(phrase.phrase, phrase.phraseExample)) {
+      issues.push(issueItem("片語", word, `片語例句沒有使用「${phrase.phrase}」`));
+    }
+    if (phrase.phraseExample && !phrase.phraseExampleTr) issues.push(issueItem("片語", word, "片語例句缺少中文翻譯"));
+
+    if (word.example && word.word && !word.word.includes("/") && !normalizeText(word.example).includes(normalizeText(word.word))) {
+      issues.push(issueItem("例句", word, `單字例句可能沒有使用「${word.word}」`));
+    }
+
+    const key = `${word.series || DEFAULT_SERIES}::${normalizeText(word.word)}`;
+    duplicateMap.set(key, [...(duplicateMap.get(key) || []), word]);
+  });
+
+  duplicateMap.forEach((items) => {
+    if (items.length > 1) {
+      items.forEach((word) => issues.push(issueItem("重複", word, `同系列有重複單字「${word.word}」`)));
+    }
+  });
+
+  let allQuestions = [
+    ...QUESTION_BANK.map((question) => ({ ...question, series: question.series || DEFAULT_SERIES })),
+    ...generatedQuestions()
+  ];
+  if (auditSeries !== "all") allQuestions = allQuestions.filter((question) => (question.series || DEFAULT_SERIES) === auditSeries);
+  if (auditUnit !== "all") allQuestions = allQuestions.filter((question) => String(question.unit) === auditUnit || (auditUnit === "custom" && !question.unit));
+  const questionIssues = allQuestions.flatMap((question) => {
+    const result = [];
+    if (!String(question.answer || "").trim()) result.push(`題目 ${question.id || ""} 缺少答案`);
+    if (!String(question.explanation || "").trim()) result.push(`題目 ${question.id || ""} 缺少詳解`);
+    if (question.type === "mcq") {
+      const options = Array.isArray(question.options) ? question.options : [];
+      const normalizedOptions = options.map(normalize);
+      if (!options.length) result.push(`選擇題 ${question.id || ""} 缺少選項`);
+      if (question.answer && !normalizedOptions.includes(normalize(question.answer))) result.push(`選擇題 ${question.id || ""} 選項沒有正確答案`);
+      if (new Set(normalizedOptions).size !== normalizedOptions.length) result.push(`選擇題 ${question.id || ""} 有重複選項`);
+    }
+    if (question.type === "fill") {
+      const choices = ensureAnswerInChoices(question);
+      if (question.answer && !choices.some((choice) => normalize(choice) === normalize(question.answer))) {
+        result.push(`填空題 ${question.id || ""} 小提示沒有正確答案`);
+      }
+    }
+    return result;
+  });
+
+  return {
+    totalWords: scopedWords.length,
+    totalQuestions: allQuestions.length,
+    issues,
+    questionIssues
+  };
+}
+
+function renderAudit() {
+  const reportBox = $("#auditReport");
+  if (!reportBox) return;
+  const report = dataHealthReport();
+  const grouped = ["缺資料", "片語", "例句", "重複"].map((type) => ({
+    type,
+    items: report.issues.filter((issue) => issue.type === type)
+  }));
+  const issueTotal = report.issues.length + report.questionIssues.length;
+
+  reportBox.innerHTML = `
+    <div class="audit-summary">
+      <div><strong>${report.totalWords}</strong><span>檢查單字</span></div>
+      <div><strong>${report.totalQuestions}</strong><span>可練習題</span></div>
+      <div class="${issueTotal ? "is-warning" : "is-ok"}"><strong>${issueTotal}</strong><span>待修項目</span></div>
+    </div>
+    <div class="audit-grid">
+      ${grouped
+        .map(
+          ({ type, items }) => `
+          <article class="audit-card">
+            <h3>${type}<span>${items.length}</span></h3>
+            ${items.length ? renderAuditList(items) : `<p class="audit-empty">目前沒有發現問題</p>`}
+          </article>
+        `
+        )
+        .join("")}
+      <article class="audit-card">
+        <h3>題庫<span>${report.questionIssues.length}</span></h3>
+        ${
+          report.questionIssues.length
+            ? `<ul>${report.questionIssues.slice(0, 30).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>${report.questionIssues.length > 30 ? `<p class="audit-more">另有 ${report.questionIssues.length - 30} 筆</p>` : ""}`
+            : `<p class="audit-empty">目前沒有發現問題</p>`
+        }
+      </article>
+    </div>
+  `;
+}
+
+function renderAuditList(items) {
+  return `<ul>${items
+    .slice(0, 30)
+    .map(
+      (issue) => `
+        <li>
+          <strong>${escapeHtml(issue.word)}</strong>
+          <span>${escapeHtml(issue.series)}${issue.unit ? ` · Unit ${issue.unit}` : ""}</span>
+          <p>${escapeHtml(issue.message)}</p>
+        </li>
+      `
+    )
+    .join("")}</ul>${items.length > 30 ? `<p class="audit-more">另有 ${items.length - 30} 筆</p>` : ""}`;
 }
 
 function renderLibrary() {
@@ -1210,9 +1462,11 @@ function setupUnitSelects() {
   fillSeriesSelect($("#flashSeries"));
   fillSeriesSelect($("#practiceSeries"));
   fillSeriesSelect($("#librarySeries"));
+  fillSeriesSelect($("#auditSeries"));
   fillUnitSelect($("#flashUnit"), "全部單元", $("#flashSeries").value || "all");
   fillUnitSelect($("#practiceUnit"), "全部單元", $("#practiceSeries").value || "all");
   fillUnitSelect($("#libraryUnit"), "全部單元", $("#librarySeries").value || "all");
+  fillUnitSelect($("#auditUnit"), "全部單元", $("#auditSeries").value || "all");
 }
 
 function refreshUnitSelectFor(seriesSelector, unitSelector) {
@@ -1222,6 +1476,7 @@ function refreshUnitSelectFor(seriesSelector, unitSelector) {
 function renderAll() {
   renderDashboard();
   renderLibrary();
+  renderAudit();
   if ($("#flashcards").classList.contains("is-active")) initFlashcards();
 }
 
@@ -1292,6 +1547,15 @@ function boot() {
   });
   $("#libraryUnit").addEventListener("change", renderLibrary);
   $("#wordGrid").addEventListener("click", handleLibraryClick);
+  $("#auditSeries").addEventListener("change", () => {
+    refreshUnitSelectFor("#auditSeries", "#auditUnit");
+    renderAudit();
+  });
+  $("#auditUnit").addEventListener("change", renderAudit);
+  $("#runAudit").addEventListener("click", () => {
+    renderAudit();
+    toast("資料健檢已更新");
+  });
   $("#addWordForm").addEventListener("submit", addCustomWord);
   $("#exportBtn").addEventListener("click", exportData);
   $("#importInput").addEventListener("change", importData);

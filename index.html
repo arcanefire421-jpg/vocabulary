@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VocabMaster 單字學習</title>
-    <link rel="stylesheet" href="./src/styles.css?v=20260703-ios-speech" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260703-study-quality" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=20260703-ios-speech"></script>
+    <script type="module" src="./src/app.js?v=20260703-study-quality"></script>
   </head>
   <body>
     <header class="app-header">
@@ -30,6 +30,7 @@
         <button class="tab" data-tab="flashcards" type="button"><i data-lucide="copy"></i><span>閃記卡</span></button>
         <button class="tab" data-tab="practice" type="button"><i data-lucide="file-question"></i><span>題庫練習</span></button>
         <button class="tab" data-tab="library" type="button"><i data-lucide="book-open"></i><span>單字庫</span></button>
+        <button class="tab" data-tab="audit" type="button"><i data-lucide="shield-check"></i><span>資料健檢</span></button>
       </nav>
 
       <section class="panel is-active" id="dashboard">
@@ -203,6 +204,21 @@
         </details>
 
         <div class="word-grid" id="wordGrid"></div>
+      </section>
+
+      <section class="panel" id="audit">
+        <div class="toolbar">
+          <div>
+            <h2>資料健檢</h2>
+            <p>檢查單字、例句、片語與題庫是否有缺漏或不一致。</p>
+          </div>
+          <div class="control-row">
+            <select id="auditSeries"></select>
+            <select id="auditUnit"></select>
+            <button class="primary-button" id="runAudit" type="button"><i data-lucide="refresh-cw"></i><span>重新檢查</span></button>
+          </div>
+        </div>
+        <div id="auditReport" class="audit-report"></div>
       </section>
     </main>
 
