@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260702-dodgeball-spacing";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260702-dodgeball-spacing";
-import { QUESTION_BANK } from "../data/questions.js?v=20260702-dodgeball-spacing";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-ios-speech";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-ios-speech";
+import { QUESTION_BANK } from "../data/questions.js?v=20260703-ios-speech";
 
-const APP_VERSION = "20260702-dodgeball-spacing";
+const APP_VERSION = "20260703-ios-speech";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -28,6 +28,8 @@ let autoPlayEndsAt = 0;
 let wakeLock = null;
 let wakeLockReleaseTimer = null;
 let dimModeEnabled = false;
+let speechUnlocked = false;
+let speechVoiceLoadStarted = false;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -359,17 +361,77 @@ function speechTextFor(text) {
     .trim();
 }
 
-function stopSpeech() {
-  if ("speechSynthesis" in window) {
-    window.speechSynthesis.cancel();
+function speechApi() {
+  return "speechSynthesis" in window ? window.speechSynthesis : null;
+}
+
+function loadSpeechVoices() {
+  const synth = speechApi();
+  if (!synth) return [];
+  const voices = synth.getVoices();
+  if (!speechVoiceLoadStarted) {
+    speechVoiceLoadStarted = true;
+    synth.onvoiceschanged = () => synth.getVoices();
   }
+  return voices;
+}
+
+function speechVoiceFor(lang) {
+  const voices = loadSpeechVoices();
+  if (!voices.length) return null;
+  const langPrefix = lang.split("-")[0].toLowerCase();
+  return (
+    voices.find((voice) => voice.lang.toLowerCase() === lang.toLowerCase()) ||
+    voices.find((voice) => voice.lang.toLowerCase().startsWith(langPrefix)) ||
+    null
+  );
+}
+
+function makeUtterance(text, lang = "en-US") {
+  const utterance = new window.SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
+  utterance.rate = lang.startsWith("zh") ? 0.95 : 0.85;
+  utterance.pitch = 1;
+  const voice = speechVoiceFor(lang);
+  if (voice) utterance.voice = voice;
+  return utterance;
+}
+
+function stopSpeech() {
+  speechApi()?.cancel();
 }
 
 function canSpeak() {
-  if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+  if (!speechApi() || typeof window.SpeechSynthesisUtterance === "undefined") {
     toast("這個瀏覽器不支援發音");
     return false;
   }
+  loadSpeechVoices();
+  return true;
+}
+
+function unlockSpeech() {
+  const synth = speechApi();
+  if (!synth || typeof window.SpeechSynthesisUtterance === "undefined" || speechUnlocked) return;
+  try {
+    synth.resume?.();
+    const utterance = new window.SpeechSynthesisUtterance(" ");
+    utterance.volume = 0;
+    synth.speak(utterance);
+    speechUnlocked = true;
+  } catch {
+    speechUnlocked = false;
+  }
+}
+
+function speakUtterance(utterance) {
+  const synth = speechApi();
+  if (!synth) return false;
+  unlockSpeech();
+  synth.cancel();
+  synth.resume?.();
+  synth.speak(utterance);
+  if (synth.paused) synth.resume?.();
   return true;
 }
 
@@ -378,12 +440,7 @@ function speakText(rawText, label, message) {
   const text = speechTextFor(rawText);
   if (!text) return false;
 
-  stopSpeech();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  utterance.rate = 0.85;
-  utterance.pitch = 1;
-  window.speechSynthesis.speak(utterance);
+  speakUtterance(makeUtterance(text, "en-US"));
   toast(message || `播放發音：${label || text}`);
   return true;
 }
@@ -394,13 +451,19 @@ function speakTextAsync(rawText, lang = "en-US") {
   if (!text) return Promise.resolve(false);
 
   return new Promise((resolve) => {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = lang;
-    utterance.rate = lang.startsWith("zh") ? 0.95 : 0.85;
-    utterance.pitch = 1;
-    utterance.onend = () => resolve(true);
-    utterance.onerror = () => resolve(false);
-    window.speechSynthesis.speak(utterance);
+    const utterance = makeUtterance(text, lang);
+    const fallbackMs = Math.min(12000, Math.max(1800, text.length * (lang.startsWith("zh") ? 190 : 95)));
+    let finished = false;
+    const done = (result) => {
+      if (finished) return;
+      finished = true;
+      window.clearTimeout(timer);
+      resolve(result);
+    };
+    const timer = window.setTimeout(() => done(true), fallbackMs);
+    utterance.onend = () => done(true);
+    utterance.onerror = () => done(false);
+    speakUtterance(utterance);
   });
 }
 
@@ -1177,6 +1240,10 @@ function toast(message) {
 
 function boot() {
   document.documentElement.dataset.appVersion = APP_VERSION;
+  loadSpeechVoices();
+  ["pointerdown", "touchstart", "click"].forEach((eventName) => {
+    document.addEventListener(eventName, unlockSpeech, { once: true, passive: true });
+  });
   setupTabs();
   setupUnitSelects();
   renderAll();
