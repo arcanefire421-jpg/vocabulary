@@ -1,12 +1,12 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-hyphen-hint-fix";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-hyphen-hint-fix";
-import { QUESTION_BANK } from "../data/questions.js?v=20260703-hyphen-hint-fix";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-nanshan-series";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-nanshan-series";
+import { QUESTION_BANK } from "../data/questions.js?v=20260703-nanshan-series";
 
-const APP_VERSION = "20260703-hyphen-hint-fix";
+const APP_VERSION = "20260703-nanshan-series";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
-const DEFAULT_SERIES = "東山英文單字表";
+const DEFAULT_SERIES = "南山國中單字表";
 const JUNIOR_SERIES = "教育部 1200 基本字彙";
 const CUSTOM_SERIES = "自訂單字";
 const DAY_MS = 24 * 60 * 60 * 1000;

@@ -1,6 +1,6 @@
 // Source: 教育部國中小基本英語字彙 1200 字
 // Downloaded from 花蓮縣英語教育資源中心: https://unit.hlc.edu.tw/eduen/files/1200.pdf
-// Imported as a separate series so it does not overwrite 東山英文單字表.
+// Imported as a separate series so it does not overwrite 南山國中單字表.
 export const JUNIOR_1200_VOCABULARY = [
   // 教育部 1200 Unit 1
   { id: 120001, series: "教育部 1200 基本字彙", unit: 1, word: "a (an)", pos: "art.", phonetic: "", translation: "一(個)", collocation: "", example: "I saw a cat in the park.", exampleTr: "我在公園裡看到一隻貓。", correct: 0, total: 0, proficiency: 0, nextReview: 0 },

@@ -2,7 +2,7 @@ import { BASE_VOCABULARY } from "../data/vocabulary.js";
 import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js";
 import { QUESTION_BANK } from "../data/questions.js";
 
-const DEFAULT_SERIES = "東山英文單字表";
+const DEFAULT_SERIES = "南山國中單字表";
 const JUNIOR_SERIES = "教育部 1200 基本字彙";
 
 const words = [
