@@ -30,7 +30,7 @@ export const QUESTION_BANK = [
     difficulty: "medium",
     targetWord: "accept",
     prompt: "Kevin ____ the award and thanked everyone several times.",
-    choices: ["accept", "advance"],
+    choices: ["accepted", "accept", "advance"],
     answer: "accepted",
     explanation:
       "後半句 thanked 是過去式，前面的 accept 也要配合時態改成 accepted，表示「接受了獎項」。"
@@ -222,7 +222,7 @@ export const QUESTION_BANK = [
     difficulty: "medium",
     targetWord: "appear",
     prompt: "The first dinosaur ____ around 225 or 230 million years ago.",
-    choices: ["apply", "appear"],
+    choices: ["appeared", "apply", "appear"],
     answer: "appeared",
     explanation:
       "appear 是「出現」。句子時間是 years ago，描述過去發生的事，所以要改成過去式 appeared。"
@@ -258,7 +258,7 @@ export const QUESTION_BANK = [
     difficulty: "medium",
     targetWord: "arm",
     prompt: "The bank was robbed this afternoon by a man ____ with a large knife.",
-    choices: ["arrest", "arm"],
+    choices: ["armed", "arrest", "arm"],
     answer: "armed",
     explanation:
       "arm 作動詞可表示「武裝」。a man armed with a large knife 表示「一名持大刀武裝的男子」，這裡要用過去分詞 armed。"

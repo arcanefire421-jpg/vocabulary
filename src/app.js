@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-study-quality";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-study-quality";
-import { QUESTION_BANK } from "../data/questions.js?v=20260703-study-quality";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-hyphen-hint-fix";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-hyphen-hint-fix";
+import { QUESTION_BANK } from "../data/questions.js?v=20260703-hyphen-hint-fix";
 
-const APP_VERSION = "20260703-study-quality";
+const APP_VERSION = "20260703-hyphen-hint-fix";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -1011,11 +1011,9 @@ function formatChoices(question) {
 function ensureAnswerInChoices(question) {
   const choices = Array.isArray(question.choices) ? [...question.choices] : [];
   const answer = String(question.answer || "").trim();
-  const target = String(question.targetWord || "").trim();
   const hasAnswer = choices.some((choice) => normalize(choice) === normalize(answer));
-  const hasTarget = target && choices.some((choice) => normalize(choice) === normalize(target));
 
-  if (!hasAnswer && !hasTarget) {
+  if (answer && !hasAnswer) {
     choices.unshift(answer);
   }
 
@@ -1063,6 +1061,10 @@ function normalizeText(value) {
     .replace(/[^a-z0-9\u4e00-\u9fff']+/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function hasHyphenSpacing(value) {
+  return /[A-Za-z]\s+-[A-Za-z]|[A-Za-z]-\s+[A-Za-z]/.test(String(value || ""));
 }
 
 function phraseExampleUsesPhrase(phrase, example) {
@@ -1146,6 +1148,7 @@ function dataHealthReport() {
   const auditSeries = $("#auditSeries")?.value || "all";
   const auditUnit = $("#auditUnit")?.value || "all";
   const issues = [];
+  const warnings = [];
   const duplicateMap = new Map();
 
   scopedWords.forEach((word) => {
@@ -1160,6 +1163,15 @@ function dataHealthReport() {
       if (!String(value || "").trim()) issues.push(issueItem("缺資料", word, `缺少${label}`));
     });
 
+    [
+      ["英文單字", word.word],
+      ["英文例句", word.example],
+      ["片語", word.phrase || word.collocation],
+      ["片語例句", word.phraseExample]
+    ].forEach(([label, value]) => {
+      if (hasHyphenSpacing(value)) issues.push(issueItem("格式", word, `${label} 有多餘連字號空格`));
+    });
+
     const phrase = phraseInfo(word);
     if (phrase.phrase && !phrase.phraseTr) issues.push(issueItem("片語", word, `片語「${phrase.phrase}」缺少中文解釋`));
     if (phrase.phrase && !phrase.phraseExample) issues.push(issueItem("片語", word, `片語「${phrase.phrase}」缺少片語例句`));
@@ -1169,7 +1181,7 @@ function dataHealthReport() {
     if (phrase.phraseExample && !phrase.phraseExampleTr) issues.push(issueItem("片語", word, "片語例句缺少中文翻譯"));
 
     if (word.example && word.word && !word.word.includes("/") && !normalizeText(word.example).includes(normalizeText(word.word))) {
-      issues.push(issueItem("例句", word, `單字例句可能沒有使用「${word.word}」`));
+      warnings.push(issueItem("例句提醒", word, `單字例句可能沒有使用「${word.word}」`));
     }
 
     const key = `${word.series || DEFAULT_SERIES}::${normalizeText(word.word)}`;
@@ -1178,7 +1190,7 @@ function dataHealthReport() {
 
   duplicateMap.forEach((items) => {
     if (items.length > 1) {
-      items.forEach((word) => issues.push(issueItem("重複", word, `同系列有重複單字「${word.word}」`)));
+      items.forEach((word) => warnings.push(issueItem("重複提醒", word, `同系列有重複單字「${word.word}」`)));
     }
   });
 
@@ -1212,6 +1224,7 @@ function dataHealthReport() {
     totalWords: scopedWords.length,
     totalQuestions: allQuestions.length,
     issues,
+    warnings,
     questionIssues
   };
 }
@@ -1220,17 +1233,23 @@ function renderAudit() {
   const reportBox = $("#auditReport");
   if (!reportBox) return;
   const report = dataHealthReport();
-  const grouped = ["缺資料", "片語", "例句", "重複"].map((type) => ({
+  const grouped = ["缺資料", "格式", "片語"].map((type) => ({
     type,
     items: report.issues.filter((issue) => issue.type === type)
   }));
+  const warningGrouped = ["例句提醒", "重複提醒"].map((type) => ({
+    type,
+    items: report.warnings.filter((issue) => issue.type === type)
+  }));
   const issueTotal = report.issues.length + report.questionIssues.length;
+  const warningTotal = report.warnings.length;
 
   reportBox.innerHTML = `
     <div class="audit-summary">
       <div><strong>${report.totalWords}</strong><span>檢查單字</span></div>
       <div><strong>${report.totalQuestions}</strong><span>可練習題</span></div>
       <div class="${issueTotal ? "is-warning" : "is-ok"}"><strong>${issueTotal}</strong><span>待修項目</span></div>
+      <div><strong>${warningTotal}</strong><span>提醒</span></div>
     </div>
     <div class="audit-grid">
       ${grouped
@@ -1251,6 +1270,16 @@ function renderAudit() {
             : `<p class="audit-empty">目前沒有發現問題</p>`
         }
       </article>
+      ${warningGrouped
+        .map(
+          ({ type, items }) => `
+          <article class="audit-card">
+            <h3>${type}<span>${items.length}</span></h3>
+            ${items.length ? renderAuditList(items) : `<p class="audit-empty">目前沒有提醒</p>`}
+          </article>
+        `
+        )
+        .join("")}
     </div>
   `;
 }

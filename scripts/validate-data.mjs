@@ -23,6 +23,10 @@ function normalizeText(value) {
     .trim();
 }
 
+function hasHyphenSpacing(value) {
+  return /[A-Za-z]\s+-[A-Za-z]|[A-Za-z]-\s+[A-Za-z]/.test(String(value || ""));
+}
+
 function phraseExampleUsesPhrase(phrase, example) {
   const normalizedExample = normalizeText(example);
   if (!phrase || !normalizedExample) return false;
@@ -109,6 +113,17 @@ for (const word of words) {
     if (!String(value || "").trim()) issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word || "(empty)"} missing ${label}`);
   }
 
+  for (const [label, value] of [
+    ["word", word.word],
+    ["example", word.example],
+    ["phrase", word.phrase || word.collocation],
+    ["phraseExample", word.phraseExample]
+  ]) {
+    if (hasHyphenSpacing(value)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word || "(empty)"} ${label} has extra hyphen spacing`);
+    }
+  }
+
   const phrase = phraseInfo(word);
   if (phrase.phrase && phrase.phraseExample && !phraseExampleUsesPhrase(phrase.phrase, phrase.phraseExample)) {
     issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: phrase example does not contain "${phrase.phrase}"`);
@@ -133,6 +148,12 @@ for (const question of QUESTION_BANK) {
     if (!options.length) issues.push(`question ${question.id || "(no id)"} missing options`);
     if (question.answer && !options.map(normalize).includes(normalize(question.answer))) {
       issues.push(`question ${question.id || "(no id)"} answer is not in options`);
+    }
+  }
+  if (question.type === "fill") {
+    const choices = Array.isArray(question.choices) ? question.choices : [];
+    if (question.answer && !choices.map(normalize).includes(normalize(question.answer))) {
+      issues.push(`question ${question.id || "(no id)"} hint choices do not include answer`);
     }
   }
 }
