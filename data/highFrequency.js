@@ -68,9 +68,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400004,
@@ -300,9 +298,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400014,
@@ -348,9 +344,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400016,
@@ -511,9 +505,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400023,
@@ -536,9 +528,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400024,
@@ -593,23 +583,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "activate",
     "pos": "v.",
     "phonetic": "ektavet",
-    "translation": "啟動；使...活動起來",
+    "translation": "啟動；使活動起來",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The lock is activated by a magnetic key.",
-    "exampleTr": "适個鎖是由一把磁鐵製成的匙來啟動的。",
+    "exampleTr": "這個鎖是由一把磁性鑰匙啟動的。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703223936193.tif#16",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400027,
@@ -724,9 +712,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400032,
@@ -1025,9 +1011,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400045,
@@ -1142,9 +1126,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400050,
@@ -1167,9 +1149,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400051,
@@ -1238,9 +1218,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400054,
@@ -1269,31 +1247,6 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "id": 400055,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
-    "word": "ake",
-    "pos": "n.",
-    "phonetic": "flek",
-    "translation": "小薄片；碎片V.片片剥落；消失",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "Snowflakes are glistening on the tree.",
-    "exampleTr": "雪花在樹上閃爍著晶亮亮的雪光。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#33",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
-  },
-  {
-    "id": 400056,
-    "series": "高中英文高頻率單字庫",
-    "unit": 1,
     "word": "alarm",
     "pos": "n. / v.",
     "phonetic": "[əˈlɑːrm]",
@@ -1314,7 +1267,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400057,
+    "id": 400056,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "alert",
@@ -1337,7 +1290,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400058,
+    "id": 400057,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "alliance",
@@ -1360,7 +1313,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400059,
+    "id": 400058,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "almost",
@@ -1383,7 +1336,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400060,
+    "id": 400059,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "alternatively",
@@ -1403,12 +1356,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400061,
+    "id": 400060,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "amaze",
@@ -1431,7 +1382,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400062,
+    "id": 400061,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "amazed",
@@ -1451,12 +1402,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400063,
+    "id": 400062,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "amazement",
@@ -1476,12 +1425,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400064,
+    "id": 400063,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "amazingly",
@@ -1501,12 +1448,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400065,
+    "id": 400064,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "ambiguity",
@@ -1529,7 +1474,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400066,
+    "id": 400065,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "ambiguous",
@@ -1552,7 +1497,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400067,
+    "id": 400066,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "ambition",
@@ -1575,7 +1520,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400068,
+    "id": 400067,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "ambitious",
@@ -1598,7 +1543,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400069,
+    "id": 400068,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "amplify",
@@ -1621,7 +1566,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400070,
+    "id": 400069,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "analysis",
@@ -1644,7 +1589,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400071,
+    "id": 400070,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "announcement",
@@ -1664,12 +1609,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400072,
+    "id": 400071,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "annoying",
@@ -1689,12 +1632,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400073,
+    "id": 400072,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "annually",
@@ -1714,12 +1655,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400074,
+    "id": 400073,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "anonymously",
@@ -1739,12 +1678,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400075,
+    "id": 400074,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "anxiety",
@@ -1767,7 +1704,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400076,
+    "id": 400075,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "anxious",
@@ -1790,7 +1727,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400077,
+    "id": 400076,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "anxiously",
@@ -1810,12 +1747,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400078,
+    "id": 400077,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "anyhow",
@@ -1838,7 +1773,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400079,
+    "id": 400078,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "apologize",
@@ -1861,7 +1796,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400080,
+    "id": 400079,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "apparently",
@@ -1881,12 +1816,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400081,
+    "id": 400080,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "appeal",
@@ -1909,7 +1842,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400082,
+    "id": 400081,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "appealing",
@@ -1929,12 +1862,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400083,
+    "id": 400082,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "appearance",
@@ -1957,7 +1888,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400084,
+    "id": 400083,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "applause",
@@ -1980,7 +1911,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400085,
+    "id": 400084,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "appliance",
@@ -2003,7 +1934,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400086,
+    "id": 400085,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "application",
@@ -2026,7 +1957,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400087,
+    "id": 400086,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "approach",
@@ -2049,7 +1980,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400088,
+    "id": 400087,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "approval",
@@ -2072,7 +2003,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400089,
+    "id": 400088,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "approximately",
@@ -2092,12 +2023,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400090,
+    "id": 400089,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "arrest",
@@ -2120,7 +2049,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400091,
+    "id": 400090,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "arrogant",
@@ -2143,7 +2072,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400092,
+    "id": 400091,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "artificial",
@@ -2166,7 +2095,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400093,
+    "id": 400092,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "ascend",
@@ -2189,7 +2118,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400094,
+    "id": 400093,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "ashamed",
@@ -2212,7 +2141,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400095,
+    "id": 400094,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "aspect",
@@ -2235,7 +2164,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400096,
+    "id": 400095,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "assemble",
@@ -2258,7 +2187,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400097,
+    "id": 400096,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "assign",
@@ -2281,7 +2210,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400098,
+    "id": 400097,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "association",
@@ -2304,7 +2233,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400099,
+    "id": 400098,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "assume",
@@ -2327,7 +2256,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400100,
+    "id": 400099,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "assurance",
@@ -2350,7 +2279,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400101,
+    "id": 400100,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "assure",
@@ -2373,7 +2302,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400102,
+    "id": 400101,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "athletic",
@@ -2396,7 +2325,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400103,
+    "id": 400102,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "atmosphere",
@@ -2419,7 +2348,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400104,
+    "id": 400103,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "attach",
@@ -2442,7 +2371,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400105,
+    "id": 400104,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "attack",
@@ -2465,7 +2394,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400106,
+    "id": 400105,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "attain",
@@ -2488,7 +2417,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400107,
+    "id": 400106,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "attempt",
@@ -2511,7 +2440,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400108,
+    "id": 400107,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "attendant",
@@ -2534,7 +2463,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400109,
+    "id": 400108,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "attention",
@@ -2557,7 +2486,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400110,
+    "id": 400109,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "attitude",
@@ -2580,7 +2509,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400111,
+    "id": 400110,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "attract",
@@ -2603,7 +2532,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400112,
+    "id": 400111,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "authentic",
@@ -2626,7 +2555,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400113,
+    "id": 400112,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "authentically",
@@ -2646,12 +2575,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400114,
+    "id": 400113,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "authority",
@@ -2674,7 +2601,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400115,
+    "id": 400114,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "automatic",
@@ -2697,7 +2624,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400116,
+    "id": 400115,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "automatically",
@@ -2717,12 +2644,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400117,
+    "id": 400116,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "available",
@@ -2745,7 +2670,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400118,
+    "id": 400117,
     "series": "高中英文高頻率單字庫",
     "unit": 1,
     "word": "awake",
@@ -2768,32 +2693,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400119,
+    "id": 400118,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bacterium",
     "pos": "n.",
     "phonetic": "bakturiam",
-    "translation": "细齒",
+    "translation": "細菌",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "We literally live in a sea of bacteria, taking in billions with every breath.",
-    "exampleTr": "我們乎可是住在细齒海當中，每一口氣都會吸入上億的細齒。",
+    "exampleTr": "我們幾乎生活在細菌的海洋中，每一次呼吸都會吸入數十億個細菌。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#49",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400120,
+    "id": 400119,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "balance",
@@ -2816,7 +2739,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400121,
+    "id": 400120,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bare",
@@ -2839,32 +2762,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400122,
+    "id": 400121,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
-    "word": "barelly",
+    "word": "barely",
     "pos": "adv.",
     "phonetic": "berli",
-    "translation": "勉强地；乎不",
+    "translation": "勉強地；幾乎不",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "He was barely fifteen when he won a world championship.",
-    "exampleTr": "他赢得世界冠軍的時候才剛满十五没天。",
+    "exampleTr": "他贏得世界冠軍時才勉強十五歲。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#49",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400123,
+    "id": 400122,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bargain",
@@ -2887,7 +2808,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400124,
+    "id": 400123,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "barrier",
@@ -2910,7 +2831,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400125,
+    "id": 400124,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "basic",
@@ -2933,7 +2854,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400126,
+    "id": 400125,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "beforehand",
@@ -2956,7 +2877,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400127,
+    "id": 400126,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "belief",
@@ -2979,7 +2900,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400128,
+    "id": 400127,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "believable",
@@ -2999,12 +2920,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400129,
+    "id": 400128,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "beloved",
@@ -3027,7 +2946,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400130,
+    "id": 400129,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bend",
@@ -3050,7 +2969,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400131,
+    "id": 400130,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "benefit",
@@ -3073,7 +2992,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400132,
+    "id": 400131,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bite",
@@ -3096,7 +3015,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400133,
+    "id": 400132,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bitter",
@@ -3119,7 +3038,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400134,
+    "id": 400133,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bitterly",
@@ -3139,12 +3058,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400135,
+    "id": 400134,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "blame",
@@ -3167,7 +3084,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400136,
+    "id": 400135,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "blanket",
@@ -3190,7 +3107,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400137,
+    "id": 400136,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bless",
@@ -3213,7 +3130,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400138,
+    "id": 400137,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "blocking",
@@ -3233,12 +3150,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400139,
+    "id": 400138,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bloom",
@@ -3261,7 +3176,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400140,
+    "id": 400139,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "blossom",
@@ -3284,7 +3199,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400141,
+    "id": 400140,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "blunder",
@@ -3304,12 +3219,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400142,
+    "id": 400141,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "blush",
@@ -3332,7 +3245,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400143,
+    "id": 400142,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "boast",
@@ -3355,7 +3268,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400144,
+    "id": 400143,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "book",
@@ -3378,7 +3291,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400145,
+    "id": 400144,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bother",
@@ -3401,7 +3314,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400146,
+    "id": 400145,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bounce",
@@ -3424,7 +3337,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400147,
+    "id": 400146,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "breathtaking",
@@ -3444,12 +3357,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400148,
+    "id": 400147,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "breeze",
@@ -3472,7 +3383,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400149,
+    "id": 400148,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "brief",
@@ -3495,7 +3406,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400150,
+    "id": 400149,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "briefly",
@@ -3515,12 +3426,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400151,
+    "id": 400150,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "brilliant",
@@ -3543,32 +3452,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400152,
+    "id": 400151,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "brisk",
     "pos": "adj.",
     "phonetic": "brisk",
-    "translation": "活澄的；輕快的；敏捷的；[空氣]清新的",
+    "translation": "活潑的；輕快的；敏捷的；清新的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The couple announced their engagement with a brisk tone.",
-    "exampleTr": "38，broaden[brodn]v.使\"加宽；增廣（知）",
+    "exampleTr": "這對情侶以輕快的語氣宣布訂婚。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#50",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400153,
+    "id": 400152,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "brutal",
@@ -3591,7 +3498,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400154,
+    "id": 400153,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "budget",
@@ -3614,7 +3521,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400155,
+    "id": 400154,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "bulletin",
@@ -3637,7 +3544,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400156,
+    "id": 400155,
     "series": "高中英文高頻率單字庫",
     "unit": 2,
     "word": "business",
@@ -3660,7 +3567,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400157,
+    "id": 400156,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "calculate",
@@ -3683,7 +3590,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400158,
+    "id": 400157,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "calculation",
@@ -3706,7 +3613,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400159,
+    "id": 400158,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "campaign",
@@ -3729,7 +3636,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400160,
+    "id": 400159,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cancel",
@@ -3752,7 +3659,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400161,
+    "id": 400160,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "candidate",
@@ -3775,7 +3682,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400162,
+    "id": 400161,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "capable",
@@ -3798,7 +3705,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400163,
+    "id": 400162,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "capacity",
@@ -3821,7 +3728,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400164,
+    "id": 400163,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "capture",
@@ -3844,7 +3751,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400165,
+    "id": 400164,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "casual",
@@ -3867,7 +3774,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400166,
+    "id": 400165,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cause",
@@ -3890,7 +3797,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400167,
+    "id": 400166,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "caution",
@@ -3913,7 +3820,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400168,
+    "id": 400167,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cautious",
@@ -3936,7 +3843,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400169,
+    "id": 400168,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cautiously",
@@ -3956,12 +3863,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400170,
+    "id": 400169,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cease",
@@ -3984,7 +3889,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400171,
+    "id": 400170,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "celebration",
@@ -4007,7 +3912,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400172,
+    "id": 400171,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "ceremony",
@@ -4030,7 +3935,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400173,
+    "id": 400172,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "certificate",
@@ -4053,7 +3958,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400174,
+    "id": 400173,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "change",
@@ -4076,7 +3981,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400175,
+    "id": 400174,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "changeable",
@@ -4096,12 +4001,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400176,
+    "id": 400175,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "channel",
@@ -4124,7 +4027,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400177,
+    "id": 400176,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "charge",
@@ -4147,7 +4050,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400178,
+    "id": 400177,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "charity",
@@ -4170,7 +4073,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400179,
+    "id": 400178,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "charm",
@@ -4193,7 +4096,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400180,
+    "id": 400179,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "chart",
@@ -4216,7 +4119,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400181,
+    "id": 400180,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cheerful",
@@ -4239,7 +4142,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400182,
+    "id": 400181,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "chilly",
@@ -4262,7 +4165,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400183,
+    "id": 400182,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "choose",
@@ -4285,7 +4188,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400184,
+    "id": 400183,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "chore",
@@ -4308,7 +4211,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400185,
+    "id": 400184,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "chronically",
@@ -4328,12 +4231,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400186,
+    "id": 400185,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "circulate",
@@ -4356,7 +4257,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400187,
+    "id": 400186,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "circulation",
@@ -4379,7 +4280,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400188,
+    "id": 400187,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "clarify",
@@ -4402,7 +4303,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400189,
+    "id": 400188,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "classical",
@@ -4425,7 +4326,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400190,
+    "id": 400189,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "client",
@@ -4448,7 +4349,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400191,
+    "id": 400190,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "climax",
@@ -4471,7 +4372,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400192,
+    "id": 400191,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "clipping",
@@ -4491,12 +4392,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400193,
+    "id": 400192,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "clockwise",
@@ -4519,7 +4418,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400194,
+    "id": 400193,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "clumsy",
@@ -4542,7 +4441,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400195,
+    "id": 400194,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "code",
@@ -4565,7 +4464,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400196,
+    "id": 400195,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "collapse",
@@ -4588,7 +4487,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400197,
+    "id": 400196,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "combination",
@@ -4611,7 +4510,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400198,
+    "id": 400197,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "comfortable",
@@ -4634,7 +4533,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400199,
+    "id": 400198,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "command",
@@ -4657,7 +4556,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400200,
+    "id": 400199,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "comment",
@@ -4680,7 +4579,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400201,
+    "id": 400200,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "commercial",
@@ -4703,7 +4602,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400202,
+    "id": 400201,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "commercially",
@@ -4723,12 +4622,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400203,
+    "id": 400202,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "commit",
@@ -4751,7 +4648,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400204,
+    "id": 400203,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "commitment",
@@ -4774,7 +4671,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400205,
+    "id": 400204,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "common",
@@ -4797,7 +4694,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400206,
+    "id": 400205,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "communication",
@@ -4820,7 +4717,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400207,
+    "id": 400206,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "commute",
@@ -4843,7 +4740,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400208,
+    "id": 400207,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "companion",
@@ -4866,7 +4763,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400209,
+    "id": 400208,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "company",
@@ -4889,7 +4786,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400210,
+    "id": 400209,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "comparable",
@@ -4912,7 +4809,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400211,
+    "id": 400210,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "comparatively",
@@ -4932,12 +4829,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400212,
+    "id": 400211,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "compassion",
@@ -4960,7 +4855,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400213,
+    "id": 400212,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "compensate",
@@ -4983,7 +4878,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400214,
+    "id": 400213,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "competently",
@@ -5003,12 +4898,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400215,
+    "id": 400214,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "competition",
@@ -5031,7 +4924,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400216,
+    "id": 400215,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "competitive",
@@ -5054,7 +4947,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400217,
+    "id": 400216,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "complaint",
@@ -5077,7 +4970,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400218,
+    "id": 400217,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "complete",
@@ -5100,7 +4993,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400219,
+    "id": 400218,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "completely",
@@ -5120,12 +5013,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400220,
+    "id": 400219,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "complicate",
@@ -5148,32 +5039,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400221,
+    "id": 400220,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "complication",
     "pos": "n.",
     "phonetic": "kamplakefan",
-    "translation": "複雜；纷鼠；纠纷",
+    "translation": "複雜；紛擾；併發症",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "I cannot deal with all these complications right now!",
-    "exampleTr": "我現在没有瓣法處理這些纠纷。",
+    "exampleTr": "我現在無法處理這些複雜問題。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703223936193.tif#4",
     "sourceMatchedHighSchoolList": true,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 中文可能有辨識錯字，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400222,
+    "id": 400221,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "compliment",
@@ -5196,7 +5085,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400223,
+    "id": 400222,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conceal",
@@ -5219,7 +5108,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400224,
+    "id": 400223,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conceive",
@@ -5242,7 +5131,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400225,
+    "id": 400224,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "concentrate",
@@ -5265,7 +5154,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400226,
+    "id": 400225,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "concentration",
@@ -5288,7 +5177,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400227,
+    "id": 400226,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "concern",
@@ -5311,7 +5200,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400228,
+    "id": 400227,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conclusion",
@@ -5334,7 +5223,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400229,
+    "id": 400228,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "concrete",
@@ -5357,7 +5246,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400230,
+    "id": 400229,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "condense",
@@ -5380,7 +5269,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400231,
+    "id": 400230,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "condition",
@@ -5403,7 +5292,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400232,
+    "id": 400231,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conduct",
@@ -5426,7 +5315,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400233,
+    "id": 400232,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conference",
@@ -5449,7 +5338,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400234,
+    "id": 400233,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "confess",
@@ -5472,7 +5361,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400235,
+    "id": 400234,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "confidential",
@@ -5495,7 +5384,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400236,
+    "id": 400235,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "confine",
@@ -5518,7 +5407,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400237,
+    "id": 400236,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "confirm",
@@ -5541,7 +5430,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400238,
+    "id": 400237,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conflict",
@@ -5564,7 +5453,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400239,
+    "id": 400238,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "connect",
@@ -5587,32 +5476,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400240,
+    "id": 400239,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "connected",
     "pos": "adj.",
     "phonetic": "ka'nektid",
-    "translation": "有鼠聯的",
+    "translation": "有關聯的；連接的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "My computer is not connected to the Internet, so I can't check my email.",
-    "exampleTr": "我的電腦現在没有連線，因此我没瓣法收電子郵件。",
+    "exampleTr": "我的電腦沒有連上網路，所以我不能查看電子郵件。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703223936193.tif#5",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400241,
+    "id": 400240,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "connection",
@@ -5635,7 +5522,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400242,
+    "id": 400241,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conquer",
@@ -5658,7 +5545,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400243,
+    "id": 400242,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conscientious",
@@ -5681,7 +5568,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400244,
+    "id": 400243,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conscious",
@@ -5704,7 +5591,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400245,
+    "id": 400244,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consciously",
@@ -5724,12 +5611,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400246,
+    "id": 400245,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consent",
@@ -5752,7 +5637,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400247,
+    "id": 400246,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consequence",
@@ -5775,7 +5660,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400248,
+    "id": 400247,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consequent",
@@ -5798,7 +5683,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400249,
+    "id": 400248,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consequently",
@@ -5818,12 +5703,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400250,
+    "id": 400249,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "conservation",
@@ -5846,7 +5729,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400251,
+    "id": 400250,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "considerably",
@@ -5866,12 +5749,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400252,
+    "id": 400251,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "considerate",
@@ -5894,7 +5775,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400253,
+    "id": 400252,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consist",
@@ -5917,7 +5798,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400254,
+    "id": 400253,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consistent",
@@ -5940,7 +5821,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400255,
+    "id": 400254,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "constant",
@@ -5963,7 +5844,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400256,
+    "id": 400255,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "constantly",
@@ -5983,12 +5864,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400257,
+    "id": 400256,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "constitution",
@@ -6011,7 +5890,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400258,
+    "id": 400257,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "construct",
@@ -6034,7 +5913,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400259,
+    "id": 400258,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "construction",
@@ -6057,7 +5936,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400260,
+    "id": 400259,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "constructive",
@@ -6080,7 +5959,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400261,
+    "id": 400260,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consult",
@@ -6103,7 +5982,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400262,
+    "id": 400261,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consultant",
@@ -6126,7 +6005,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400263,
+    "id": 400262,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consume",
@@ -6149,7 +6028,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400264,
+    "id": 400263,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "consumption",
@@ -6172,7 +6051,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400265,
+    "id": 400264,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contact",
@@ -6195,7 +6074,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400266,
+    "id": 400265,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contain",
@@ -6218,7 +6097,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400267,
+    "id": 400266,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "container",
@@ -6241,7 +6120,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400268,
+    "id": 400267,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contaminate",
@@ -6264,7 +6143,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400269,
+    "id": 400268,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contemporary",
@@ -6287,7 +6166,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400270,
+    "id": 400269,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contempt",
@@ -6310,7 +6189,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400271,
+    "id": 400270,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "content",
@@ -6333,7 +6212,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400272,
+    "id": 400271,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contentment",
@@ -6353,12 +6232,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400273,
+    "id": 400272,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contest",
@@ -6381,7 +6258,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400274,
+    "id": 400273,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "context",
@@ -6404,7 +6281,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400275,
+    "id": 400274,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "continuously",
@@ -6424,12 +6301,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400276,
+    "id": 400275,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contract",
@@ -6452,7 +6327,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400277,
+    "id": 400276,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contradict",
@@ -6475,7 +6350,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400278,
+    "id": 400277,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contrary",
@@ -6498,7 +6373,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400279,
+    "id": 400278,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contribute",
@@ -6521,7 +6396,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400280,
+    "id": 400279,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "contribution",
@@ -6544,7 +6419,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400281,
+    "id": 400280,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "controversial",
@@ -6567,7 +6442,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400282,
+    "id": 400281,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "convenience",
@@ -6590,7 +6465,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400283,
+    "id": 400282,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "convenient",
@@ -6613,7 +6488,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400284,
+    "id": 400283,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cooperative",
@@ -6636,7 +6511,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400285,
+    "id": 400284,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "count",
@@ -6659,7 +6534,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400286,
+    "id": 400285,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "countenance",
@@ -6679,12 +6554,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400287,
+    "id": 400286,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "courageous",
@@ -6707,7 +6580,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400288,
+    "id": 400287,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "courteous",
@@ -6730,7 +6603,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400289,
+    "id": 400288,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "courtesy",
@@ -6753,7 +6626,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400290,
+    "id": 400289,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "courtship",
@@ -6773,12 +6646,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400291,
+    "id": 400290,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "coverage",
@@ -6801,32 +6672,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400292,
+    "id": 400291,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "covet",
     "pos": "v.",
     "phonetic": "kAvIt",
-    "translation": "渴望；垂涎；觀",
+    "translation": "渴望；垂涎；覬覦",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Michelin stars are coveted by top chefs around the world.",
-    "exampleTr": "米其林星级榮令全世界的頂尖厨師們垂涎。",
+    "exampleTr": "米其林星級是全世界頂尖廚師夢寐以求的榮譽。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703223936193.tif#7",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400293,
+    "id": 400292,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "crack",
@@ -6849,7 +6718,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400294,
+    "id": 400293,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "creativity",
@@ -6872,7 +6741,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400295,
+    "id": 400294,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "credible",
@@ -6895,7 +6764,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400296,
+    "id": 400295,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "crew",
@@ -6918,7 +6787,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400297,
+    "id": 400296,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "criminal",
@@ -6941,7 +6810,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400298,
+    "id": 400297,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cripple",
@@ -6964,7 +6833,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400299,
+    "id": 400298,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "crucial",
@@ -6987,7 +6856,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400300,
+    "id": 400299,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cultivate",
@@ -7010,7 +6879,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400301,
+    "id": 400300,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cultural",
@@ -7033,7 +6902,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400302,
+    "id": 400301,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cunning",
@@ -7056,7 +6925,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400303,
+    "id": 400302,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "curious",
@@ -7079,7 +6948,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400304,
+    "id": 400303,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "current",
@@ -7102,7 +6971,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400305,
+    "id": 400304,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "curve",
@@ -7125,7 +6994,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400306,
+    "id": 400305,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "customarily",
@@ -7145,12 +7014,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400307,
+    "id": 400306,
     "series": "高中英文高頻率單字庫",
     "unit": 3,
     "word": "cycle",
@@ -7173,7 +7040,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400308,
+    "id": 400307,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dangerous",
@@ -7196,7 +7063,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400309,
+    "id": 400308,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dare",
@@ -7219,7 +7086,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400310,
+    "id": 400309,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "decision",
@@ -7236,6 +7103,29 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#21",
     "sourceMatchedHighSchoolList": true,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
+  },
+  {
+    "id": 400310,
+    "series": "高中英文高頻率單字庫",
+    "unit": 4,
+    "word": "decline",
+    "pos": "v.",
+    "phonetic": "dɪˈklaɪn",
+    "translation": "婉拒；下降；衰退",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "She declined my offer to help, saying she would be all right.",
+    "exampleTr": "她婉拒了我的幫忙，說自己會沒事。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#21",
+    "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
@@ -7291,31 +7181,6 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "id": 400313,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
-    "word": "deeline",
-    "pos": "v.",
-    "phonetic": "urklain",
-    "translation": "婉拒；（势力）没落；（價格）下跌",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "She declined my offer to help, saying she would be alright.",
-    "exampleTr": "她婉拒了我的助，她说她很好，她會没事的。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#21",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
-  },
-  {
-    "id": 400314,
-    "series": "高中英文高頻率單字庫",
-    "unit": 4,
     "word": "defeat",
     "pos": "n.",
     "phonetic": "drfit",
@@ -7336,7 +7201,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400315,
+    "id": 400314,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "defend",
@@ -7359,7 +7224,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400316,
+    "id": 400315,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "defense",
@@ -7382,32 +7247,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400317,
+    "id": 400316,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "deficient",
     "pos": "adj.",
     "phonetic": "drfijant",
-    "translation": "不充份的；缺乏的；有缺陷的",
+    "translation": "不足的；缺乏的；有缺陷的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Your body is deficient in vitamin C.",
-    "exampleTr": "你的身體缺乏维他命C。",
+    "exampleTr": "你的身體缺乏維他命 C。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#22",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400318,
+    "id": 400317,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "definite",
@@ -7430,7 +7293,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400319,
+    "id": 400318,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "degree",
@@ -7453,7 +7316,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400320,
+    "id": 400319,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "delay",
@@ -7476,7 +7339,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400321,
+    "id": 400320,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "deliberately",
@@ -7496,12 +7359,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400322,
+    "id": 400321,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "delicate",
@@ -7524,7 +7385,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400323,
+    "id": 400322,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "delight",
@@ -7547,7 +7408,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400324,
+    "id": 400323,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "delighted",
@@ -7567,12 +7428,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400325,
+    "id": 400324,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "delightful",
@@ -7595,7 +7454,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400326,
+    "id": 400325,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "deliver",
@@ -7618,7 +7477,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400327,
+    "id": 400326,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "delivery",
@@ -7641,7 +7500,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400328,
+    "id": 400327,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "demand",
@@ -7664,7 +7523,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400329,
+    "id": 400328,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "demanding",
@@ -7684,12 +7543,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400330,
+    "id": 400329,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "demonstrate",
@@ -7712,7 +7569,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400331,
+    "id": 400330,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "demonstration",
@@ -7735,7 +7592,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400332,
+    "id": 400331,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dense",
@@ -7758,7 +7615,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400333,
+    "id": 400332,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "depart",
@@ -7781,7 +7638,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400334,
+    "id": 400333,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "departure",
@@ -7804,7 +7661,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400335,
+    "id": 400334,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "deposit",
@@ -7827,7 +7684,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400336,
+    "id": 400335,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "depress",
@@ -7850,7 +7707,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400337,
+    "id": 400336,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "depression",
@@ -7873,7 +7730,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400338,
+    "id": 400337,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "deprive",
@@ -7896,7 +7753,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400339,
+    "id": 400338,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "descriptive",
@@ -7919,7 +7776,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400340,
+    "id": 400339,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "desert",
@@ -7942,7 +7799,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400341,
+    "id": 400340,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "deserve",
@@ -7965,7 +7822,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400342,
+    "id": 400341,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "design",
@@ -7988,32 +7845,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400343,
+    "id": 400342,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "designate",
     "pos": "v.",
     "phonetic": "dezignet",
-    "translation": "棵示；任命",
+    "translation": "指定；指派；任命",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The teacher designated half the class to sing and half the class to act.",
-    "exampleTr": "老師分派班上一半的人唱歌，一半的人演。",
+    "exampleTr": "老師指派班上一半的人唱歌，一半的人表演。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#23",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400344,
+    "id": 400343,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "desirable",
@@ -8036,7 +7891,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400345,
+    "id": 400344,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "desirably",
@@ -8056,12 +7911,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400346,
+    "id": 400345,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "desperate",
@@ -8084,7 +7937,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400347,
+    "id": 400346,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "desperately",
@@ -8104,12 +7957,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400348,
+    "id": 400347,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "desperation",
@@ -8129,12 +7980,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400349,
+    "id": 400348,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "destroy",
@@ -8157,7 +8006,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400350,
+    "id": 400349,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "destruction",
@@ -8180,7 +8029,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400351,
+    "id": 400350,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "destructive",
@@ -8203,7 +8052,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400352,
+    "id": 400351,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "detect",
@@ -8226,7 +8075,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400353,
+    "id": 400352,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "determination",
@@ -8249,7 +8098,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400354,
+    "id": 400353,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "determine",
@@ -8272,7 +8121,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400355,
+    "id": 400354,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "devote",
@@ -8295,7 +8144,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400356,
+    "id": 400355,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "diagnosis",
@@ -8318,7 +8167,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400357,
+    "id": 400356,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "differentiate",
@@ -8341,7 +8190,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400358,
+    "id": 400357,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "digest",
@@ -8364,7 +8213,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400359,
+    "id": 400358,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dignity",
@@ -8387,7 +8236,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400360,
+    "id": 400359,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "diligent",
@@ -8410,7 +8259,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400361,
+    "id": 400360,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "diligently",
@@ -8430,12 +8279,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400362,
+    "id": 400361,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "diminish",
@@ -8458,7 +8305,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400363,
+    "id": 400362,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dip",
@@ -8481,7 +8328,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400364,
+    "id": 400363,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "diploma",
@@ -8504,7 +8351,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400365,
+    "id": 400364,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "direction",
@@ -8527,7 +8374,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400366,
+    "id": 400365,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "directly",
@@ -8547,12 +8394,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400367,
+    "id": 400366,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "disappointment",
@@ -8572,12 +8417,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400368,
+    "id": 400367,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "disaster",
@@ -8600,7 +8443,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400369,
+    "id": 400368,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "discipline",
@@ -8623,7 +8466,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400370,
+    "id": 400369,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "disclose",
@@ -8646,7 +8489,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400371,
+    "id": 400370,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "discount",
@@ -8669,7 +8512,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400372,
+    "id": 400371,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "discourage",
@@ -8692,7 +8535,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400373,
+    "id": 400372,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "discovery",
@@ -8715,7 +8558,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400374,
+    "id": 400373,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "discriminate",
@@ -8738,7 +8581,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400375,
+    "id": 400374,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "discrimination",
@@ -8761,7 +8604,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400376,
+    "id": 400375,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "disguise",
@@ -8784,7 +8627,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400377,
+    "id": 400376,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dismiss",
@@ -8807,7 +8650,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400378,
+    "id": 400377,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dispensable",
@@ -8830,7 +8673,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400379,
+    "id": 400378,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "display",
@@ -8853,7 +8696,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400380,
+    "id": 400379,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "disposable",
@@ -8876,7 +8719,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400381,
+    "id": 400380,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dispute",
@@ -8899,32 +8742,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400382,
+    "id": 400381,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dissatisfy",
     "pos": "v.",
     "phonetic": "dis`saetisfar",
-    "translation": "使..不满",
+    "translation": "使不滿",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
-    "example": "He is dissatisfied with his math score and decided to take the same test ag",
-    "exampleTr": "他對自已的數學分數不满意，且決定再考一次相同的考試。",
+    "example": "The poor service dissatisfied many customers.",
+    "exampleTr": "糟糕的服務使許多顧客感到不滿。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#25",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400383,
+    "id": 400382,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "distant",
@@ -8947,7 +8788,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400384,
+    "id": 400383,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "distinct",
@@ -8970,7 +8811,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400385,
+    "id": 400384,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "distinctive",
@@ -8993,7 +8834,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400386,
+    "id": 400385,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "distinctly",
@@ -9013,12 +8854,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400387,
+    "id": 400386,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "distinguish",
@@ -9041,32 +8880,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400388,
+    "id": 400387,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "distort",
     "pos": "v.",
     "phonetic": "distort",
-    "translation": "按曲；曲解",
+    "translation": "扭曲；曲解",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "His face was distorted with pain.",
-    "exampleTr": "他的脸因為痛苦而批曲。",
+    "exampleTr": "他的臉因疼痛而扭曲。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#25",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400389,
+    "id": 400388,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "distribute",
@@ -9089,7 +8926,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400390,
+    "id": 400389,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "distribution",
@@ -9112,7 +8949,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400391,
+    "id": 400390,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "disturb",
@@ -9135,7 +8972,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400392,
+    "id": 400391,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "disturbance",
@@ -9158,7 +8995,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400393,
+    "id": 400392,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "diversify",
@@ -9181,7 +9018,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400394,
+    "id": 400393,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "divide",
@@ -9204,7 +9041,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400395,
+    "id": 400394,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dominance",
@@ -9224,12 +9061,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400396,
+    "id": 400395,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dominant",
@@ -9252,7 +9087,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400397,
+    "id": 400396,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dominate",
@@ -9275,7 +9110,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400398,
+    "id": 400397,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "donation",
@@ -9298,7 +9133,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400399,
+    "id": 400398,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "doubtful",
@@ -9321,7 +9156,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400400,
+    "id": 400399,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "download",
@@ -9344,7 +9179,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400401,
+    "id": 400400,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "draft",
@@ -9367,7 +9202,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400402,
+    "id": 400401,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dramatic",
@@ -9390,7 +9225,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400403,
+    "id": 400402,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "drastically",
@@ -9410,37 +9245,33 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400404,
+    "id": 400403,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dreary",
     "pos": "adj.",
     "phonetic": "drr",
-    "translation": "荒凉的；陰沈的；無聊的",
+    "translation": "陰沉的；沉悶的；無聊的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The dreary day made everyone moody and sad.",
-    "exampleTr": "無聊的一天把每個人都弄得心情低落又關問不樂。",
+    "exampleTr": "陰沉的一天讓每個人都心情低落又難過。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#26",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400405,
+    "id": 400404,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "drill",
@@ -9463,32 +9294,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400406,
+    "id": 400405,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "drizzle",
     "pos": "n.",
     "phonetic": "driz",
-    "translation": "毛毛雨v.下毛毛雨",
+    "translation": "毛毛雨；下毛毛雨",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The drizzle has stopped and the sun is breaking through.",
-    "exampleTr": "毛毛雨已經停了，而太陽正雲層中露出脸來。",
+    "exampleTr": "毛毛雨已經停了，太陽正從雲層中露出來。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#26",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400407,
+    "id": 400406,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "drop",
@@ -9511,7 +9340,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400408,
+    "id": 400407,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "drowsiness",
@@ -9531,12 +9360,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400409,
+    "id": 400408,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "drowsy",
@@ -9559,32 +9386,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400410,
+    "id": 400409,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dump",
     "pos": "v.",
     "phonetic": "dAmp",
-    "translation": "倾倒；丢n．垃圾场；鼠的地方",
+    "translation": "傾倒；丟棄；垃圾場",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Canadian people dump salt on roads to keep roads free of ice.",
-    "exampleTr": "加拿大人會倒暨在路上路面不要结冰。",
+    "exampleTr": "加拿大人會在路上撒鹽，避免路面結冰。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#26",
     "sourceMatchedHighSchoolList": true,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 中文可能有辨識錯字，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400411,
+    "id": 400410,
     "series": "高中英文高頻率單字庫",
     "unit": 4,
     "word": "dynamic",
@@ -9607,32 +9432,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400412,
-    "series": "高中英文高頻率單字庫",
-    "unit": 5,
-    "word": "ean",
-    "pos": "v.",
-    "phonetic": "lin",
-    "translation": "倚靠倾斜",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "He leans against the wall for support.",
-    "exampleTr": "他倚靠在上以得到支撑力。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#45",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
-  },
-  {
-    "id": 400413,
+    "id": 400411,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "earnest",
@@ -9655,7 +9455,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400414,
+    "id": 400412,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "easy",
@@ -9678,7 +9478,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400415,
+    "id": 400413,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "eccentric",
@@ -9701,7 +9501,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400416,
+    "id": 400414,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "ecological",
@@ -9724,7 +9524,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400417,
+    "id": 400415,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "economic",
@@ -9747,32 +9547,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400418,
+    "id": 400416,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "edgewise",
     "pos": "adv.",
     "phonetic": "ed3waiz",
-    "translation": "在旁逸；在逸缘",
+    "translation": "插話地；從旁邊",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "There were so many people talking in the living room that Wendy couldn't even get a word in edgewise.",
-    "exampleTr": "edit[ed订v.编辑；剪辑",
+    "exampleTr": "客廳裡太多人在說話，溫蒂連插一句話的機會都沒有。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#27",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400419,
+    "id": 400417,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "effect",
@@ -9795,7 +9593,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400420,
+    "id": 400418,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "efficient",
@@ -9818,7 +9616,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400421,
+    "id": 400419,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "efficiently",
@@ -9838,12 +9636,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400422,
+    "id": 400420,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "effort",
@@ -9866,7 +9662,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400423,
+    "id": 400421,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "elaborate",
@@ -9889,7 +9685,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400424,
+    "id": 400422,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "elegant",
@@ -9912,7 +9708,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400425,
+    "id": 400423,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "eligible",
@@ -9935,7 +9731,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400426,
+    "id": 400424,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "eliminate",
@@ -9958,7 +9754,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400427,
+    "id": 400425,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "eloquence",
@@ -9978,12 +9774,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400428,
+    "id": 400426,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "eloquent",
@@ -10006,7 +9800,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400429,
+    "id": 400427,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "embarrassing",
@@ -10026,12 +9820,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400430,
+    "id": 400428,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "emphasis",
@@ -10054,7 +9846,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400431,
+    "id": 400429,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "emphatic",
@@ -10074,12 +9866,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400432,
+    "id": 400430,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "employment",
@@ -10099,12 +9889,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400433,
+    "id": 400431,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "enclose",
@@ -10127,7 +9915,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400434,
+    "id": 400432,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "encounter",
@@ -10150,7 +9938,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400435,
+    "id": 400433,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "encouragement",
@@ -10170,12 +9958,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400436,
+    "id": 400434,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "endanger",
@@ -10198,7 +9984,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400437,
+    "id": 400435,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "engagement",
@@ -10218,12 +10004,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400438,
+    "id": 400436,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "enjoy",
@@ -10246,7 +10030,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400439,
+    "id": 400437,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "enjoyable",
@@ -10269,7 +10053,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400440,
+    "id": 400438,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "enlarge",
@@ -10292,7 +10076,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400441,
+    "id": 400439,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "enormous",
@@ -10315,7 +10099,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400442,
+    "id": 400440,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "enormously",
@@ -10335,12 +10119,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400443,
+    "id": 400441,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "enter",
@@ -10363,7 +10145,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400444,
+    "id": 400442,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "entertaining",
@@ -10383,12 +10165,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400445,
+    "id": 400443,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "enthusiasm",
@@ -10411,7 +10191,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400446,
+    "id": 400444,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "enthusiastic",
@@ -10434,7 +10214,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400447,
+    "id": 400445,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "entire",
@@ -10457,7 +10237,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400448,
+    "id": 400446,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "entitle",
@@ -10480,7 +10260,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400449,
+    "id": 400447,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "entry",
@@ -10503,7 +10283,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400450,
+    "id": 400448,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "envious",
@@ -10526,7 +10306,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400451,
+    "id": 400449,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "environmentally",
@@ -10546,12 +10326,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400452,
+    "id": 400450,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "epidemic",
@@ -10574,7 +10352,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400453,
+    "id": 400451,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "equally",
@@ -10594,12 +10372,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400454,
+    "id": 400452,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "equip",
@@ -10622,32 +10398,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400455,
-    "series": "高中英文高頻率單字庫",
-    "unit": 5,
-    "word": "erm",
-    "pos": "n.",
-    "phonetic": "d33m",
-    "translation": "细齒；病齒；[事物]萌芽丶根源",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "Germs are too small to be visible to the naked eye, so scientists have to use microscopes to study them.",
-    "exampleTr": "细齒小到肉眼看不見：因此科學家必须使用微鏡來研究它們。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#52",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
-  },
-  {
-    "id": 400456,
+    "id": 400453,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "errand",
@@ -10670,7 +10421,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400457,
+    "id": 400454,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "escort",
@@ -10693,7 +10444,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400458,
+    "id": 400455,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "essence",
@@ -10716,7 +10467,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400459,
+    "id": 400456,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "essential",
@@ -10739,7 +10490,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400460,
+    "id": 400457,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "estimate",
@@ -10762,7 +10513,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400461,
+    "id": 400458,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "estimation",
@@ -10782,12 +10533,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400462,
+    "id": 400459,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "evacuate",
@@ -10810,7 +10559,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400463,
+    "id": 400460,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "evaluate",
@@ -10833,7 +10582,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400464,
+    "id": 400461,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "even",
@@ -10856,7 +10605,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400465,
+    "id": 400462,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "eventual",
@@ -10879,7 +10628,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400466,
+    "id": 400463,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "evident",
@@ -10902,32 +10651,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400467,
+    "id": 400464,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
-    "word": "evidentiy",
+    "word": "evidently",
     "pos": "adv.",
-    "phonetic": "evadantl",
-    "translation": "明顯地",
+    "phonetic": "ˈevɪdəntli",
+    "translation": "明顯地；顯然",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "You asked the same question which another student had asked. Evidently, you were not paying attention in class.",
-    "exampleTr": "你問了個剛才另-位同學問過的問題 顯然你上課不專心。",
+    "exampleTr": "你問了剛才另一位同學問過的問題，顯然你上課不專心。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#29",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400468,
+    "id": 400465,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "evolution",
@@ -10950,7 +10697,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400469,
+    "id": 400466,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exact",
@@ -10973,7 +10720,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400470,
+    "id": 400467,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exaggerate",
@@ -10996,7 +10743,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400471,
+    "id": 400468,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exceed",
@@ -11019,7 +10766,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400472,
+    "id": 400469,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exception",
@@ -11042,7 +10789,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400473,
+    "id": 400470,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exceptional",
@@ -11065,7 +10812,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400474,
+    "id": 400471,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "excessive",
@@ -11088,7 +10835,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400475,
+    "id": 400472,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exchange",
@@ -11111,7 +10858,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400476,
+    "id": 400473,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "excite",
@@ -11134,7 +10881,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400477,
+    "id": 400474,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exclude",
@@ -11157,7 +10904,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400478,
+    "id": 400475,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exclusively",
@@ -11177,12 +10924,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400479,
+    "id": 400476,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "excuse",
@@ -11205,7 +10950,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400480,
+    "id": 400477,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "execute",
@@ -11228,7 +10973,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400481,
+    "id": 400478,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exhibit",
@@ -11251,7 +10996,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400482,
+    "id": 400479,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exit",
@@ -11274,7 +11019,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400483,
+    "id": 400480,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "expand",
@@ -11297,7 +11042,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400484,
+    "id": 400481,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "expansion",
@@ -11320,32 +11065,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400485,
-    "series": "高中英文高頻率單字庫",
-    "unit": 5,
-    "word": "expe",
-    "pos": "v.",
-    "phonetic": "k`spel",
-    "translation": "開除；排出；逐",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "Please learn how to use expe in a sentence.",
-    "exampleTr": "請學會如何在句子中使用 expe。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#30",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
-  },
-  {
-    "id": 400486,
+    "id": 400482,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "expect",
@@ -11368,7 +11088,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400487,
+    "id": 400483,
+    "series": "高中英文高頻率單字庫",
+    "unit": 5,
+    "word": "expel",
+    "pos": "v.",
+    "phonetic": "ɪkˈspel",
+    "translation": "開除；驅逐；排出",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "The school may expel students who repeatedly break the rules.",
+    "exampleTr": "學校可能會開除一再違反規定的學生。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#30",
+    "sourceMatchedHighSchoolList": false,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
+  },
+  {
+    "id": 400484,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "expensive",
@@ -11391,7 +11134,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400488,
+    "id": 400485,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "experience",
@@ -11414,7 +11157,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400489,
+    "id": 400486,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "experiment",
@@ -11437,7 +11180,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400490,
+    "id": 400487,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "explanation",
@@ -11460,7 +11203,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400491,
+    "id": 400488,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "explicit",
@@ -11483,7 +11226,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400492,
+    "id": 400489,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "explode",
@@ -11506,7 +11249,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400493,
+    "id": 400490,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exploit",
@@ -11529,7 +11272,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400494,
+    "id": 400491,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "explore",
@@ -11552,7 +11295,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400495,
+    "id": 400492,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "explosion",
@@ -11575,7 +11318,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400496,
+    "id": 400493,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "explosive",
@@ -11598,7 +11341,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400497,
+    "id": 400494,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "expose",
@@ -11621,7 +11364,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400498,
+    "id": 400495,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "exposition",
@@ -11641,12 +11384,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400499,
+    "id": 400496,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "express",
@@ -11669,7 +11410,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400500,
+    "id": 400497,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "expressive",
@@ -11692,7 +11433,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400501,
+    "id": 400498,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "expressively",
@@ -11712,12 +11453,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400502,
+    "id": 400499,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "extension",
@@ -11740,7 +11479,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400503,
+    "id": 400500,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "extensive",
@@ -11763,7 +11502,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400504,
+    "id": 400501,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "extent",
@@ -11786,7 +11525,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400505,
+    "id": 400502,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "externally",
@@ -11806,12 +11545,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400506,
+    "id": 400503,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "extinct",
@@ -11834,7 +11571,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400507,
+    "id": 400504,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "extra",
@@ -11857,7 +11594,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400508,
+    "id": 400505,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "extraordinary",
@@ -11880,7 +11617,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400509,
+    "id": 400506,
     "series": "高中英文高頻率單字庫",
     "unit": 5,
     "word": "extreme",
@@ -11903,7 +11640,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400510,
+    "id": 400507,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fabric",
@@ -11926,7 +11663,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400511,
+    "id": 400508,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "facilitate",
@@ -11949,7 +11686,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400512,
+    "id": 400509,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "facility",
@@ -11972,7 +11709,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400513,
+    "id": 400510,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "factually",
@@ -11992,12 +11729,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400514,
+    "id": 400511,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fade",
@@ -12020,7 +11755,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400515,
+    "id": 400512,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fairly",
@@ -12043,7 +11778,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400516,
+    "id": 400513,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "faithfully",
@@ -12063,37 +11798,33 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400517,
+    "id": 400514,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "falsify",
     "pos": "v.",
     "phonetic": "folsafa",
-    "translation": "偽造；改；曲解",
+    "translation": "偽造；竄改；曲解",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
-    "example": "Please learn how to use falsify in a sentence.",
-    "exampleTr": "請學會如何在句子中使用 falsify。",
+    "example": "The accountant tried to falsify the records.",
+    "exampleTr": "那名會計試圖偽造紀錄。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#31",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400518,
+    "id": 400515,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fame",
@@ -12116,7 +11847,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400519,
+    "id": 400516,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "familiar",
@@ -12139,7 +11870,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400520,
+    "id": 400517,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "familiarity",
@@ -12162,7 +11893,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400521,
+    "id": 400518,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "famously",
@@ -12182,12 +11913,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400522,
+    "id": 400519,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fascinate",
@@ -12210,7 +11939,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400523,
+    "id": 400520,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fashionable",
@@ -12233,7 +11962,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400524,
+    "id": 400521,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fatigue",
@@ -12256,32 +11985,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400525,
+    "id": 400522,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "faulty",
     "pos": "adj.",
     "phonetic": "folt",
-    "translation": "有缺失的；錯误的；不完美的",
+    "translation": "有缺陷的；錯誤的；不完美的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The professor could tell that the student did not put much time into the faulty paper he turned in.",
-    "exampleTr": "教授可以看得出來這個學生没有花很多時間在他交上來的那篇錯百出的報告上。",
+    "exampleTr": "教授看得出來，這名學生沒有花很多時間在交出的那篇錯誤百出的報告上。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#32",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400526,
+    "id": 400523,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "favor",
@@ -12304,7 +12031,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400527,
+    "id": 400524,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "favorably",
@@ -12324,12 +12051,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400528,
+    "id": 400525,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fearful",
@@ -12352,7 +12077,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400529,
+    "id": 400526,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "feasible",
@@ -12375,7 +12100,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400530,
+    "id": 400527,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "feature",
@@ -12398,7 +12123,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400531,
+    "id": 400528,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fierce",
@@ -12421,7 +12146,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400532,
+    "id": 400529,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "figure",
@@ -12444,7 +12169,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400533,
+    "id": 400530,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fill",
@@ -12467,7 +12192,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400534,
+    "id": 400531,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "finance",
@@ -12490,32 +12215,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400535,
+    "id": 400532,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
-    "word": "financia",
+    "word": "financial",
     "pos": "adj.",
-    "phonetic": "fanenjal",
-    "translation": "财政的；财務的",
+    "phonetic": "faɪˈnænʃəl",
+    "translation": "財政的；財務的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "His family has been facing financial problems since the beginning of this year.",
-    "exampleTr": "他家今年起就一-直有著财務困難。",
+    "exampleTr": "他家從今年初開始就一直面臨財務困難。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#32",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400536,
+    "id": 400533,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "financially",
@@ -12535,12 +12258,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400537,
+    "id": 400534,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "finish",
@@ -12563,7 +12284,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400538,
+    "id": 400535,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "firmly",
@@ -12583,12 +12304,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400539,
+    "id": 400536,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fit",
@@ -12611,7 +12330,53 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400540,
+    "id": 400537,
+    "series": "高中英文高頻率單字庫",
+    "unit": 20,
+    "word": "fix",
+    "pos": "n.",
+    "phonetic": "fɪks",
+    "translation": "固定；修理；準備",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "Even while running, the sharpshooter never lost his fix on the target.",
+    "exampleTr": "即使在奔跑中，這位神射手也沒有失去對目標的瞄準。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#33",
+    "sourceMatchedHighSchoolList": false,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
+  },
+  {
+    "id": 400538,
+    "series": "高中英文高頻率單字庫",
+    "unit": 1,
+    "word": "flake",
+    "pos": "n.",
+    "phonetic": "flek",
+    "translation": "小薄片；碎片；片片剝落",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "Snowflakes are glistening on the tree.",
+    "exampleTr": "雪花在樹上閃閃發光。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#33",
+    "sourceMatchedHighSchoolList": false,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
+  },
+  {
+    "id": 400539,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "flexible",
@@ -12634,7 +12399,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400541,
+    "id": 400540,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "flexibly",
@@ -12654,12 +12419,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400542,
+    "id": 400541,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "flock",
@@ -12682,7 +12445,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400543,
+    "id": 400542,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fluent",
@@ -12705,7 +12468,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400544,
+    "id": 400543,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "focus",
@@ -12728,7 +12491,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400545,
+    "id": 400544,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "fold",
@@ -12751,7 +12514,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400546,
+    "id": 400545,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "follower",
@@ -12774,7 +12537,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400547,
+    "id": 400546,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
     "word": "forcibly",
@@ -12794,9 +12557,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
+  },
+  {
+    "id": 400547,
+    "series": "高中英文高頻率單字庫",
+    "unit": 20,
+    "word": "forecast",
+    "pos": "v.",
+    "phonetic": "ˈfɔrˌkæst",
+    "translation": "預報；預測",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "The growth forecast for the economy next year is promising.",
+    "exampleTr": "明年的經濟成長預測看起來很有希望。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#33",
+    "sourceMatchedHighSchoolList": false,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
   },
   {
     "id": 400548,
@@ -12828,23 +12612,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "foresee",
     "pos": "v.",
     "phonetic": "for`si",
-    "translation": "预見",
+    "translation": "預見",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "We should have foreseen the problem months ago.",
-    "exampleTr": "我們早在個月前就該预見這個問題。",
+    "exampleTr": "我們幾個月前就應該預見這個問題。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#33",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400550,
@@ -12899,23 +12681,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "formalize",
     "pos": "v.",
     "phonetic": "formlaiz",
-    "translation": "使形式化；使正式；拘泥淤形式",
+    "translation": "使正式化；使形式化",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
-    "example": "Please learn how to use formalize in a sentence.",
-    "exampleTr": "請學會如何在句子中使用 formalize。",
+    "example": "The two companies will formalize the agreement next week.",
+    "exampleTr": "這兩家公司下週會將協議正式化。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#33",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400553,
@@ -12938,9 +12718,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400554,
@@ -13055,9 +12833,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400559,
@@ -13172,9 +12948,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400564,
@@ -13183,23 +12957,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "frantic",
     "pos": "adj.",
     "phonetic": "frentik",
-    "translation": "瘋狂的；發狂的；慌張的；忙鼠的",
+    "translation": "瘋狂的；發狂的；慌張的；忙亂的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The mother went frantic with worry because her son had been missing for five hours.",
-    "exampleTr": "那名母親急得發瘋了，因為她的兒子已失五小時之久。",
+    "exampleTr": "那位母親擔心得快發瘋，因為她的兒子已經失蹤五個小時了。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#34",
     "sourceMatchedHighSchoolList": true,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 中文可能有辨識錯字，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400565,
@@ -13314,9 +13086,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400570,
@@ -13362,9 +13132,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400572,
@@ -13416,26 +13184,24 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "id": 400574,
     "series": "高中英文高頻率單字庫",
     "unit": 6,
-    "word": "fufill",
+    "word": "fulfill",
     "pos": "v.",
-    "phonetic": "fufl",
-    "translation": "完成；實；達成；履行；執行",
+    "phonetic": "fʊlˈfɪl",
+    "translation": "完成；實現；履行",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Visiting Disneyland is a childhood dream that I would love to fulfill.",
-    "exampleTr": "造訪迪士尼樂園是一個我想實現的兒時夢想。",
+    "exampleTr": "造訪迪士尼樂園是我想實現的兒時夢想。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#34",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400575,
@@ -13458,9 +13224,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400576,
@@ -13598,9 +13362,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400582,
@@ -13761,9 +13523,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400589,
@@ -13791,6 +13551,29 @@ export const HIGH_FREQUENCY_VOCABULARY = [
   {
     "id": 400590,
     "series": "高中英文高頻率單字庫",
+    "unit": 5,
+    "word": "germ",
+    "pos": "n.",
+    "phonetic": "dʒɝm",
+    "translation": "細菌；病菌；起源",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "Germs are too small to be visible to the naked eye, so scientists have to use microscopes to study them.",
+    "exampleTr": "病菌小到肉眼看不見，因此科學家必須用顯微鏡研究它們。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#52",
+    "sourceMatchedHighSchoolList": false,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
+  },
+  {
+    "id": 400591,
+    "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "giggle",
     "pos": "v.",
@@ -13812,7 +13595,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400591,
+    "id": 400592,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "glide",
@@ -13835,7 +13618,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400592,
+    "id": 400593,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "glorious",
@@ -13858,7 +13641,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400593,
+    "id": 400594,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "glory",
@@ -13881,7 +13664,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400594,
+    "id": 400595,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "gossip",
@@ -13904,7 +13687,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400595,
+    "id": 400596,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "govern",
@@ -13927,7 +13710,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400596,
+    "id": 400597,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "government",
@@ -13950,7 +13733,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400597,
+    "id": 400598,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "graceful",
@@ -13973,7 +13756,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400598,
+    "id": 400599,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "gradual",
@@ -13996,7 +13779,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400599,
+    "id": 400600,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "gradually",
@@ -14016,12 +13799,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400600,
+    "id": 400601,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "grateful",
@@ -14044,7 +13825,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400601,
+    "id": 400602,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "gratefully",
@@ -14064,12 +13845,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400602,
+    "id": 400603,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "gratitude",
@@ -14092,7 +13871,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400603,
+    "id": 400604,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "greed",
@@ -14115,7 +13894,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400604,
+    "id": 400605,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "guarantee",
@@ -14138,7 +13917,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400605,
+    "id": 400606,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "guest",
@@ -14161,7 +13940,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400606,
+    "id": 400607,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "guide",
@@ -14184,7 +13963,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400607,
+    "id": 400608,
     "series": "高中英文高頻率單字庫",
     "unit": 7,
     "word": "guilty",
@@ -14207,7 +13986,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400608,
+    "id": 400609,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hacker",
@@ -14230,7 +14009,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400609,
+    "id": 400610,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hail",
@@ -14253,7 +14032,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400610,
+    "id": 400611,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "handily",
@@ -14273,18 +14052,16 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400611,
+    "id": 400612,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
-    "word": "handsorme",
+    "word": "handsome",
     "pos": "adj.",
-    "phonetic": "hensam",
-    "translation": "英俊的；可巍的",
+    "phonetic": "ˈhænsəm",
+    "translation": "英俊的；可觀的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
@@ -14298,12 +14075,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400612,
+    "id": 400613,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "handy",
@@ -14326,7 +14101,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400613,
+    "id": 400614,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "happy-natured",
@@ -14346,12 +14121,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400614,
+    "id": 400615,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hardly",
@@ -14374,7 +14147,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400615,
+    "id": 400616,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hardship",
@@ -14397,7 +14170,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400616,
+    "id": 400617,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "harmony",
@@ -14420,7 +14193,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400617,
+    "id": 400618,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "harsh",
@@ -14443,7 +14216,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400618,
+    "id": 400619,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "haste",
@@ -14466,7 +14239,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400619,
+    "id": 400620,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hasten",
@@ -14489,32 +14262,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400620,
+    "id": 400621,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
-    "word": "hatefu",
+    "word": "hateful",
     "pos": "adj.",
-    "phonetic": "hetfal",
-    "translation": "可恨的；可恶的",
+    "phonetic": "ˈhetfəl",
+    "translation": "可恨的；可惡的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The wicked stepmother and ugly stepsisters in Cinderella are the hateful villains of the story.",
-    "exampleTr": "在灰姑娘适個故事裡，心眼的後母和醜陋的姐姐們都是故事中令人讨的反派角色。",
+    "exampleTr": "在灰姑娘這個故事裡，狠心的繼母和醜陋的姐姐們都是令人討厭的反派角色。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#47",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400621,
+    "id": 400622,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "headline",
@@ -14537,7 +14308,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400622,
+    "id": 400623,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "heavy",
@@ -14560,7 +14331,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400623,
+    "id": 400624,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "helpful",
@@ -14583,7 +14354,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400624,
+    "id": 400625,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "helpless",
@@ -14603,12 +14374,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400625,
+    "id": 400626,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "herbal",
@@ -14628,12 +14397,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400626,
+    "id": 400627,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "herd",
@@ -14656,32 +14423,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400627,
+    "id": 400628,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hermit",
     "pos": "n.",
     "phonetic": "h3mt",
-    "translation": "士；猫居性的動物",
+    "translation": "隱士；獨居性的動物",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "I found a hermit crab on my stroll along the beach yesterday.",
-    "exampleTr": "我昨天沿著海潍上漫步時發現-一双寄居蟹。",
+    "exampleTr": "我昨天沿著海灘散步時發現一隻寄居蟹。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#47",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400628,
+    "id": 400629,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hesitate",
@@ -14704,7 +14469,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400629,
+    "id": 400630,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hesitation",
@@ -14727,7 +14492,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400630,
+    "id": 400631,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "highlight",
@@ -14750,7 +14515,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400631,
+    "id": 400632,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "historical",
@@ -14773,7 +14538,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400632,
+    "id": 400633,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hold",
@@ -14796,7 +14561,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400633,
+    "id": 400634,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hollow",
@@ -14819,7 +14584,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400634,
+    "id": 400635,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "homeland",
@@ -14842,7 +14607,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400635,
+    "id": 400636,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "honest",
@@ -14865,7 +14630,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400636,
+    "id": 400637,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "honorable",
@@ -14888,7 +14653,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400637,
+    "id": 400638,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "honorably",
@@ -14908,12 +14673,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400638,
+    "id": 400639,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hopeful",
@@ -14936,7 +14699,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400639,
+    "id": 400640,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hostile",
@@ -14959,7 +14722,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400640,
+    "id": 400641,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hover",
@@ -14982,7 +14745,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400641,
+    "id": 400642,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "humanity",
@@ -15005,7 +14768,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400642,
+    "id": 400643,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "humiliate",
@@ -15028,7 +14791,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400643,
+    "id": 400644,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "humorous",
@@ -15051,7 +14814,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400644,
+    "id": 400645,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hunger",
@@ -15074,7 +14837,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400645,
+    "id": 400646,
     "series": "高中英文高頻率單字庫",
     "unit": 8,
     "word": "hysterically",
@@ -15094,12 +14857,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400646,
+    "id": 400647,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "ideally",
@@ -15119,12 +14880,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400647,
+    "id": 400648,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "identical",
@@ -15147,7 +14906,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400648,
+    "id": 400649,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "identify",
@@ -15168,31 +14927,6 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "total": 0,
     "proficiency": 0,
     "nextReview": 0
-  },
-  {
-    "id": 400649,
-    "series": "高中英文高頻率單字庫",
-    "unit": 9,
-    "word": "iecture",
-    "pos": "v.",
-    "phonetic": "ekto",
-    "translation": "演講；講課n.演講；講課",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "The professor will lecture the students on honesty.",
-    "exampleTr": "那位教授對學生們演講，主題是誠實。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#45",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
   },
   {
     "id": 400650,
@@ -15261,9 +14995,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400653,
@@ -15447,9 +15179,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400661,
@@ -15472,9 +15202,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400662,
@@ -15520,9 +15248,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400664,
@@ -15531,23 +15257,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "impatient",
     "pos": "adj.",
     "phonetic": "mpe[ant",
-    "translation": "不耐的",
+    "translation": "不耐煩的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "When she's impatient about something, she taps her foot on the floor.",
-    "exampleTr": "当地對事情没耐性的時候就會用踏著地面。",
+    "exampleTr": "當她對某件事情不耐煩時，她會用腳敲地板。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#16",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400665,
@@ -15570,9 +15294,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400666,
@@ -15618,9 +15340,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400668,
@@ -15758,9 +15478,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400674,
@@ -15783,9 +15501,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400675,
@@ -15808,9 +15524,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400676,
@@ -15948,9 +15662,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400682,
@@ -15959,23 +15671,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "inadequate",
     "pos": "adj.",
     "phonetic": "Incedakwit",
-    "translation": "不充足的；不足勝任的；信心不足的",
+    "translation": "不充足的；不足以勝任的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "More and more people are crowding into the city, but its infrastructure is inadequate for the growing population.",
-    "exampleTr": "越來越多人入這座城市，但是它的基設施不足以愿付增加的人口。",
+    "exampleTr": "越來越多人湧入這座城市，但是它的基礎設施不足以應付增加的人口。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#17",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400683,
@@ -15984,23 +15694,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "inappropriate",
     "pos": "adj.",
     "phonetic": "inapropriat",
-    "translation": "不妥当的；不得體的",
+    "translation": "不適當的；不得體的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Pulling other people's hair in class is inappropriate.",
-    "exampleTr": "在課堂上拉别人的頭髮是不得體的。",
+    "exampleTr": "在課堂上拉別人的頭髮是不適當的。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#17",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400684,
@@ -16253,9 +15961,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400695,
@@ -16301,9 +16007,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400697,
@@ -16349,9 +16053,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400699,
@@ -16374,9 +16076,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400700,
@@ -16468,9 +16168,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400704,
@@ -16562,9 +16260,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400708,
@@ -16587,9 +16283,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400709,
@@ -16658,9 +16352,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400712,
@@ -16752,9 +16444,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400716,
@@ -16823,9 +16513,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400719,
@@ -16848,9 +16536,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400720,
@@ -17103,9 +16789,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 400731,
@@ -17133,6 +16817,29 @@ export const HIGH_FREQUENCY_VOCABULARY = [
   {
     "id": 400732,
     "series": "高中英文高頻率單字庫",
+    "unit": 14,
+    "word": "intensify",
+    "pos": "v.",
+    "phonetic": "ɪnˈtensəˌfaɪ",
+    "translation": "增強；強化；加劇",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "The civil war intensified after the brutal suppression by the military.",
+    "exampleTr": "內戰在軍隊殘酷鎮壓後變得更加激烈。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#19",
+    "sourceMatchedHighSchoolList": false,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
+  },
+  {
+    "id": 400733,
+    "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intensity",
     "pos": "n.",
@@ -17154,7 +16861,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400733,
+    "id": 400734,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intensive",
@@ -17177,7 +16884,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400734,
+    "id": 400735,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intensively",
@@ -17197,12 +16904,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400735,
+    "id": 400736,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intention",
@@ -17225,7 +16930,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400736,
+    "id": 400737,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intentionally",
@@ -17245,12 +16950,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400737,
+    "id": 400738,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "interaction",
@@ -17273,7 +16976,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400738,
+    "id": 400739,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "interesting",
@@ -17296,7 +16999,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400739,
+    "id": 400740,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "interfere",
@@ -17319,7 +17022,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400740,
+    "id": 400741,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "interference",
@@ -17342,7 +17045,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400741,
+    "id": 400742,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "interpret",
@@ -17365,7 +17068,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400742,
+    "id": 400743,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "interrupt",
@@ -17388,7 +17091,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400743,
+    "id": 400744,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intimacy",
@@ -17411,7 +17114,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400744,
+    "id": 400745,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intimate",
@@ -17434,7 +17137,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400745,
+    "id": 400746,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intimately",
@@ -17454,12 +17157,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400746,
+    "id": 400747,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intimidate",
@@ -17482,7 +17183,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400747,
+    "id": 400748,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intonation",
@@ -17505,7 +17206,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400748,
+    "id": 400749,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "intuition",
@@ -17528,7 +17229,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400749,
+    "id": 400750,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "invade",
@@ -17551,7 +17252,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400750,
+    "id": 400751,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "invent",
@@ -17574,7 +17275,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400751,
+    "id": 400752,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "invest",
@@ -17597,7 +17298,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400752,
+    "id": 400753,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "investigation",
@@ -17620,7 +17321,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400753,
+    "id": 400754,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "invisible",
@@ -17640,12 +17341,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400754,
+    "id": 400755,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "involvement",
@@ -17665,12 +17364,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400755,
+    "id": 400756,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "ironically",
@@ -17690,12 +17387,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400756,
+    "id": 400757,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "irritate",
@@ -17718,7 +17413,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400757,
+    "id": 400758,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "isolate",
@@ -17741,7 +17436,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400758,
+    "id": 400759,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "isolation",
@@ -17764,7 +17459,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400759,
+    "id": 400760,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "issue",
@@ -17787,32 +17482,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400760,
+    "id": 400761,
     "series": "高中英文高頻率單字庫",
     "unit": 9,
     "word": "itchy",
     "pos": "adj.",
     "phonetic": "itfi",
-    "translation": "發的",
+    "translation": "發癢的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The healing wound is so itchy that I can't help scratching it.",
-    "exampleTr": "那個愈合中的口實在太了，我忍不住一直抓。",
+    "exampleTr": "那個正在癒合的傷口實在太癢了，我忍不住一直抓。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#21",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400761,
+    "id": 400762,
     "series": "高中英文高頻率單字庫",
     "unit": 10,
     "word": "journey",
@@ -17835,7 +17528,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400762,
+    "id": 400763,
     "series": "高中英文高頻率單字庫",
     "unit": 10,
     "word": "joyous",
@@ -17858,7 +17551,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400763,
+    "id": 400764,
     "series": "高中英文高頻率單字庫",
     "unit": 10,
     "word": "justification",
@@ -17878,12 +17571,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400764,
+    "id": 400765,
     "series": "高中英文高頻率單字庫",
     "unit": 10,
     "word": "justify",
@@ -17906,7 +17597,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400765,
+    "id": 400766,
     "series": "高中英文高頻率單字庫",
     "unit": 11,
     "word": "kidnap",
@@ -17929,32 +17620,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400766,
+    "id": 400767,
     "series": "高中英文高頻率單字庫",
     "unit": 11,
     "word": "know-how",
     "pos": "n.",
     "phonetic": "nohau",
-    "translation": "技能；實際知",
+    "translation": "技能；實際知識",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
-    "example": "With the right know-how, you will be able.to take care of the problem.",
-    "exampleTr": "有了正確的技能：你就能解決問題。",
+    "example": "With the right know-how, you will be able to take care of the problem.",
+    "exampleTr": "有了正確的技能，你就能解決問題。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#58",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400767,
+    "id": 400768,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "label",
@@ -17977,7 +17666,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400768,
+    "id": 400769,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "landslide",
@@ -18000,7 +17689,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400769,
+    "id": 400770,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "lasting",
@@ -18020,12 +17709,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400770,
+    "id": 400771,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "launch",
@@ -18048,7 +17735,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400771,
+    "id": 400772,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "laziness",
@@ -18068,12 +17755,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400772,
+    "id": 400773,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "leadership",
@@ -18096,7 +17781,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400773,
+    "id": 400774,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "leak",
@@ -18119,7 +17804,53 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400774,
+    "id": 400775,
+    "series": "高中英文高頻率單字庫",
+    "unit": 5,
+    "word": "lean",
+    "pos": "v.",
+    "phonetic": "lin",
+    "translation": "倚靠；傾斜",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "He leans against the wall for support.",
+    "exampleTr": "他靠著牆支撐身體。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#45",
+    "sourceMatchedHighSchoolList": false,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
+  },
+  {
+    "id": 400776,
+    "series": "高中英文高頻率單字庫",
+    "unit": 9,
+    "word": "lecture",
+    "pos": "v.",
+    "phonetic": "ˈlektʃɚ",
+    "translation": "演講；講課",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "The professor will lecture the students on honesty.",
+    "exampleTr": "那位教授會對學生們講授誠實這個主題。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#45",
+    "sourceMatchedHighSchoolList": false,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
+  },
+  {
+    "id": 400777,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "legal",
@@ -18142,7 +17873,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400775,
+    "id": 400778,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "legend",
@@ -18165,7 +17896,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400776,
+    "id": 400779,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "legendary",
@@ -18188,7 +17919,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400777,
+    "id": 400780,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "legitimate",
@@ -18211,7 +17942,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400778,
+    "id": 400781,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "lengthen",
@@ -18234,7 +17965,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400779,
+    "id": 400782,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "lengthy",
@@ -18257,32 +17988,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400780,
+    "id": 400783,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "liberalize",
     "pos": "v.",
     "phonetic": "libaradlalz",
-    "translation": "使.…自由主羲化；放；使.自由化",
+    "translation": "使自由化；放寬限制",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "It is a worldwide trend to liberalize the media.",
-    "exampleTr": "媒體自由化是世界性的趣勢。",
+    "exampleTr": "媒體自由化是一個世界性的趨勢。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#45",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400781,
+    "id": 400784,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "liberally",
@@ -18302,12 +18031,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400782,
+    "id": 400785,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "liberate",
@@ -18330,7 +18057,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400783,
+    "id": 400786,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "liberation",
@@ -18353,7 +18080,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400784,
+    "id": 400787,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "liberty",
@@ -18376,7 +18103,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400785,
+    "id": 400788,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "license",
@@ -18399,7 +18126,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400786,
+    "id": 400789,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "lift",
@@ -18422,7 +18149,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400787,
+    "id": 400790,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "light",
@@ -18445,7 +18172,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400788,
+    "id": 400791,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "lighten",
@@ -18468,7 +18195,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400789,
+    "id": 400792,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "likable",
@@ -18488,12 +18215,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400790,
+    "id": 400793,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "likely",
@@ -18516,7 +18241,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400791,
+    "id": 400794,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "likewise",
@@ -18539,7 +18264,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400792,
+    "id": 400795,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "limitation",
@@ -18562,7 +18287,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400793,
+    "id": 400796,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "listing",
@@ -18582,12 +18307,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400794,
+    "id": 400797,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "literally",
@@ -18607,12 +18330,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400795,
+    "id": 400798,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "lnderstanding",
@@ -18632,12 +18353,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400796,
+    "id": 400799,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "local",
@@ -18660,32 +18379,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400797,
+    "id": 400800,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
-    "word": "logica",
+    "word": "logical",
     "pos": "adj.",
-    "phonetic": "ladsik",
-    "translation": "合避的",
+    "phonetic": "ˈlɑdʒɪkəl",
+    "translation": "合邏輯的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "His reasoning seemed logical.",
-    "exampleTr": "他的推理似乎很合避辑。",
+    "exampleTr": "他的推理似乎很合邏輯。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#46",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400798,
+    "id": 400801,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "long",
@@ -18708,7 +18425,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400799,
+    "id": 400802,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "look",
@@ -18731,7 +18448,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400800,
+    "id": 400803,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "loose",
@@ -18754,7 +18471,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400801,
+    "id": 400804,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "loosely",
@@ -18774,12 +18491,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400802,
+    "id": 400805,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "loosen",
@@ -18802,7 +18517,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400803,
+    "id": 400806,
     "series": "高中英文高頻率單字庫",
     "unit": 12,
     "word": "luxury",
@@ -18825,7 +18540,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400804,
+    "id": 400807,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "machinery",
@@ -18848,7 +18563,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400805,
+    "id": 400808,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "madness",
@@ -18868,12 +18583,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400806,
+    "id": 400809,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "magnetic",
@@ -18896,7 +18609,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400807,
+    "id": 400810,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "magnificent",
@@ -18919,7 +18632,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400808,
+    "id": 400811,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mainly",
@@ -18939,12 +18652,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400809,
+    "id": 400812,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "maintain",
@@ -18967,7 +18678,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400810,
+    "id": 400813,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "make",
@@ -18990,7 +18701,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400811,
+    "id": 400814,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "manageable",
@@ -19010,12 +18721,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400812,
+    "id": 400815,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "manipulate",
@@ -19038,7 +18747,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400813,
+    "id": 400816,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "manner",
@@ -19061,7 +18770,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400814,
+    "id": 400817,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mansion",
@@ -19084,7 +18793,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400815,
+    "id": 400818,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "manual",
@@ -19107,7 +18816,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400816,
+    "id": 400819,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "manufacture",
@@ -19130,7 +18839,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400817,
+    "id": 400820,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "March",
@@ -19153,7 +18862,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400818,
+    "id": 400821,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "margin",
@@ -19176,7 +18885,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400819,
+    "id": 400822,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "marvelous",
@@ -19199,7 +18908,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400820,
+    "id": 400823,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "massive",
@@ -19222,7 +18931,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400821,
+    "id": 400824,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "massively",
@@ -19242,12 +18951,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400822,
+    "id": 400825,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mature",
@@ -19270,7 +18977,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400823,
+    "id": 400826,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "maturity",
@@ -19293,7 +19000,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400824,
+    "id": 400827,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "maximum",
@@ -19316,7 +19023,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400825,
+    "id": 400828,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mean",
@@ -19339,7 +19046,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400826,
+    "id": 400829,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "measure",
@@ -19362,7 +19069,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400827,
+    "id": 400830,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mechanic",
@@ -19385,32 +19092,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400828,
+    "id": 400831,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
-    "word": "meda",
+    "word": "medal",
     "pos": "n.",
-    "phonetic": "med",
-    "translation": "葵章；動章；葵牌",
+    "phonetic": "ˈmedəl",
+    "translation": "獎章；勳章；獎牌",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "It was unbelievable that the underdog won the gold medal.",
-    "exampleTr": "那個實力差且不被看好的選手赢得了金牌，真是令人難以置信。",
+    "exampleTr": "那個實力較弱且不被看好的選手贏得金牌，真是令人難以置信。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#40",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400829,
+    "id": 400832,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mediate",
@@ -19433,7 +19138,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400830,
+    "id": 400833,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "medication",
@@ -19456,7 +19161,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400831,
+    "id": 400834,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "melancholy",
@@ -19479,7 +19184,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400832,
+    "id": 400835,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "memorable",
@@ -19502,7 +19207,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400833,
+    "id": 400836,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "memory",
@@ -19525,7 +19230,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400834,
+    "id": 400837,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "merely",
@@ -19545,12 +19250,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400835,
+    "id": 400838,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "message",
@@ -19573,7 +19276,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400836,
+    "id": 400839,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "messenger",
@@ -19596,7 +19299,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400837,
+    "id": 400840,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mingle",
@@ -19619,7 +19322,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400838,
+    "id": 400841,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "minimize",
@@ -19642,7 +19345,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400839,
+    "id": 400842,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "minimum",
@@ -19665,7 +19368,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400840,
+    "id": 400843,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "miracle",
@@ -19688,7 +19391,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400841,
+    "id": 400844,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mischief",
@@ -19711,7 +19414,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400842,
+    "id": 400845,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "miserable",
@@ -19734,7 +19437,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400843,
+    "id": 400846,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "misery",
@@ -19757,7 +19460,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400844,
+    "id": 400847,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mission",
@@ -19780,7 +19483,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400845,
+    "id": 400848,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mistakenly",
@@ -19800,37 +19503,33 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400846,
+    "id": 400849,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mistreat",
     "pos": "v.",
     "phonetic": "mistrit",
-    "translation": "虚待",
+    "translation": "虐待",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "I hope the boy will not mistreat his new puppy.",
-    "exampleTr": "我希望小男孩不要虐待他新餐的小狗。",
+    "exampleTr": "我希望這個男孩不要虐待他新養的小狗。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#40",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400847,
+    "id": 400850,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mobilize",
@@ -19853,32 +19552,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400848,
-    "series": "高中英文高頻率單字庫",
-    "unit": 13,
-    "word": "mocest",
-    "pos": "adj.",
-    "phonetic": "madist",
-    "translation": "谦虚的；霉慎的",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "The student is modest despite winning the championship at the math contest.",
-    "exampleTr": "管這個學生赢得了數學競赛的冠軍，他還是很虚。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#41",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
-  },
-  {
-    "id": 400849,
+    "id": 400851,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "moderate",
@@ -19901,7 +19575,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400850,
+    "id": 400852,
+    "series": "高中英文高頻率單字庫",
+    "unit": 13,
+    "word": "modest",
+    "pos": "adj.",
+    "phonetic": "ˈmɑdɪst",
+    "translation": "謙虛的；樸素的",
+    "collocation": "",
+    "phrase": "",
+    "phraseTr": "",
+    "phraseExample": "",
+    "phraseExampleTr": "",
+    "example": "The student is modest despite winning the championship at the math contest.",
+    "exampleTr": "儘管這名學生贏得數學競賽冠軍，他仍然很謙虛。",
+    "source": "授權掃描高頻單字書",
+    "sourcePage": "20260703224039477.tif#41",
+    "sourceMatchedHighSchoolList": false,
+    "correct": 0,
+    "total": 0,
+    "proficiency": 0,
+    "nextReview": 0
+  },
+  {
+    "id": 400853,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "modify",
@@ -19924,7 +19621,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400851,
+    "id": 400854,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "monitor",
@@ -19947,7 +19644,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400852,
+    "id": 400855,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "monotony",
@@ -19970,7 +19667,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400853,
+    "id": 400856,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "monument",
@@ -19993,7 +19690,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400854,
+    "id": 400857,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mood",
@@ -20016,7 +19713,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400855,
+    "id": 400858,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "moral",
@@ -20039,7 +19736,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400856,
+    "id": 400859,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "morally",
@@ -20059,12 +19756,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400857,
+    "id": 400860,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mostly",
@@ -20087,7 +19782,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400858,
+    "id": 400861,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "motion",
@@ -20110,7 +19805,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400859,
+    "id": 400862,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "move",
@@ -20133,7 +19828,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400860,
+    "id": 400863,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "movement",
@@ -20153,12 +19848,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400861,
+    "id": 400864,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "murmur",
@@ -20181,7 +19874,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400862,
+    "id": 400865,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mutual",
@@ -20204,7 +19897,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400863,
+    "id": 400866,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mutually",
@@ -20224,12 +19917,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400864,
+    "id": 400867,
     "series": "高中英文高頻率單字庫",
     "unit": 13,
     "word": "mystery",
@@ -20252,7 +19943,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400865,
+    "id": 400868,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "naive",
@@ -20275,7 +19966,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400866,
+    "id": 400869,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "namely",
@@ -20298,7 +19989,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400867,
+    "id": 400870,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "narrow",
@@ -20321,7 +20012,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400868,
+    "id": 400871,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "narrowly",
@@ -20341,12 +20032,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400869,
+    "id": 400872,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "native",
@@ -20369,7 +20058,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400870,
+    "id": 400873,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "natural",
@@ -20392,7 +20081,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400871,
+    "id": 400874,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "naturally",
@@ -20412,12 +20101,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400872,
+    "id": 400875,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "near",
@@ -20440,7 +20127,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400873,
+    "id": 400876,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "nearly",
@@ -20463,7 +20150,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400874,
+    "id": 400877,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "necessarily",
@@ -20483,12 +20170,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400875,
+    "id": 400878,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "necessary",
@@ -20511,7 +20196,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400876,
+    "id": 400879,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "neglect",
@@ -20534,7 +20219,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400877,
+    "id": 400880,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "nominate",
@@ -20557,7 +20242,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400878,
+    "id": 400881,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "normal",
@@ -20580,7 +20265,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400879,
+    "id": 400882,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "noticeable",
@@ -20603,7 +20288,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400880,
+    "id": 400883,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "notify",
@@ -20626,7 +20311,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400881,
+    "id": 400884,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "notoriously",
@@ -20646,37 +20331,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400882,
-    "series": "高中英文高頻率單字庫",
-    "unit": 14,
-    "word": "ntensify",
-    "pos": "v.",
-    "phonetic": "intensafai",
-    "translation": "增强；強化",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "The cimil war intensified after the brutal suppression by the military.",
-    "exampleTr": "购或在事隧残暴的镇壓之後變得更加激烈。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#19",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
-  },
-  {
-    "id": 400883,
+    "id": 400885,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "nuisance",
@@ -20696,12 +20354,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400884,
+    "id": 400886,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "numerous",
@@ -20724,7 +20380,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400885,
+    "id": 400887,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "numerously",
@@ -20744,12 +20400,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400886,
+    "id": 400888,
     "series": "高中英文高頻率單字庫",
     "unit": 14,
     "word": "nutrition",
@@ -20772,7 +20426,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400887,
+    "id": 400889,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "obediently",
@@ -20792,12 +20446,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400888,
+    "id": 400890,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "objection",
@@ -20820,7 +20472,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400889,
+    "id": 400891,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "objective",
@@ -20843,7 +20495,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400890,
+    "id": 400892,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "obligation",
@@ -20866,7 +20518,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400891,
+    "id": 400893,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "observation",
@@ -20889,7 +20541,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400892,
+    "id": 400894,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "observe",
@@ -20912,7 +20564,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400893,
+    "id": 400895,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "obstacle",
@@ -20935,32 +20587,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400894,
+    "id": 400896,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "obstruct",
     "pos": "v.",
     "phonetic": "ob`strAkt",
-    "translation": "阻塞",
+    "translation": "阻塞；妨礙",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The fallen tree branches obstruct the road.",
-    "exampleTr": "倒下來的樹枝檔住了馬路。",
+    "exampleTr": "倒下的樹枝擋住了道路。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#42",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400895,
+    "id": 400897,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "obtain",
@@ -20983,7 +20633,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400896,
+    "id": 400898,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "obvious",
@@ -21006,7 +20656,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400897,
+    "id": 400899,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "obviously",
@@ -21026,12 +20676,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400898,
+    "id": 400900,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "occasionally",
@@ -21051,12 +20699,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400899,
+    "id": 400901,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "occupy",
@@ -21079,7 +20725,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400900,
+    "id": 400902,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "occur",
@@ -21102,7 +20748,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400901,
+    "id": 400903,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "offense",
@@ -21125,7 +20771,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400902,
+    "id": 400904,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "official",
@@ -21148,7 +20794,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400903,
+    "id": 400905,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "operate",
@@ -21171,7 +20817,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400904,
+    "id": 400906,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "operation",
@@ -21194,7 +20840,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400905,
+    "id": 400907,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "opinion",
@@ -21217,7 +20863,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400906,
+    "id": 400908,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "opposition",
@@ -21240,7 +20886,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400907,
+    "id": 400909,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "oppress",
@@ -21263,7 +20909,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400908,
+    "id": 400910,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "optional",
@@ -21286,7 +20932,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400909,
+    "id": 400911,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "optionally",
@@ -21306,12 +20952,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400910,
+    "id": 400912,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "orbit",
@@ -21334,7 +20978,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400911,
+    "id": 400913,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "order",
@@ -21357,7 +21001,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400912,
+    "id": 400914,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "organization",
@@ -21380,7 +21024,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400913,
+    "id": 400915,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "organize",
@@ -21403,7 +21047,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400914,
+    "id": 400916,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "orient",
@@ -21426,7 +21070,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400915,
+    "id": 400917,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "orientation",
@@ -21449,7 +21093,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400916,
+    "id": 400918,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "original",
@@ -21472,7 +21116,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400917,
+    "id": 400919,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "ornament",
@@ -21495,7 +21139,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400918,
+    "id": 400920,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "otherwise",
@@ -21518,7 +21162,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400919,
+    "id": 400921,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "outbreak",
@@ -21541,7 +21185,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400920,
+    "id": 400922,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "outgoing",
@@ -21564,7 +21208,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400921,
+    "id": 400923,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "outnumber",
@@ -21587,7 +21231,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400922,
+    "id": 400924,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "outrageous",
@@ -21610,32 +21254,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400923,
+    "id": 400925,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "overcharge",
     "pos": "v.",
     "phonetic": "ovetfard3",
-    "translation": "索價過高",
+    "translation": "索價過高；多收費",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The salesman overcharged the customer for the computer.",
-    "exampleTr": "销售員向買這台電腦的顧客過度收費。",
+    "exampleTr": "那名銷售員向購買電腦的顧客收取過高的費用。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#43",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400924,
+    "id": 400926,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "overcome",
@@ -21658,7 +21300,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400925,
+    "id": 400927,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "overflow",
@@ -21681,32 +21323,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400926,
+    "id": 400928,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "overgrow",
     "pos": "v.",
     "phonetic": "ovogro",
-    "translation": "生長過快；長得遇大；使…長满",
+    "translation": "長滿；過度生長",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The garden was overgrown with roses when we visited it in summer.",
-    "exampleTr": "我們夏天去造訪的時候：花園裡長满了蔷薇。",
+    "exampleTr": "我們夏天造訪時，花園裡長滿了玫瑰。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#43",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400927,
+    "id": 400929,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "overlook",
@@ -21729,32 +21369,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400928,
+    "id": 400930,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "override",
     "pos": "v.",
     "phonetic": "overaid",
-    "translation": "[以權力]否決、推翻(決定）；改以手動來操控：",
+    "translation": "否決；推翻；改以手動控制",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Google's self-driving cars allow humans to override the autonomous driving systems when necessary.",
-    "exampleTr": "谷歌的自動駕融車允許人類在必要情況下將自動駕融改成手動駕。",
+    "exampleTr": "Google 的自動駕駛車允許人在必要時改以手動控制自動駕駛系統。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#44",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400929,
+    "id": 400931,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "overthrow",
@@ -21777,7 +21415,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400930,
+    "id": 400932,
     "series": "高中英文高頻率單字庫",
     "unit": 15,
     "word": "owner",
@@ -21800,7 +21438,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400931,
+    "id": 400933,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "pace",
@@ -21823,7 +21461,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400932,
+    "id": 400934,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "pack",
@@ -21846,7 +21484,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400933,
+    "id": 400935,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "painful",
@@ -21869,7 +21507,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400934,
+    "id": 400936,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "paralyze",
@@ -21892,7 +21530,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400935,
+    "id": 400937,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "partial",
@@ -21915,7 +21553,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400936,
+    "id": 400938,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "participate",
@@ -21938,7 +21576,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400937,
+    "id": 400939,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "particle",
@@ -21961,7 +21599,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400938,
+    "id": 400940,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "particular",
@@ -21984,7 +21622,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400939,
+    "id": 400941,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "passionate",
@@ -22007,7 +21645,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400940,
+    "id": 400942,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "passionately",
@@ -22027,12 +21665,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400941,
+    "id": 400943,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "passive",
@@ -22055,7 +21691,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400942,
+    "id": 400944,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "path",
@@ -22078,7 +21714,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400943,
+    "id": 400945,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "patient",
@@ -22101,7 +21737,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400944,
+    "id": 400946,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "patriot",
@@ -22124,7 +21760,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400945,
+    "id": 400947,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "pay",
@@ -22147,7 +21783,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400946,
+    "id": 400948,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "peaceful",
@@ -22170,7 +21806,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400947,
+    "id": 400949,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "peculiar",
@@ -22193,7 +21829,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400948,
+    "id": 400950,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "pedal",
@@ -22216,7 +21852,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400949,
+    "id": 400951,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "penalty",
@@ -22239,7 +21875,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400950,
+    "id": 400952,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "perceive",
@@ -22262,7 +21898,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400951,
+    "id": 400953,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "perfection",
@@ -22285,7 +21921,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400952,
+    "id": 400954,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "perform",
@@ -22308,7 +21944,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400953,
+    "id": 400955,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "performance",
@@ -22331,7 +21967,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400954,
+    "id": 400956,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "perish",
@@ -22354,7 +21990,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400955,
+    "id": 400957,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "permanent",
@@ -22377,7 +22013,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400956,
+    "id": 400958,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "permanently",
@@ -22397,12 +22033,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400957,
+    "id": 400959,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "permission",
@@ -22425,7 +22059,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400958,
+    "id": 400960,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "permit",
@@ -22448,7 +22082,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400959,
+    "id": 400961,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "persist",
@@ -22471,7 +22105,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400960,
+    "id": 400962,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "persuasive",
@@ -22494,7 +22128,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400961,
+    "id": 400963,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "plausible",
@@ -22514,12 +22148,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400962,
+    "id": 400964,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "player",
@@ -22542,7 +22174,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400963,
+    "id": 400965,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "please",
@@ -22565,7 +22197,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400964,
+    "id": 400966,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "plentiful",
@@ -22588,7 +22220,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400965,
+    "id": 400967,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "poison",
@@ -22611,7 +22243,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400966,
+    "id": 400968,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "polish",
@@ -22634,7 +22266,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400967,
+    "id": 400969,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "politically",
@@ -22654,12 +22286,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400968,
+    "id": 400970,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "popular",
@@ -22682,32 +22312,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400969,
+    "id": 400971,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "popularize",
     "pos": "v.",
     "phonetic": "papjlaraz",
-    "translation": "推廣；普及；使…大翠化",
+    "translation": "推廣；普及",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
-    "example": "Please learn how to use popularize in a sentence.",
-    "exampleTr": "請學會如何在句子中使用 popularize。",
+    "example": "The teacher tried to popularize reading among her students.",
+    "exampleTr": "那位老師試著在學生之間推廣閱讀。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#6",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400970,
+    "id": 400972,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "populate",
@@ -22730,7 +22358,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400971,
+    "id": 400973,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "positive",
@@ -22753,7 +22381,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400972,
+    "id": 400974,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "possession",
@@ -22776,7 +22404,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400973,
+    "id": 400975,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "possessor",
@@ -22796,12 +22424,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400974,
+    "id": 400976,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "possibly",
@@ -22821,12 +22447,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400975,
+    "id": 400977,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "postpone",
@@ -22849,7 +22473,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400976,
+    "id": 400978,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "potential",
@@ -22872,7 +22496,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400977,
+    "id": 400979,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "potentially",
@@ -22892,12 +22516,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400978,
+    "id": 400980,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "precious",
@@ -22920,7 +22542,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400979,
+    "id": 400981,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "precise",
@@ -22943,7 +22565,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400980,
+    "id": 400982,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "precisely",
@@ -22963,12 +22585,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400981,
+    "id": 400983,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "predict",
@@ -22991,7 +22611,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400982,
+    "id": 400984,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "prediction",
@@ -23014,7 +22634,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400983,
+    "id": 400985,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "preferably",
@@ -23034,12 +22654,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400984,
+    "id": 400986,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "preliminary",
@@ -23062,7 +22680,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400985,
+    "id": 400987,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "premature",
@@ -23085,7 +22703,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400986,
+    "id": 400988,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "preparation",
@@ -23108,7 +22726,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400987,
+    "id": 400989,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "prescription",
@@ -23131,7 +22749,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400988,
+    "id": 400990,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "presence",
@@ -23154,7 +22772,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400989,
+    "id": 400991,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "present",
@@ -23177,7 +22795,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400990,
+    "id": 400992,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "preserve",
@@ -23200,7 +22818,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400991,
+    "id": 400993,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "press",
@@ -23223,7 +22841,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400992,
+    "id": 400994,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "pressure",
@@ -23246,7 +22864,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400993,
+    "id": 400995,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "pretend",
@@ -23269,7 +22887,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400994,
+    "id": 400996,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "pretentious",
@@ -23289,12 +22907,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 400995,
+    "id": 400997,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "preventive",
@@ -23317,7 +22933,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400996,
+    "id": 400998,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "previous",
@@ -23340,7 +22956,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400997,
+    "id": 400999,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "primary",
@@ -23363,7 +22979,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400998,
+    "id": 401000,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "primitive",
@@ -23386,7 +23002,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 400999,
+    "id": 401001,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "principle",
@@ -23409,7 +23025,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401000,
+    "id": 401002,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "print",
@@ -23432,7 +23048,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401001,
+    "id": 401003,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "priority",
@@ -23455,7 +23071,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401002,
+    "id": 401004,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "privacy",
@@ -23478,7 +23094,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401003,
+    "id": 401005,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "private",
@@ -23501,7 +23117,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401004,
+    "id": 401006,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "privilege",
@@ -23524,7 +23140,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401005,
+    "id": 401007,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "probably",
@@ -23547,7 +23163,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401006,
+    "id": 401008,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "procedure",
@@ -23570,7 +23186,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401007,
+    "id": 401009,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "proceed",
@@ -23593,7 +23209,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401008,
+    "id": 401010,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "process",
@@ -23616,7 +23232,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401009,
+    "id": 401011,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "produce",
@@ -23639,7 +23255,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401010,
+    "id": 401012,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "product",
@@ -23662,7 +23278,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401011,
+    "id": 401013,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "production",
@@ -23685,7 +23301,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401012,
+    "id": 401014,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "productive",
@@ -23708,7 +23324,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401013,
+    "id": 401015,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "productivity",
@@ -23731,7 +23347,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401014,
+    "id": 401016,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "professional",
@@ -23754,7 +23370,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401015,
+    "id": 401017,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "profitable",
@@ -23777,7 +23393,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401016,
+    "id": 401018,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "profound",
@@ -23800,7 +23416,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401017,
+    "id": 401019,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "progressive",
@@ -23823,32 +23439,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401018,
+    "id": 401020,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
-    "word": "projecteprajekt",
+    "word": "project",
     "pos": "n.",
-    "phonetic": "prajekt",
-    "translation": "計畫；企畫 [",
+    "phonetic": "ˈprɑdʒekt",
+    "translation": "計畫；企畫",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Andy has been working on a scientific project for the past two months.",
-    "exampleTr": "過去雨個月，安迪一直在進行一项科學計畫。",
+    "exampleTr": "過去兩個月，安迪一直在進行一項科學計畫。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#8",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401019,
+    "id": 401021,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "prolong",
@@ -23871,7 +23485,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401020,
+    "id": 401022,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "promising",
@@ -23894,7 +23508,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401021,
+    "id": 401023,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "promote",
@@ -23917,7 +23531,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401022,
+    "id": 401024,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "promotion",
@@ -23940,7 +23554,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401023,
+    "id": 401025,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "prompt",
@@ -23963,7 +23577,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401024,
+    "id": 401026,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "proper",
@@ -23986,7 +23600,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401025,
+    "id": 401027,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "properly",
@@ -24006,12 +23620,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401026,
+    "id": 401028,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "propose",
@@ -24034,7 +23646,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401027,
+    "id": 401029,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "protect",
@@ -24057,7 +23669,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401028,
+    "id": 401030,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "protection",
@@ -24080,7 +23692,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401029,
+    "id": 401031,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "protective",
@@ -24103,7 +23715,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401030,
+    "id": 401032,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "protest",
@@ -24126,7 +23738,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401031,
+    "id": 401033,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "provoke",
@@ -24149,7 +23761,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401032,
+    "id": 401034,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "publicity",
@@ -24172,7 +23784,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401033,
+    "id": 401035,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "punctual",
@@ -24195,7 +23807,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401034,
+    "id": 401036,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "punctually",
@@ -24215,12 +23827,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401035,
+    "id": 401037,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "purchase",
@@ -24243,7 +23853,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401036,
+    "id": 401038,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "purify",
@@ -24266,7 +23876,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401037,
+    "id": 401039,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "purpose",
@@ -24289,7 +23899,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401038,
+    "id": 401040,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "purposefully",
@@ -24309,12 +23919,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401039,
+    "id": 401041,
     "series": "高中英文高頻率單字庫",
     "unit": 16,
     "word": "pursue",
@@ -24337,7 +23945,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401040,
+    "id": 401042,
     "series": "高中英文高頻率單字庫",
     "unit": 17,
     "word": "qualification",
@@ -24360,7 +23968,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401041,
+    "id": 401043,
     "series": "高中英文高頻率單字庫",
     "unit": 17,
     "word": "qualify",
@@ -24383,7 +23991,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401042,
+    "id": 401044,
     "series": "高中英文高頻率單字庫",
     "unit": 17,
     "word": "quantity",
@@ -24406,7 +24014,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401043,
+    "id": 401045,
     "series": "高中英文高頻率單字庫",
     "unit": 17,
     "word": "quote",
@@ -24429,7 +24037,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401044,
+    "id": 401046,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "racial",
@@ -24452,7 +24060,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401045,
+    "id": 401047,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "radiant",
@@ -24475,7 +24083,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401046,
+    "id": 401048,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "radically",
@@ -24495,12 +24103,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401047,
+    "id": 401049,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "raise",
@@ -24523,7 +24129,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401048,
+    "id": 401050,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "range",
@@ -24546,7 +24152,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401049,
+    "id": 401051,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rapidly",
@@ -24566,12 +24172,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401050,
+    "id": 401052,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rare",
@@ -24591,12 +24195,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 中文可能有辨識錯字，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401051,
+    "id": 401053,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rarely",
@@ -24616,12 +24218,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401052,
+    "id": 401054,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "readable",
@@ -24641,12 +24241,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401053,
+    "id": 401055,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "readily",
@@ -24666,12 +24264,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401054,
+    "id": 401056,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "realistic",
@@ -24694,7 +24290,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401055,
+    "id": 401057,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "realize",
@@ -24717,7 +24313,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401056,
+    "id": 401058,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reasonably",
@@ -24737,12 +24333,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401057,
+    "id": 401059,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rebel",
@@ -24765,7 +24359,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401058,
+    "id": 401060,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recall",
@@ -24788,7 +24382,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401059,
+    "id": 401061,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "receipt",
@@ -24811,7 +24405,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401060,
+    "id": 401062,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recently",
@@ -24831,12 +24425,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401061,
+    "id": 401063,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recession",
@@ -24859,7 +24451,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401062,
+    "id": 401064,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recipe",
@@ -24882,7 +24474,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401063,
+    "id": 401065,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recite",
@@ -24905,7 +24497,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401064,
+    "id": 401066,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reckless",
@@ -24928,7 +24520,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401065,
+    "id": 401067,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recklessly",
@@ -24948,12 +24540,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401066,
+    "id": 401068,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recognition",
@@ -24976,7 +24566,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401067,
+    "id": 401069,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recognize",
@@ -24999,7 +24589,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401068,
+    "id": 401070,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recommend",
@@ -25022,7 +24612,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401069,
+    "id": 401071,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "record",
@@ -25045,7 +24635,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401070,
+    "id": 401072,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recover",
@@ -25068,7 +24658,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401071,
+    "id": 401073,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "recycle",
@@ -25091,32 +24681,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401072,
+    "id": 401074,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "redundant",
     "pos": "adj.",
     "phonetic": "rdandant",
-    "translation": "兄長的；累的；多餘的",
+    "translation": "冗長的；累贅的；多餘的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Several departments are going to merge; making some of the workers redundant.",
-    "exampleTr": "個部門即將合饼，使得其中一些員工成為宛員被裁撤。",
+    "exampleTr": "幾個部門即將合併，使其中一些員工變成多餘人力而被裁撤。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#11",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401073,
+    "id": 401075,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reference",
@@ -25139,7 +24727,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401074,
+    "id": 401076,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reflect",
@@ -25162,7 +24750,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401075,
+    "id": 401077,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reflection",
@@ -25185,7 +24773,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401076,
+    "id": 401078,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reform",
@@ -25208,7 +24796,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401077,
+    "id": 401079,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "refresh",
@@ -25231,7 +24819,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401078,
+    "id": 401080,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "refuse",
@@ -25254,7 +24842,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401079,
+    "id": 401081,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "regional",
@@ -25277,7 +24865,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401080,
+    "id": 401082,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "register",
@@ -25300,7 +24888,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401081,
+    "id": 401083,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "registration",
@@ -25323,7 +24911,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401082,
+    "id": 401084,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "regret",
@@ -25346,7 +24934,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401083,
+    "id": 401085,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "regretfully",
@@ -25366,12 +24954,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401084,
+    "id": 401086,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "regular",
@@ -25394,7 +24980,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401085,
+    "id": 401087,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "regularity",
@@ -25414,12 +25000,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401086,
+    "id": 401088,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "regularly",
@@ -25439,12 +25023,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401087,
+    "id": 401089,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "regulate",
@@ -25467,7 +25049,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401088,
+    "id": 401090,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "regulation",
@@ -25490,7 +25072,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401089,
+    "id": 401091,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rehearse",
@@ -25513,7 +25095,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401090,
+    "id": 401092,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reinforce",
@@ -25536,7 +25118,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401091,
+    "id": 401093,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "relative",
@@ -25559,7 +25141,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401092,
+    "id": 401094,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "relatively",
@@ -25579,12 +25161,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401093,
+    "id": 401095,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "relax",
@@ -25607,7 +25187,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401094,
+    "id": 401096,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "relaxation",
@@ -25630,7 +25210,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401095,
+    "id": 401097,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "relentlessly",
@@ -25650,12 +25230,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401096,
+    "id": 401098,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reliably",
@@ -25675,12 +25253,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401097,
+    "id": 401099,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "relieve",
@@ -25703,7 +25279,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401098,
+    "id": 401100,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "religious",
@@ -25726,7 +25302,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401099,
+    "id": 401101,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reluctance",
@@ -25746,12 +25322,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401100,
+    "id": 401102,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reluctant",
@@ -25774,7 +25348,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401101,
+    "id": 401103,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "remain",
@@ -25797,7 +25371,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401102,
+    "id": 401104,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "remark",
@@ -25820,7 +25394,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401103,
+    "id": 401105,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "remarkably",
@@ -25840,12 +25414,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401104,
+    "id": 401106,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "remedy",
@@ -25868,7 +25440,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401105,
+    "id": 401107,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "remind",
@@ -25891,7 +25463,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401106,
+    "id": 401108,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "remote",
@@ -25914,7 +25486,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401107,
+    "id": 401109,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "remove",
@@ -25937,7 +25509,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401108,
+    "id": 401110,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "renew",
@@ -25960,7 +25532,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401109,
+    "id": 401111,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "repeatable",
@@ -25980,12 +25552,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401110,
+    "id": 401112,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "repetitive",
@@ -26005,12 +25575,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401111,
+    "id": 401113,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "replace",
@@ -26033,7 +25601,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401112,
+    "id": 401114,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "replaceable",
@@ -26053,12 +25621,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401113,
+    "id": 401115,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reputation",
@@ -26081,7 +25647,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401114,
+    "id": 401116,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "require",
@@ -26104,7 +25670,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401115,
+    "id": 401117,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "requirement",
@@ -26124,12 +25690,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401116,
+    "id": 401118,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rescue",
@@ -26152,7 +25716,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401117,
+    "id": 401119,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "resemble",
@@ -26175,7 +25739,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401118,
+    "id": 401120,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reservation",
@@ -26198,7 +25762,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401119,
+    "id": 401121,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reserve",
@@ -26221,32 +25785,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401120,
+    "id": 401122,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
-    "word": "residenice",
+    "word": "residence",
     "pos": "n.",
-    "phonetic": "rezadans",
-    "translation": "住宅；宅邸；居留",
+    "phonetic": "ˈrezɪdəns",
+    "translation": "住宅；官邸；居留",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
-    "example": "10 Downing Street has been the official residence of the British prime minist for over two hundred years.",
-    "exampleTr": "雨百多年來，唐寧街十號一直是英國首相的官邸。",
+    "example": "10 Downing Street has been the official residence of the British prime minister for over two hundred years.",
+    "exampleTr": "兩百多年來，唐寧街十號一直是英國首相的官邸。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#14",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401121,
+    "id": 401123,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "resist",
@@ -26269,7 +25831,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401122,
+    "id": 401124,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "resistant",
@@ -26292,7 +25854,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401123,
+    "id": 401125,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "resistantly",
@@ -26312,12 +25874,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401124,
+    "id": 401126,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "resistible",
@@ -26337,12 +25897,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401125,
+    "id": 401127,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "resolution",
@@ -26365,7 +25923,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401126,
+    "id": 401128,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "resource",
@@ -26388,7 +25946,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401127,
+    "id": 401129,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "respect",
@@ -26411,7 +25969,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401128,
+    "id": 401130,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "respectable",
@@ -26434,7 +25992,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401129,
+    "id": 401131,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "respond",
@@ -26457,7 +26015,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401130,
+    "id": 401132,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "response",
@@ -26480,7 +26038,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401131,
+    "id": 401133,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "responsible",
@@ -26503,7 +26061,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401132,
+    "id": 401134,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rest",
@@ -26526,7 +26084,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401133,
+    "id": 401135,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "retirement",
@@ -26546,12 +26104,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401134,
+    "id": 401136,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "retreat",
@@ -26574,7 +26130,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401135,
+    "id": 401137,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reveal",
@@ -26597,7 +26153,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401136,
+    "id": 401138,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "review",
@@ -26620,7 +26176,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401137,
+    "id": 401139,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "revise",
@@ -26643,7 +26199,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401138,
+    "id": 401140,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "revive",
@@ -26666,7 +26222,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401139,
+    "id": 401141,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "reward",
@@ -26689,7 +26245,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401140,
+    "id": 401142,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rise",
@@ -26712,7 +26268,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401141,
+    "id": 401143,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "robust",
@@ -26735,7 +26291,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401142,
+    "id": 401144,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rough",
@@ -26758,7 +26314,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401143,
+    "id": 401145,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "routine",
@@ -26781,7 +26337,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401144,
+    "id": 401146,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "ruin",
@@ -26804,7 +26360,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401145,
+    "id": 401147,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rumor",
@@ -26827,7 +26383,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401146,
+    "id": 401148,
     "series": "高中英文高頻率單字庫",
     "unit": 18,
     "word": "rural",
@@ -26850,7 +26406,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401147,
+    "id": 401149,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sacrifice",
@@ -26873,7 +26429,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401148,
+    "id": 401150,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "safety",
@@ -26896,7 +26452,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401149,
+    "id": 401151,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "salary",
@@ -26919,7 +26475,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401150,
+    "id": 401152,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "salvation",
@@ -26939,12 +26495,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401151,
+    "id": 401153,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "satisfied",
@@ -26964,12 +26518,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401152,
+    "id": 401154,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "satisfy",
@@ -26992,7 +26544,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401153,
+    "id": 401155,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "save",
@@ -27015,7 +26567,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401154,
+    "id": 401156,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "scandal",
@@ -27038,7 +26590,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401155,
+    "id": 401157,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "scarce",
@@ -27061,7 +26613,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401156,
+    "id": 401158,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "scarcely",
@@ -27084,7 +26636,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401157,
+    "id": 401159,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "school",
@@ -27107,7 +26659,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401158,
+    "id": 401160,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "scratch",
@@ -27130,7 +26682,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401159,
+    "id": 401161,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "screening",
@@ -27150,12 +26702,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401160,
+    "id": 401162,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sculptor",
@@ -27178,7 +26728,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401161,
+    "id": 401163,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sculpture",
@@ -27201,7 +26751,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401162,
+    "id": 401164,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "search",
@@ -27224,7 +26774,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401163,
+    "id": 401165,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "secondary",
@@ -27247,7 +26797,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401164,
+    "id": 401166,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "secure",
@@ -27270,7 +26820,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401165,
+    "id": 401167,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "security",
@@ -27293,7 +26843,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401166,
+    "id": 401168,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "segment",
@@ -27316,7 +26866,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401167,
+    "id": 401169,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "seize",
@@ -27339,7 +26889,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401168,
+    "id": 401170,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "seldom",
@@ -27362,7 +26912,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401169,
+    "id": 401171,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "selectively",
@@ -27382,12 +26932,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401170,
+    "id": 401172,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sensible",
@@ -27410,7 +26958,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401171,
+    "id": 401173,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sensitive",
@@ -27433,7 +26981,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401172,
+    "id": 401174,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sentimental",
@@ -27456,7 +27004,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401173,
+    "id": 401175,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "separate",
@@ -27479,7 +27027,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401174,
+    "id": 401176,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "serious",
@@ -27502,7 +27050,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401175,
+    "id": 401177,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "settle",
@@ -27525,7 +27073,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401176,
+    "id": 401178,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "severe",
@@ -27548,7 +27096,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401177,
+    "id": 401179,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "shortage",
@@ -27571,7 +27119,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401178,
+    "id": 401180,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "shortcoming",
@@ -27594,7 +27142,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401179,
+    "id": 401181,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "shortly",
@@ -27617,7 +27165,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401180,
+    "id": 401182,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "signal",
@@ -27640,7 +27188,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401181,
+    "id": 401183,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "signature",
@@ -27663,7 +27211,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401182,
+    "id": 401184,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "significance",
@@ -27686,7 +27234,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401183,
+    "id": 401185,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "significant",
@@ -27709,7 +27257,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401184,
+    "id": 401186,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "significantly",
@@ -27729,12 +27277,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401185,
+    "id": 401187,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "similar",
@@ -27757,7 +27303,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401186,
+    "id": 401188,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "simplify",
@@ -27780,7 +27326,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401187,
+    "id": 401189,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "simultaneously",
@@ -27800,12 +27346,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401188,
+    "id": 401190,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sincere",
@@ -27828,7 +27372,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401189,
+    "id": 401191,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sincerely",
@@ -27848,12 +27392,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401190,
+    "id": 401192,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "singular",
@@ -27876,7 +27418,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401191,
+    "id": 401193,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "skeptical",
@@ -27899,7 +27441,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401192,
+    "id": 401194,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "skillfully",
@@ -27919,37 +27461,33 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401193,
+    "id": 401195,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "skylight",
     "pos": "n.",
     "phonetic": "skaLlat",
-    "translation": "[屋頂、天花板的]天窗",
+    "translation": "天窗",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The sun shone brightly through the skylight into the house.",
-    "exampleTr": "太陽光徙天窗照射進屋子裡來。",
+    "exampleTr": "陽光從天窗明亮地照進屋子裡。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703223936193.tif#11",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401194,
+    "id": 401196,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "slip",
@@ -27972,7 +27510,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401195,
+    "id": 401197,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "smoothly",
@@ -27992,12 +27530,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401196,
+    "id": 401198,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "solidly",
@@ -28017,12 +27553,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401197,
+    "id": 401199,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "solitary",
@@ -28045,7 +27579,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401198,
+    "id": 401200,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "solution",
@@ -28068,7 +27602,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401199,
+    "id": 401201,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "solve",
@@ -28091,7 +27625,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401200,
+    "id": 401202,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sorrow",
@@ -28114,7 +27648,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401201,
+    "id": 401203,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sorrowful",
@@ -28137,7 +27671,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401202,
+    "id": 401204,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "spare",
@@ -28160,7 +27694,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401203,
+    "id": 401205,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "spark",
@@ -28183,7 +27717,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401204,
+    "id": 401206,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "specially",
@@ -28203,12 +27737,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401205,
+    "id": 401207,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "specifically",
@@ -28228,12 +27760,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401206,
+    "id": 401208,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "spectacular",
@@ -28256,7 +27786,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401207,
+    "id": 401209,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "speculate",
@@ -28279,7 +27809,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401208,
+    "id": 401210,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "spend",
@@ -28302,7 +27832,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401209,
+    "id": 401211,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "spiral",
@@ -28325,7 +27855,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401210,
+    "id": 401212,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "spiritual",
@@ -28348,7 +27878,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401211,
+    "id": 401213,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "spontaneous",
@@ -28371,7 +27901,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401212,
+    "id": 401214,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "spotlight",
@@ -28394,7 +27924,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401213,
+    "id": 401215,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sprinkle",
@@ -28417,7 +27947,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401214,
+    "id": 401216,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "squeeze",
@@ -28440,7 +27970,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401215,
+    "id": 401217,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stability",
@@ -28463,7 +27993,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401216,
+    "id": 401218,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stabilize",
@@ -28486,7 +28016,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401217,
+    "id": 401219,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stably",
@@ -28506,12 +28036,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401218,
+    "id": 401220,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stage",
@@ -28534,7 +28062,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401219,
+    "id": 401221,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stare",
@@ -28557,7 +28085,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401220,
+    "id": 401222,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "statement",
@@ -28577,12 +28105,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401221,
+    "id": 401223,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "statistical",
@@ -28605,7 +28131,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401222,
+    "id": 401224,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "steadily",
@@ -28625,12 +28151,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401223,
+    "id": 401225,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "steady",
@@ -28653,7 +28177,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401224,
+    "id": 401226,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stereotype",
@@ -28676,7 +28200,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401225,
+    "id": 401227,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stiff",
@@ -28699,7 +28223,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401226,
+    "id": 401228,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stimulation",
@@ -28722,7 +28246,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401227,
+    "id": 401229,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stingy",
@@ -28745,7 +28269,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401228,
+    "id": 401230,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "straight",
@@ -28768,7 +28292,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401229,
+    "id": 401231,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "strength",
@@ -28791,7 +28315,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401230,
+    "id": 401232,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "strengthen",
@@ -28814,7 +28338,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401231,
+    "id": 401233,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stressful",
@@ -28834,12 +28358,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401232,
+    "id": 401234,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "stretch",
@@ -28862,7 +28384,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401233,
+    "id": 401235,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "strong",
@@ -28885,7 +28407,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401234,
+    "id": 401236,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "struggle",
@@ -28908,7 +28430,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401235,
+    "id": 401237,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "style",
@@ -28931,7 +28453,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401236,
+    "id": 401238,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "subjectively",
@@ -28951,12 +28473,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401237,
+    "id": 401239,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "submit",
@@ -28979,7 +28499,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401238,
+    "id": 401240,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "substitute",
@@ -29002,7 +28522,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401239,
+    "id": 401241,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "substitution",
@@ -29022,12 +28542,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401240,
+    "id": 401242,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "subtract",
@@ -29050,7 +28568,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401241,
+    "id": 401243,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "success",
@@ -29073,7 +28591,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401242,
+    "id": 401244,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sufficient",
@@ -29096,7 +28614,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401243,
+    "id": 401245,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "suffocate",
@@ -29119,7 +28637,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401244,
+    "id": 401246,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "suggestion",
@@ -29142,7 +28660,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401245,
+    "id": 401247,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "suitable",
@@ -29165,7 +28683,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401246,
+    "id": 401248,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "summon",
@@ -29188,7 +28706,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401247,
+    "id": 401249,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "superb",
@@ -29211,7 +28729,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401248,
+    "id": 401250,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "superficial",
@@ -29234,7 +28752,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401249,
+    "id": 401251,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "superior",
@@ -29257,7 +28775,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401250,
+    "id": 401252,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "superstition",
@@ -29280,7 +28798,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401251,
+    "id": 401253,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "supervision",
@@ -29303,7 +28821,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401252,
+    "id": 401254,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "supposedly",
@@ -29326,7 +28844,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401253,
+    "id": 401255,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "surpass",
@@ -29349,7 +28867,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401254,
+    "id": 401256,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "surprise",
@@ -29372,7 +28890,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401255,
+    "id": 401257,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "surround",
@@ -29395,7 +28913,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401256,
+    "id": 401258,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "survive",
@@ -29418,7 +28936,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401257,
+    "id": 401259,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "suspend",
@@ -29441,7 +28959,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401258,
+    "id": 401260,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sustain",
@@ -29464,7 +28982,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401259,
+    "id": 401261,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sway",
@@ -29487,7 +29005,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401260,
+    "id": 401262,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "swear",
@@ -29510,7 +29028,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401261,
+    "id": 401263,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "swiftly",
@@ -29530,12 +29048,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401262,
+    "id": 401264,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "switch",
@@ -29558,7 +29074,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401263,
+    "id": 401265,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sympathetic",
@@ -29581,7 +29097,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401264,
+    "id": 401266,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sympathetically",
@@ -29601,12 +29117,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401265,
+    "id": 401267,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "sympathy",
@@ -29629,7 +29143,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401266,
+    "id": 401268,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "symptom",
@@ -29652,7 +29166,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401267,
+    "id": 401269,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "synthetic",
@@ -29675,7 +29189,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401268,
+    "id": 401270,
     "series": "高中英文高頻率單字庫",
     "unit": 19,
     "word": "system",
@@ -29698,7 +29212,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401269,
+    "id": 401271,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tackle",
@@ -29721,7 +29235,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401270,
+    "id": 401272,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "talented",
@@ -29741,12 +29255,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401271,
+    "id": 401273,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "target",
@@ -29769,7 +29281,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401272,
+    "id": 401274,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "technical",
@@ -29792,7 +29304,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401273,
+    "id": 401275,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "technically",
@@ -29812,12 +29324,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401274,
+    "id": 401276,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "technique",
@@ -29840,7 +29350,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401275,
+    "id": 401277,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "technology",
@@ -29863,7 +29373,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401276,
+    "id": 401278,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "temple",
@@ -29886,7 +29396,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401277,
+    "id": 401279,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "temporarily",
@@ -29906,12 +29416,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401278,
+    "id": 401280,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "temporary",
@@ -29934,7 +29442,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401279,
+    "id": 401281,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "temptation",
@@ -29957,7 +29465,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401280,
+    "id": 401282,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tenant",
@@ -29980,7 +29488,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401281,
+    "id": 401283,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tend",
@@ -30003,7 +29511,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401282,
+    "id": 401284,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tenderly",
@@ -30023,12 +29531,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401283,
+    "id": 401285,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tentative",
@@ -30051,7 +29557,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401284,
+    "id": 401286,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tentatively",
@@ -30071,37 +29577,33 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401285,
+    "id": 401287,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
-    "word": "termina",
+    "word": "terminal",
     "pos": "adj.",
-    "phonetic": "t3manl",
-    "translation": "最後的；终點的；[臀]末期的",
+    "phonetic": "ˈtɝmənəl",
+    "translation": "末期的；終點的；終端機",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The comedian was diagnosed with terminal cancer three months ago.",
-    "exampleTr": "那位喜劇演員三個月前被诊断出處於癌症末期。",
+    "exampleTr": "那位喜劇演員三個月前被診斷出罹患末期癌症。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#36",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401286,
+    "id": 401288,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "terrific",
@@ -30124,7 +29626,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401287,
+    "id": 401289,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "texture",
@@ -30147,7 +29649,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401288,
+    "id": 401290,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "therapy",
@@ -30170,7 +29672,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401289,
+    "id": 401291,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "thirst",
@@ -30193,7 +29695,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401290,
+    "id": 401292,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "thorough",
@@ -30216,7 +29718,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401291,
+    "id": 401293,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "thoroughly",
@@ -30236,12 +29738,10 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
-    "id": 401292,
+    "id": 401294,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "thoughtful",
@@ -30264,7 +29764,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401293,
+    "id": 401295,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "threaten",
@@ -30287,7 +29787,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401294,
+    "id": 401296,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tide",
@@ -30310,7 +29810,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401295,
+    "id": 401297,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tight",
@@ -30333,32 +29833,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401296,
-    "series": "高中英文高頻率單字庫",
-    "unit": 20,
-    "word": "tix",
-    "pos": "n.",
-    "phonetic": "fiks",
-    "translation": "固定；定位V.修理；使…固定；備（食物)",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "Even while running, the sharpshooter never lost his fix on the target.",
-    "exampleTr": "即使是在奔跑中，這位射擎高手未失手對目標的瞄。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#33",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
-  },
-  {
-    "id": 401297,
+    "id": 401298,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tolerable",
@@ -30381,7 +29856,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401298,
+    "id": 401299,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tolerance",
@@ -30404,7 +29879,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401299,
+    "id": 401300,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tolerant",
@@ -30427,7 +29902,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "nextReview": 0
   },
   {
-    "id": 401300,
+    "id": 401301,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
     "word": "tolerate",
@@ -30448,31 +29923,6 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "total": 0,
     "proficiency": 0,
     "nextReview": 0
-  },
-  {
-    "id": 401301,
-    "series": "高中英文高頻率單字庫",
-    "unit": 20,
-    "word": "torecast",
-    "pos": "v.",
-    "phonetic": "forkaest",
-    "translation": "预報；预測；有 的预兆n.预報",
-    "collocation": "",
-    "phrase": "",
-    "phraseTr": "",
-    "phraseExample": "",
-    "phraseExampleTr": "",
-    "example": "The growth forecast for the economy next year is promising.",
-    "exampleTr": "明年經濟成長预測有望好。",
-    "source": "授權掃描高頻單字書",
-    "sourcePage": "20260703224039477.tif#33",
-    "sourceMatchedHighSchoolList": false,
-    "correct": 0,
-    "total": 0,
-    "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
   },
   {
     "id": 401302,
@@ -30524,26 +29974,24 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "id": 401304,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
-    "word": "tota",
+    "word": "total",
     "pos": "adj.",
-    "phonetic": "tot",
-    "translation": "總計的；全體的；對的n.總數",
+    "phonetic": "ˈtotəl",
+    "translation": "總計的；全部的；總數",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The total amount of the purchase is one hundred dollars.",
-    "exampleTr": "全部購買的金额是一百元。",
+    "exampleTr": "這次購買的總金額是一百美元。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#37",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401305,
@@ -30566,9 +30014,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401306,
@@ -30683,9 +30129,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401311,
@@ -30763,23 +30207,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "trample",
     "pos": "v.",
     "phonetic": "traemp!",
-    "translation": "踩踏；藐視",
+    "translation": "踩踏；踐踏；藐視",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Don't trample on the grass.",
-    "exampleTr": "不要踏草皮。",
+    "exampleTr": "不要踩踏草皮。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#37",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401315,
@@ -30802,9 +30244,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401316,
@@ -30925,9 +30365,9 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "id": 401321,
     "series": "高中英文高頻率單字庫",
     "unit": 20,
-    "word": "trave",
+    "word": "travel",
     "pos": "n.",
-    "phonetic": "traevlv.旅行；移動；[光、聲音",
+    "phonetic": "ˈtrævəl",
     "translation": "旅行",
     "collocation": "",
     "phrase": "",
@@ -30935,16 +30375,14 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Eric has traveled all over the world by the age of 40.",
-    "exampleTr": "艾瑞克在四十截之前就已經到過世界许多地方。",
+    "exampleTr": "艾瑞克在四十歲之前就已經旅行到世界各地。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#37",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401322,
@@ -30967,9 +30405,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401323,
@@ -31015,9 +30451,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401325,
@@ -31109,9 +30543,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401329,
@@ -31295,34 +30727,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401337,
     "series": "高中英文高頻率單字庫",
     "unit": 21,
-    "word": "uitimate",
+    "word": "ultimate",
     "pos": "adj.",
-    "phonetic": "Altamit",
-    "translation": "最後的；终極的",
+    "phonetic": "ˈʌltəmət",
+    "translation": "最後的；終極的",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
-    "example": "Please learn how to use uitimate in a sentence.",
-    "exampleTr": "請學會如何在句子中使用 uitimate。",
+    "example": "Winning the championship is her ultimate goal.",
+    "exampleTr": "贏得冠軍是她的終極目標。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#55",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401338,
@@ -31345,9 +30773,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401339,
@@ -31370,9 +30796,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401340,
@@ -31487,9 +30911,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401345,
@@ -31512,9 +30934,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401346,
@@ -31537,9 +30957,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401347,
@@ -31562,9 +30980,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401348,
@@ -31619,23 +31035,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "upset",
     "pos": "adj.",
     "phonetic": "Ap`set",
-    "translation": "心的v.打翻；使心意鼠；意外擎败n.[遊動]爆冷門",
+    "translation": "沮喪的；打翻；使心煩；爆冷門",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "The conscientious student became upset when she found out that she had failed one of the subjects.",
-    "exampleTr": "這個真負黄的學生對她其中一科考試失利感到很沮。",
+    "exampleTr": "這名認真的學生發現自己有一科不及格時感到很沮喪。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#56",
     "sourceMatchedHighSchoolList": true,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 中文可能有辨識錯字，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401351,
@@ -31704,9 +31118,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401354,
@@ -31821,9 +31233,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401359,
@@ -31869,9 +31279,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401361,
@@ -32009,34 +31417,30 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401367,
     "series": "高中英文高頻率單字庫",
     "unit": 22,
-    "word": "vei",
+    "word": "veil",
     "pos": "v.",
     "phonetic": "vel",
-    "translation": "用面紗遮住；藏",
+    "translation": "面紗；用面紗遮住；掩藏",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "In some conservative countries, Muslim women must veil their faces.",
-    "exampleTr": "在某些保守的國家，回教烯女必须得用面紗遮住。",
+    "exampleTr": "在某些保守的國家，穆斯林女性必須用面紗遮住臉。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#51",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401368,
@@ -32082,9 +31486,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401370,
@@ -32254,23 +31656,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "visualize",
     "pos": "v.",
     "phonetic": "vrsualaiz",
-    "translation": "想像",
+    "translation": "想像；使形象化",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
-    "example": "Meghan yisualized herself marrying a prince and walking down the aisle in front of the media.",
-    "exampleTr": "梅根想像著自己嫁给一位王子，在媒體面前步上紅毯。",
+    "example": "Meghan visualized herself marrying a prince and walking down the aisle in front of the media.",
+    "exampleTr": "梅根想像自己嫁給一位王子，並在媒體面前走上紅毯。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#52",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401378,
@@ -32339,9 +31739,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401381,
@@ -32525,9 +31923,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401389,
@@ -32573,9 +31969,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401391,
@@ -32621,9 +32015,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401393,
@@ -32655,23 +32047,21 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "word": "withstand",
     "pos": "v.",
     "phonetic": "wiθstaend",
-    "translation": "抵抗；耐得起；經得住",
+    "translation": "抵抗；耐得住；經得起",
     "collocation": "",
     "phrase": "",
     "phraseTr": "",
     "phraseExample": "",
     "phraseExampleTr": "",
     "example": "Porcelain can withstand high temperatures.",
-    "exampleTr": "瓷器能耐高温。",
+    "exampleTr": "瓷器能耐高溫。",
     "source": "授權掃描高頻單字書",
     "sourcePage": "20260703224039477.tif#57",
     "sourceMatchedHighSchoolList": false,
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401395,
@@ -32763,9 +32153,7 @@ export const HIGH_FREQUENCY_VOCABULARY = [
     "correct": 0,
     "total": 0,
     "proficiency": 0,
-    "nextReview": 0,
-    "needsReview": true,
-    "reviewNote": "OCR 候選字未對到高中參考詞彙表，建議人工確認。"
+    "nextReview": 0
   },
   {
     "id": 401399,
