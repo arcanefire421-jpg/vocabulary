@@ -1,15 +1,15 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-high-school-series";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-high-school-series";
-import { HIGH_SCHOOL_VOCABULARY } from "../data/highschool.js?v=20260703-high-school-series";
-import { QUESTION_BANK } from "../data/questions.js?v=20260703-high-school-series";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-high-frequency-series";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-high-frequency-series";
+import { QUESTION_BANK } from "../data/questions.js?v=20260703-high-frequency-series";
 
-const APP_VERSION = "20260703-high-school-series";
+const APP_VERSION = "20260703-high-frequency-series";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
 const DEFAULT_SERIES = "南山國中單字表";
 const JUNIOR_SERIES = "教育部 1200 基本字彙";
 const HIGH_SCHOOL_SERIES = "大考中心高中英文參考詞彙表";
+const HIGH_FREQUENCY_SERIES = "高中英文高頻率單字庫";
 const CUSTOM_SERIES = "自訂單字";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MINUTE_MS = 60 * 1000;
@@ -18,6 +18,8 @@ const ENCOURAGEMENTS = ["我會了", "我好棒", "我真棒", "我真聰明", "
 
 let stats = loadJson(STORAGE_KEY, {});
 let customWords = loadJson(CUSTOM_KEY, []);
+let highSchoolVocabulary = [];
+let highFrequencyVocabulary = [];
 let words = buildWords();
 let flashList = [];
 let flashIndex = 0;
@@ -32,6 +34,8 @@ let wakeLockReleaseTimer = null;
 let dimModeEnabled = false;
 let speechUnlocked = false;
 let speechVoiceLoadStarted = false;
+const loadedSeries = new Set([DEFAULT_SERIES, JUNIOR_SERIES, CUSTOM_SERIES]);
+const loadingSeries = new Map();
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -70,9 +74,91 @@ function baseWord(word) {
 function buildWords() {
   const base = BASE_VOCABULARY.map((word) => baseWord({ ...word, series: word.series || DEFAULT_SERIES }));
   const junior = JUNIOR_1200_VOCABULARY.map((word) => baseWord({ ...word, series: word.series || JUNIOR_SERIES }));
-  const highSchool = HIGH_SCHOOL_VOCABULARY.map((word) => baseWord({ ...word, series: word.series || HIGH_SCHOOL_SERIES }));
+  const highSchool = highSchoolVocabulary.map((word) => baseWord({ ...word, series: word.series || HIGH_SCHOOL_SERIES }));
+  const highFrequency = highFrequencyVocabulary.map((word) => baseWord({ ...word, series: word.series || HIGH_FREQUENCY_SERIES }));
   const custom = customWords.map((word) => baseWord({ ...word, series: word.series || CUSTOM_SERIES }));
-  return [...base, ...junior, ...highSchool, ...custom];
+  return [...base, ...junior, ...highSchool, ...highFrequency, ...custom];
+}
+
+function normalizeHeadword(value) {
+  return String(value || "")
+    .toLowerCase()
+    .split(/[/(]/)[0]
+    .replace(/[^a-z'-]/g, "")
+    .trim();
+}
+
+function enrichHighSchoolWord(word, knownWords) {
+  const known = knownWords.get(normalizeHeadword(word.word));
+  if (!known) return word;
+  const enriched = {
+    ...word,
+    translation: known.translation || word.translation,
+    collocation: known.collocation || word.collocation,
+    phrase: known.phrase || word.phrase,
+    phraseTr: known.phraseTr || word.phraseTr,
+    phraseExample: known.phraseExample || word.phraseExample,
+    phraseExampleTr: known.phraseExampleTr || word.phraseExampleTr,
+    example: known.example || word.example,
+    exampleTr: known.exampleTr || word.exampleTr
+  };
+  if (enriched.translation && enriched.example && enriched.exampleTr) {
+    enriched.referenceOnly = false;
+  }
+  return enriched;
+}
+
+function prepareHighSchoolVocabulary(source) {
+  const knownWords = new Map();
+  [...BASE_VOCABULARY, ...JUNIOR_1200_VOCABULARY, ...customWords].forEach((word) => {
+    const key = normalizeHeadword(word.word);
+    if (key && !knownWords.has(key) && word.translation && word.example && word.exampleTr) {
+      knownWords.set(key, word);
+    }
+  });
+  return source.map((word) => enrichHighSchoolWord(word, knownWords));
+}
+
+async function ensureSeriesLoaded(seriesValue) {
+  if (seriesValue === HIGH_SCHOOL_SERIES) {
+    await ensureLazySeriesLoaded({
+      series: HIGH_SCHOOL_SERIES,
+      label: "高中單字庫",
+      path: "../data/highschool.js?v=20260703-high-frequency-series",
+      exportName: "HIGH_SCHOOL_VOCABULARY",
+      apply: (items) => {
+        highSchoolVocabulary = prepareHighSchoolVocabulary(items);
+      }
+    });
+  }
+  if (seriesValue === HIGH_FREQUENCY_SERIES) {
+    await ensureLazySeriesLoaded({
+      series: HIGH_FREQUENCY_SERIES,
+      label: "高中高頻單字庫",
+      path: "../data/highFrequency.js?v=20260703-high-frequency-series",
+      exportName: "HIGH_FREQUENCY_VOCABULARY",
+      apply: (items) => {
+        highFrequencyVocabulary = items;
+      }
+    });
+  }
+}
+
+async function ensureLazySeriesLoaded({ series, label, path, exportName, apply }) {
+  if (loadedSeries.has(series)) return;
+  if (!loadingSeries.has(series)) {
+    toast(`正在載入${label}...`);
+    loadingSeries.set(
+      series,
+      import(path).then((module) => {
+        apply(module[exportName] || []);
+        loadedSeries.add(series);
+        words = buildWords();
+        toast(`${label}已載入`);
+      })
+    );
+  }
+  await loadingSeries.get(series);
 }
 
 function phraseInfo(word) {
@@ -155,9 +241,9 @@ function setProficiency(wordId, offset) {
 }
 
 function getSeries() {
-  const preferred = [DEFAULT_SERIES, JUNIOR_SERIES, HIGH_SCHOOL_SERIES, CUSTOM_SERIES];
+  const preferred = [DEFAULT_SERIES, JUNIOR_SERIES, HIGH_SCHOOL_SERIES, HIGH_FREQUENCY_SERIES, CUSTOM_SERIES];
   const available = new Set(words.map((word) => word.series || DEFAULT_SERIES));
-  const ordered = preferred.filter((series) => available.has(series));
+  const ordered = preferred.filter((series) => series !== CUSTOM_SERIES || available.has(series));
   const remaining = [...available].filter((series) => !preferred.includes(series)).sort((a, b) => a.localeCompare(b));
   return [...ordered, ...remaining];
 }
@@ -171,6 +257,12 @@ function fillSeriesSelect(select) {
 }
 
 function getUnits(seriesValue = "all") {
+  if (seriesValue === HIGH_SCHOOL_SERIES && !loadedSeries.has(HIGH_SCHOOL_SERIES)) {
+    return [1, 2, 3, 4, 5, 6];
+  }
+  if (seriesValue === HIGH_FREQUENCY_SERIES && !loadedSeries.has(HIGH_FREQUENCY_SERIES)) {
+    return Array.from({ length: 26 }, (_, index) => index + 1);
+  }
   const source = filteredBySeries(words, seriesValue);
   const units = [...new Set(source.map((word) => word.unit).filter(Boolean))].sort((a, b) => a - b);
   return units;
@@ -186,6 +278,9 @@ function fillUnitSelect(select, label = "全部單元", seriesValue = "all") {
 }
 
 function unitLabel(seriesValue, unit) {
+  if (seriesValue === HIGH_FREQUENCY_SERIES) {
+    return `字母 ${String.fromCharCode(64 + Number(unit))}`;
+  }
   return seriesValue === HIGH_SCHOOL_SERIES ? `Level ${unit}` : `Unit ${unit}`;
 }
 
@@ -1558,8 +1653,9 @@ function boot() {
   renderAll();
   nextQuestion();
 
-  $("#flashSeries").addEventListener("change", () => {
+  $("#flashSeries").addEventListener("change", async () => {
     stopAutoPlay();
+    await ensureSeriesLoaded($("#flashSeries").value || "all");
     refreshUnitSelectFor("#flashSeries", "#flashUnit");
     initFlashcards();
   });
@@ -1587,7 +1683,8 @@ function boot() {
   $("#dimScreenBtn").addEventListener("click", toggleDimMode);
   $("#knownBtn").addEventListener("click", () => recordFlashcard(true));
   $("#unknownBtn").addEventListener("click", () => recordFlashcard(false));
-  $("#practiceSeries").addEventListener("change", () => {
+  $("#practiceSeries").addEventListener("change", async () => {
+    await ensureSeriesLoaded($("#practiceSeries").value || "all");
     refreshUnitSelectFor("#practiceSeries", "#practiceUnit");
     nextQuestion();
   });
@@ -1595,13 +1692,15 @@ function boot() {
   $("#practiceMode").addEventListener("change", nextQuestion);
   $("#newQuestion").addEventListener("click", nextQuestion);
   $("#searchWord").addEventListener("input", renderLibrary);
-  $("#librarySeries").addEventListener("change", () => {
+  $("#librarySeries").addEventListener("change", async () => {
+    await ensureSeriesLoaded($("#librarySeries").value || "all");
     refreshUnitSelectFor("#librarySeries", "#libraryUnit");
     renderLibrary();
   });
   $("#libraryUnit").addEventListener("change", renderLibrary);
   $("#wordGrid").addEventListener("click", handleLibraryClick);
-  $("#auditSeries").addEventListener("change", () => {
+  $("#auditSeries").addEventListener("change", async () => {
+    await ensureSeriesLoaded($("#auditSeries").value || "all");
     refreshUnitSelectFor("#auditSeries", "#auditUnit");
     renderAudit();
   });

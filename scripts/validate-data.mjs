@@ -1,16 +1,19 @@
 import { BASE_VOCABULARY } from "../data/vocabulary.js";
 import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js";
 import { HIGH_SCHOOL_VOCABULARY } from "../data/highschool.js";
+import { HIGH_FREQUENCY_VOCABULARY } from "../data/highFrequency.js";
 import { QUESTION_BANK } from "../data/questions.js";
 
 const DEFAULT_SERIES = "南山國中單字表";
 const JUNIOR_SERIES = "教育部 1200 基本字彙";
 const HIGH_SCHOOL_SERIES = "大考中心高中英文參考詞彙表";
+const HIGH_FREQUENCY_SERIES = "高中英文高頻率單字庫";
 
 const words = [
   ...BASE_VOCABULARY.map((word) => ({ ...word, series: word.series || DEFAULT_SERIES })),
   ...JUNIOR_1200_VOCABULARY.map((word) => ({ ...word, series: word.series || JUNIOR_SERIES })),
-  ...HIGH_SCHOOL_VOCABULARY.map((word) => ({ ...word, series: word.series || HIGH_SCHOOL_SERIES }))
+  ...HIGH_SCHOOL_VOCABULARY.map((word) => ({ ...word, series: word.series || HIGH_SCHOOL_SERIES })),
+  ...HIGH_FREQUENCY_VOCABULARY.map((word) => ({ ...word, series: word.series || HIGH_FREQUENCY_SERIES }))
 ];
 
 function normalize(value) {
