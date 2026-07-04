@@ -2,7 +2,7 @@ import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-high-frequency
 import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-high-frequency-series";
 import { QUESTION_BANK } from "../data/questions.js?v=20260703-high-frequency-series";
 
-const APP_VERSION = "20260704-high-frequency-cleanup-2";
+const APP_VERSION = "20260704-question-bank-cleanup";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -135,7 +135,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=20260704-high-frequency-cleanup-2",
+      path: "../data/highFrequency.js?v=20260704-question-bank-cleanup",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
@@ -1098,7 +1098,7 @@ function questionPool() {
   let pool = [
     ...QUESTION_BANK.map((question) => ({ ...question, series: question.series || DEFAULT_SERIES })),
     ...generatedQuestions()
-  ];
+  ].map(normalizeQuestion);
   if (series !== "all") pool = pool.filter((question) => (question.series || DEFAULT_SERIES) === series);
   if (unit !== "all") pool = pool.filter((question) => String(question.unit) === unit || (unit === "custom" && !question.unit));
   if (mode !== "mixed") pool = pool.filter((question) => question.type === mode);
@@ -1124,9 +1124,9 @@ function renderQuestion() {
 
   if (currentQuestion.type === "fill") {
     card.innerHTML = `
-      <h3>${label}</h3>
+      <h3>${escapeHtml(label)}</h3>
       ${choiceText}
-      <div class="question-prompt">${currentQuestion.prompt}</div>
+      <div class="question-prompt">${escapeHtml(currentQuestion.prompt)}</div>
       <div class="answer-row">
         <input id="fillAnswer" type="text" placeholder="輸入答案" autocomplete="off" />
         <button class="primary-button" id="checkFill" type="button"><i data-lucide="check"></i><span>檢查</span></button>
@@ -1139,10 +1139,10 @@ function renderQuestion() {
     });
   } else {
     card.innerHTML = `
-      <h3>${label}</h3>
-      <div class="question-prompt">${currentQuestion.prompt}</div>
+      <h3>${escapeHtml(label)}</h3>
+      <div class="question-prompt">${escapeHtml(currentQuestion.prompt)}</div>
       <div class="choice-list">
-        ${currentQuestion.options.map((option) => `<button type="button" data-option="${escapeAttr(option)}">${option}</button>`).join("")}
+        ${currentQuestion.options.map((option) => `<button type="button" data-option="${escapeAttr(option)}">${escapeHtml(option)}</button>`).join("")}
       </div>
       <div id="questionResult"></div>
     `;
@@ -1164,15 +1164,15 @@ function formatChoices(question) {
 }
 
 function ensureAnswerInChoices(question) {
-  const choices = Array.isArray(question.choices) ? [...question.choices] : [];
-  const answer = String(question.answer || "").trim();
+  const choices = Array.isArray(question.choices) ? question.choices.map(cleanQuestionText) : [];
+  const answer = cleanQuestionText(question.answer || "");
   const hasAnswer = choices.some((choice) => normalize(choice) === normalize(answer));
 
   if (answer && !hasAnswer) {
     choices.unshift(answer);
   }
 
-  return [...new Set(choices.filter(Boolean))];
+  return uniqueOptions(choices);
 }
 
 function answerUsesChangedForm(question) {
@@ -1188,12 +1188,32 @@ function checkQuestion(answer) {
 
   const result = $("#questionResult");
   result.className = `result-box${isCorrect ? "" : " is-wrong"}`;
-  result.innerHTML = `<strong>${isCorrect ? "答對了" : `答錯了，正解是 ${currentQuestion.answer}`}</strong><p>${currentQuestion.explanation}</p>`;
+  result.innerHTML = `<strong>${escapeHtml(isCorrect ? "答對了" : `答錯了，正解是 ${currentQuestion.answer}`)}</strong><p>${escapeHtml(currentQuestion.explanation)}</p>`;
   toast(isCorrect ? "已記錄答對" : "已記錄答錯");
 }
 
+function normalizeQuestion(question) {
+  return {
+    ...question,
+    prompt: cleanQuestionText(question.prompt),
+    answer: cleanQuestionText(question.answer),
+    explanation: cleanQuestionText(question.explanation),
+    choices: Array.isArray(question.choices) ? uniqueOptions(question.choices.map(cleanQuestionText)) : question.choices,
+    options: Array.isArray(question.options) ? uniqueOptions(question.options.map(cleanQuestionText)) : question.options
+  };
+}
+
+function cleanQuestionText(value) {
+  return String(value || "")
+    .replace(/([A-Za-z])\s+-\s*([A-Za-z])/g, "$1-$2")
+    .replace(/([A-Za-z])\s*-\s+([A-Za-z])/g, "$1-$2")
+    .replace(/\s+([,.!?;:])/g, "$1")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
 function normalize(value) {
-  return String(value).trim().toLowerCase();
+  return cleanQuestionText(value).toLowerCase();
 }
 
 function escapeAttr(value) {
@@ -1360,7 +1380,7 @@ function dataHealthReport() {
   let allQuestions = [
     ...QUESTION_BANK.map((question) => ({ ...question, series: question.series || DEFAULT_SERIES })),
     ...generatedQuestions()
-  ];
+  ].map(normalizeQuestion);
   if (auditSeries !== "all") allQuestions = allQuestions.filter((question) => (question.series || DEFAULT_SERIES) === auditSeries);
   if (auditUnit !== "all") allQuestions = allQuestions.filter((question) => String(question.unit) === auditUnit || (auditUnit === "custom" && !question.unit));
   const questionIssues = allQuestions.flatMap((question) => {
