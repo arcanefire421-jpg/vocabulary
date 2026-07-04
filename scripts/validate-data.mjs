@@ -148,6 +148,19 @@ for (const word of words) {
     warnings.push(`OCR review suggested: ${word.series}::${word.word}`);
   }
 
+  if (word.series === HIGH_FREQUENCY_SERIES) {
+    const example = String(word.example || "").trim();
+    if (String(word.phonetic || "").trim()) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: high-frequency OCR phonetic should be blank until verified`);
+    }
+    if (/^Please learn how to use\b/i.test(example)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: placeholder example`);
+    }
+    if (example && example.length < 18) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: example is too short`);
+    }
+  }
+
   const key = `${word.series}::${normalizeText(word.word)}`;
   duplicates.set(key, [...(duplicates.get(key) || []), word]);
 }
