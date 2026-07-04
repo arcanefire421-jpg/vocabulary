@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-high-frequency-series";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-high-frequency-series";
-import { QUESTION_BANK } from "../data/questions.js?v=20260703-high-frequency-series";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260704-fast-counts";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260704-fast-counts";
+import { QUESTION_BANK } from "../data/questions.js?v=20260704-fast-counts";
 
-const APP_VERSION = "20260704-question-bank-cleanup";
+const APP_VERSION = "20260704-fast-counts";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -11,6 +11,12 @@ const JUNIOR_SERIES = "教育部 1200 基本字彙";
 const HIGH_SCHOOL_SERIES = "大考中心高中英文參考詞彙表";
 const HIGH_FREQUENCY_SERIES = "高中英文高頻率單字庫";
 const CUSTOM_SERIES = "自訂單字";
+const SERIES_WORD_COUNTS = {
+  [DEFAULT_SERIES]: 400,
+  [JUNIOR_SERIES]: 1200,
+  [HIGH_SCHOOL_SERIES]: 6007,
+  [HIGH_FREQUENCY_SERIES]: 1399
+};
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MINUTE_MS = 60 * 1000;
 const REVIEW_INTERVALS = [0, 1 * 60 * 60 * 1000, 1 * DAY_MS, 3 * DAY_MS, 7 * DAY_MS, 14 * DAY_MS];
@@ -135,13 +141,21 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=20260704-question-bank-cleanup",
+      path: "../data/highFrequency.js?v=20260704-fast-counts",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
       }
     });
   }
+}
+
+async function ensurePracticeSeriesLoaded(seriesValue) {
+  if (seriesValue === "all") {
+    await ensureSeriesLoaded(HIGH_FREQUENCY_SERIES);
+    return;
+  }
+  await ensureSeriesLoaded(seriesValue);
 }
 
 async function ensureLazySeriesLoaded({ series, label, path, exportName, apply }) {
@@ -349,10 +363,12 @@ function reviewStatusText(word) {
 }
 
 function renderDashboard() {
-  const total = words.length;
-  const attempts = words.reduce((sum, word) => sum + (word.total || 0), 0);
-  const correct = words.reduce((sum, word) => sum + (word.correct || 0), 0);
-  const mastered = words.filter((word) => (word.proficiency || 0) >= 5).length;
+  const total = dashboardTotalWords();
+  const trackedStats = Object.values(stats).filter((item) => item && typeof item === "object");
+  const attempts = trackedStats.reduce((sum, item) => sum + (Number(item.total) || 0), 0);
+  const correct = trackedStats.reduce((sum, item) => sum + (Number(item.correct) || 0), 0);
+  const levelCounts = dashboardLevelCounts(total, trackedStats);
+  const mastered = levelCounts.mastered;
   const accuracy = attempts ? Math.round((correct / attempts) * 100) : 0;
 
   $("#totalWords").textContent = total;
@@ -361,9 +377,9 @@ function renderDashboard() {
   $("#accuracyRate").textContent = `${accuracy}%`;
 
   const levels = [
-    ["Lv.0 新單字", words.filter((word) => word.proficiency === 0).length, "#9aa5b1"],
-    ["Lv.1-2 初學", words.filter((word) => word.proficiency >= 1 && word.proficiency <= 2).length, "#b7791f"],
-    ["Lv.3-4 熟悉", words.filter((word) => word.proficiency >= 3 && word.proficiency <= 4).length, "#235f9c"],
+    ["Lv.0 新單字", levelCounts.newWords, "#9aa5b1"],
+    ["Lv.1-2 初學", levelCounts.learning, "#b7791f"],
+    ["Lv.3-4 熟悉", levelCounts.familiar, "#235f9c"],
     ["Lv.5 已熟練", mastered, "#127a5a"]
   ];
 
@@ -394,6 +410,31 @@ function renderDashboard() {
   });
 }
 
+function dashboardTotalWords() {
+  const catalogTotal = Object.values(SERIES_WORD_COUNTS).reduce((sum, count) => sum + count, 0);
+  return catalogTotal + customWords.length;
+}
+
+function dashboardLevelCounts(total, trackedStats) {
+  const counts = {
+    newWords: total,
+    learning: 0,
+    familiar: 0,
+    mastered: 0
+  };
+
+  trackedStats.forEach((item) => {
+    const proficiency = Math.max(0, Math.min(5, Number(item.proficiency) || 0));
+    if (proficiency <= 0) return;
+    counts.newWords = Math.max(0, counts.newWords - 1);
+    if (proficiency <= 2) counts.learning += 1;
+    else if (proficiency <= 4) counts.familiar += 1;
+    else counts.mastered += 1;
+  });
+
+  return counts;
+}
+
 function accuracyFor(word) {
   return word.total ? Math.round((word.correct / word.total) * 100) : 0;
 }
@@ -416,6 +457,12 @@ function activateTab(tabName, options = {}) {
   if (tabName !== "flashcards") stopAutoPlay();
   $$(".tab").forEach((tab) => tab.classList.toggle("is-active", tab.dataset.tab === tabName));
   $$(".panel").forEach((panel) => panel.classList.toggle("is-active", panel.id === tabName));
+  if (tabName === "practice") {
+    ensurePracticeSeriesLoaded($("#practiceSeries").value || "all").then(() => {
+      refreshUnitSelectFor("#practiceSeries", "#practiceUnit");
+      nextQuestion();
+    });
+  }
   if (tabName === "flashcards" && options.initFlashcards !== false) initFlashcards();
   if (tabName === "practice" && !currentQuestion) nextQuestion();
 }
@@ -1746,7 +1793,7 @@ function boot() {
   $("#knownBtn").addEventListener("click", () => recordFlashcard(true));
   $("#unknownBtn").addEventListener("click", () => recordFlashcard(false));
   $("#practiceSeries").addEventListener("change", async () => {
-    await ensureSeriesLoaded($("#practiceSeries").value || "all");
+    await ensurePracticeSeriesLoaded($("#practiceSeries").value || "all");
     refreshUnitSelectFor("#practiceSeries", "#practiceUnit");
     nextQuestion();
   });
@@ -1767,7 +1814,10 @@ function boot() {
     renderAudit();
   });
   $("#auditUnit").addEventListener("change", renderAudit);
-  $("#runAudit").addEventListener("click", () => {
+  $("#runAudit").addEventListener("click", async () => {
+    const auditSeries = $("#auditSeries").value || "all";
+    if (auditSeries !== "all") await ensureSeriesLoaded(auditSeries);
+    refreshUnitSelectFor("#auditSeries", "#auditUnit");
     renderAudit();
     toast("資料健檢已更新");
   });

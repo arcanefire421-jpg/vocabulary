@@ -161,6 +161,19 @@ for (const word of words) {
     }
   }
 
+  for (const [label, value] of [
+    ["exampleTr", word.exampleTr],
+    ["phraseExampleTr", word.phraseExampleTr]
+  ]) {
+    const text = String(value || "").trim();
+    if (/^請學會如何在句子中使用\b/i.test(text)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: placeholder ${label}`);
+    }
+    if (/^[-－]/.test(text)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: ${label} starts with a stray hyphen`);
+    }
+  }
+
   const key = `${word.series}::${normalizeText(word.word)}`;
   duplicates.set(key, [...(duplicates.get(key) || []), word]);
 }
