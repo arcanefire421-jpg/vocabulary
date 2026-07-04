@@ -2,7 +2,7 @@ import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-high-frequency
 import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-high-frequency-series";
 import { QUESTION_BANK } from "../data/questions.js?v=20260703-high-frequency-series";
 
-const APP_VERSION = "20260703-high-frequency-series";
+const APP_VERSION = "20260704-safari-swipe";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -845,24 +845,34 @@ function recordFlashcard(isCorrect) {
 }
 
 function beginFlashDrag(event) {
+  if (event.pointerType === "touch") return;
   if (event.pointerType === "mouse" && event.button !== 0) return;
-  stopAutoPlay();
-  flashDrag = {
-    id: event.pointerId,
-    startX: event.clientX,
-    startY: event.clientY,
-    moved: false
-  };
+  startFlashDrag(event.pointerId, event.clientX, event.clientY);
   $("#flashcard").setPointerCapture?.(event.pointerId);
 }
 
+function startFlashDrag(id, startX, startY) {
+  stopAutoPlay();
+  flashDrag = {
+    id,
+    startX,
+    startY,
+    moved: false
+  };
+}
+
 function moveFlashDrag(event) {
-  if (!flashDrag || flashDrag.id !== event.pointerId) return;
-  const dx = event.clientX - flashDrag.startX;
-  const dy = event.clientY - flashDrag.startY;
+  if (event.pointerType === "touch") return;
+  updateFlashDrag(event.pointerId, event.clientX, event.clientY, event);
+}
+
+function updateFlashDrag(id, clientX, clientY, event) {
+  if (!flashDrag || flashDrag.id !== id) return;
+  const dx = clientX - flashDrag.startX;
+  const dy = clientY - flashDrag.startY;
   if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
   flashDrag.moved = true;
-  if (Math.abs(dx) > Math.abs(dy)) event.preventDefault();
+  if (Math.abs(dx) > Math.abs(dy)) event?.preventDefault?.();
 
   const card = $("#flashcard");
   const rotate = Math.max(-10, Math.min(10, dx / 18));
@@ -872,8 +882,13 @@ function moveFlashDrag(event) {
 }
 
 function endFlashDrag(event) {
-  if (!flashDrag || flashDrag.id !== event.pointerId) return;
-  const dx = event.clientX - flashDrag.startX;
+  if (event.pointerType === "touch") return;
+  finishFlashDrag(event.pointerId, event.clientX);
+}
+
+function finishFlashDrag(id, clientX) {
+  if (!flashDrag || flashDrag.id !== id) return;
+  const dx = clientX - flashDrag.startX;
   const moved = flashDrag.moved;
   flashDrag = null;
 
@@ -890,6 +905,31 @@ function endFlashDrag(event) {
   if (!moved) {
     card.classList.toggle("is-flipped");
   }
+}
+
+function beginFlashTouch(event) {
+  if (event.touches.length !== 1) return;
+  const touch = event.touches[0];
+  startFlashDrag("touch", touch.clientX, touch.clientY);
+}
+
+function moveFlashTouch(event) {
+  if (!flashDrag || flashDrag.id !== "touch" || event.touches.length !== 1) return;
+  const touch = event.touches[0];
+  updateFlashDrag("touch", touch.clientX, touch.clientY, event);
+}
+
+function endFlashTouch(event) {
+  const touch = event.changedTouches?.[0];
+  if (!touch) return;
+  finishFlashDrag("touch", touch.clientX);
+}
+
+function cancelFlashDrag() {
+  flashDrag = null;
+  $("#flashcard").classList.remove("is-dragging");
+  $("#flashcard").dataset.swipe = "";
+  $("#flashcard").style.transform = "";
 }
 
 function generatedQuestions() {
@@ -1673,12 +1713,11 @@ function boot() {
   $("#flashcard").addEventListener("pointerdown", beginFlashDrag);
   $("#flashcard").addEventListener("pointermove", moveFlashDrag);
   $("#flashcard").addEventListener("pointerup", endFlashDrag);
-  $("#flashcard").addEventListener("pointercancel", () => {
-    flashDrag = null;
-    $("#flashcard").classList.remove("is-dragging");
-    $("#flashcard").dataset.swipe = "";
-    $("#flashcard").style.transform = "";
-  });
+  $("#flashcard").addEventListener("pointercancel", cancelFlashDrag);
+  $("#flashcard").addEventListener("touchstart", beginFlashTouch, { passive: true });
+  $("#flashcard").addEventListener("touchmove", moveFlashTouch, { passive: false });
+  $("#flashcard").addEventListener("touchend", endFlashTouch);
+  $("#flashcard").addEventListener("touchcancel", cancelFlashDrag);
   $("#prevCard").addEventListener("click", () => moveFlashcard(-1));
   $("#nextCard").addEventListener("click", () => moveFlashcard(1));
   $("#speakBtn").addEventListener("click", speakFlashcard);
