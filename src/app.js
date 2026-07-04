@@ -2,7 +2,7 @@ import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260703-high-frequency
 import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260703-high-frequency-series";
 import { QUESTION_BANK } from "../data/questions.js?v=20260703-high-frequency-series";
 
-const APP_VERSION = "20260704-high-frequency-cleanup";
+const APP_VERSION = "20260704-high-frequency-cleanup-2";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -135,7 +135,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=20260704-high-frequency-cleanup",
+      path: "../data/highFrequency.js?v=20260704-high-frequency-cleanup-2",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
