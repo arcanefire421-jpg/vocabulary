@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260704-fast-counts";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260704-fast-counts";
-import { QUESTION_BANK } from "../data/questions.js?v=20260704-fast-counts";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=20260705-swipe-data-check";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=20260705-swipe-data-check";
+import { QUESTION_BANK } from "../data/questions.js?v=20260705-swipe-data-check";
 
-const APP_VERSION = "20260704-fast-counts";
+const APP_VERSION = "20260705-swipe-data-check";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -130,7 +130,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_SCHOOL_SERIES,
       label: "高中單字庫",
-      path: "../data/highschool.js?v=20260703-high-frequency-series",
+      path: "../data/highschool.js?v=20260705-swipe-data-check",
       exportName: "HIGH_SCHOOL_VOCABULARY",
       apply: (items) => {
         highSchoolVocabulary = prepareHighSchoolVocabulary(items);
@@ -141,7 +141,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=20260704-fast-counts",
+      path: "../data/highFrequency.js?v=20260705-swipe-data-check",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
@@ -892,7 +892,7 @@ function recordFlashcard(isCorrect) {
 }
 
 function beginFlashDrag(event) {
-  if (event.pointerType === "touch") return;
+  if (event.pointerType === "touch" && event.isPrimary === false) return;
   if (event.pointerType === "mouse" && event.button !== 0) return;
   startFlashDrag(event.pointerId, event.clientX, event.clientY);
   $("#flashcard").setPointerCapture?.(event.pointerId);
@@ -909,7 +909,6 @@ function startFlashDrag(id, startX, startY) {
 }
 
 function moveFlashDrag(event) {
-  if (event.pointerType === "touch") return;
   updateFlashDrag(event.pointerId, event.clientX, event.clientY, event);
 }
 
@@ -929,7 +928,6 @@ function updateFlashDrag(id, clientX, clientY, event) {
 }
 
 function endFlashDrag(event) {
-  if (event.pointerType === "touch") return;
   finishFlashDrag(event.pointerId, event.clientX);
 }
 
@@ -955,18 +953,21 @@ function finishFlashDrag(id, clientX) {
 }
 
 function beginFlashTouch(event) {
+  if (window.PointerEvent) return;
   if (event.touches.length !== 1) return;
   const touch = event.touches[0];
   startFlashDrag("touch", touch.clientX, touch.clientY);
 }
 
 function moveFlashTouch(event) {
+  if (window.PointerEvent) return;
   if (!flashDrag || flashDrag.id !== "touch" || event.touches.length !== 1) return;
   const touch = event.touches[0];
   updateFlashDrag("touch", touch.clientX, touch.clientY, event);
 }
 
 function endFlashTouch(event) {
+  if (window.PointerEvent) return;
   const touch = event.changedTouches?.[0];
   if (!touch) return;
   finishFlashDrag("touch", touch.clientX);

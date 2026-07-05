@@ -39,6 +39,20 @@ function phraseExampleUsesPhrase(phrase, example) {
   return phraseCoreOptions(phrase).some((option) => phraseWordsInExample(option, normalizedExample));
 }
 
+function exampleUsesWord(wordText, example) {
+  const normalizedExample = normalizeText(example);
+  if (!wordText || !normalizedExample) return false;
+  return wordCoreOptions(wordText).some((option) => phraseWordsInExample(option, normalizedExample));
+}
+
+function wordCoreOptions(wordText) {
+  return String(wordText)
+    .replace(/[（(][^）)]*[）)]/g, "")
+    .split(/\s*\/\s*|;|；|,|，/)
+    .map((option) => normalizeText(option))
+    .filter(Boolean);
+}
+
 function phraseCoreOptions(phrase) {
   return String(phrase)
     .replace(/[（(][^）)]*[）)]/g, "")
@@ -61,7 +75,11 @@ function phraseWordsInExample(option, normalizedExample) {
   let cursor = 0;
   return wordsToFind.every((target) => {
     const targetStem = simpleStem(target);
-    const index = exampleWords.findIndex((word, currentIndex) => currentIndex >= cursor && simpleStem(word) === targetStem);
+    const index = exampleWords.findIndex((word, currentIndex) => {
+      if (currentIndex < cursor) return false;
+      const wordStem = simpleStem(word);
+      return wordStem === targetStem || (targetStem.length > 3 && wordStem.endsWith(targetStem));
+    });
     if (index === -1) return false;
     cursor = index + 1;
     return true;
@@ -70,11 +88,27 @@ function phraseWordsInExample(option, normalizedExample) {
 
 function simpleStem(word) {
   const irregular = {
+    am: "be",
+    is: "be",
+    are: "be",
+    was: "be",
+    were: "be",
+    been: "be",
+    being: "be",
     came: "come",
+    coming: "come",
     has: "have",
     had: "have",
+    does: "do",
+    did: "do",
+    done: "do",
+    made: "make",
+    making: "make",
     fell: "fall",
+    falling: "fall",
+    foreseen: "foresee",
     dug: "dig",
+    digs: "dig",
     drove: "drive",
     driven: "drive",
     dried: "dry",
@@ -83,13 +117,65 @@ function simpleStem(word) {
     argued: "argue",
     arguing: "argue",
     arrived: "arrive",
-    arriving: "arrive"
+    arriving: "arrive",
+    bacteria: "bacterium",
+    became: "become",
+    blown: "blow",
+    blew: "blow",
+    bought: "buy",
+    buying: "buy",
+    built: "build",
+    building: "build",
+    calves: "calf",
+    clapped: "clap",
+    clapping: "clap",
+    chose: "choose",
+    chosen: "choose",
+    cookies: "cookie",
+    died: "die",
+    dipped: "dip",
+    dying: "die",
+    feet: "foot",
+    geese: "goose",
+    hit: "hit",
+    hits: "hit",
+    hurt: "hurt",
+    hurts: "hurt",
+    left: "leave",
+    lying: "lie",
+    lost: "lose",
+    mops: "mop",
+    oxen: "ox",
+    owns: "own",
+    overcame: "overcome",
+    overgrown: "overgrow",
+    impressed: "impress",
+    oppressed: "oppress",
+    prettier: "pretty",
+    proceeded: "proceed",
+    ran: "run",
+    running: "run",
+    saw: "see",
+    seen: "see",
+    sat: "sit",
+    sitting: "sit",
+    smaller: "small",
+    spent: "spend",
+    teeth: "tooth",
+    tossed: "toss",
+    wrote: "write",
+    written: "write",
+    writing: "write"
   };
   let value = String(word || "").replace(/'s$/, "");
   value = irregular[value] || value;
+  if (value.length > 4) value = value.replace(/ied$/, "y");
+  if (value.length > 4) value = value.replace(/ies$/, "y");
+  if (value.length > 3) value = value.replace(/s$/, "");
   if (value.length > 4) value = value.replace(/(ing|ed|es)$/, "");
-  if (value.length > 4) value = value.replace(/s$/, "");
   if (value.length > 3) value = value.replace(/e$/, "");
+  if (value.length > 5) value = value.replace(/(tion|sion)$/, "t");
+  if (/(.)\1$/.test(value) && value.length > 4) value = value.slice(0, -1);
   return value;
 }
 
@@ -143,6 +229,9 @@ for (const word of words) {
   }
   if (phrase.phrase && !phrase.phraseExample) {
     issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: missing phrase example`);
+  }
+  if (!word.referenceOnly && word.example && !exampleUsesWord(word.word, word.example)) {
+    warnings.push(`example may not contain word: ${word.series} Unit ${word.unit || "-"} ${word.word}`);
   }
   if (word.needsReview) {
     warnings.push(`OCR review suggested: ${word.series}::${word.word}`);
