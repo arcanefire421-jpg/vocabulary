@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v0.2";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v0.2";
-import { QUESTION_BANK } from "../data/questions.js?v=v0.2";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v0.3";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v0.3";
+import { QUESTION_BANK } from "../data/questions.js?v=v0.3";
 
-const APP_VERSION = "v0.2";
+const APP_VERSION = "v0.3";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -130,7 +130,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_SCHOOL_SERIES,
       label: "高中單字庫",
-      path: "../data/highschool.js?v=v0.2",
+      path: "../data/highschool.js?v=v0.3",
       exportName: "HIGH_SCHOOL_VOCABULARY",
       apply: (items) => {
         highSchoolVocabulary = prepareHighSchoolVocabulary(items);
@@ -141,7 +141,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=v0.2",
+      path: "../data/highFrequency.js?v=v0.3",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
@@ -488,16 +488,34 @@ function renderFlashcard() {
   const card = $("#flashcard");
   card.style.transform = "";
   card.classList.remove("is-flipped");
+  $("#spellPanel").hidden = ($("#flashMode")?.value || "standard") !== "spelling";
+  $("#spellAnswer").value = "";
+  $("#spellResult").textContent = "";
   if (!flashList.length) {
     $("#flashWord").textContent = "沒有單字";
     return;
   }
   const word = flashList[flashIndex];
+  const mode = $("#flashMode")?.value || "standard";
   $("#flashProgress").textContent = `${flashIndex + 1} / ${flashList.length}`;
   $("#flashBadge").textContent = `${word.series || DEFAULT_SERIES} · ${wordUnitLabel(word)} · Lv.${word.proficiency || 0}`;
-  $("#flashWord").textContent = word.word;
-  $("#flashPhonetic").textContent = word.phonetic || "";
-  $("#flashPos").textContent = word.pos || "";
+  if (mode === "reverse") {
+    $("#flashWord").textContent = word.translation || "中文提示";
+    $("#flashPhonetic").textContent = "";
+    $("#flashPos").textContent = "中文猜英文";
+  } else if (mode === "listening") {
+    $("#flashWord").textContent = "聽力模式";
+    $("#flashPhonetic").textContent = "先按發音，再翻面確認";
+    $("#flashPos").textContent = word.pos || "";
+  } else if (mode === "spelling") {
+    $("#flashWord").textContent = word.translation || "拼字提示";
+    $("#flashPhonetic").textContent = word.phonetic || "";
+    $("#flashPos").textContent = "拼字";
+  } else {
+    $("#flashWord").textContent = word.word;
+    $("#flashPhonetic").textContent = word.phonetic || "";
+    $("#flashPos").textContent = word.pos || "";
+  }
   $("#flashLevelBadge").textContent = `Lv.${word.proficiency || 0}`;
   $("#flashTranslation").textContent = word.translation || "";
   $("#flashExampleLabel").hidden = !word.example;
@@ -512,6 +530,7 @@ function renderFlashcard() {
   $("#flashPhraseExampleTr").textContent = phrase.phraseExampleTr;
   $("#flashExample").textContent = word.example || "尚未設定例句";
   $("#flashExampleTr").textContent = word.exampleTr || "";
+  if (mode === "spelling") window.setTimeout(() => $("#spellAnswer")?.focus(), 0);
 }
 
 function speechTextFor(text) {
@@ -583,6 +602,13 @@ function unlockSpeech() {
   } catch {
     speechUnlocked = false;
   }
+}
+
+function enableSpeechManually() {
+  if (!canSpeak()) return;
+  unlockSpeech();
+  loadSpeechVoices();
+  toast(speechUnlocked ? "發音已啟用" : "請再點一次發音按鈕啟用");
 }
 
 function speakUtterance(utterance) {
@@ -815,8 +841,19 @@ function speakFlashcard() {
   if (!flashList.length) return;
   const word = flashList[flashIndex];
   const isBack = $("#flashcard").classList.contains("is-flipped");
+  const mode = $("#flashMode")?.value || "standard";
   const rawText = isBack && word.example ? word.example : word.word;
   speakText(rawText, word.word, isBack ? "播放例句發音" : `播放發音：${word.word}`);
+  if (mode === "listening" && !isBack) toast("聽完後可以翻面確認答案");
+}
+
+function checkSpellingAnswer() {
+  if (!flashList.length) return;
+  const answer = $("#spellAnswer").value.trim();
+  const word = flashList[flashIndex];
+  const isCorrect = normalize(answer) === normalize(word.word);
+  $("#spellResult").textContent = isCorrect ? "拼對了" : `再試一次，正確拼法是 ${word.word}`;
+  recordFlashcard(isCorrect);
 }
 
 function speakLibraryWord(id) {
@@ -1143,6 +1180,7 @@ function questionPool() {
   const series = $("#practiceSeries").value || "all";
   const unit = $("#practiceUnit").value || "all";
   const mode = $("#practiceMode").value || "mixed";
+  const scope = $("#practiceScope")?.value || "all";
   let pool = [
     ...QUESTION_BANK.map((question) => ({ ...question, series: question.series || DEFAULT_SERIES })),
     ...generatedQuestions()
@@ -1150,7 +1188,24 @@ function questionPool() {
   if (series !== "all") pool = pool.filter((question) => (question.series || DEFAULT_SERIES) === series);
   if (unit !== "all") pool = pool.filter((question) => String(question.unit) === unit || (unit === "custom" && !question.unit));
   if (mode !== "mixed") pool = pool.filter((question) => question.type === mode);
+  if (scope !== "all") pool = pool.filter((question) => questionMatchesPracticeScope(question, scope));
   return pool;
+}
+
+function questionTargetWord(question) {
+  return wordKeyFromText(question.targetWord || question.answer, question.unit, question.series || "all");
+}
+
+function questionMatchesPracticeScope(question, scope) {
+  const word = questionTargetWord(question);
+  if (!word) return false;
+  if (scope === "wrong") return word.lastResult === "wrong";
+  if (scope === "recentWrong") {
+    const reviewedAt = Number(word.lastReviewed || 0);
+    return word.lastResult === "wrong" && reviewedAt && Date.now() - reviewedAt <= 7 * 24 * 60 * 60 * 1000;
+  }
+  if (scope === "weak") return (word.proficiency || 0) <= 1 || (word.total > 0 && accuracyFor(word) < 70);
+  return true;
 }
 
 function nextQuestion() {
@@ -1163,7 +1218,7 @@ function nextQuestion() {
 function renderQuestion() {
   const card = $("#questionCard");
   if (!currentQuestion) {
-    card.innerHTML = "<h3>目前沒有符合條件的題目</h3><p>可以新增單字或切換單元後再試一次。</p>";
+    card.innerHTML = "<h3>目前沒有符合條件的題目</h3><p>可以切換單元、題型或錯題篩選後再試一次。</p>";
     return;
   }
 
@@ -1562,7 +1617,7 @@ function renderAudit() {
 
   reportBox.innerHTML = `
     <div class="audit-summary">
-      <div><strong>${report.totalWords}</strong><span>檢查單字</span></div>
+      <div><strong>${report.totalWords}</strong><span>已載入檢查單字</span></div>
       <div><strong>${report.totalQuestions}</strong><span>可練習題</span></div>
       <div class="${issueTotal ? "is-warning" : "is-ok"}"><strong>${issueTotal}</strong><span>待修項目</span></div>
       <div><strong>${warningTotal}</strong><span>提醒</span></div>
@@ -1618,12 +1673,23 @@ function renderAuditList(items) {
 function renderLibrary() {
   const series = $("#librarySeries").value || "all";
   const unit = $("#libraryUnit").value || "all";
+  const filter = $("#libraryFilter")?.value || "all";
   const query = $("#searchWord").value.trim().toLowerCase();
   let list = filteredBySeriesAndUnit(words, series, unit);
   if (query) {
     list = list.filter((word) => {
       const phrase = phraseInfo(word);
       return `${word.word} ${word.translation} ${phrase.phrase} ${phrase.phraseTr} ${word.exampleTr || ""}`.toLowerCase().includes(query);
+    });
+  }
+  if (filter !== "all") {
+    list = list.filter((word) => {
+      const phrase = phraseInfo(word);
+      if (filter === "phrases") return Boolean(phrase.phrase);
+      if (filter === "missingExamples") return !word.example || !word.exampleTr;
+      if (filter === "new") return (word.proficiency || 0) === 0;
+      if (filter === "wrong") return word.lastResult === "wrong";
+      return true;
     });
   }
 
@@ -1687,6 +1753,38 @@ function renderLibrary() {
     .join("");
 
   if (window.lucide) window.lucide.createIcons();
+}
+
+function cleanCustomDataValue(value) {
+  return String(value || "")
+    .replace(/([A-Za-z])\s+-\s*([A-Za-z])/g, "$1-$2")
+    .replace(/([A-Za-z])\s*-\s+([A-Za-z])/g, "$1-$2")
+    .replace(/\s+([,.!?;:])/g, "$1")
+    .replace(/^[\s-]+(?=[\u4e00-\u9fff])/u, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+function fixCommonDataIssues() {
+  if (!customWords.length) {
+    toast("目前沒有自訂或匯入單字可自動修正");
+    return;
+  }
+  let changed = 0;
+  customWords = customWords.map((word) => {
+    const next = { ...word };
+    ["word", "translation", "pos", "phonetic", "phrase", "phraseTr", "phraseExample", "phraseExampleTr", "example", "exampleTr"].forEach((key) => {
+      const cleaned = cleanCustomDataValue(next[key]);
+      if ((next[key] || "") !== cleaned) changed += 1;
+      next[key] = cleaned;
+    });
+    return next;
+  });
+  saveState();
+  words = buildWords();
+  setupUnitSelects();
+  renderAll();
+  toast(changed ? `已修正 ${changed} 個格式問題` : "沒有找到需要自動修正的格式問題");
 }
 
 function handleLibraryClick(event) {
@@ -1863,6 +1961,10 @@ function boot() {
     stopAutoPlay();
     initFlashcards();
   });
+  $("#flashMode").addEventListener("change", () => {
+    stopAutoPlay();
+    renderFlashcard();
+  });
   $("#flashcard").addEventListener("pointerdown", beginFlashDrag);
   $("#flashcard").addEventListener("pointermove", moveFlashDrag);
   $("#flashcard").addEventListener("pointerup", endFlashDrag);
@@ -1874,6 +1976,11 @@ function boot() {
   $("#prevCard").addEventListener("click", () => moveFlashcard(-1));
   $("#nextCard").addEventListener("click", () => moveFlashcard(1));
   $("#speakBtn").addEventListener("click", speakFlashcard);
+  $("#enableSpeechBtn").addEventListener("click", enableSpeechManually);
+  $("#spellCheck").addEventListener("click", checkSpellingAnswer);
+  $("#spellAnswer").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") checkSpellingAnswer();
+  });
   $("#autoPlayBtn").addEventListener("click", toggleAutoPlay);
   $("#dimScreenBtn").addEventListener("click", toggleDimMode);
   $("#knownBtn").addEventListener("click", () => recordFlashcard(true));
@@ -1885,6 +1992,7 @@ function boot() {
   });
   $("#practiceUnit").addEventListener("change", nextQuestion);
   $("#practiceMode").addEventListener("change", nextQuestion);
+  $("#practiceScope").addEventListener("change", nextQuestion);
   $("#newQuestion").addEventListener("click", nextQuestion);
   $("#searchWord").addEventListener("input", renderLibrary);
   $("#librarySeries").addEventListener("change", async () => {
@@ -1893,6 +2001,7 @@ function boot() {
     renderLibrary();
   });
   $("#libraryUnit").addEventListener("change", renderLibrary);
+  $("#libraryFilter").addEventListener("change", renderLibrary);
   $("#wordGrid").addEventListener("click", handleLibraryClick);
   $("#auditSeries").addEventListener("change", async () => {
     await ensureSeriesLoaded($("#auditSeries").value || "all");
@@ -1902,11 +2011,17 @@ function boot() {
   $("#auditUnit").addEventListener("change", renderAudit);
   $("#runAudit").addEventListener("click", async () => {
     const auditSeries = $("#auditSeries").value || "all";
-    if (auditSeries !== "all") await ensureSeriesLoaded(auditSeries);
+    if (auditSeries === "all") {
+      await ensureSeriesLoaded(HIGH_SCHOOL_SERIES);
+      await ensureSeriesLoaded(HIGH_FREQUENCY_SERIES);
+    } else {
+      await ensureSeriesLoaded(auditSeries);
+    }
     refreshUnitSelectFor("#auditSeries", "#auditUnit");
     renderAudit();
     toast("資料健檢已更新");
   });
+  $("#fixAuditData").addEventListener("click", fixCommonDataIssues);
   $("#addWordForm").addEventListener("submit", addCustomWord);
   $("#exportBtn").addEventListener("click", exportData);
   $("#importInput").addEventListener("change", importData);

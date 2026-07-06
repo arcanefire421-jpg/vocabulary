@@ -278,6 +278,11 @@ body.is-dimmed .tab:nth-child(4).is-active {
   background: #c4b5fd;
 }
 
+body.is-dimmed .tab:nth-child(5).is-active {
+  color: #07110f;
+  background: #f0a28d;
+}
+
 button,
 input,
 select {
@@ -339,7 +344,7 @@ button {
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   padding: 4px;
   margin-bottom: 14px;
   background: #eef3f5;
@@ -390,6 +395,11 @@ button {
 .tab:nth-child(4).is-active {
   color: #5b4b8a;
   background: #eee9ff;
+}
+
+.tab:nth-child(5).is-active {
+  color: #8b3a24;
+  background: #fff0eb;
 }
 
 .panel {
@@ -841,6 +851,35 @@ blockquote small {
   min-height: 48px;
   padding-inline: 10px;
   white-space: nowrap;
+}
+
+.spell-panel {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  width: min(760px, 100%);
+  margin: 12px auto 0;
+  padding: 12px;
+  border: 1px solid #cfe4ec;
+  border-radius: 8px;
+  background: #f7fcff;
+}
+
+.spell-panel[hidden] {
+  display: none;
+}
+
+.spell-panel p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+body.is-dimmed .spell-panel {
+  color: #d7eee7;
+  background: #0e1a17;
+  border-color: #2e5b4d;
 }
 
 .autoplay-panel {
