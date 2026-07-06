@@ -429,7 +429,7 @@ export const QUESTION_BANK = [
     options: ["boiling", "boring", "bloody", "bony"],
     answer: "boiling",
     explanation:
-      "boiling 是 boil 的現在分詞，可作形容詞表示「滾燙的」。火山爆發後流下的是滾燙的岩漿。"
+      "boiling 是 boil 的現在分詞，可作形容詞表示「滾燙的」。火山爆發後流下的是滾燙的巖漿。"
   },
   {
     id: "u9-mcq-borrow",

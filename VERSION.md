@@ -1,5 +1,5 @@
 # Version
 
-Current version: v0.4
+Current version: v0.5
 
 Before each upload to GitHub, increase the version by 0.1 and update all cache query strings that use `?v=`.
