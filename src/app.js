@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.2-showcase-heroes";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.2-showcase-heroes";
-import { QUESTION_BANK } from "../data/questions.js?v=v1.2-showcase-heroes";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.3-rpg-shop";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.3-rpg-shop";
+import { QUESTION_BANK } from "../data/questions.js?v=v1.3-rpg-shop";
 
-const APP_VERSION = "V1.2 勇者傳說版";
+const APP_VERSION = "V1.3 勇者傳說版";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -68,14 +68,39 @@ const ADVENTURE_MAP_ZONES = [
   }
 ];
 const AVATAR_ITEMS = [
-  { id: "w", icon: "W", name: "吳限起點", cost: 0, className: "avatar-core", stats: { hp: 0, mp: 0, atk: 0, def: 0, hit: 0, evade: 0, move: 0 } },
-  { id: "warrior", icon: "戰", name: "戰士", cost: 30, className: "avatar-warrior", stats: { hp: 18, mp: 0, atk: 6, def: 3, hit: 2, evade: 0, move: 0 } },
-  { id: "mage", icon: "法", name: "法師", cost: 45, className: "avatar-mage", stats: { hp: 0, mp: 24, atk: 5, def: 0, hit: 3, evade: 0, move: 0 } },
-  { id: "priest", icon: "牧", name: "牧師", cost: 45, className: "avatar-priest", stats: { hp: 8, mp: 18, atk: 2, def: 2, hit: 2, evade: 1, move: 0 } },
-  { id: "paladin", icon: "聖", name: "聖騎士", cost: 60, className: "avatar-paladin", stats: { hp: 16, mp: 10, atk: 4, def: 6, hit: 1, evade: 0, move: 0 } },
-  { id: "assassin", icon: "刺", name: "刺客", cost: 65, className: "avatar-assassin", stats: { hp: 4, mp: 4, atk: 5, def: 0, hit: 5, evade: 7, move: 1 } },
-  { id: "death-knight", icon: "死", name: "死亡騎士", cost: 85, className: "avatar-death-knight", stats: { hp: 22, mp: 8, atk: 7, def: 4, hit: 1, evade: -1, move: 0 } },
-  { id: "druid", icon: "德", name: "德魯伊", cost: 75, className: "avatar-druid", stats: { hp: 10, mp: 14, atk: 3, def: 3, hit: 2, evade: 3, move: 1 } }
+  { id: "w", icon: "兔", name: "吳限起點", cost: 0, className: "avatar-core", stats: { hp: 0, mp: 0, atk: 0, def: 0, hit: 0, evade: 0, move: 0 } },
+  { id: "warrior", icon: "熊", name: "戰士", cost: 30, className: "avatar-warrior", stats: { hp: 18, mp: 0, atk: 6, def: 3, hit: 2, evade: 0, move: 0 } },
+  { id: "mage", icon: "貓", name: "法師", cost: 45, className: "avatar-mage", stats: { hp: 0, mp: 24, atk: 5, def: 0, hit: 3, evade: 0, move: 0 } },
+  { id: "priest", icon: "羊", name: "牧師", cost: 45, className: "avatar-priest", stats: { hp: 8, mp: 18, atk: 2, def: 2, hit: 2, evade: 1, move: 0 } },
+  { id: "paladin", icon: "獅", name: "聖騎士", cost: 60, className: "avatar-paladin", stats: { hp: 16, mp: 10, atk: 4, def: 6, hit: 1, evade: 0, move: 0 } },
+  { id: "assassin", icon: "狐", name: "刺客", cost: 65, className: "avatar-assassin", stats: { hp: 4, mp: 4, atk: 5, def: 0, hit: 5, evade: 7, move: 1 } },
+  { id: "death-knight", icon: "狼", name: "死亡騎士", cost: 85, className: "avatar-death-knight", stats: { hp: 22, mp: 8, atk: 7, def: 4, hit: 1, evade: -1, move: 0 } },
+  { id: "druid", icon: "鹿", name: "德魯伊", cost: 75, className: "avatar-druid", stats: { hp: 10, mp: 14, atk: 3, def: 3, hit: 2, evade: 3, move: 1 } }
+];
+const BACKGROUND_ITEMS = [
+  { id: "meadow", name: "青草小營地", cost: 0, className: "bg-meadow" },
+  { id: "kaiju", name: "怪獸練功場", cost: 40, className: "bg-kaiju" },
+  { id: "tower", name: "吳限高塔夜景", cost: 70, className: "bg-tower" },
+  { id: "library", name: "魔法書庫", cost: 80, className: "bg-library" },
+  { id: "sky", name: "雲端星橋", cost: 95, className: "bg-sky" }
+];
+const CLASS_ITEMS = [
+  { id: "novice", icon: "初", name: "見習勇者", cost: 0, className: "class-novice", stats: { hp: 0, mp: 0, atk: 0, def: 0, hit: 0, evade: 0, move: 0 } },
+  { id: "warrior", icon: "戰", name: "戰士", cost: 25, className: "class-warrior", stats: { hp: 18, mp: 0, atk: 6, def: 3, hit: 2, evade: 0, move: 0 } },
+  { id: "mage", icon: "法", name: "法師", cost: 45, className: "class-mage", stats: { hp: 0, mp: 24, atk: 5, def: 0, hit: 3, evade: 0, move: 0 } },
+  { id: "priest", icon: "牧", name: "牧師", cost: 45, className: "class-priest", stats: { hp: 8, mp: 18, atk: 2, def: 2, hit: 2, evade: 1, move: 0 } },
+  { id: "paladin", icon: "聖", name: "聖騎士", cost: 60, className: "class-paladin", stats: { hp: 16, mp: 10, atk: 4, def: 6, hit: 1, evade: 0, move: 0 } },
+  { id: "assassin", icon: "刺", name: "刺客", cost: 65, className: "class-assassin", stats: { hp: 4, mp: 4, atk: 5, def: 0, hit: 5, evade: 7, move: 1 } },
+  { id: "ranger", icon: "弓", name: "遊俠", cost: 68, className: "class-ranger", stats: { hp: 8, mp: 6, atk: 4, def: 1, hit: 6, evade: 4, move: 1 } },
+  { id: "druid", icon: "德", name: "德魯伊", cost: 75, className: "class-druid", stats: { hp: 10, mp: 14, atk: 3, def: 3, hit: 2, evade: 3, move: 1 } }
+];
+const OUTFIT_ITEMS = [
+  { id: "plain", icon: "衣", name: "練習布衣", cost: 0, className: "outfit-plain", stats: { hp: 0, mp: 0, atk: 0, def: 0, hit: 0, evade: 0, move: 0 } },
+  { id: "scarf", icon: "巾", name: "紅色圍巾", cost: 18, className: "outfit-scarf", stats: { hp: 4, mp: 0, atk: 1, def: 0, hit: 0, evade: 1, move: 0 } },
+  { id: "cloak", icon: "披", name: "星光披風", cost: 42, className: "outfit-cloak", stats: { hp: 0, mp: 8, atk: 0, def: 1, hit: 1, evade: 2, move: 0 } },
+  { id: "armor", icon: "甲", name: "小勇者護甲", cost: 55, className: "outfit-armor", stats: { hp: 10, mp: 0, atk: 1, def: 4, hit: 0, evade: -1, move: 0 } },
+  { id: "robe", icon: "袍", name: "藍晶法袍", cost: 66, className: "outfit-robe", stats: { hp: 0, mp: 16, atk: 2, def: 1, hit: 2, evade: 0, move: 0 } },
+  { id: "hero", icon: "勇", name: "吳限勇者服", cost: 100, className: "outfit-hero", stats: { hp: 12, mp: 10, atk: 3, def: 3, hit: 2, evade: 2, move: 1 } }
 ];
 const AVATAR_SKILLS = {
   w: ["吳限覺醒！", "星火連線！", "知識護盾！"],
@@ -250,6 +275,9 @@ function normalizeAdventure(value) {
   const data = value && typeof value === "object" ? value : {};
   const ownedAvatars = Array.isArray(data.ownedAvatars) ? data.ownedAvatars : ["w"];
   const ownedFrames = Array.isArray(data.ownedFrames) ? data.ownedFrames : ["plain"];
+  const ownedBackgrounds = Array.isArray(data.ownedBackgrounds) ? data.ownedBackgrounds : ["meadow"];
+  const ownedClasses = Array.isArray(data.ownedClasses) ? data.ownedClasses : ["novice"];
+  const ownedOutfits = Array.isArray(data.ownedOutfits) ? data.ownedOutfits : ["plain"];
   const ownedEquipment = Array.isArray(data.ownedEquipment) ? data.ownedEquipment : [];
   const equippedEquipment = data.equippedEquipment && typeof data.equippedEquipment === "object" ? data.equippedEquipment : {};
   return {
@@ -265,6 +293,9 @@ function normalizeAdventure(value) {
     missionClaims: data.missionClaims && typeof data.missionClaims === "object" ? data.missionClaims : {},
     ownedAvatars: ownedAvatars.includes("w") ? ownedAvatars : ["w", ...ownedAvatars],
     ownedFrames: ownedFrames.includes("plain") ? ownedFrames : ["plain", ...ownedFrames],
+    ownedBackgrounds: ownedBackgrounds.includes("meadow") ? ownedBackgrounds : ["meadow", ...ownedBackgrounds],
+    ownedClasses: ownedClasses.includes("novice") ? ownedClasses : ["novice", ...ownedClasses],
+    ownedOutfits: ownedOutfits.includes("plain") ? ownedOutfits : ["plain", ...ownedOutfits],
     ownedEquipment,
     equippedEquipment: {
       weapon: equippedEquipment.weapon || "",
@@ -274,7 +305,10 @@ function normalizeAdventure(value) {
     },
     characterName: String(data.characterName || "吳限勇者").slice(0, 12),
     activeAvatar: ownedAvatars.includes(data.activeAvatar) ? data.activeAvatar : "w",
-    activeFrame: ownedFrames.includes(data.activeFrame) ? data.activeFrame : "plain"
+    activeFrame: ownedFrames.includes(data.activeFrame) ? data.activeFrame : "plain",
+    activeBackground: ownedBackgrounds.includes(data.activeBackground) ? data.activeBackground : "meadow",
+    activeClass: ownedClasses.includes(data.activeClass) ? data.activeClass : "novice",
+    activeOutfit: ownedOutfits.includes(data.activeOutfit) ? data.activeOutfit : "plain"
   };
 }
 
@@ -372,7 +406,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_SCHOOL_SERIES,
       label: "高中單字庫",
-      path: "../data/highschool.js?v=v1.2-showcase-heroes",
+      path: "../data/highschool.js?v=v1.3-rpg-shop",
       exportName: "HIGH_SCHOOL_VOCABULARY",
       apply: (items) => {
         highSchoolVocabulary = prepareHighSchoolVocabulary(items);
@@ -383,7 +417,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=v1.2-showcase-heroes",
+      path: "../data/highFrequency.js?v=v1.3-rpg-shop",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
@@ -750,13 +784,14 @@ function renderAdventure() {
   $("#adventureLevelBar").style.width = `${level.progress}%`;
   const avatar = activeAvatarItem();
   const frame = activeFrameItem();
+  const background = activeBackgroundItem();
   $("#companionAvatar").textContent = avatar.icon;
   $("#companionAvatar").dataset.mood = companion.mood;
   $("#companionAvatar").dataset.avatar = avatar.id;
   $("#companionAvatar").dataset.frame = frame.id;
   $("#companionTitle").textContent = companion.title;
   $("#companionMessage").textContent = companion.message;
-  renderHeroRewards(avatar, frame);
+  renderHeroRewards(avatar, frame, background);
 
   const missionGroups = adventureMissionGroups(today, snapshot, level);
   $("#adventureDailyTasks").innerHTML = missionGroups.map((group) => `
@@ -779,7 +814,10 @@ function renderAdventure() {
     `)
     .join("");
 
+  renderShop("#backgroundShop", BACKGROUND_ITEMS, "background");
   renderShop("#avatarShop", AVATAR_ITEMS, "avatar");
+  renderShop("#classShop", CLASS_ITEMS, "class");
+  renderShop("#outfitShop", OUTFIT_ITEMS, "outfit");
   renderShop("#frameShop", FRAME_ITEMS, "frame");
   renderEquipmentShop();
   $("#characterNameInput").value = adventure.characterName || "吳限勇者";
@@ -841,13 +879,19 @@ function renderAdventure() {
   if (window.lucide) window.lucide.createIcons();
 }
 
-function renderHeroRewards(avatar, frame) {
+function renderHeroRewards(avatar, frame, background) {
   const level = adventureLevelInfo();
+  const panel = document.querySelector(".hero-reward-showcase");
+  if (panel) {
+    panel.dataset.background = background.id;
+  }
   const equipped = $("#heroEquippedAvatar");
-  equipped.textContent = avatar.icon;
+  equipped.innerHTML = renderAvatarPortrait(avatar);
   equipped.dataset.avatar = avatar.id;
   equipped.dataset.frame = frame.id;
-  const skillList = AVATAR_SKILLS[avatar.id] || AVATAR_SKILLS.w;
+  equipped.dataset.outfit = activeOutfitItem().id;
+  const classItem = activeClassItem();
+  const skillList = AVATAR_SKILLS[classItem.id] || AVATAR_SKILLS.w;
   const skillIndex = Math.floor(Date.now() / 9000) % skillList.length;
   $("#characterSkillName").textContent = skillList[skillIndex];
 
@@ -858,7 +902,7 @@ function renderHeroRewards(avatar, frame) {
     }));
   $("#heroLoadout").innerHTML = equippedItems.map(({ id, title, item }) => `
     <div class="loadout-slot ${item ? `has-item equipment-${item.slot}` : ""}" title="${escapeHtml(item ? item.name : title)}">
-      <span class="loadout-icon equipment-art equipment-${escapeHtml(item?.slot || id)} equipment-tier-${item ? equipmentTier(item) : 0}"></span>
+      <span class="loadout-icon ${item ? equipmentArtClass(item) : `equipment-art equipment-${escapeHtml(id)} equipment-tier-0`}"></span>
       <small>${escapeHtml(item?.name || title)}</small>
     </div>
   `).join("");
@@ -903,6 +947,62 @@ function renderHeroRewards(avatar, frame) {
   `;
 }
 
+function renderAvatarPortrait(avatar) {
+  return `
+    <span class="avatar-portrait avatar-portrait-${escapeHtml(avatar.id)}" aria-hidden="true">
+      ${avatarSkinSvg(avatar.id)}
+    </span>
+  `;
+}
+
+function avatarSkinSvg(id) {
+  const skins = {
+    w: { bg: "#bdeed1", fur: "#fff5c8", line: "#31235a", cloth: "#78c2af", accent: "#2f7c68", kind: "rabbit" },
+    warrior: { bg: "#ffd1b3", fur: "#b98553", line: "#2a1f1d", cloth: "#cf5f3d", accent: "#f5d477", kind: "bear" },
+    mage: { bg: "#cfe6ff", fur: "#fff2bf", line: "#2f245e", cloth: "#5f72d6", accent: "#71d4ff", kind: "cat" },
+    priest: { bg: "#fff0a8", fur: "#fff7d7", line: "#5d4528", cloth: "#f1c44e", accent: "#ffffff", kind: "sheep" },
+    paladin: { bg: "#ffe3a3", fur: "#c98d46", line: "#3b2a1b", cloth: "#d99735", accent: "#fff3ba", kind: "lion" },
+    assassin: { bg: "#cde5ff", fur: "#f09b67", line: "#243044", cloth: "#315b8f", accent: "#dbeafe", kind: "fox" },
+    "death-knight": { bg: "#d6e1f0", fur: "#8a98ab", line: "#1f2937", cloth: "#536982", accent: "#bde7ff", kind: "wolf" },
+    druid: { bg: "#d8f8be", fur: "#b98755", line: "#31512b", cloth: "#78ca58", accent: "#e5f8ce", kind: "deer" }
+  };
+  const skin = skins[id] || skins.w;
+  const ears = {
+    rabbit: `<path d="M44 42 C28 15 36 6 50 30" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5" stroke-linecap="round"/><path d="M84 42 C100 15 92 6 78 30" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5" stroke-linecap="round"/>`,
+    bear: `<circle cx="42" cy="38" r="13" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5"/><circle cx="86" cy="38" r="13" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5"/>`,
+    cat: `<path d="M42 42 L48 22 L58 43" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5" stroke-linejoin="round"/><path d="M86 42 L80 22 L70 43" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5" stroke-linejoin="round"/>`,
+    sheep: `<circle cx="39" cy="38" r="12" fill="#fffdf0" stroke="${skin.line}" stroke-width="4"/><circle cx="89" cy="38" r="12" fill="#fffdf0" stroke="${skin.line}" stroke-width="4"/><circle cx="54" cy="30" r="10" fill="#fffdf0"/><circle cx="74" cy="30" r="10" fill="#fffdf0"/>`,
+    lion: `<circle cx="64" cy="56" r="38" fill="#8b5a2b" opacity=".55"/><path d="M34 44 L24 30 M94 44 L104 30" stroke="${skin.line}" stroke-width="6" stroke-linecap="round"/>`,
+    fox: `<path d="M38 42 L48 18 L60 43" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5" stroke-linejoin="round"/><path d="M90 42 L80 18 L68 43" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5" stroke-linejoin="round"/>`,
+    wolf: `<path d="M40 42 L48 18 L58 42" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5" stroke-linejoin="round"/><path d="M88 42 L80 18 L70 42" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5" stroke-linejoin="round"/>`,
+    deer: `<path d="M43 39 C36 21 28 20 28 10 M43 35 C34 28 30 31 22 27" stroke="${skin.line}" stroke-width="5" stroke-linecap="round"/><path d="M85 39 C92 21 100 20 100 10 M85 35 C94 28 98 31 106 27" stroke="${skin.line}" stroke-width="5" stroke-linecap="round"/>`
+  }[skin.kind];
+  const gear = {
+    rabbit: `<rect x="44" y="82" width="40" height="24" rx="6" fill="${skin.accent}" stroke="${skin.line}" stroke-width="5"/><path d="M52 89 H76 M52 97 H70" stroke="#fff8d2" stroke-width="4" stroke-linecap="round"/>`,
+    bear: `<path d="M92 54 L106 34" stroke="#f7fafc" stroke-width="9" stroke-linecap="round"/><path d="M87 60 L96 51" stroke="${skin.accent}" stroke-width="7" stroke-linecap="round"/><path d="M32 74 L32 103 L52 96 L52 68 Z" fill="#8bc7df" stroke="${skin.line}" stroke-width="5"/>`,
+    cat: `<path d="M40 41 C48 18 80 18 88 41 Z" fill="${skin.cloth}" stroke="${skin.line}" stroke-width="5"/><path d="M94 42 L102 100" stroke="${skin.line}" stroke-width="6" stroke-linecap="round"/><circle cx="102" cy="36" r="8" fill="${skin.accent}" stroke="${skin.line}" stroke-width="4"/>`,
+    sheep: `<ellipse cx="64" cy="24" rx="23" ry="8" fill="none" stroke="${skin.accent}" stroke-width="5"/><path d="M38 82 C50 95 78 95 90 82" stroke="${skin.accent}" stroke-width="6" stroke-linecap="round"/>`,
+    lion: `<path d="M33 72 L33 104 L55 96 L55 66 Z" fill="${skin.accent}" stroke="${skin.line}" stroke-width="5"/><path d="M94 52 L105 42 L106 64" stroke="${skin.line}" stroke-width="6" stroke-linecap="round"/>`,
+    fox: `<path d="M98 52 L108 84" stroke="${skin.line}" stroke-width="6" stroke-linecap="round"/><path d="M92 58 L104 54" stroke="${skin.accent}" stroke-width="6" stroke-linecap="round"/><path d="M30 83 C16 91 19 112 43 103" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5"/>`,
+    wolf: `<path d="M28 82 L28 106 L50 98 L50 72 Z" fill="${skin.accent}" stroke="${skin.line}" stroke-width="5"/><path d="M88 52 L104 34" stroke="#dbeafe" stroke-width="8" stroke-linecap="round"/>`,
+    deer: `<path d="M92 54 C105 70 100 94 84 102" fill="none" stroke="${skin.accent}" stroke-width="7" stroke-linecap="round"/><path d="M34 96 C44 84 84 84 94 96" stroke="${skin.line}" stroke-width="5" stroke-linecap="round"/>`
+  }[skin.kind];
+  return `
+    <svg class="avatar-svg" viewBox="0 0 128 128" role="img" aria-hidden="true">
+      <rect x="8" y="8" width="112" height="112" rx="28" fill="${skin.bg}"/>
+      <ellipse cx="64" cy="108" rx="34" ry="9" fill="#17212b" opacity=".16"/>
+      ${ears}
+      <path d="M36 78 C36 58 48 45 64 45 C80 45 92 58 92 78 L92 101 C92 109 36 109 36 101 Z" fill="${skin.cloth}" stroke="${skin.line}" stroke-width="5" stroke-linejoin="round"/>
+      <circle cx="64" cy="60" r="28" fill="${skin.fur}" stroke="${skin.line}" stroke-width="5"/>
+      <circle cx="55" cy="60" r="3.5" fill="${skin.line}"/>
+      <circle cx="73" cy="60" r="3.5" fill="${skin.line}"/>
+      <path d="M58 72 C62 75 66 75 70 72" stroke="${skin.line}" stroke-width="4" stroke-linecap="round" fill="none"/>
+      ${gear}
+      <circle cx="33" cy="26" r="9" fill="#fff" opacity=".72"/>
+    </svg>
+  `;
+}
+
 function toggleShowcaseBadge(badgeId) {
   if (!adventure.achievements?.[badgeId]) return;
   const current = Array.isArray(adventure.showcaseBadges) ? adventure.showcaseBadges.filter((id) => adventure.achievements?.[id]) : [];
@@ -921,6 +1021,27 @@ function slotIcon(slot) {
 
 function equipmentTier(item) {
   return Math.max(1, Math.min(5, Math.ceil((Number(item.cost) || 1) / 45)));
+}
+
+function equipmentArtClass(item) {
+  const classes = ["equipment-art", `equipment-${item.slot}`, `equipment-tier-${equipmentTier(item)}`];
+  if (item.slot === "weapon") classes.push(`weapon-${weaponVisualType(item)}`);
+  return classes.map(escapeHtml).join(" ");
+}
+
+function weaponVisualType(item) {
+  const text = `${item.kind || ""} ${item.name || ""}`;
+  if (/短劍|短刃|匕首|dagger/i.test(text)) return "dagger";
+  if (/刺劍|細劍|rapier/i.test(text)) return "rapier";
+  if (/軍刀|彎刀|戰刀|saber|katana/i.test(text)) return "saber";
+  if (/法杖|杖|staff/i.test(text)) return "staff";
+  if (/魔棒|wand/i.test(text)) return "wand";
+  if (/棍|club|mace/i.test(text)) return "club";
+  if (/斧|axe/i.test(text)) return "axe";
+  if (/錘|hammer/i.test(text)) return "hammer";
+  if (/刀|blade/i.test(text)) return "blade";
+  if (/長劍|劍|sword/i.test(text)) return "sword";
+  return "sword";
 }
 
 const RPG_STAT_LABELS = [
@@ -944,6 +1065,8 @@ function characterStats(level, avatar) {
     move: 3 + Math.floor(level / 20)
   };
   const total = addStats(base, avatar.stats || {});
+  addStats(total, activeClassItem().stats || {});
+  addStats(total, activeOutfitItem().stats || {});
   Object.values(adventure.equippedEquipment || {}).forEach((itemId) => {
     const item = EQUIPMENT_ITEMS.find((entry) => entry.id === itemId);
     if (item) addStats(total, equipmentStats(item));
@@ -1147,19 +1270,60 @@ function activeFrameItem() {
   return FRAME_ITEMS.find((item) => item.id === adventure.activeFrame) || FRAME_ITEMS[0];
 }
 
+function activeBackgroundItem() {
+  return BACKGROUND_ITEMS.find((item) => item.id === adventure.activeBackground) || BACKGROUND_ITEMS[0];
+}
+
+function activeClassItem() {
+  return CLASS_ITEMS.find((item) => item.id === adventure.activeClass) || CLASS_ITEMS[0];
+}
+
+function activeOutfitItem() {
+  return OUTFIT_ITEMS.find((item) => item.id === adventure.activeOutfit) || OUTFIT_ITEMS[0];
+}
+
+function shopConfig(type) {
+  return {
+    avatar: { ownedKey: "ownedAvatars", activeKey: "activeAvatar", items: AVATAR_ITEMS },
+    frame: { ownedKey: "ownedFrames", activeKey: "activeFrame", items: FRAME_ITEMS },
+    background: { ownedKey: "ownedBackgrounds", activeKey: "activeBackground", items: BACKGROUND_ITEMS },
+    class: { ownedKey: "ownedClasses", activeKey: "activeClass", items: CLASS_ITEMS },
+    outfit: { ownedKey: "ownedOutfits", activeKey: "activeOutfit", items: OUTFIT_ITEMS }
+  }[type];
+}
+
+function shopPreviewContent(item, type) {
+  if (type === "avatar") return renderAvatarPortrait(item);
+  if (type === "frame") return '<span class="frame-inner">框</span>';
+  if (type === "background") return '<span class="scene-sky"></span><span class="scene-ground"></span><span class="scene-mark"></span>';
+  if (type === "class" || type === "outfit") return `<span class="cosmetic-token">${escapeHtml(item.icon || "★")}</span>`;
+  return "";
+}
+
+function shopPreviewClass(item, type) {
+  if (type === "avatar") return item.className || "";
+  if (type === "frame") return `frame-preview ${item.className || ""}`;
+  if (type === "background") return `background-preview ${item.className || ""}`;
+  if (type === "class") return `class-preview ${item.className || ""}`;
+  if (type === "outfit") return `outfit-preview ${item.className || ""}`;
+  return "";
+}
+
 function renderShop(selector, items, type) {
-  const ownedKey = type === "avatar" ? "ownedAvatars" : "ownedFrames";
-  const activeKey = type === "avatar" ? "activeAvatar" : "activeFrame";
+  const config = shopConfig(type);
+  const ownedKey = config.ownedKey;
+  const activeKey = config.activeKey;
   $(selector).innerHTML = items.map((item) => {
     const owned = adventure[ownedKey].includes(item.id);
     const active = adventure[activeKey] === item.id;
     const canBuy = adventure.stars >= item.cost;
     const action = owned ? `equip-${type}` : `buy-${type}`;
     const label = active ? "使用中" : owned ? "裝備" : `${item.cost} 星星`;
-    const previewContent = type === "avatar" ? escapeHtml(item.icon) : '<span class="frame-inner">W</span>';
+    const previewContent = shopPreviewContent(item, type);
+    const previewClass = shopPreviewClass(item, type);
     return `
       <div class="shop-item${active ? " is-active" : ""}">
-        <div class="shop-preview ${type === "avatar" ? item.className || "" : `frame-preview ${item.className || ""}`}">${previewContent}</div>
+        <div class="shop-preview ${previewClass}">${previewContent}</div>
         <div>
           <strong>${escapeHtml(item.name)}</strong>
           <small>${owned ? "已解鎖" : `需要 ${item.cost} 星星`}</small>
@@ -1171,10 +1335,11 @@ function renderShop(selector, items, type) {
 }
 
 function handleShopAction(action, itemId) {
-  if (action === "buy-avatar") buyShopItem(itemId, AVATAR_ITEMS, "ownedAvatars", "activeAvatar");
-  if (action === "buy-frame") buyShopItem(itemId, FRAME_ITEMS, "ownedFrames", "activeFrame");
-  if (action === "equip-avatar") adventure.activeAvatar = itemId;
-  if (action === "equip-frame") adventure.activeFrame = itemId;
+  const [, type] = action.split("-");
+  const config = shopConfig(type);
+  if (!config) return;
+  if (action.startsWith("buy-")) buyShopItem(itemId, config.items, config.ownedKey, config.activeKey);
+  if (action.startsWith("equip-") && adventure[config.ownedKey].includes(itemId)) adventure[config.activeKey] = itemId;
   saveState();
   renderAdventure();
 }
@@ -1209,7 +1374,7 @@ function renderEquipmentItem(item) {
   const action = owned ? "equip" : "buy";
   return `
     <div class="equipment-item${active ? " is-active" : ""}">
-      <div class="equipment-icon equipment-art equipment-${escapeHtml(item.slot)} equipment-tier-${equipmentTier(item)}" aria-hidden="true"></div>
+      <div class="equipment-icon ${equipmentArtClass(item)}" aria-hidden="true"></div>
       <div>
         <strong>${escapeHtml(item.name)}</strong>
         <small>${owned ? "已擁有" : `需要 ${item.cost} 星星`}</small>
