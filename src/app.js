@@ -18,6 +18,7 @@ const SERIES_WORD_COUNTS = {
   [HIGH_SCHOOL_SERIES]: 6007,
   [HIGH_FREQUENCY_SERIES]: 1399
 };
+const RPG_ASSET_VERSION = "rpg-icon-mode-1";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MINUTE_MS = 60 * 1000;
 const REVIEW_INTERVALS = [0, 1 * 60 * 60 * 1000, 1 * DAY_MS, 3 * DAY_MS, 7 * DAY_MS, 14 * DAY_MS];
@@ -84,15 +85,52 @@ const BACKGROUND_ITEMS = [
   { id: "library", name: "魔法書庫", cost: 80, className: "bg-library" },
   { id: "sky", name: "雲端星橋", cost: 95, className: "bg-sky" }
 ];
+function rpgStats(seed, tier = 1) {
+  return {
+    hp: 8 + tier * 4 + (seed % 5) * 3,
+    mp: tier * 5 + (seed % 4) * 4,
+    atk: 2 + tier * 2 + (seed % 6),
+    def: 1 + tier * 2 + (seed % 5),
+    matk: 1 + tier * 2 + ((seed + 2) % 6),
+    mdef: 1 + tier * 2 + ((seed + 1) % 5),
+    hit: 1 + tier + (seed % 5),
+    evade: Math.max(0, tier - 1 + (seed % 4)),
+    move: tier >= 4 ? 2 : tier >= 2 ? 1 : 0,
+    virtue: 40 + tier * 4 + (seed % 7),
+    faith: 30 + tier * 5 + ((seed + 3) % 8)
+  };
+}
+
+function classCatalog(prefix, names, assetPrefix, baseCost, tier, className) {
+  return names.map((name, index) => ({
+    id: `${prefix}-${String(index + 1).padStart(2, "0")}`,
+    icon: name.slice(0, 1),
+    name,
+    cost: baseCost + index * Math.max(3, tier * 4),
+    className,
+    asset: `${assetPrefix}-${String(index + 1).padStart(2, "0")}.png`,
+    stats: rpgStats(index + 1, tier)
+  }));
+}
+
+const RARE_CLASS_NAMES = ["紀錄學者", "旋律吟遊者", "商會大師", "深礦探險家", "藥劑調配師", "狼群領袖", "機巧工匠", "亡語法師", "靈魂薩滿", "沉默影刃", "聖盾守護者", "觀星者", "花園賢者", "海圖領航員", "和平衛士", "星讀者", "競技鬥士", "幻術編織者", "尋路者", "龍友使者"];
+const ADVANCED_CLASS_NAMES = ["金幣大師", "鎖鑰守護者", "牙齒勇士", "能量贈予者", "黎明喚醒者", "負重勇者", "天空防衛者", "標記創造者", "點心供應者", "靈魂清潔者", "舒適帶來者", "鬃毛馴服者", "綠意培育者", "餐點服務者", "邊緣修剪者", "思緒整理者", "縫線緊固者", "擦傷治療者", "口渴解除者", "光明贈予者"];
+const MOUNT_LEGEND_CLASS_NAMES = ["鹿騎遊俠", "狼騎聖衛", "獅鷲刺客", "巨鴞德魯伊", "獨角獸牧師", "亡靈戰騎士", "蜥蜴法師", "聖馬聖騎士", "熊騎獵人"];
+const MOUNT_MYTHIC_CLASS_NAMES = ["矮人工程騎士", "獸人狼騎兵", "精靈獵鷹師", "人類火槍騎士", "巨魔酋長", "海龜船長", "亡靈巫妖騎士", "矮人礦車專家", "地精飛行員", "精靈黑豹哨兵", "人類煉金騎士", "獸人戰酋長", "人類吟遊詩人", "亡靈食屍鬼", "精靈林園守護者", "矮人雷霆牧師", "獸人薩滿狼騎", "人類商旅車手", "地精機巧師", "巨魔鱷背德魯伊"];
+
 const CLASS_ITEMS = [
   { id: "novice", icon: "初", name: "見習勇者", cost: 0, className: "class-novice", stats: { hp: 0, mp: 0, atk: 0, def: 0, hit: 0, evade: 0, move: 0 } },
-  { id: "warrior", icon: "戰", name: "戰士", cost: 25, className: "class-warrior", stats: { hp: 18, mp: 0, atk: 6, def: 3, hit: 2, evade: 0, move: 0 } },
-  { id: "mage", icon: "法", name: "法師", cost: 45, className: "class-mage", stats: { hp: 0, mp: 24, atk: 5, def: 0, hit: 3, evade: 0, move: 0 } },
-  { id: "priest", icon: "牧", name: "牧師", cost: 45, className: "class-priest", stats: { hp: 8, mp: 18, atk: 2, def: 2, hit: 2, evade: 1, move: 0 } },
-  { id: "paladin", icon: "聖", name: "聖騎士", cost: 60, className: "class-paladin", stats: { hp: 16, mp: 10, atk: 4, def: 6, hit: 1, evade: 0, move: 0 } },
-  { id: "assassin", icon: "刺", name: "刺客", cost: 65, className: "class-assassin", stats: { hp: 4, mp: 4, atk: 5, def: 0, hit: 5, evade: 7, move: 1 } },
-  { id: "ranger", icon: "弓", name: "遊俠", cost: 68, className: "class-ranger", stats: { hp: 8, mp: 6, atk: 4, def: 1, hit: 6, evade: 4, move: 1 } },
-  { id: "druid", icon: "德", name: "德魯伊", cost: 75, className: "class-druid", stats: { hp: 10, mp: 14, atk: 3, def: 3, hit: 2, evade: 3, move: 1 } }
+  { id: "warrior", icon: "戰", name: "戰士", cost: 25, className: "class-warrior", asset: "warrior.png", stats: { hp: 18, mp: 0, atk: 6, def: 3, hit: 2, evade: 0, move: 0 } },
+  { id: "mage", icon: "法", name: "法師", cost: 45, className: "class-mage", asset: "mage.png", stats: { hp: 0, mp: 24, atk: 5, def: 0, hit: 3, evade: 0, move: 0 } },
+  { id: "priest", icon: "牧", name: "牧師", cost: 45, className: "class-priest", asset: "priest.png", stats: { hp: 8, mp: 18, atk: 2, def: 2, hit: 2, evade: 1, move: 0 } },
+  { id: "paladin", icon: "聖", name: "聖騎士", cost: 60, className: "class-paladin", asset: "paladin.png", stats: { hp: 16, mp: 10, atk: 4, def: 6, hit: 1, evade: 0, move: 0 } },
+  { id: "assassin", icon: "刺", name: "刺客", cost: 65, className: "class-assassin", asset: "assassin.png", stats: { hp: 4, mp: 4, atk: 5, def: 0, hit: 5, evade: 7, move: 1 } },
+  { id: "ranger", icon: "弓", name: "遊俠", cost: 68, className: "class-ranger", asset: "ranger.png", stats: { hp: 8, mp: 6, atk: 4, def: 1, hit: 6, evade: 4, move: 1 } },
+  { id: "druid", icon: "德", name: "德魯伊", cost: 75, className: "class-druid", asset: "druid.png", stats: { hp: 10, mp: 14, atk: 3, def: 3, hit: 2, evade: 3, move: 1 } },
+  ...classCatalog("rare", RARE_CLASS_NAMES, "class", 90, 2, "class-rare"),
+  ...classCatalog("advanced", ADVANCED_CLASS_NAMES, "class-adv", 120, 3, "class-advanced"),
+  ...classCatalog("mount-legend", MOUNT_LEGEND_CLASS_NAMES, "class-mount-legend", 220, 4, "class-mount-legend"),
+  ...classCatalog("mount-mythic", MOUNT_MYTHIC_CLASS_NAMES, "class-mount-mythic", 320, 5, "class-mount-mythic")
 ];
 const OUTFIT_ITEMS = [
   { id: "plain", icon: "衣", name: "練習布衣", cost: 0, className: "outfit-plain", stats: { hp: 0, mp: 0, atk: 0, def: 0, hit: 0, evade: 0, move: 0 } },
@@ -113,12 +151,24 @@ const AVATAR_SKILLS = {
   druid: ["翠葉新生！", "自然守護！", "野性奔流！"]
 };
 const FRAME_ITEMS = [
-  { id: "plain", name: "簡約框", cost: 0, className: "frame-plain" },
-  { id: "mint", name: "方形能量框", cost: 25, className: "frame-square" },
-  { id: "gold", name: "斜角金屬框", cost: 50, className: "frame-bevel" },
-  { id: "purple", name: "尖刺戰鬥框", cost: 75, className: "frame-spike" },
-  { id: "tower", name: "吳限塔晶框", cost: 100, className: "frame-tower" }
+  { id: "plain", name: "簡約框", cost: 0, className: "frame-plain", asset: "frame-hunter.png" },
+  { id: "mint", name: "秘法水晶框", cost: 25, className: "frame-square", asset: "frame-mage.png" },
+  { id: "gold", name: "聖光羽翼框", cost: 50, className: "frame-bevel", asset: "frame-paladin.png" },
+  { id: "purple", name: "暗影刺客框", cost: 75, className: "frame-spike", asset: "frame-assassin.png" },
+  { id: "tower", name: "吳限塔晶框", cost: 100, className: "frame-tower", asset: "frame-druid.png" }
 ];
+const SPELL_ITEMS = [
+  ["cinder-spark", "燼火星芒", "火", 18], ["phoenix-flare", "鳳凰營火", "火", 28], ["wyvern-pyre", "飛龍烈焰", "火", 46], ["volcano-eye", "火山之眼", "火", 70], ["armageddon-shower", "末日隕焰", "火", 98],
+  ["aether-drop", "乙太水滴", "水", 18], ["rune-stream", "符文溪流", "水", 28], ["hydra-crown", "水冠噴泉", "水", 46], ["abyssal-maw", "深淵漩口", "水", 70], ["sunken-deluge", "沉界海嘯", "水", 98],
+  ["gemma-dust", "晶砂微塵", "地", 18], ["hex-rock-base", "符石基座", "地", 28], ["tectonic-rampart", "地裂壁壘", "地", 46], ["clockwork-titan", "機關巨像", "地", 70], ["petrified-forest", "石化森林", "地", 98],
+  ["whispering-airs", "低語微風", "風", 18], ["runewind-spiral", "符風旋渦", "風", 28], ["cyclonic-ballet", "旋風圓舞", "風", 46], ["celestial-monsoon", "天穹季風", "風", 70], ["aeon-shear", "永劫剪風", "風", 98]
+].map(([id, name, element, cost], index) => ({
+  id,
+  name,
+  element,
+  cost,
+  asset: `spell-${String(index + 1).padStart(2, "0")}.png`
+}));
 const EQUIPMENT_CATEGORIES = [
   { id: "weapon", title: "單手武器" },
   { id: "shield", title: "防禦類" },
@@ -278,6 +328,7 @@ function normalizeAdventure(value) {
   const ownedBackgrounds = Array.isArray(data.ownedBackgrounds) ? data.ownedBackgrounds : ["meadow"];
   const ownedClasses = Array.isArray(data.ownedClasses) ? data.ownedClasses : ["novice"];
   const ownedOutfits = Array.isArray(data.ownedOutfits) ? data.ownedOutfits : ["plain"];
+  const ownedSpells = Array.isArray(data.ownedSpells) ? data.ownedSpells : ["cinder-spark"];
   const ownedEquipment = Array.isArray(data.ownedEquipment) ? data.ownedEquipment : [];
   const equippedEquipment = data.equippedEquipment && typeof data.equippedEquipment === "object" ? data.equippedEquipment : {};
   return {
@@ -296,6 +347,7 @@ function normalizeAdventure(value) {
     ownedBackgrounds: ownedBackgrounds.includes("meadow") ? ownedBackgrounds : ["meadow", ...ownedBackgrounds],
     ownedClasses: ownedClasses.includes("novice") ? ownedClasses : ["novice", ...ownedClasses],
     ownedOutfits: ownedOutfits.includes("plain") ? ownedOutfits : ["plain", ...ownedOutfits],
+    ownedSpells: ownedSpells.includes("cinder-spark") ? ownedSpells : ["cinder-spark", ...ownedSpells],
     ownedEquipment,
     equippedEquipment: {
       weapon: equippedEquipment.weapon || "",
@@ -308,7 +360,8 @@ function normalizeAdventure(value) {
     activeFrame: ownedFrames.includes(data.activeFrame) ? data.activeFrame : "plain",
     activeBackground: ownedBackgrounds.includes(data.activeBackground) ? data.activeBackground : "meadow",
     activeClass: ownedClasses.includes(data.activeClass) ? data.activeClass : "novice",
-    activeOutfit: ownedOutfits.includes(data.activeOutfit) ? data.activeOutfit : "plain"
+    activeOutfit: ownedOutfits.includes(data.activeOutfit) ? data.activeOutfit : "plain",
+    activeSpell: ownedSpells.includes(data.activeSpell) ? data.activeSpell : "cinder-spark"
   };
 }
 
@@ -329,8 +382,16 @@ function weaponIcon(kind) {
   return icons[kind] || "武";
 }
 
-function todayKey() {
-  return new Date().toISOString().slice(0, 10);
+function formatAdventureDateKey(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function todayKey(now = new Date()) {
+  const resetHour = 8;
+  return formatAdventureDateKey(new Date(now.getTime() - resetHour * 60 * 60 * 1000));
 }
 
 function todayAdventure(source = adventure) {
@@ -794,11 +855,16 @@ function renderAdventure() {
   renderHeroRewards(avatar, frame, background);
 
   const missionGroups = adventureMissionGroups(today, snapshot, level);
-  $("#adventureDailyTasks").innerHTML = missionGroups.map((group) => `
-    <section class="mission-group">
-      <h4>${escapeHtml(group.title)}</h4>
-      ${group.tasks.map((task) => renderMissionTask(task)).join("")}
-    </section>
+  $("#adventureDailyTasks").innerHTML = missionGroups.map((group, index) => `
+    <details class="mission-group" ${index === 0 ? "open" : ""}>
+      <summary>
+        <span>${escapeHtml(group.title)}</span>
+        ${group.note ? `<small>${escapeHtml(group.note)}</small>` : ""}
+      </summary>
+      <div class="mission-group-body">
+        ${group.tasks.map((task) => renderMissionTask(task)).join("")}
+      </div>
+    </details>
   `).join("");
   $$("[data-claim-mission]").forEach((button) => {
     button.addEventListener("click", () => claimMissionReward(button.dataset.claimMission));
@@ -819,6 +885,7 @@ function renderAdventure() {
   renderShop("#classShop", CLASS_ITEMS, "class");
   renderShop("#outfitShop", OUTFIT_ITEMS, "outfit");
   renderShop("#frameShop", FRAME_ITEMS, "frame");
+  renderShop("#spellShop", SPELL_ITEMS, "spell");
   renderEquipmentShop();
   $("#characterNameInput").value = adventure.characterName || "吳限勇者";
   $("#characterNameInput").onchange = (event) => {
@@ -831,6 +898,9 @@ function renderAdventure() {
   });
   $$("[data-equipment-action]").forEach((button) => {
     button.addEventListener("click", () => handleEquipmentAction(button.dataset.equipmentAction, button.dataset.itemId));
+  });
+  $$("[data-open-loadout]").forEach((button) => {
+    button.addEventListener("click", () => openLoadoutPicker(button.dataset.openLoadout));
   });
 
   const sortedAchievements = ADVENTURE_ACHIEVEMENTS
@@ -881,17 +951,19 @@ function renderAdventure() {
 
 function renderHeroRewards(avatar, frame, background) {
   const level = adventureLevelInfo();
+  const hero = document.querySelector(".adventure-hero");
+  if (hero) hero.dataset.background = background.id;
   const panel = document.querySelector(".hero-reward-showcase");
   if (panel) {
     panel.dataset.background = background.id;
   }
   const equipped = $("#heroEquippedAvatar");
-  equipped.innerHTML = renderAvatarPortrait(avatar);
+  const classItem = activeClassItem();
+  equipped.innerHTML = renderAvatarPortrait({ ...avatar, id: classItem.id || avatar.id, icon: classItem.icon || avatar.icon });
   equipped.dataset.avatar = avatar.id;
   equipped.dataset.frame = frame.id;
   equipped.dataset.outfit = activeOutfitItem().id;
-  const classItem = activeClassItem();
-  const skillList = AVATAR_SKILLS[classItem.id] || AVATAR_SKILLS.w;
+  const skillList = AVATAR_SKILLS[classItem.id] || [`${classItem.name}覺醒！`, "吳限連擊！", "知識護盾！"];
   const skillIndex = Math.floor(Date.now() / 9000) % skillList.length;
   $("#characterSkillName").textContent = skillList[skillIndex];
 
@@ -900,12 +972,17 @@ function renderHeroRewards(avatar, frame, background) {
       ...category,
       item: EQUIPMENT_ITEMS.find((item) => item.id === adventure.equippedEquipment?.[category.id])
     }));
-  $("#heroLoadout").innerHTML = equippedItems.map(({ id, title, item }) => `
-    <div class="loadout-slot ${item ? `has-item equipment-${item.slot}` : ""}" title="${escapeHtml(item ? item.name : title)}">
+  const activeSpell = activeSpellItem();
+  $("#heroLoadout").innerHTML = `${equippedItems.map(({ id, title, item }) => `
+    <button class="loadout-slot loadout-picker-button ${item ? `has-item equipment-${item.slot}` : ""}" type="button" data-open-loadout="${escapeHtml(id)}" title="${escapeHtml(item ? item.name : title)}">
       <span class="loadout-icon ${item ? equipmentArtClass(item) : `equipment-art equipment-${escapeHtml(id)} equipment-tier-0`}"></span>
       <small>${escapeHtml(item?.name || title)}</small>
-    </div>
-  `).join("");
+    </button>
+  `).join("")}
+    <button class="loadout-slot loadout-picker-button has-item equipment-spell" type="button" data-open-loadout="spell" title="${escapeHtml(activeSpell.name)}">
+      <span class="loadout-icon equipment-art equipment-spell-art"><i data-lucide="${escapeHtml(activeSpell.icon || "sparkles")}"></i></span>
+      <small>${escapeHtml(activeSpell.name)}</small>
+    </button>`;
 
   const unlockedBadges = ADVENTURE_ACHIEVEMENTS.filter((achievement) => adventure.achievements?.[achievement.id]);
   const selectedBadgeIds = (adventure.showcaseBadges || []).filter((id) => adventure.achievements?.[id]).slice(0, 6);
@@ -927,7 +1004,6 @@ function renderHeroRewards(avatar, frame, background) {
 
   const stats = characterStats(level.level, avatar);
   $("#heroStats").innerHTML = `
-    <h4>角色數值</h4>
     <div class="hero-stat-grid hero-stat-grid-primary">
       ${RPG_STAT_LABELS.slice(0, 4).map(({ key, label, suffix }) => `
         <div class="hero-stat">
@@ -948,11 +1024,31 @@ function renderHeroRewards(avatar, frame, background) {
 }
 
 function renderAvatarPortrait(avatar) {
+  const asset = avatarAssetPath(avatar);
+  if (asset) {
+    return `
+      <span class="avatar-portrait avatar-portrait-${escapeHtml(avatar.id)} avatar-portrait-image" aria-hidden="true">
+        <img class="avatar-art" src="${escapeHtml(asset)}" alt="">
+      </span>
+    `;
+  }
   return `
     <span class="avatar-portrait avatar-portrait-${escapeHtml(avatar.id)}" aria-hidden="true">
       ${avatarSkinSvg(avatar.id)}
     </span>
   `;
+}
+
+function avatarAssetPath(avatarOrId) {
+  return "";
+}
+
+function frameAssetPath(frame) {
+  return "";
+}
+
+function spellAssetPath(spell) {
+  return "";
 }
 
 function avatarSkinSvg(id) {
@@ -1026,7 +1122,18 @@ function equipmentTier(item) {
 function equipmentArtClass(item) {
   const classes = ["equipment-art", `equipment-${item.slot}`, `equipment-tier-${equipmentTier(item)}`];
   if (item.slot === "weapon") classes.push(`weapon-${weaponVisualType(item)}`);
+  if (item.slot === "shield") classes.push(`shield-${shieldVisualType(item)}`);
+  if (item.slot === "armor") classes.push(`armor-${armorVisualType(item)}`);
+  if (item.slot === "boots") classes.push(`boots-${bootsVisualType(item)}`);
   return classes.map(escapeHtml).join(" ");
+}
+
+function equipmentImageStyle(item) {
+  return "";
+}
+
+function equipmentAssetPath(item) {
+  return "";
 }
 
 function weaponVisualType(item) {
@@ -1044,14 +1151,67 @@ function weaponVisualType(item) {
   return "sword";
 }
 
+function shieldVisualType(item) {
+  const text = `${item.kind || ""} ${item.name || ""}`;
+  if (/木盾|wood/i.test(text)) return "wood";
+  if (/小圓|圓盾|青銅|銀紋|round/i.test(text)) return "round";
+  if (/塔盾|天塔|tower/i.test(text)) return "tower";
+  if (/鳶形|kite/i.test(text)) return "kite";
+  if (/符文|rune/i.test(text)) return "rune";
+  if (/水晶|crystal/i.test(text)) return "crystal";
+  if (/荊棘|thorn/i.test(text)) return "thorn";
+  if (/獅心|lion/i.test(text)) return "lion";
+  if (/月光|moon/i.test(text)) return "moon";
+  if (/日耀|sun/i.test(text)) return "sun";
+  if (/暗影|shadow/i.test(text)) return "shadow";
+  if (/雷鳴|storm/i.test(text)) return "storm";
+  if (/焰龍|龍|dragon/i.test(text)) return "dragon";
+  if (/星界|star/i.test(text)) return "star";
+  if (/古王|king/i.test(text)) return "king";
+  if (/吳限|infinity/i.test(text)) return "infinity";
+  return "kite";
+}
+
+function armorVisualType(item) {
+  const text = `${item.kind || ""} ${item.name || ""}`;
+  if (/布衣|旅人外套|cloth/i.test(text)) return "cloth";
+  if (/皮甲|硬皮|荒獸|leather/i.test(text)) return "leather";
+  if (/鎖|鐵環|雷鳴|mail/i.test(text)) return "mail";
+  if (/板甲|胸甲|戰甲|核心|王裝|plate/i.test(text)) return "plate";
+  if (/袍|robe/i.test(text)) return "robe";
+  if (/背心|vest/i.test(text)) return "vest";
+  if (/斗篷|cloak/i.test(text)) return "cloak";
+  if (/月銀|moon/i.test(text)) return "moon";
+  return "leather";
+}
+
+function bootsVisualType(item) {
+  const text = `${item.kind || ""} ${item.name || ""}`;
+  if (/布鞋|旅人鞋|shoe/i.test(text)) return "shoe";
+  if (/皮靴|短靴|boot/i.test(text)) return "boot";
+  if (/疾行|風行|影步|星行者|swift/i.test(text)) return "swift";
+  if (/戰靴|護脛|長靴|greave/i.test(text)) return "greaves";
+  if (/涼靴|sandal/i.test(text)) return "sandal";
+  if (/月影|moon/i.test(text)) return "moon";
+  if (/水晶|crystal/i.test(text)) return "crystal";
+  if (/雷鳴|storm/i.test(text)) return "storm";
+  if (/龍鱗|龍|dragon/i.test(text)) return "dragon";
+  if (/天塔|tower/i.test(text)) return "tower";
+  return "boot";
+}
+
 const RPG_STAT_LABELS = [
   { key: "hp", label: "HP" },
   { key: "mp", label: "MP" },
-  { key: "atk", label: "攻擊" },
-  { key: "def", label: "防禦" },
+  { key: "atk", label: "物攻" },
+  { key: "def", label: "物防" },
+  { key: "matk", label: "魔攻" },
+  { key: "mdef", label: "魔防" },
   { key: "hit", label: "命中", suffix: "%" },
   { key: "evade", label: "閃避", suffix: "%" },
-  { key: "move", label: "移動" }
+  { key: "move", label: "移動" },
+  { key: "virtue", label: "道德" },
+  { key: "faith", label: "信仰" }
 ];
 
 function characterStats(level, avatar) {
@@ -1060,9 +1220,13 @@ function characterStats(level, avatar) {
     mp: 28 + level * 3,
     atk: 10 + level * 2,
     def: 8 + level * 2,
+    matk: 7 + level * 2,
+    mdef: 7 + level * 2,
     hit: Math.min(96, 78 + Math.floor(level / 3)),
     evade: Math.min(35, 5 + Math.floor(level / 5)),
-    move: 3 + Math.floor(level / 20)
+    move: 3 + Math.floor(level / 20),
+    virtue: 50 + Math.floor(level / 2),
+    faith: 45 + Math.floor(level / 2)
   };
   const total = addStats(base, avatar.stats || {});
   addStats(total, activeClassItem().stats || {});
@@ -1088,15 +1252,18 @@ function equipmentStats(item) {
   const stats = { hp: 0, mp: 0, atk: 0, def: 0, hit: 0, evade: 0, move: 0 };
   if (item.slot === "weapon") {
     stats.atk = 2 + tier * 2;
+    stats.matk = item.cost >= 48 ? 1 + Math.floor(tier / 2) : 0;
     stats.hit = Math.min(8, tier);
   }
   if (item.slot === "shield") {
     stats.def = 2 + tier * 2;
+    stats.mdef = Math.floor(tier / 2);
     stats.evade = Math.min(6, Math.floor(tier / 2));
   }
   if (item.slot === "armor") {
     stats.hp = tier * 5;
     stats.def = 1 + tier * 2;
+    stats.mdef = Math.floor(tier / 2);
   }
   if (item.slot === "boots") {
     stats.evade = 1 + tier;
@@ -1161,21 +1328,83 @@ function adventureMapNodes(level) {
   });
 }
 
+const DAILY_MISSION_TEMPLATES = [
+  { id: "daily_attempt_3", title: "完成 3 次練習", text: "先暖身一下，讓今天的冒險開始。", metric: "attempts", target: 3, reward: 4 },
+  { id: "daily_attempt_5", title: "完成 5 次練習", text: "穩穩走完一小段學習路。", metric: "attempts", target: 5, reward: 5 },
+  { id: "daily_attempt_8", title: "完成 8 次練習", text: "多走幾步，今天的能量會更亮。", metric: "attempts", target: 8, reward: 8 },
+  { id: "daily_attempt_12", title: "完成 12 次練習", text: "完成一輪比較完整的小挑戰。", metric: "attempts", target: 12, reward: 12 },
+  { id: "daily_correct_2", title: "答對 2 題", text: "先抓住兩個會的單字。", metric: "correct", target: 2, reward: 4 },
+  { id: "daily_correct_4", title: "答對 4 題", text: "把熟悉感一點一點堆起來。", metric: "correct", target: 4, reward: 7 },
+  { id: "daily_correct_6", title: "答對 6 題", text: "今天的準度正在上升。", metric: "correct", target: 6, reward: 10 },
+  { id: "daily_correct_10", title: "答對 10 題", text: "連續累積正確感，冒險步伐會更穩。", metric: "correct", target: 10, reward: 14 },
+  { id: "daily_star_2", title: "取得 2 顆星星", text: "閃卡或題庫答對都可以收集星星。", metric: "stars", target: 2, reward: 5 },
+  { id: "daily_star_4", title: "取得 4 顆星星", text: "星星袋慢慢變重了。", metric: "stars", target: 4, reward: 8 },
+  { id: "daily_star_6", title: "取得 6 顆星星", text: "今天可以多換一點商城收藏。", metric: "stars", target: 6, reward: 11 },
+  { id: "daily_energy_10", title: "取得 10 究極吳限能量", text: "不管答對或答錯，只要練習就會累積能量。", metric: "inspiration", target: 10, reward: 5 },
+  { id: "daily_energy_18", title: "取得 18 究極吳限能量", text: "讓角色的冒險等級往前推進。", metric: "inspiration", target: 18, reward: 9 },
+  { id: "daily_energy_30", title: "取得 30 究極吳限能量", text: "今天的能量條會很有存在感。", metric: "inspiration", target: 30, reward: 14 },
+  { id: "daily_streak_3", title: "連續答對 3 題", text: "短短一段連擊，就能點亮小夥伴。", metric: "currentStreak", target: 3, reward: 8 },
+  { id: "daily_streak_5", title: "連續答對 5 題", text: "進入專注狀態，來一段漂亮連擊。", metric: "currentStreak", target: 5, reward: 12 }
+];
+
+function seededRandom(seed) {
+  let value = 0;
+  for (let index = 0; index < seed.length; index += 1) {
+    value = (value * 31 + seed.charCodeAt(index)) >>> 0;
+  }
+  return () => {
+    value = (value * 1664525 + 1013904223) >>> 0;
+    return value / 4294967296;
+  };
+}
+
+function dailyMissionTemplates(dayKey) {
+  const random = seededRandom(`daily-missions:${dayKey}`);
+  return [...DAILY_MISSION_TEMPLATES]
+    .map((template) => ({ template, sort: random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .slice(0, 3)
+    .map(({ template }) => template);
+}
+
+function nextDailyResetLabel(now = new Date()) {
+  const next = new Date(now);
+  next.setHours(8, 0, 0, 0);
+  if (now >= next) next.setDate(next.getDate() + 1);
+  const isTomorrow = next.getDate() !== now.getDate() || next.getMonth() !== now.getMonth() || next.getFullYear() !== now.getFullYear();
+  return `下次更新：${isTomorrow ? "明天" : "今天"} 08:00`;
+}
+
+function dailyMissionValue(template, today) {
+  if (template.metric === "currentStreak") return adventure.currentStreak || 0;
+  return today[template.metric] || 0;
+}
+
 function adventureMissionGroups(today, snapshot, level) {
   const consecutiveDays = adventureConsecutiveDays();
   const unlockedCount = Object.keys(adventure.achievements || {}).length;
   const todayId = todayKey();
+  const dailyTasks = dailyMissionTemplates(todayId).map((template) =>
+    missionTask(
+      template.id,
+      "每日",
+      template.title,
+      template.text,
+      dailyMissionValue(template, today),
+      template.target,
+      template.reward,
+      todayId
+    )
+  );
   const missions = [
     {
       title: "每日型任務",
-      tasks: [
-        missionTask("daily_attempt_5", "每日", "完成 5 次練習", "先讓今天的學習開始流動。", today.attempts, 5, 5, todayId),
-        missionTask("daily_correct_3", "每日", "答對 3 題", "不用一次全對，慢慢累積就好。", today.correct, 3, 6, todayId),
-        missionTask("daily_flash_10", "每日", "取得 3 顆星星", "閃卡或題庫答對都可以累積星星。", today.stars, 3, 8, todayId)
-      ]
+      note: nextDailyResetLabel(),
+      tasks: dailyTasks
     },
     {
       title: "多日連續型任務",
+      note: "長期累積，不會每天清空",
       tasks: [
         missionTask("streak_days_2", "連續", "連續學習 2 天", "每天一點點，比一次衝很多更穩。", consecutiveDays, 2, 12, "once"),
         missionTask("streak_days_5", "連續", "連續學習 5 天", "讓學習變成固定的小習慣。", consecutiveDays, 5, 25, "once"),
@@ -1184,6 +1413,7 @@ function adventureMissionGroups(today, snapshot, level) {
     },
     {
       title: "累積型任務",
+      note: "完成一次即可領取",
       tasks: [
         missionTask("total_attempt_50", "累積", "累積練習 50 次", "每一次點擊都算在冒險裡。", snapshot.attempts, 50, 30, "once"),
         missionTask("total_correct_30", "累積", "累積答對 30 題", "把會的單字慢慢變成自己的。", snapshot.correct, 30, 35, "once"),
@@ -1254,8 +1484,9 @@ function adventureConsecutiveDays() {
       .map(([key]) => key)
   );
   let count = 0;
-  const cursor = new Date(`${todayKey()}T00:00:00`);
-  while (activeDays.has(cursor.toISOString().slice(0, 10))) {
+  const [year, month, day] = todayKey().split("-").map(Number);
+  const cursor = new Date(year, month - 1, day);
+  while (activeDays.has(formatAdventureDateKey(cursor))) {
     count += 1;
     cursor.setDate(cursor.getDate() - 1);
   }
@@ -1282,21 +1513,27 @@ function activeOutfitItem() {
   return OUTFIT_ITEMS.find((item) => item.id === adventure.activeOutfit) || OUTFIT_ITEMS[0];
 }
 
+function activeSpellItem() {
+  return SPELL_ITEMS.find((item) => item.id === adventure.activeSpell) || SPELL_ITEMS[0];
+}
+
 function shopConfig(type) {
   return {
     avatar: { ownedKey: "ownedAvatars", activeKey: "activeAvatar", items: AVATAR_ITEMS },
     frame: { ownedKey: "ownedFrames", activeKey: "activeFrame", items: FRAME_ITEMS },
     background: { ownedKey: "ownedBackgrounds", activeKey: "activeBackground", items: BACKGROUND_ITEMS },
     class: { ownedKey: "ownedClasses", activeKey: "activeClass", items: CLASS_ITEMS },
-    outfit: { ownedKey: "ownedOutfits", activeKey: "activeOutfit", items: OUTFIT_ITEMS }
+    outfit: { ownedKey: "ownedOutfits", activeKey: "activeOutfit", items: OUTFIT_ITEMS },
+    spell: { ownedKey: "ownedSpells", activeKey: "activeSpell", items: SPELL_ITEMS }
   }[type];
 }
 
 function shopPreviewContent(item, type) {
-  if (type === "avatar") return renderAvatarPortrait(item);
-  if (type === "frame") return '<span class="frame-inner">框</span>';
+  if (type === "avatar") return `<span class="cosmetic-token">${escapeHtml(item.icon || "勇")}</span>`;
+  if (type === "frame") return `<span class="cosmetic-token">框</span>`;
   if (type === "background") return '<span class="scene-sky"></span><span class="scene-ground"></span><span class="scene-mark"></span>';
   if (type === "class" || type === "outfit") return `<span class="cosmetic-token">${escapeHtml(item.icon || "★")}</span>`;
+  if (type === "spell") return `<span class="cosmetic-token"><i data-lucide="${escapeHtml(item.icon || "sparkles")}"></i></span>`;
   return "";
 }
 
@@ -1306,6 +1543,7 @@ function shopPreviewClass(item, type) {
   if (type === "background") return `background-preview ${item.className || ""}`;
   if (type === "class") return `class-preview ${item.className || ""}`;
   if (type === "outfit") return `outfit-preview ${item.className || ""}`;
+  if (type === "spell") return `spell-preview spell-${escapeHtml(item.element || "magic")}`;
   return "";
 }
 
@@ -1353,17 +1591,8 @@ function buyShopItem(itemId, items, ownedKey, activeKey) {
 }
 
 function renderEquipmentShop() {
-  $("#equipmentShop").innerHTML = EQUIPMENT_CATEGORIES.map((category) => {
-    const items = EQUIPMENT_ITEMS.filter((item) => item.slot === category.id);
-    return `
-      <section class="equipment-category">
-        <h5>${escapeHtml(category.title)}</h5>
-        <div class="equipment-list">
-          ${items.map((item) => renderEquipmentItem(item)).join("")}
-        </div>
-      </section>
-    `;
-  }).join("");
+  const target = $("#equipmentShop");
+  if (target) target.innerHTML = "";
 }
 
 function renderEquipmentItem(item) {
@@ -1374,7 +1603,7 @@ function renderEquipmentItem(item) {
   const action = owned ? "equip" : "buy";
   return `
     <div class="equipment-item${active ? " is-active" : ""}">
-      <div class="equipment-icon ${equipmentArtClass(item)}" aria-hidden="true"></div>
+      <div class="equipment-icon ${equipmentArtClass(item)}" aria-hidden="true"${equipmentImageStyle(item)}></div>
       <div>
         <strong>${escapeHtml(item.name)}</strong>
         <small>${owned ? "已擁有" : `需要 ${item.cost} 星星`}</small>
@@ -1382,6 +1611,70 @@ function renderEquipmentItem(item) {
       <button type="button" data-equipment-action="${action}" data-item-id="${escapeHtml(item.id)}" ${active || (!owned && !canBuy) ? "disabled" : ""}>${escapeHtml(label)}</button>
     </div>
   `;
+}
+
+function renderLoadoutSpellItem(item) {
+  const owned = adventure.ownedSpells.includes(item.id);
+  const active = adventure.activeSpell === item.id;
+  const canBuy = adventure.stars >= item.cost;
+  const action = owned ? "equip-spell" : "buy-spell";
+  const label = active ? "使用中" : owned ? "裝備" : `${item.cost} 星星`;
+  return `
+    <div class="equipment-item${active ? " is-active" : ""}">
+      <div class="equipment-icon equipment-art equipment-spell-art" aria-hidden="true"><i data-lucide="${escapeHtml(item.icon || "sparkles")}"></i></div>
+      <div>
+        <strong>${escapeHtml(item.name)}</strong>
+        <small>${owned ? "已擁有" : `需要 ${item.cost} 星星`}</small>
+      </div>
+      <button type="button" data-shop-action="${action}" data-item-id="${escapeHtml(item.id)}" ${active || (!owned && !canBuy) ? "disabled" : ""}>${escapeHtml(label)}</button>
+    </div>
+  `;
+}
+
+function openLoadoutPicker(type) {
+  const existing = $("#loadoutPicker");
+  if (existing) existing.remove();
+
+  const isSpell = type === "spell";
+  const category = EQUIPMENT_CATEGORIES.find((item) => item.id === type);
+  if (!isSpell && !category) return;
+
+  const title = isSpell ? "選擇法術" : `選擇${category.title}`;
+  const items = isSpell ? SPELL_ITEMS : EQUIPMENT_ITEMS.filter((item) => item.slot === type);
+  const html = `
+    <div class="loadout-picker-overlay" id="loadoutPicker" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
+      <div class="loadout-picker-panel">
+        <header>
+          <strong>${escapeHtml(title)}</strong>
+          <button type="button" class="loadout-picker-close" data-close-loadout aria-label="關閉">×</button>
+        </header>
+        <div class="loadout-picker-list">
+          ${items.map((item) => isSpell ? renderLoadoutSpellItem(item) : renderEquipmentItem(item)).join("")}
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML("beforeend", html);
+
+  const picker = $("#loadoutPicker");
+  picker.addEventListener("click", (event) => {
+    if (event.target === picker || event.target.closest("[data-close-loadout]")) {
+      picker.remove();
+      return;
+    }
+    const equipmentButton = event.target.closest("[data-equipment-action]");
+    if (equipmentButton) {
+      handleEquipmentAction(equipmentButton.dataset.equipmentAction, equipmentButton.dataset.itemId);
+      picker.remove();
+      return;
+    }
+    const shopButton = event.target.closest("[data-shop-action]");
+    if (shopButton) {
+      handleShopAction(shopButton.dataset.shopAction, shopButton.dataset.itemId);
+      picker.remove();
+    }
+  });
+  if (window.lucide) window.lucide.createIcons();
 }
 
 function handleEquipmentAction(action, itemId) {
@@ -2923,9 +3216,34 @@ async function importData(event) {
 }
 
 function setupTabs() {
+  mergeAdventureIntoDashboard();
   $$(".tab").forEach((button) => {
     button.addEventListener("click", () => activateTab(button.dataset.tab));
   });
+}
+
+function setupAdventureAccordions() {
+  $$(".shop-category").forEach((category) => {
+    category.addEventListener("toggle", () => {
+      if (!category.open) return;
+      $$(".shop-category").forEach((other) => {
+        if (other !== category) other.open = false;
+      });
+    });
+  });
+}
+
+function mergeAdventureIntoDashboard() {
+  const dashboard = $("#dashboard");
+  const adventurePanel = $("#adventure");
+  const adventureTab = document.querySelector('[data-tab="adventure"]');
+  if (!dashboard || !adventurePanel || dashboard.querySelector(".adventure-hero")) return;
+  const adventureBlock = document.createElement("div");
+  adventureBlock.className = "dashboard-adventure";
+  while (adventurePanel.firstChild) adventureBlock.appendChild(adventurePanel.firstChild);
+  dashboard.appendChild(adventureBlock);
+  adventurePanel.remove();
+  if (adventureTab) adventureTab.hidden = true;
 }
 
 function setupUnitSelects() {
@@ -2971,6 +3289,7 @@ function boot() {
     document.addEventListener(eventName, unlockSpeech, { once: true, passive: true });
   });
   setupTabs();
+  setupAdventureAccordions();
   setupUnitSelects();
   renderAll();
   nextQuestion();

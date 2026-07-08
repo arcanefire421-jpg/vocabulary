@@ -27,7 +27,7 @@
 
     <main class="app-shell">
       <nav class="tabs" aria-label="主要功能">
-        <button class="tab is-active" data-tab="dashboard" type="button"><i data-lucide="layout-dashboard"></i><span>總覽</span></button>
+        <button class="tab is-active" data-tab="dashboard" type="button"><i data-lucide="layout-dashboard"></i><span>吳限勇者傳說</span></button>
         <button class="tab" data-tab="adventure" type="button"><i data-lucide="sparkles"></i><span>吳限冒險</span></button>
         <button class="tab" data-tab="flashcards" type="button"><i data-lucide="copy"></i><span>閃記卡</span></button>
         <button class="tab" data-tab="practice" type="button"><i data-lucide="file-question"></i><span>題庫練習</span></button>
@@ -128,38 +128,41 @@
         <article class="section-card shop-card">
           <h3>冒險商城</h3>
           <p class="shop-note">用星星解鎖角色外觀、頭像框與奇幻裝備，外觀和框會分開套用。</p>
-          <div class="shop-grid">
-            <div>
-              <h4>場景背景</h4>
-              <div id="backgroundShop" class="shop-list"></div>
-            </div>
-            <div>
-              <h4>角色外觀</h4>
-              <div id="avatarShop" class="shop-list"></div>
-            </div>
-            <div>
-              <h4>職業</h4>
+          <div class="shop-grid shop-accordion">
+            <details class="shop-category">
+              <summary><span>職業</span><small>展開購買職業</small></summary>
               <div id="classShop" class="shop-list"></div>
-            </div>
-            <div>
-              <h4>服裝</h4>
-              <div id="outfitShop" class="shop-list"></div>
-            </div>
-            <div>
-              <h4>頭像框</h4>
+            </details>
+            <details class="shop-category">
+              <summary><span>角色外觀</span><small>展開購買外觀</small></summary>
+              <div id="avatarShop" class="shop-list"></div>
+            </details>
+            <details class="shop-category">
+              <summary><span>頭像框</span><small>展開購買頭像框</small></summary>
               <div id="frameShop" class="shop-list"></div>
-            </div>
+            </details>
+            <details class="shop-category">
+              <summary><span>場景背景</span><small>展開購買背景</small></summary>
+              <div id="backgroundShop" class="shop-list"></div>
+            </details>
+            <details class="shop-category">
+              <summary><span>服裝</span><small>展開購買服裝</small></summary>
+              <div id="outfitShop" class="shop-list"></div>
+            </details>
+            <details class="shop-category">
+              <summary><span>法術商城</span><small>展開購買法術</small></summary>
+              <div id="spellShop" class="shop-list"></div>
+            </details>
           </div>
-          <div class="equipment-shop">
-            <h4>奇幻裝備</h4>
+          <div class="equipment-shop" hidden>
             <div id="equipmentShop" class="equipment-shop-grid"></div>
           </div>
         </article>
 
-        <article class="section-card achievement-card">
-          <h3>徽章收藏冊</h3>
+        <details class="section-card achievement-card collapsible-card">
+          <summary><span>徽章收藏冊</span><small>展開查看成就</small></summary>
           <div id="achievementGrid" class="achievement-grid"></div>
-        </article>
+        </details>
       </section>
 
       <section class="panel" id="flashcards">
