@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VocabMaster 單字學習</title>
-    <link rel="stylesheet" href="./src/styles.css?v=v1.0" />
+    <link rel="stylesheet" href="./src/styles.css?v=v1.0-hero-legend" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=v1.0"></script>
+    <script type="module" src="./src/app.js?v=v1.0-hero-legend"></script>
   </head>
   <body>
     <header class="app-header">
@@ -28,6 +28,7 @@
     <main class="app-shell">
       <nav class="tabs" aria-label="主要功能">
         <button class="tab is-active" data-tab="dashboard" type="button"><i data-lucide="layout-dashboard"></i><span>總覽</span></button>
+        <button class="tab" data-tab="adventure" type="button"><i data-lucide="sparkles"></i><span>吳限冒險</span></button>
         <button class="tab" data-tab="flashcards" type="button"><i data-lucide="copy"></i><span>閃記卡</span></button>
         <button class="tab" data-tab="practice" type="button"><i data-lucide="file-question"></i><span>題庫練習</span></button>
         <button class="tab" data-tab="library" type="button"><i data-lucide="book-open"></i><span>單字庫</span></button>
@@ -58,6 +59,92 @@
             <div id="reviewList" class="review-list"></div>
           </article>
         </div>
+      </section>
+
+      <section class="panel" id="adventure">
+        <div class="adventure-hero">
+          <div>
+            <p class="eyebrow">吳限定律</p>
+            <h2>吳限冒險</h2>
+            <p>用小小的收集感陪學生前進，不把學習變成壓力。</p>
+          </div>
+          <div class="adventure-level-card">
+            <span id="adventureLevel">Lv.1</span>
+            <small>冒險等級</small>
+          </div>
+          <div class="hero-reward-showcase">
+            <div class="hero-equipped">
+              <span id="heroEquippedAvatar">W</span>
+              <input id="characterNameInput" class="character-name-input" type="text" maxlength="12" value="吳限勇者" aria-label="角色名稱">
+              <div id="heroLoadout" class="hero-loadout"></div>
+            </div>
+            <div>
+              <strong>榮耀展示</strong>
+              <div id="heroRewardShelf" class="hero-reward-shelf"></div>
+              <div id="heroStats" class="hero-stats"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="adventure-grid">
+          <article class="section-card adventure-progress-card">
+            <div class="adventure-stats">
+              <div><strong id="adventureStars">0</strong><span>星星</span></div>
+              <div><strong id="adventureInspiration">0</strong><span>究極吳限能量</span></div>
+              <div><strong id="adventureStreak">0</strong><span>連續答對</span></div>
+              <div><strong id="adventureToday">0</strong><span>今日小挑戰</span></div>
+            </div>
+            <div class="adventure-progress">
+              <header><span>下一個冒險等級</span><span id="adventureNextLevel">0 / 38</span></header>
+              <div class="level-track"><span id="adventureLevelBar"></span></div>
+            </div>
+          </article>
+
+          <article class="section-card companion-card">
+            <h3>今日小夥伴</h3>
+            <div class="companion-scene">
+              <div class="companion-avatar" id="companionAvatar">W</div>
+              <div>
+                <strong id="companionTitle">準備出發</strong>
+                <p id="companionMessage">完成一個小練習，冒險就會開始。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="section-card">
+            <h3>任務中心</h3>
+            <div id="adventureDailyTasks" class="daily-task-list"></div>
+          </article>
+        </div>
+
+        <article class="section-card adventure-map-card">
+          <h3>冒險地圖</h3>
+          <div id="adventureMap" class="adventure-map"></div>
+        </article>
+
+        <article class="section-card shop-card">
+          <h3>冒險商城</h3>
+          <p class="shop-note">用星星解鎖職業頭像、頭像框與奇幻裝備，裝備後會出現在榮耀展示。</p>
+          <div class="shop-grid">
+            <div>
+              <h4>職業頭像</h4>
+              <div id="avatarShop" class="shop-list"></div>
+            </div>
+            <div>
+              <h4>頭像框</h4>
+              <div id="frameShop" class="shop-list"></div>
+            </div>
+          </div>
+          <div class="equipment-shop">
+            <h4>奇幻裝備</h4>
+            <div id="equipmentShop" class="equipment-shop-grid"></div>
+          </div>
+        </article>
+
+        <article class="section-card achievement-card">
+          <h3>徽章收藏冊</h3>
+          <div id="achievementGrid" class="achievement-grid"></div>
+        </article>
       </section>
 
       <section class="panel" id="flashcards">

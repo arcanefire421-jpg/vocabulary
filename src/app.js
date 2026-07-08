@@ -1,11 +1,12 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.0";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.0";
-import { QUESTION_BANK } from "../data/questions.js?v=v1.0";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.0-hero-legend";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.0-hero-legend";
+import { QUESTION_BANK } from "../data/questions.js?v=v1.0-hero-legend";
 
-const APP_VERSION = "v1.0";
+const APP_VERSION = "V1.0 勇者傳說版";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
+const ADVENTURE_KEY = "vocabmaster-adventure-v1";
 const DEFAULT_SERIES = "南山國中單字表";
 const JUNIOR_SERIES = "教育部 1200 基本字彙";
 const HIGH_SCHOOL_SERIES = "大考中心高中英文參考詞彙表";
@@ -21,9 +22,158 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const MINUTE_MS = 60 * 1000;
 const REVIEW_INTERVALS = [0, 1 * 60 * 60 * 1000, 1 * DAY_MS, 3 * DAY_MS, 7 * DAY_MS, 14 * DAY_MS];
 const ENCOURAGEMENTS = ["我會了", "我好棒", "我真棒", "我真聰明", "我真厲害", "超厲害", "100分", "真讚"];
+const ADVENTURE_MAX_LEVEL = 60;
+const ADVENTURE_MAP_ZONES = [
+  {
+    from: 1,
+    to: 10,
+    title: "星火荒原",
+    className: "zone-star",
+    stages: ["點亮第一束星火", "穿過晨霧步道", "找到能量羅盤", "喚醒小小營火", "收集星塵碎片", "踏上發光石階", "聽見遠方鐘聲", "越過微光草原", "抵達星門前哨", "開啟第一座星門"]
+  },
+  {
+    from: 11,
+    to: 20,
+    title: "古語小徑",
+    className: "zone-sentence",
+    stages: ["讀懂石碑上的句子", "修復斷裂的語橋", "穿越回音走廊", "收集句意水晶", "點亮文法路標", "打開例句寶箱", "走過語感溪谷", "辨認隱藏線索", "完成小徑試煉", "抵達句光涼亭"]
+  },
+  {
+    from: 21,
+    to: 30,
+    title: "記憶森林",
+    className: "zone-flash",
+    stages: ["翻開森林入口卡", "遇見記憶樹影", "喚醒沉睡字根", "越過熟練藤蔓", "採集回想果實", "穿過閃光葉道", "找到複習泉水", "點亮熟字營地", "完成森林巡禮", "登上樹冠瞭望台"]
+  },
+  {
+    from: 31,
+    to: 40,
+    title: "試煉山谷",
+    className: "zone-practice",
+    stages: ["進入第一道試煉門", "破解填空符文", "避開選項迷霧", "修正錯題軌跡", "打開解說卷軸", "越過答案石橋", "累積勇氣刻印", "挑戰混合題陣", "通過山谷考驗", "抵達題庫烽火台"]
+  },
+  {
+    from: 41,
+    to: 50,
+    title: "徽章聖原",
+    className: "zone-badge",
+    stages: ["踏上收藏高原", "擦亮第一枚徽章", "修復榮耀旗幟", "守住連勝營地", "解開成就封印", "收納星星獎章", "穿越金色風口", "完成高原巡守", "點亮徽章方尖碑", "開啟榮耀大門"]
+  },
+  {
+    from: 51,
+    to: 60,
+    title: "吳限高塔",
+    className: "zone-tower",
+    stages: ["抵達高塔底層", "啟動吳限升降台", "穿越能量迴廊", "修復塔心齒輪", "守住知識核心", "點亮塔身符文", "攀上雲端階梯", "聽見頂樓號角", "完成究極試煉", "登上吳限塔頂"]
+  }
+];
+const AVATAR_ITEMS = [
+  { id: "w", icon: "W", name: "吳限起點", cost: 0, className: "avatar-core", stats: { hp: 0, mp: 0, atk: 0, def: 0, hit: 0, evade: 0, move: 0 } },
+  { id: "warrior", icon: "戰", name: "戰士", cost: 30, className: "avatar-warrior", stats: { hp: 18, mp: 0, atk: 6, def: 3, hit: 2, evade: 0, move: 0 } },
+  { id: "mage", icon: "法", name: "法師", cost: 45, className: "avatar-mage", stats: { hp: 0, mp: 24, atk: 5, def: 0, hit: 3, evade: 0, move: 0 } },
+  { id: "priest", icon: "牧", name: "牧師", cost: 45, className: "avatar-priest", stats: { hp: 8, mp: 18, atk: 2, def: 2, hit: 2, evade: 1, move: 0 } },
+  { id: "paladin", icon: "聖", name: "聖騎士", cost: 60, className: "avatar-paladin", stats: { hp: 16, mp: 10, atk: 4, def: 6, hit: 1, evade: 0, move: 0 } },
+  { id: "assassin", icon: "刺", name: "刺客", cost: 65, className: "avatar-assassin", stats: { hp: 4, mp: 4, atk: 5, def: 0, hit: 5, evade: 7, move: 1 } },
+  { id: "death-knight", icon: "死", name: "死亡騎士", cost: 85, className: "avatar-death-knight", stats: { hp: 22, mp: 8, atk: 7, def: 4, hit: 1, evade: -1, move: 0 } },
+  { id: "druid", icon: "德", name: "德魯伊", cost: 75, className: "avatar-druid", stats: { hp: 10, mp: 14, atk: 3, def: 3, hit: 2, evade: 3, move: 1 } }
+];
+const FRAME_ITEMS = [
+  { id: "plain", name: "簡約框", cost: 0, className: "frame-plain" },
+  { id: "mint", name: "方形能量框", cost: 25, className: "frame-square" },
+  { id: "gold", name: "斜角金屬框", cost: 50, className: "frame-bevel" },
+  { id: "purple", name: "尖刺戰鬥框", cost: 75, className: "frame-spike" },
+  { id: "tower", name: "吳限塔晶框", cost: 100, className: "frame-tower" }
+];
+const EQUIPMENT_CATEGORIES = [
+  { id: "weapon", title: "單手武器" },
+  { id: "shield", title: "防禦類" },
+  { id: "armor", title: "護甲類" },
+  { id: "boots", title: "鞋子類" }
+];
+const EQUIPMENT_ITEMS = [
+  ...[
+    ["wood-dagger", "練習短劍", "短劍", 12], ["iron-dagger", "鐵製短劍", "短劍", 18], ["long-sword", "青銅長劍", "長劍", 28], ["steel-sword", "鋼鐵長劍", "長劍", 42],
+    ["oak-club", "橡木戰棍", "棍", 14], ["war-club", "碎岩戰棍", "棍", 30], ["novice-staff", "見習法杖", "杖", 20], ["star-staff", "星塵法杖", "杖", 48],
+    ["moon-blade", "月影彎刀", "刀", 36], ["falcon-blade", "獵鷹戰刀", "刀", 50], ["rapier", "銀光細劍", "刺劍", 34], ["rune-rapier", "古文刺劍", "刺劍", 58],
+    ["hand-axe", "戰士手斧", "斧", 26], ["silver-axe", "白銀戰斧", "斧", 52], ["mace", "晨星戰錘", "錘", 32], ["holy-mace", "聖光戰錘", "錘", 62],
+    ["crystal-wand", "水晶魔棒", "魔棒", 24], ["shadow-wand", "暗影魔棒", "魔棒", 55], ["knight-saber", "騎士軍刀", "軍刀", 46], ["dragon-tooth", "焰龍牙刃", "短刃", 80]
+  ].map(([id, name, kind, cost]) => ({ id, name, kind, cost, slot: "weapon", icon: weaponIcon(kind) })),
+  ...[
+    ["wood-shield", "木盾", 15, "⬟"], ["round-shield", "小圓盾", 24, "◉"], ["iron-shield", "鐵盾", 42, "⬢"], ["tower-shield", "塔盾", 70, "▣"],
+    ["bronze-buckler", "青銅小盾", 30, "◍"], ["silver-buckler", "銀紋小盾", 46, "◎"], ["kite-shield", "鳶形盾", 55, "⬨"], ["rune-shield", "符文盾", 66, "⬡"],
+    ["crystal-guard", "水晶護盾", 78, "◇"], ["thorn-shield", "荊棘盾", 84, "✦"], ["lion-shield", "獅心盾", 92, "♜"], ["moon-guard", "月光盾", 98, "☽"],
+    ["sun-aegis", "日耀聖盾", 110, "☼"], ["shadow-ward", "暗影護盾", 118, "◒"], ["storm-shield", "雷鳴戰盾", 126, "ϟ"], ["dragon-scale-shield", "焰龍鱗盾", 138, "◆"],
+    ["star-barrier", "星界屏障", 150, "✹"], ["ancient-aegis", "古王聖盾", 165, "♛"], ["infinity-guard", "吳限守護盾", 180, "∞"], ["tower-aegis", "天塔王盾", 200, "▰"]
+  ].map(([id, name, cost, icon]) => ({ id, name, kind: "盾", cost, slot: "shield", icon })),
+  ...[
+    ["cloth-robe", "布衣", 12, "◇"], ["leather-armor", "皮甲", 26, "⬧"], ["hard-leather", "硬皮甲", 40, "⬥"], ["chain-mail", "鎖子甲", 60, "⬡"],
+    ["traveler-coat", "旅人外套", 18, "◈"], ["apprentice-robe", "見習長袍", 30, "✧"], ["hunter-vest", "獵人背心", 38, "▱"], ["iron-mail", "鐵環甲", 54, "▧"],
+    ["knight-armor", "騎士胸甲", 72, "▣"], ["sage-robe", "賢者法袍", 76, "✦"], ["shadow-cloak", "影行斗篷", 82, "◒"], ["holy-plate", "聖光板甲", 96, "☼"],
+    ["storm-mail", "雷鳴鎖甲", 108, "ϟ"], ["crystal-robe", "水晶長袍", 116, "◇"], ["beast-hide", "荒獸皮甲", 122, "◆"], ["moon-armor", "月銀護甲", 136, "☽"],
+    ["star-robe", "星界法袍", 148, "✹"], ["dragon-plate", "焰龍戰甲", 165, "⬢"], ["infinity-armor", "吳限核心甲", 185, "∞"], ["tower-regalia", "天塔王裝", 210, "♛"]
+  ].map(([id, name, cost, icon]) => ({ id, name, kind: "護甲", cost, slot: "armor", icon })),
+  ...[
+    ["cloth-boots", "布鞋", 10, "⌁"], ["leather-boots", "皮靴", 22, "⌂"], ["runner-boots", "疾行靴", 45, "↯"], ["tower-greaves", "高塔戰靴", 68, "▰"],
+    ["traveler-shoes", "旅人鞋", 16, "▱"], ["soft-boots", "靜音短靴", 28, "◒"], ["iron-greaves", "鐵護脛", 40, "⬢"], ["wind-boots", "風行靴", 52, "ϟ"],
+    ["hunter-boots", "獵人長靴", 58, "◆"], ["mage-sandals", "法師涼靴", 62, "✧"], ["paladin-greaves", "聖騎護靴", 78, "☼"], ["shadow-steps", "影步靴", 86, "◐"],
+    ["moon-boots", "月影長靴", 94, "☽"], ["crystal-greaves", "水晶護脛", 104, "◇"], ["storm-steps", "雷鳴戰靴", 116, "↯"], ["dragon-boots", "龍鱗長靴", 130, "⬥"],
+    ["star-walkers", "星行者靴", 144, "✹"], ["ancient-greaves", "古王護脛", 158, "♜"], ["infinity-boots", "吳限旅靴", 176, "∞"], ["sky-tower-boots", "天塔戰靴", 198, "▣"]
+  ].map(([id, name, cost, icon]) => ({ id, name, kind: "鞋子", cost, slot: "boots", icon }))
+];
+const ADVENTURE_ACHIEVEMENTS = [
+  {
+    id: "first_step",
+    icon: "sparkles",
+    title: "第一步",
+    description: "完成第一次練習",
+    reward: 5,
+    test: ({ attempts }) => attempts >= 1
+  },
+  {
+    id: "first_correct",
+    icon: "badge-check",
+    title: "亮起一格",
+    description: "第一次答對",
+    reward: 8,
+    test: ({ correct }) => correct >= 1
+  },
+  {
+    id: "ten_steps",
+    icon: "footprints",
+    title: "小小前進",
+    description: "累積練習 10 次",
+    reward: 12,
+    test: ({ attempts }) => attempts >= 10
+  },
+  {
+    id: "streak_five",
+    icon: "flame-kindling",
+    title: "能量連線",
+    description: "連續答對 5 次",
+    reward: 15,
+    test: ({ adventure }) => (adventure.currentStreak || 0) >= 5 || (adventure.bestStreak || 0) >= 5
+  },
+  {
+    id: "daily_ten",
+    icon: "sun",
+    title: "今日小探險",
+    description: "今天完成 10 次練習",
+    reward: 18,
+    test: ({ adventure }) => todayAdventure(adventure).attempts >= 10
+  },
+  {
+    id: "first_mastered",
+    icon: "gem",
+    title: "熟練之星",
+    description: "第一個單字達到 Lv.5",
+    reward: 20,
+    test: ({ mastered }) => mastered >= 1
+  }
+];
 
 let stats = loadJson(STORAGE_KEY, {});
 let customWords = loadJson(CUSTOM_KEY, []);
+let adventure = normalizeAdventure(loadJson(ADVENTURE_KEY, {}));
 let highSchoolVocabulary = [];
 let highFrequencyVocabulary = [];
 let words = buildWords();
@@ -61,6 +211,65 @@ function loadJson(key, fallback) {
 function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
   localStorage.setItem(CUSTOM_KEY, JSON.stringify(customWords));
+  localStorage.setItem(ADVENTURE_KEY, JSON.stringify(adventure));
+}
+
+function normalizeAdventure(value) {
+  const data = value && typeof value === "object" ? value : {};
+  const ownedAvatars = Array.isArray(data.ownedAvatars) ? data.ownedAvatars : ["w"];
+  const ownedFrames = Array.isArray(data.ownedFrames) ? data.ownedFrames : ["plain"];
+  const ownedEquipment = Array.isArray(data.ownedEquipment) ? data.ownedEquipment : [];
+  const equippedEquipment = data.equippedEquipment && typeof data.equippedEquipment === "object" ? data.equippedEquipment : {};
+  return {
+    stars: Number(data.stars) || 0,
+    inspiration: Number(data.inspiration) || 0,
+    totalEarnedStars: Number(data.totalEarnedStars) || 0,
+    currentStreak: Number(data.currentStreak) || 0,
+    bestStreak: Number(data.bestStreak) || 0,
+    lastActiveDate: data.lastActiveDate || todayKey(),
+    daily: data.daily && typeof data.daily === "object" ? data.daily : {},
+    achievements: data.achievements && typeof data.achievements === "object" ? data.achievements : {},
+    missionClaims: data.missionClaims && typeof data.missionClaims === "object" ? data.missionClaims : {},
+    ownedAvatars: ownedAvatars.includes("w") ? ownedAvatars : ["w", ...ownedAvatars],
+    ownedFrames: ownedFrames.includes("plain") ? ownedFrames : ["plain", ...ownedFrames],
+    ownedEquipment,
+    equippedEquipment: {
+      weapon: equippedEquipment.weapon || "",
+      shield: equippedEquipment.shield || "",
+      armor: equippedEquipment.armor || "",
+      boots: equippedEquipment.boots || ""
+    },
+    characterName: String(data.characterName || "吳限勇者").slice(0, 12),
+    activeAvatar: ownedAvatars.includes(data.activeAvatar) ? data.activeAvatar : "w",
+    activeFrame: ownedFrames.includes(data.activeFrame) ? data.activeFrame : "plain"
+  };
+}
+
+function weaponIcon(kind) {
+  const icons = {
+    "短劍": "🗡",
+    "長劍": "⚔",
+    "棍": "✦",
+    "杖": "✧",
+    "刀": "☽",
+    "刺劍": "♢",
+    "斧": "◈",
+    "錘": "⬢",
+    "魔棒": "✹",
+    "軍刀": "◆",
+    "短刃": "▴"
+  };
+  return icons[kind] || "武";
+}
+
+function todayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function todayAdventure(source = adventure) {
+  const key = todayKey();
+  source.daily[key] ??= { attempts: 0, correct: 0, stars: 0, inspiration: 0 };
+  return source.daily[key];
 }
 
 function baseWord(word) {
@@ -130,7 +339,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_SCHOOL_SERIES,
       label: "高中單字庫",
-      path: "../data/highschool.js?v=v1.0",
+      path: "../data/highschool.js?v=v1.0-hero-legend",
       exportName: "HIGH_SCHOOL_VOCABULARY",
       apply: (items) => {
         highSchoolVocabulary = prepareHighSchoolVocabulary(items);
@@ -141,7 +350,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=v1.0",
+      path: "../data/highFrequency.js?v=v1.0-hero-legend",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
@@ -222,6 +431,7 @@ function updateWordStats(wordId, isCorrect, options = {}) {
   current.nextReview = isCorrect ? now + REVIEW_INTERVALS[current.proficiency] : now;
 
   stats[wordId] = current;
+  const adventureUnlocks = recordAdventureProgress(isCorrect, { word, activity: options.activity || "practice" });
   words = buildWords();
   saveState();
   if (options.render !== false) {
@@ -230,8 +440,87 @@ function updateWordStats(wordId, isCorrect, options = {}) {
   return {
     word: words.find((item) => item.id === wordId),
     previousProficiency,
-    nextProficiency: current.proficiency
+    nextProficiency: current.proficiency,
+    adventureUnlocks
   };
+}
+
+function recordAdventureProgress(isCorrect, { word, activity }) {
+  const daily = todayAdventure();
+  const baseInspiration = isCorrect ? 3 : 1;
+  const baseStars = isCorrect ? 1 : 0;
+  const flashBonus = activity === "flashcard" && isCorrect ? 1 : 0;
+
+  adventure.inspiration += baseInspiration;
+  adventure.stars += baseStars + flashBonus;
+  adventure.totalEarnedStars += baseStars + flashBonus;
+  adventure.currentStreak = isCorrect ? (adventure.currentStreak || 0) + 1 : 0;
+  adventure.bestStreak = Math.max(adventure.bestStreak || 0, adventure.currentStreak || 0);
+  adventure.lastActiveDate = todayKey();
+
+  daily.attempts += 1;
+  daily.correct += isCorrect ? 1 : 0;
+  daily.stars += baseStars + flashBonus;
+  daily.inspiration += baseInspiration;
+
+  return unlockAdventureAchievements({ word });
+}
+
+function adventureLevelInfo() {
+  const inspiration = Math.max(0, Number(adventure.inspiration) || 0);
+  let level = 1;
+  while (level < ADVENTURE_MAX_LEVEL && inspiration >= adventureEnergyForLevel(level + 1)) level += 1;
+  const previousAt = adventureEnergyForLevel(level);
+  const nextAt = level >= ADVENTURE_MAX_LEVEL ? previousAt : adventureEnergyForLevel(level + 1);
+  const progress = level >= ADVENTURE_MAX_LEVEL || nextAt === previousAt
+    ? 100
+    : Math.round(((inspiration - previousAt) / (nextAt - previousAt)) * 100);
+  return {
+    level,
+    inspiration,
+    previousAt,
+    nextAt,
+    progress: Math.max(0, Math.min(100, progress)),
+    remaining: Math.max(0, nextAt - inspiration),
+    maxLevel: ADVENTURE_MAX_LEVEL
+  };
+}
+
+function adventureRequirementForLevel(level) {
+  return 30 + level * 8;
+}
+
+function adventureEnergyForLevel(level) {
+  let total = 0;
+  for (let current = 1; current < level; current += 1) {
+    total += adventureRequirementForLevel(current);
+  }
+  return total;
+}
+
+function adventureStatsSnapshot() {
+  const trackedStats = Object.values(stats).filter((item) => item && typeof item === "object");
+  const attempts = trackedStats.reduce((sum, item) => sum + (Number(item.total) || 0), 0);
+  const correct = trackedStats.reduce((sum, item) => sum + (Number(item.correct) || 0), 0);
+  const mastered = trackedStats.filter((item) => (Number(item.proficiency) || 0) >= 5).length;
+  return { attempts, correct, mastered, adventure };
+}
+
+function unlockAdventureAchievements(context = {}) {
+  const snapshot = adventureStatsSnapshot();
+  const newlyUnlocked = [];
+  ADVENTURE_ACHIEVEMENTS.forEach((achievement) => {
+    if (adventure.achievements[achievement.id]) return;
+    if (!achievement.test({ ...snapshot, ...context })) return;
+    adventure.achievements[achievement.id] = {
+      unlockedAt: Date.now(),
+      reward: achievement.reward
+    };
+    adventure.stars += achievement.reward;
+    adventure.totalEarnedStars += achievement.reward;
+    newlyUnlocked.push(achievement);
+  });
+  return newlyUnlocked;
 }
 
 function setProficiency(wordId, offset) {
@@ -408,6 +697,499 @@ function renderDashboard() {
   $$("[data-review-word]").forEach((button) => {
     button.addEventListener("click", () => openFlashcardForWord(Number(button.dataset.reviewWord)));
   });
+}
+
+function renderAdventure() {
+  const level = adventureLevelInfo();
+  const today = todayAdventure();
+  const snapshot = adventureStatsSnapshot();
+  const unlockedCount = Object.keys(adventure.achievements || {}).length;
+  const companion = companionInfo(today, snapshot, unlockedCount);
+
+  $("#adventureLevel").textContent = `Lv.${level.level}`;
+  $("#adventureStars").textContent = adventure.stars;
+  $("#adventureInspiration").textContent = level.inspiration;
+  $("#adventureStreak").textContent = adventure.currentStreak || 0;
+  $("#adventureToday").textContent = `${today.attempts}/10`;
+  $("#adventureNextLevel").textContent = level.level >= level.maxLevel
+    ? `已抵達 Lv.${level.maxLevel}`
+    : `${level.inspiration} / ${level.nextAt} · 還差 ${level.remaining}`;
+  $("#adventureLevelBar").style.width = `${level.progress}%`;
+  const avatar = activeAvatarItem();
+  const frame = activeFrameItem();
+  $("#companionAvatar").textContent = avatar.icon;
+  $("#companionAvatar").dataset.mood = companion.mood;
+  $("#companionAvatar").dataset.avatar = avatar.id;
+  $("#companionAvatar").dataset.frame = frame.id;
+  $("#companionTitle").textContent = companion.title;
+  $("#companionMessage").textContent = companion.message;
+  renderHeroRewards(avatar, frame);
+
+  const missionGroups = adventureMissionGroups(today, snapshot, level);
+  $("#adventureDailyTasks").innerHTML = missionGroups.map((group) => `
+    <section class="mission-group">
+      <h4>${escapeHtml(group.title)}</h4>
+      ${group.tasks.map((task) => renderMissionTask(task)).join("")}
+    </section>
+  `).join("");
+  $$("[data-claim-mission]").forEach((button) => {
+    button.addEventListener("click", () => claimMissionReward(button.dataset.claimMission));
+  });
+
+  $("#adventureMap").innerHTML = adventureMapNodes(level)
+    .map((node) => `
+      <div class="map-node ${node.zoneClass}${node.done ? " is-done" : ""}${node.current ? " is-current" : ""}" aria-label="${escapeHtml(node.zoneTitle)} Lv.${node.level}">
+        <span>${node.level}</span>
+        <strong>${escapeHtml(node.title)}</strong>
+        <small>${escapeHtml(node.text)}</small>
+      </div>
+    `)
+    .join("");
+
+  renderShop("#avatarShop", AVATAR_ITEMS, "avatar");
+  renderShop("#frameShop", FRAME_ITEMS, "frame");
+  renderEquipmentShop();
+  $("#characterNameInput").value = adventure.characterName || "吳限勇者";
+  $("#characterNameInput").onchange = (event) => {
+    adventure.characterName = String(event.target.value || "吳限勇者").trim().slice(0, 12) || "吳限勇者";
+    event.target.value = adventure.characterName;
+    saveState();
+  };
+  $$("[data-shop-action]").forEach((button) => {
+    button.addEventListener("click", () => handleShopAction(button.dataset.shopAction, button.dataset.itemId));
+  });
+  $$("[data-equipment-action]").forEach((button) => {
+    button.addEventListener("click", () => handleEquipmentAction(button.dataset.equipmentAction, button.dataset.itemId));
+  });
+
+  $("#achievementGrid").innerHTML = ADVENTURE_ACHIEVEMENTS.map((achievement) => {
+    const unlocked = Boolean(adventure.achievements?.[achievement.id]);
+    const progress = achievementProgress(achievement.id, snapshot, today);
+    return `
+      <div class="achievement-item${unlocked ? " is-unlocked" : ""}">
+        <div class="achievement-icon"><i data-lucide="${achievement.icon}"></i></div>
+        <div>
+          <strong>${escapeHtml(achievement.title)}</strong>
+          <p>${escapeHtml(achievement.description)}</p>
+          <small>${unlocked ? `已解鎖 · +${achievement.reward} 星星` : `未解鎖 · +${achievement.reward} 星星`}</small>
+          <div class="achievement-progress">
+            <div class="level-track"><span style="width:${progress.pct}%"></span></div>
+            <span>${escapeHtml(progress.label)}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  const heroText = unlockedCount
+    ? `已解鎖 ${unlockedCount} 枚徽章，累積 ${snapshot.attempts} 次練習。`
+    : "完成第一次練習後，第一枚徽章就會亮起來。";
+  $(".adventure-hero p:last-child").textContent = heroText;
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function renderHeroRewards(avatar, frame) {
+  const level = adventureLevelInfo();
+  const equipped = $("#heroEquippedAvatar");
+  equipped.textContent = avatar.icon;
+  equipped.dataset.avatar = avatar.id;
+  equipped.dataset.frame = frame.id;
+
+  const equippedItems = EQUIPMENT_CATEGORIES
+    .map((category) => ({
+      ...category,
+      item: EQUIPMENT_ITEMS.find((item) => item.id === adventure.equippedEquipment?.[category.id])
+    }));
+  $("#heroLoadout").innerHTML = equippedItems.map(({ id, title, item }) => `
+    <div class="loadout-slot ${item ? `has-item equipment-${item.slot}` : ""}" title="${escapeHtml(item ? item.name : title)}">
+      <span class="loadout-icon equipment-art equipment-${escapeHtml(item?.slot || id)} equipment-tier-${item ? equipmentTier(item) : 0}"></span>
+      <small>${escapeHtml(item?.name || title)}</small>
+    </div>
+  `).join("");
+
+  const unlockedFrames = FRAME_ITEMS.filter((item) => adventure.ownedFrames.includes(item.id) && item.id !== "plain").slice(-3);
+  const unlockedBadges = ADVENTURE_ACHIEVEMENTS.filter((achievement) => adventure.achievements?.[achievement.id]).slice(-4);
+  const rewards = [
+    ...unlockedFrames.map((item) => ({
+      type: "frame",
+      className: `frame-preview ${item.className}`,
+      icon: "W",
+      title: item.name
+    })),
+    ...unlockedBadges.map((achievement) => ({
+      type: "badge",
+      className: "badge-showcase",
+      icon: achievement.icon,
+      title: achievement.title
+    }))
+  ];
+
+  $("#heroRewardShelf").innerHTML = rewards.length
+    ? rewards.map((reward) => `
+      <div class="hero-reward ${reward.className}" title="${escapeHtml(reward.title)}">
+        ${reward.type === "badge" ? `<i data-lucide="${reward.icon}"></i>` : '<span class="frame-inner">W</span>'}
+      </div>
+    `).join("")
+    : `
+      <div class="hero-reward reward-locked">?</div>
+      <span class="hero-reward-hint">完成任務後，徽章和頭像框會在這裡亮起。</span>
+    `;
+
+  const stats = characterStats(level.level, avatar);
+  $("#heroStats").innerHTML = `
+    <h4>角色數值</h4>
+    <div class="hero-stat-grid hero-stat-grid-primary">
+      ${RPG_STAT_LABELS.slice(0, 4).map(({ key, label, suffix }) => `
+        <div class="hero-stat">
+          <span>${escapeHtml(label)}</span>
+          <strong>${stats[key]}${suffix || ""}</strong>
+        </div>
+      `).join("")}
+    </div>
+    <div class="hero-stat-grid hero-stat-grid-secondary">
+      ${RPG_STAT_LABELS.slice(4).map(({ key, label, suffix }) => `
+        <div class="hero-stat">
+          <span>${escapeHtml(label)}</span>
+          <strong>${stats[key]}${suffix || ""}</strong>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function slotIcon(slot) {
+  return { weapon: "武", shield: "盾", armor: "甲", boots: "靴" }[slot] || "?";
+}
+
+function equipmentTier(item) {
+  return Math.max(1, Math.min(5, Math.ceil((Number(item.cost) || 1) / 45)));
+}
+
+const RPG_STAT_LABELS = [
+  { key: "hp", label: "HP" },
+  { key: "mp", label: "MP" },
+  { key: "atk", label: "攻擊" },
+  { key: "def", label: "防禦" },
+  { key: "hit", label: "命中", suffix: "%" },
+  { key: "evade", label: "閃避", suffix: "%" },
+  { key: "move", label: "移動" }
+];
+
+function characterStats(level, avatar) {
+  const base = {
+    hp: 80 + level * 8,
+    mp: 28 + level * 3,
+    atk: 10 + level * 2,
+    def: 8 + level * 2,
+    hit: Math.min(96, 78 + Math.floor(level / 3)),
+    evade: Math.min(35, 5 + Math.floor(level / 5)),
+    move: 3 + Math.floor(level / 20)
+  };
+  const total = addStats(base, avatar.stats || {});
+  Object.values(adventure.equippedEquipment || {}).forEach((itemId) => {
+    const item = EQUIPMENT_ITEMS.find((entry) => entry.id === itemId);
+    if (item) addStats(total, equipmentStats(item));
+  });
+  total.hit = Math.max(40, Math.min(99, total.hit));
+  total.evade = Math.max(0, Math.min(60, total.evade));
+  return total;
+}
+
+function addStats(target, source) {
+  RPG_STAT_LABELS.forEach(({ key }) => {
+    target[key] = (Number(target[key]) || 0) + (Number(source[key]) || 0);
+  });
+  return target;
+}
+
+function equipmentStats(item) {
+  const tier = Math.max(1, Math.ceil(item.cost / 24));
+  const stats = { hp: 0, mp: 0, atk: 0, def: 0, hit: 0, evade: 0, move: 0 };
+  if (item.slot === "weapon") {
+    stats.atk = 2 + tier * 2;
+    stats.hit = Math.min(8, tier);
+  }
+  if (item.slot === "shield") {
+    stats.def = 2 + tier * 2;
+    stats.evade = Math.min(6, Math.floor(tier / 2));
+  }
+  if (item.slot === "armor") {
+    stats.hp = tier * 5;
+    stats.def = 1 + tier * 2;
+  }
+  if (item.slot === "boots") {
+    stats.evade = 1 + tier;
+    stats.move = item.cost >= 120 ? 2 : item.cost >= 45 ? 1 : 0;
+  }
+  return stats;
+}
+
+function companionInfo(today, snapshot, unlockedCount) {
+  if (!snapshot.attempts) {
+    return {
+      mood: "sleepy",
+      title: "準備出發",
+      message: "完成一個小練習，冒險就會開始。"
+    };
+  }
+  if ((adventure.currentStreak || 0) >= 5) {
+    return {
+      mood: "spark",
+      title: "能量連線中",
+      message: "連續答對讓究極吳限能量整個亮起來了。"
+    };
+  }
+  if (today.attempts >= 10) {
+    return {
+      mood: "done",
+      title: "今天前進很多",
+      message: "今日小探險已經完成，剩下的都是加分旅程。"
+    };
+  }
+  if (unlockedCount > 0) {
+    return {
+      mood: "happy",
+      title: "徽章亮起來了",
+      message: "慢慢累積也很好，每一次練習都算數。"
+    };
+  }
+  return {
+    mood: "calm",
+    title: "正在暖身",
+    message: "答錯也沒關係，那只是提醒我們再看一次。"
+  };
+}
+
+function adventureMapNodes(level) {
+  return Array.from({ length: ADVENTURE_MAX_LEVEL }, (_, index) => {
+    const nodeLevel = index + 1;
+    const zone = ADVENTURE_MAP_ZONES.find((item) => nodeLevel >= item.from && nodeLevel <= item.to) || ADVENTURE_MAP_ZONES[0];
+    const stageIndex = nodeLevel - zone.from;
+    const stage = zone.stages?.[stageIndex] || `通過 ${zone.title}`;
+    const done = nodeLevel <= level.level;
+    const current = nodeLevel === level.level;
+    return {
+      level: nodeLevel,
+      zoneTitle: zone.title,
+      zoneClass: zone.className,
+      title: stage,
+      text: current ? `正在挑戰 ${zone.title}` : done ? "已完成這段旅程" : `抵達 Lv.${nodeLevel} 後解鎖`,
+      done,
+      current
+    };
+  });
+}
+
+function adventureMissionGroups(today, snapshot, level) {
+  const consecutiveDays = adventureConsecutiveDays();
+  const unlockedCount = Object.keys(adventure.achievements || {}).length;
+  const todayId = todayKey();
+  const missions = [
+    {
+      title: "每日型任務",
+      tasks: [
+        missionTask("daily_attempt_5", "每日", "完成 5 次練習", "先讓今天的學習開始流動。", today.attempts, 5, 5, todayId),
+        missionTask("daily_correct_3", "每日", "答對 3 題", "不用一次全對，慢慢累積就好。", today.correct, 3, 6, todayId),
+        missionTask("daily_flash_10", "每日", "取得 3 顆星星", "閃卡或題庫答對都可以累積星星。", today.stars, 3, 8, todayId)
+      ]
+    },
+    {
+      title: "多日連續型任務",
+      tasks: [
+        missionTask("streak_days_2", "連續", "連續學習 2 天", "每天一點點，比一次衝很多更穩。", consecutiveDays, 2, 12, "once"),
+        missionTask("streak_days_5", "連續", "連續學習 5 天", "讓學習變成固定的小習慣。", consecutiveDays, 5, 25, "once"),
+        missionTask("streak_correct_10", "連續", "連續答對 10 題", "進入專注狀態時，小夥伴會一起發光。", adventure.bestStreak || 0, 10, 18, "once")
+      ]
+    },
+    {
+      title: "累積型任務",
+      tasks: [
+        missionTask("total_attempt_50", "累積", "累積練習 50 次", "每一次點擊都算在冒險裡。", snapshot.attempts, 50, 30, "once"),
+        missionTask("total_correct_30", "累積", "累積答對 30 題", "把會的單字慢慢變成自己的。", snapshot.correct, 30, 35, "once"),
+        missionTask("level_10", "累積", "冒險等級 Lv.10", "抵達第一張地圖的終點。", level.level, 10, 45, "once"),
+        missionTask("badge_3", "累積", "解鎖 3 枚徽章", "徽章收藏冊開始有故事了。", unlockedCount, 3, 40, "once")
+      ]
+    }
+  ];
+  return missions;
+}
+
+function missionTask(id, type, title, text, current, total, reward, period) {
+  const safeCurrent = Math.min(Math.max(0, Number(current) || 0), total);
+  const claimKey = missionClaimKey(id, period);
+  const claimed = Boolean(adventure.missionClaims?.[claimKey]);
+  return {
+    id,
+    type,
+    title,
+    text,
+    current: safeCurrent,
+    total,
+    reward,
+    period,
+    claimKey,
+    complete: safeCurrent >= total,
+    claimed
+  };
+}
+
+function missionClaimKey(id, period) {
+  return `${id}:${period || "once"}`;
+}
+
+function renderMissionTask(task) {
+  const pct = task.total ? Math.round((task.current / task.total) * 100) : 0;
+  const buttonLabel = task.claimed ? "已領取" : task.complete ? `領取 +${task.reward}` : "進行中";
+  return `
+    <div class="daily-task mission-task${task.complete ? " is-done" : ""}${task.claimed ? " is-claimed" : ""}">
+      <header>
+        <strong><span>${escapeHtml(task.type)}</span>${escapeHtml(task.title)}</strong>
+        <em>${task.current}/${task.total}</em>
+      </header>
+      <p>${escapeHtml(task.claimed ? "獎勵已收進星星袋。" : task.complete ? "完成了，可以領取星星。" : task.text)}</p>
+      <div class="level-track"><span style="width:${pct}%"></span></div>
+      <button type="button" data-claim-mission="${escapeHtml(task.claimKey)}" ${task.complete && !task.claimed ? "" : "disabled"}>${escapeHtml(buttonLabel)}</button>
+    </div>
+  `;
+}
+
+function claimMissionReward(claimKey) {
+  const today = todayAdventure();
+  const snapshot = adventureStatsSnapshot();
+  const level = adventureLevelInfo();
+  const task = adventureMissionGroups(today, snapshot, level).flatMap((group) => group.tasks).find((item) => item.claimKey === claimKey);
+  if (!task || !task.complete || task.claimed) return;
+  adventure.missionClaims[claimKey] = { claimedAt: Date.now(), reward: task.reward };
+  adventure.stars += task.reward;
+  adventure.totalEarnedStars += task.reward;
+  saveState();
+  renderAdventure();
+}
+
+function adventureConsecutiveDays() {
+  const activeDays = new Set(
+    Object.entries(adventure.daily || {})
+      .filter(([, value]) => (Number(value?.attempts) || 0) > 0)
+      .map(([key]) => key)
+  );
+  let count = 0;
+  const cursor = new Date(`${todayKey()}T00:00:00`);
+  while (activeDays.has(cursor.toISOString().slice(0, 10))) {
+    count += 1;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+  return count;
+}
+
+function activeAvatarItem() {
+  return AVATAR_ITEMS.find((item) => item.id === adventure.activeAvatar) || AVATAR_ITEMS[0];
+}
+
+function activeFrameItem() {
+  return FRAME_ITEMS.find((item) => item.id === adventure.activeFrame) || FRAME_ITEMS[0];
+}
+
+function renderShop(selector, items, type) {
+  const ownedKey = type === "avatar" ? "ownedAvatars" : "ownedFrames";
+  const activeKey = type === "avatar" ? "activeAvatar" : "activeFrame";
+  $(selector).innerHTML = items.map((item) => {
+    const owned = adventure[ownedKey].includes(item.id);
+    const active = adventure[activeKey] === item.id;
+    const canBuy = adventure.stars >= item.cost;
+    const action = owned ? `equip-${type}` : `buy-${type}`;
+    const label = active ? "使用中" : owned ? "裝備" : `${item.cost} 星星`;
+    const previewContent = type === "avatar" ? escapeHtml(item.icon) : '<span class="frame-inner">W</span>';
+    return `
+      <div class="shop-item${active ? " is-active" : ""}">
+        <div class="shop-preview ${type === "avatar" ? item.className || "" : `frame-preview ${item.className || ""}`}">${previewContent}</div>
+        <div>
+          <strong>${escapeHtml(item.name)}</strong>
+          <small>${owned ? "已解鎖" : `需要 ${item.cost} 星星`}</small>
+        </div>
+        <button type="button" data-shop-action="${action}" data-item-id="${escapeHtml(item.id)}" ${active || (!owned && !canBuy) ? "disabled" : ""}>${escapeHtml(label)}</button>
+      </div>
+    `;
+  }).join("");
+}
+
+function handleShopAction(action, itemId) {
+  if (action === "buy-avatar") buyShopItem(itemId, AVATAR_ITEMS, "ownedAvatars", "activeAvatar");
+  if (action === "buy-frame") buyShopItem(itemId, FRAME_ITEMS, "ownedFrames", "activeFrame");
+  if (action === "equip-avatar") adventure.activeAvatar = itemId;
+  if (action === "equip-frame") adventure.activeFrame = itemId;
+  saveState();
+  renderAdventure();
+}
+
+function buyShopItem(itemId, items, ownedKey, activeKey) {
+  const item = items.find((entry) => entry.id === itemId);
+  if (!item || adventure[ownedKey].includes(item.id) || adventure.stars < item.cost) return;
+  adventure.stars -= item.cost;
+  adventure[ownedKey].push(item.id);
+  adventure[activeKey] = item.id;
+}
+
+function renderEquipmentShop() {
+  $("#equipmentShop").innerHTML = EQUIPMENT_CATEGORIES.map((category) => {
+    const items = EQUIPMENT_ITEMS.filter((item) => item.slot === category.id);
+    return `
+      <section class="equipment-category">
+        <h5>${escapeHtml(category.title)}</h5>
+        <div class="equipment-list">
+          ${items.map((item) => renderEquipmentItem(item)).join("")}
+        </div>
+      </section>
+    `;
+  }).join("");
+}
+
+function renderEquipmentItem(item) {
+  const owned = adventure.ownedEquipment.includes(item.id);
+  const active = adventure.equippedEquipment?.[item.slot] === item.id;
+  const canBuy = adventure.stars >= item.cost;
+  const label = active ? "裝備中" : owned ? "裝備" : `${item.cost} 星星`;
+  const action = owned ? "equip" : "buy";
+  return `
+    <div class="equipment-item${active ? " is-active" : ""}">
+      <div class="equipment-icon equipment-art equipment-${escapeHtml(item.slot)} equipment-tier-${equipmentTier(item)}" aria-hidden="true"></div>
+      <div>
+        <strong>${escapeHtml(item.name)}</strong>
+        <small>${owned ? "已擁有" : `需要 ${item.cost} 星星`}</small>
+      </div>
+      <button type="button" data-equipment-action="${action}" data-item-id="${escapeHtml(item.id)}" ${active || (!owned && !canBuy) ? "disabled" : ""}>${escapeHtml(label)}</button>
+    </div>
+  `;
+}
+
+function handleEquipmentAction(action, itemId) {
+  const item = EQUIPMENT_ITEMS.find((entry) => entry.id === itemId);
+  if (!item) return;
+  if (action === "buy") {
+    if (adventure.ownedEquipment.includes(item.id) || adventure.stars < item.cost) return;
+    adventure.stars -= item.cost;
+    adventure.ownedEquipment.push(item.id);
+  }
+  if (adventure.ownedEquipment.includes(item.id)) {
+    adventure.equippedEquipment[item.slot] = item.id;
+  }
+  saveState();
+  renderAdventure();
+}
+
+function achievementProgress(id, snapshot, today) {
+  const progressMap = {
+    first_step: [Math.min(snapshot.attempts, 1), 1],
+    first_correct: [Math.min(snapshot.correct, 1), 1],
+    ten_steps: [Math.min(snapshot.attempts, 10), 10],
+    streak_five: [Math.min(adventure.bestStreak || adventure.currentStreak || 0, 5), 5],
+    daily_ten: [Math.min(today.attempts, 10), 10],
+    first_mastered: [Math.min(snapshot.mastered, 1), 1]
+  };
+  const [current, total] = progressMap[id] || [0, 1];
+  return {
+    pct: total ? Math.round((current / total) * 100) : 0,
+    label: `${current}/${total}`
+  };
 }
 
 function dashboardTotalWords() {
@@ -900,10 +1682,11 @@ function recordFlashcard(isCorrect) {
   const currentWordId = flashList[currentIndex].id;
   const currentWordLabel = flashList[currentIndex].word;
 
-  const result = updateWordStats(currentWordId, isCorrect, { render: false });
+  const result = updateWordStats(currentWordId, isCorrect, { render: false, activity: "flashcard" });
   const updatedWord = result?.word || words.find((word) => word.id === currentWordId) || flashList[currentIndex];
   flashList[currentIndex] = updatedWord;
   renderDashboard();
+  renderAdventure();
   renderLibrary();
 
   const level = $("#flashLevel").value || "all";
@@ -925,7 +1708,8 @@ function recordFlashcard(isCorrect) {
 
   const previous = result?.previousProficiency ?? updatedWord.proficiency ?? 0;
   const next = result?.nextProficiency ?? updatedWord.proficiency ?? 0;
-  toast(`${currentWordLabel} ${isCorrect ? randomEncouragement() : "還不熟"}：Lv.${previous} → Lv.${next}`);
+  const unlockText = result?.adventureUnlocks?.length ? `｜徽章亮起：${result.adventureUnlocks[0].title}` : "";
+  toast(`${currentWordLabel} ${isCorrect ? randomEncouragement() : "還不熟"}：Lv.${previous} → Lv.${next}${unlockText}`);
 }
 
 function beginFlashDrag(event) {
@@ -1287,12 +2071,13 @@ function checkQuestion(answer) {
   if (!currentQuestion) return;
   const isCorrect = normalize(answer) === normalize(currentQuestion.answer);
   const target = wordKeyFromText(currentQuestion.targetWord || currentQuestion.answer, currentQuestion.unit, currentQuestion.series || "all");
-  if (target) updateWordStats(target.id, isCorrect);
+  const statResult = target ? updateWordStats(target.id, isCorrect, { activity: "practice" }) : null;
 
   const result = $("#questionResult");
   result.className = `result-box${isCorrect ? "" : " is-wrong"}`;
   result.innerHTML = `<strong>${escapeHtml(isCorrect ? "答對了" : `答錯了，正解是 ${currentQuestion.answer}`)}</strong><p>${escapeHtml(currentQuestion.explanation)}</p>`;
-  toast(isCorrect ? "已記錄答對" : "已記錄答錯");
+  const unlockText = statResult?.adventureUnlocks?.length ? `，徽章亮起：${statResult.adventureUnlocks[0].title}` : "";
+  toast(isCorrect ? `已記錄答對${unlockText}` : `已記錄答錯${unlockText}`);
 }
 
 function normalizeQuestion(question) {
@@ -1871,7 +2656,8 @@ function exportData() {
   const payload = {
     exportedAt: new Date().toISOString(),
     customWords,
-    stats
+    stats,
+    adventure
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
@@ -1888,6 +2674,7 @@ async function importData(event) {
   const payload = JSON.parse(await file.text());
   customWords = Array.isArray(payload.customWords) ? payload.customWords : customWords;
   stats = payload.stats && typeof payload.stats === "object" ? payload.stats : stats;
+  adventure = normalizeAdventure(payload.adventure || adventure);
   saveState();
   words = buildWords();
   setupUnitSelects();
@@ -1918,6 +2705,7 @@ function refreshUnitSelectFor(seriesSelector, unitSelector) {
 
 function renderAll() {
   renderDashboard();
+  renderAdventure();
   renderLibrary();
   renderAudit();
   if ($("#flashcards").classList.contains("is-active")) initFlashcards();
