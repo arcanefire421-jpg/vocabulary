@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VocabMaster 單字學習</title>
-    <link rel="stylesheet" href="./src/styles.css?v=v1.0-hero-legend" />
+    <link rel="stylesheet" href="./src/styles.css?v=v1.1-hero-badges" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=v1.0-hero-legend"></script>
+    <script type="module" src="./src/app.js?v=v1.1-hero-badges"></script>
   </head>
   <body>
     <header class="app-header">
@@ -75,13 +75,16 @@
           <div class="hero-reward-showcase">
             <div class="hero-equipped">
               <span id="heroEquippedAvatar">W</span>
-              <input id="characterNameInput" class="character-name-input" type="text" maxlength="12" value="吳限勇者" aria-label="角色名稱">
+              <div class="character-stage">
+                <input id="characterNameInput" class="character-name-input" type="text" maxlength="12" value="吳限勇者" aria-label="角色名稱">
+                <strong id="characterSkillName" class="character-skill-name">吳限覺醒！</strong>
+              </div>
               <div id="heroLoadout" class="hero-loadout"></div>
             </div>
-            <div>
+            <div id="heroStats" class="hero-stats"></div>
+            <div class="hero-reward-panel">
               <strong>榮耀展示</strong>
               <div id="heroRewardShelf" class="hero-reward-shelf"></div>
-              <div id="heroStats" class="hero-stats"></div>
             </div>
           </div>
         </div>

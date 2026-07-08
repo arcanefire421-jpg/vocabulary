@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.0-hero-legend";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.0-hero-legend";
-import { QUESTION_BANK } from "../data/questions.js?v=v1.0-hero-legend";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.1-hero-badges";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.1-hero-badges";
+import { QUESTION_BANK } from "../data/questions.js?v=v1.1-hero-badges";
 
-const APP_VERSION = "V1.0 勇者傳說版";
+const APP_VERSION = "V1.1 勇者傳說版";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -77,6 +77,16 @@ const AVATAR_ITEMS = [
   { id: "death-knight", icon: "死", name: "死亡騎士", cost: 85, className: "avatar-death-knight", stats: { hp: 22, mp: 8, atk: 7, def: 4, hit: 1, evade: -1, move: 0 } },
   { id: "druid", icon: "德", name: "德魯伊", cost: 75, className: "avatar-druid", stats: { hp: 10, mp: 14, atk: 3, def: 3, hit: 2, evade: 3, move: 1 } }
 ];
+const AVATAR_SKILLS = {
+  w: ["吳限覺醒！", "星火連線！", "知識護盾！"],
+  warrior: ["龍破斬！！！", "烈刃突擊！", "勇氣咆哮！"],
+  mage: ["星塵爆裂！", "魔力洪流！", "冰晶閃耀！"],
+  priest: ["聖光祝福！", "治癒之環！", "希望禱言！"],
+  paladin: ["神聖壁壘！", "榮耀衝鋒！", "誓約守護！"],
+  assassin: ["月影突襲！", "疾風連斬！", "暗影步！"],
+  "death-knight": ["霜魂斬！", "冥界召喚！", "黑鋼意志！"],
+  druid: ["翠葉新生！", "自然守護！", "野性奔流！"]
+};
 const FRAME_ITEMS = [
   { id: "plain", name: "簡約框", cost: 0, className: "frame-plain" },
   { id: "mint", name: "方形能量框", cost: 25, className: "frame-square" },
@@ -120,56 +130,78 @@ const EQUIPMENT_ITEMS = [
     ["star-walkers", "星行者靴", 144, "✹"], ["ancient-greaves", "古王護脛", 158, "♜"], ["infinity-boots", "吳限旅靴", 176, "∞"], ["sky-tower-boots", "天塔戰靴", 198, "▣"]
   ].map(([id, name, cost, icon]) => ({ id, name, kind: "鞋子", cost, slot: "boots", icon }))
 ];
-const ADVENTURE_ACHIEVEMENTS = [
-  {
-    id: "first_step",
-    icon: "sparkles",
-    title: "第一步",
-    description: "完成第一次練習",
-    reward: 5,
-    test: ({ attempts }) => attempts >= 1
-  },
-  {
-    id: "first_correct",
-    icon: "badge-check",
-    title: "亮起一格",
-    description: "第一次答對",
-    reward: 8,
-    test: ({ correct }) => correct >= 1
-  },
-  {
-    id: "ten_steps",
-    icon: "footprints",
-    title: "小小前進",
-    description: "累積練習 10 次",
-    reward: 12,
-    test: ({ attempts }) => attempts >= 10
-  },
-  {
-    id: "streak_five",
-    icon: "flame-kindling",
-    title: "能量連線",
-    description: "連續答對 5 次",
-    reward: 15,
-    test: ({ adventure }) => (adventure.currentStreak || 0) >= 5 || (adventure.bestStreak || 0) >= 5
-  },
-  {
-    id: "daily_ten",
-    icon: "sun",
-    title: "今日小探險",
-    description: "今天完成 10 次練習",
-    reward: 18,
-    test: ({ adventure }) => todayAdventure(adventure).attempts >= 10
-  },
-  {
-    id: "first_mastered",
-    icon: "gem",
-    title: "熟練之星",
-    description: "第一個單字達到 Lv.5",
-    reward: 20,
-    test: ({ mastered }) => mastered >= 1
-  }
+const ACHIEVEMENT_SPECS = [
+  ["first_step", "sparkles", "第一步", "完成第一次練習", "attempts", 1, 5],
+  ["first_correct", "badge-check", "亮起一格", "第一次答對", "correct", 1, 8],
+  ["ten_steps", "footprints", "小小前進", "累積練習 10 次", "attempts", 10, 12],
+  ["streak_five", "flame-kindling", "能量連線", "最高連續答對 5 次", "bestStreak", 5, 15],
+  ["daily_ten", "sun", "今日小探險", "今天完成 10 次練習", "todayAttempts", 10, 18],
+  ["first_mastered", "gem", "熟練之星", "第一個單字達到 Lv.5", "mastered", 1, 20],
+  ["correct_10", "badge-check", "準星初現", "累積答對 10 題", "correct", 10, 10],
+  ["correct_25", "target", "準星連發", "累積答對 25 題", "correct", 25, 14],
+  ["correct_50", "crosshair", "準星獵手", "累積答對 50 題", "correct", 50, 18],
+  ["correct_100", "medal", "百答勇者", "累積答對 100 題", "correct", 100, 25],
+  ["correct_200", "award", "雙百之證", "累積答對 200 題", "correct", 200, 34],
+  ["correct_400", "trophy", "四百榮光", "累積答對 400 題", "correct", 400, 48],
+  ["correct_700", "crown", "七百王冠", "累積答對 700 題", "correct", 700, 64],
+  ["correct_1000", "star", "千答星辰", "累積答對 1000 題", "correct", 1000, 88],
+  ["attempt_25", "map", "旅程開卷", "累積練習 25 次", "attempts", 25, 12],
+  ["attempt_50", "route", "走過小徑", "累積練習 50 次", "attempts", 50, 16],
+  ["attempt_100", "compass", "百步指南", "累積練習 100 次", "attempts", 100, 24],
+  ["attempt_250", "flag", "遠征旗手", "累積練習 250 次", "attempts", 250, 36],
+  ["attempt_500", "mountain", "登峰旅人", "累積練習 500 次", "attempts", 500, 54],
+  ["attempt_1000", "castle", "千練城門", "累積練習 1000 次", "attempts", 1000, 82],
+  ["mastered_3", "gem", "三顆熟練石", "3 個單字達到 Lv.5", "mastered", 3, 18],
+  ["mastered_5", "diamond", "五芒熟練", "5 個單字達到 Lv.5", "mastered", 5, 24],
+  ["mastered_10", "shield-check", "十字熟練盾", "10 個單字達到 Lv.5", "mastered", 10, 36],
+  ["mastered_20", "shield", "熟練守衛", "20 個單字達到 Lv.5", "mastered", 20, 50],
+  ["mastered_40", "landmark", "熟練碑文", "40 個單字達到 Lv.5", "mastered", 40, 68],
+  ["mastered_80", "crown", "熟練王座", "80 個單字達到 Lv.5", "mastered", 80, 90],
+  ["streak_10", "flame", "十連火花", "最高連續答對 10 次", "bestStreak", 10, 20],
+  ["streak_20", "flame-kindling", "二十連炎", "最高連續答對 20 次", "bestStreak", 20, 32],
+  ["streak_30", "zap", "三十閃電", "最高連續答對 30 次", "bestStreak", 30, 46],
+  ["streak_50", "swords", "五十連斬", "最高連續答對 50 次", "bestStreak", 50, 70],
+  ["daily_correct_5", "sun-medium", "今日準備", "今天答對 5 題", "todayCorrect", 5, 10],
+  ["daily_correct_10", "sun", "今日發光", "今天答對 10 題", "todayCorrect", 10, 16],
+  ["daily_correct_20", "sunrise", "晨光連勝", "今天答對 20 題", "todayCorrect", 20, 28],
+  ["daily_star_5", "star", "今日星屑", "今天取得 5 顆星星", "todayStars", 5, 12],
+  ["daily_star_15", "stars", "今日星雨", "今天取得 15 顆星星", "todayStars", 15, 24],
+  ["daily_star_30", "sparkles", "今日星河", "今天取得 30 顆星星", "todayStars", 30, 40],
+  ["energy_100", "battery-charging", "能量啟動", "累積 100 究極吳限能量", "inspiration", 100, 20],
+  ["energy_250", "bolt", "能量奔流", "累積 250 究極吳限能量", "inspiration", 250, 32],
+  ["energy_500", "activity", "能量迴路", "累積 500 究極吳限能量", "inspiration", 500, 48],
+  ["energy_1000", "rocket", "能量破空", "累積 1000 究極吳限能量", "inspiration", 1000, 72],
+  ["level_5", "chevrons-up", "冒險五階", "冒險等級達到 Lv.5", "level", 5, 24],
+  ["level_10", "trending-up", "冒險十階", "冒險等級達到 Lv.10", "level", 10, 38],
+  ["level_20", "mountain-snow", "冒險二十階", "冒險等級達到 Lv.20", "level", 20, 58],
+  ["level_30", "tower-control", "高塔三十階", "冒險等級達到 Lv.30", "level", 30, 82],
+  ["level_45", "cloud-lightning", "雲端四十五階", "冒險等級達到 Lv.45", "level", 45, 112],
+  ["level_60", "crown", "吳限頂點", "冒險等級達到 Lv.60", "level", 60, 150],
+  ["avatar_2", "user-round-plus", "夥伴集結", "解鎖 2 個職業頭像", "ownedAvatars", 2, 18],
+  ["avatar_4", "users-round", "四職同行", "解鎖 4 個職業頭像", "ownedAvatars", 4, 30],
+  ["avatar_8", "sparkles", "全職開放", "解鎖全部職業頭像", "ownedAvatars", 8, 60],
+  ["frame_2", "panel-top", "框之初光", "解鎖 2 個頭像框", "ownedFrames", 2, 18],
+  ["frame_4", "panel-top-open", "框之收藏", "解鎖 4 個頭像框", "ownedFrames", 4, 34],
+  ["frame_5", "badge", "框之殿堂", "解鎖全部頭像框", "ownedFrames", 5, 50],
+  ["equipment_1", "sword", "第一件裝備", "擁有 1 件裝備", "ownedEquipment", 1, 12],
+  ["equipment_5", "shield", "裝備小隊", "擁有 5 件裝備", "ownedEquipment", 5, 22],
+  ["equipment_10", "wand-sparkles", "十件收藏", "擁有 10 件裝備", "ownedEquipment", 10, 36],
+  ["equipment_20", "package-check", "二十件寶庫", "擁有 20 件裝備", "ownedEquipment", 20, 58],
+  ["equipment_40", "boxes", "四十件軍械庫", "擁有 40 件裝備", "ownedEquipment", 40, 86],
+  ["equipment_80", "warehouse", "全裝備傳說", "擁有 80 件裝備", "ownedEquipment", 80, 128],
+  ["earned_stars_100", "coins", "百星袋", "累積獲得 100 顆星星", "totalEarnedStars", 100, 25],
+  ["earned_stars_500", "badge-dollar-sign", "五星寶庫", "累積獲得 500 顆星星", "totalEarnedStars", 500, 80]
 ];
+const ADVENTURE_ACHIEVEMENTS = ACHIEVEMENT_SPECS.map(([id, icon, title, description, metric, target, reward]) => ({
+  id,
+  icon,
+  title,
+  description,
+  metric,
+  target,
+  reward,
+  test: (context) => achievementValue({ metric }, context) >= target
+}));
 
 let stats = loadJson(STORAGE_KEY, {});
 let customWords = loadJson(CUSTOM_KEY, []);
@@ -339,7 +371,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_SCHOOL_SERIES,
       label: "高中單字庫",
-      path: "../data/highschool.js?v=v1.0-hero-legend",
+      path: "../data/highschool.js?v=v1.1-hero-badges",
       exportName: "HIGH_SCHOOL_VOCABULARY",
       apply: (items) => {
         highSchoolVocabulary = prepareHighSchoolVocabulary(items);
@@ -350,7 +382,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=v1.0-hero-legend",
+      path: "../data/highFrequency.js?v=v1.1-hero-badges",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
@@ -762,9 +794,19 @@ function renderAdventure() {
     button.addEventListener("click", () => handleEquipmentAction(button.dataset.equipmentAction, button.dataset.itemId));
   });
 
-  $("#achievementGrid").innerHTML = ADVENTURE_ACHIEVEMENTS.map((achievement) => {
-    const unlocked = Boolean(adventure.achievements?.[achievement.id]);
-    const progress = achievementProgress(achievement.id, snapshot, today);
+  const sortedAchievements = ADVENTURE_ACHIEVEMENTS
+    .map((achievement, index) => {
+      const unlocked = Boolean(adventure.achievements?.[achievement.id]);
+      const progress = achievementProgress(achievement.id, snapshot, today);
+      return { achievement, index, unlocked, progress };
+    })
+    .sort((a, b) => {
+      if (a.unlocked !== b.unlocked) return a.unlocked ? 1 : -1;
+      if (!a.unlocked && b.progress.pct !== a.progress.pct) return b.progress.pct - a.progress.pct;
+      if (!a.unlocked && b.progress.current !== a.progress.current) return b.progress.current - a.progress.current;
+      return a.index - b.index;
+    });
+  $("#achievementGrid").innerHTML = sortedAchievements.map(({ achievement, unlocked, progress }) => {
     return `
       <div class="achievement-item${unlocked ? " is-unlocked" : ""}">
         <div class="achievement-icon"><i data-lucide="${achievement.icon}"></i></div>
@@ -794,6 +836,9 @@ function renderHeroRewards(avatar, frame) {
   equipped.textContent = avatar.icon;
   equipped.dataset.avatar = avatar.id;
   equipped.dataset.frame = frame.id;
+  const skillList = AVATAR_SKILLS[avatar.id] || AVATAR_SKILLS.w;
+  const skillIndex = Math.floor(Date.now() / 9000) % skillList.length;
+  $("#characterSkillName").textContent = skillList[skillIndex];
 
   const equippedItems = EQUIPMENT_CATEGORIES
     .map((category) => ({
@@ -1176,17 +1221,34 @@ function handleEquipmentAction(action, itemId) {
   renderAdventure();
 }
 
-function achievementProgress(id, snapshot, today) {
-  const progressMap = {
-    first_step: [Math.min(snapshot.attempts, 1), 1],
-    first_correct: [Math.min(snapshot.correct, 1), 1],
-    ten_steps: [Math.min(snapshot.attempts, 10), 10],
-    streak_five: [Math.min(adventure.bestStreak || adventure.currentStreak || 0, 5), 5],
-    daily_ten: [Math.min(today.attempts, 10), 10],
-    first_mastered: [Math.min(snapshot.mastered, 1), 1]
+function achievementValue(achievement, snapshot = adventureStatsSnapshot()) {
+  const daily = todayAdventure(snapshot.adventure || adventure);
+  const level = adventureLevelInfo();
+  const metricMap = {
+    attempts: Number(snapshot.attempts) || 0,
+    correct: Number(snapshot.correct) || 0,
+    mastered: Number(snapshot.mastered) || 0,
+    bestStreak: Math.max(Number(adventure.bestStreak) || 0, Number(adventure.currentStreak) || 0),
+    todayAttempts: Number(daily.attempts) || 0,
+    todayCorrect: Number(daily.correct) || 0,
+    todayStars: Number(daily.stars) || 0,
+    inspiration: Number(adventure.inspiration) || 0,
+    level: Number(level.level) || 1,
+    ownedAvatars: Array.isArray(adventure.ownedAvatars) ? adventure.ownedAvatars.length : 0,
+    ownedFrames: Array.isArray(adventure.ownedFrames) ? adventure.ownedFrames.length : 0,
+    ownedEquipment: Array.isArray(adventure.ownedEquipment) ? adventure.ownedEquipment.length : 0,
+    totalEarnedStars: Number(adventure.totalEarnedStars) || 0
   };
-  const [current, total] = progressMap[id] || [0, 1];
+  return metricMap[achievement.metric] ?? 0;
+}
+
+function achievementProgress(id, snapshot, today) {
+  const achievement = ADVENTURE_ACHIEVEMENTS.find((entry) => entry.id === id);
+  const total = Math.max(1, Number(achievement?.target) || 1);
+  const current = Math.min(total, achievement ? achievementValue(achievement, snapshot) : 0);
   return {
+    current,
+    total,
     pct: total ? Math.round((current / total) * 100) : 0,
     label: `${current}/${total}`
   };

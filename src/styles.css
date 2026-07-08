@@ -595,8 +595,8 @@ button {
 .hero-reward-showcase {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: minmax(360px, 0.72fr) 1fr;
-  align-items: center;
+  grid-template-columns: minmax(420px, 0.8fr) 1fr;
+  align-items: stretch;
   gap: 22px;
   padding: 18px;
   color: #fff;
@@ -622,6 +622,9 @@ button {
 }
 
 .hero-equipped > span {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: grid;
   place-items: center;
   width: 82px;
@@ -635,20 +638,28 @@ button {
   font-weight: 950;
   text-align: center;
   letter-spacing: 0;
+  box-shadow: 0 0 0 10px rgba(255, 225, 232, 0.42), 0 14px 28px rgba(0,0,0,0.14);
+}
+
+.character-stage {
+  grid-column: 1;
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+  align-self: start;
 }
 
 .character-name-input {
-  grid-column: 1;
   text-align: center;
   width: 116px;
-  min-height: 34px;
-  padding: 5px 8px;
-  color: #edf7f2;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
+  min-height: 38px;
+  padding: 4px 8px;
+  color: #ffeaa4;
+  background: rgba(225, 184, 79, 0.12);
+  border: 1px solid rgba(255, 234, 164, 0.3);
   border-radius: 8px;
   font: inherit;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 950;
   outline: none;
 }
@@ -656,6 +667,75 @@ button {
 .character-name-input:focus {
   border-color: #e1b84f;
   box-shadow: 0 0 0 3px rgba(225,184,79,0.18);
+}
+
+.character-skill-name {
+  display: block;
+  max-width: 132px;
+  color: #fff3ba;
+  font-size: 13px;
+  font-weight: 950;
+  line-height: 1.25;
+  text-align: center;
+  text-shadow: 0 1px 8px rgba(225, 184, 79, 0.26);
+}
+
+#heroEquippedAvatar[data-frame="plain"] {
+  border-radius: 28px;
+  border-color: #c5eef1;
+}
+
+#heroEquippedAvatar[data-frame="mint"],
+#heroEquippedAvatar[data-frame="square"] {
+  border-color: #8fd6ba;
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 9px rgba(255, 225, 232, 0.42),
+    0 0 0 15px rgba(143, 214, 186, 0.16),
+    0 14px 28px rgba(0,0,0,0.14);
+}
+
+#heroEquippedAvatar[data-frame="gold"],
+#heroEquippedAvatar[data-frame="bevel"] {
+  border-color: #e1b84f;
+  border-radius: 18px;
+  box-shadow:
+    0 0 0 8px rgba(255, 243, 186, 0.28),
+    0 0 0 15px rgba(225, 184, 79, 0.18),
+    0 14px 30px rgba(225, 184, 79, 0.2);
+}
+
+#heroEquippedAvatar[data-frame="purple"],
+#heroEquippedAvatar[data-frame="spike"] {
+  border-color: #b8a7ff;
+  border-radius: 22px;
+  box-shadow:
+    0 0 0 8px rgba(255, 225, 232, 0.4),
+    0 0 0 15px rgba(141, 123, 233, 0.18),
+    0 14px 30px rgba(91, 75, 138, 0.24);
+}
+
+#heroEquippedAvatar[data-frame="tower"] {
+  border-color: #f3d36f;
+  border-radius: 18px;
+  outline: 3px double #9a3551;
+  outline-offset: 5px;
+  box-shadow:
+    0 0 0 9px rgba(255, 225, 232, 0.44),
+    0 0 0 17px rgba(154, 53, 81, 0.12),
+    0 16px 34px rgba(154, 53, 81, 0.26);
+}
+
+#heroEquippedAvatar::before,
+.shop-preview[class*="avatar-"]::before {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  border-radius: 40% 40% 48% 48%;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255,255,255,0.85) 0 8%, transparent 9%),
+    linear-gradient(145deg, rgba(255,255,255,0.2), rgba(0,0,0,0.08));
+  pointer-events: none;
 }
 
 .hero-equipped small,
@@ -725,8 +805,25 @@ button {
   align-items: center;
 }
 
+.hero-reward-panel {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+  min-height: 92px;
+  padding: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 8px;
+}
+
+.hero-reward-panel .hero-reward-shelf {
+  margin-top: 0;
+}
+
 .hero-stats {
-  margin-top: 16px;
+  align-self: stretch;
+  display: grid;
+  margin-top: 0;
   padding: 14px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.14);
@@ -743,6 +840,7 @@ button {
 .hero-stat-grid {
   display: grid;
   gap: 8px;
+  align-content: stretch;
 }
 
 .hero-stat-grid + .hero-stat-grid {
@@ -1272,6 +1370,9 @@ body.is-dimmed .map-node.zone-tower {
 }
 
 .shop-preview {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: grid;
   place-items: center;
   width: 46px;
@@ -1306,44 +1407,31 @@ body.is-dimmed .map-node.zone-tower {
   font-weight: 950;
 }
 
-.shop-preview.avatar-mage {
+.shop-preview[class*="avatar-"] {
   color: #fff;
-  background: linear-gradient(145deg, #3d897c, #2f6791);
-  border-radius: 16px;
+  border-color: rgba(255,255,255,0.68);
+  border-radius: 18px;
+  box-shadow: 0 0 0 6px rgba(255, 225, 232, 0.32), 0 10px 24px rgba(0,0,0,0.12);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.22);
 }
 
-.shop-preview.avatar-priest {
-  color: #fff;
-  background: linear-gradient(145deg, #3d897c, #2f6791);
-  border-radius: 16px;
-}
+.shop-preview.avatar-core { background: linear-gradient(145deg, #74c7b8, #2f6791); }
+.shop-preview.avatar-warrior { background: linear-gradient(145deg, #ffb08c, #d86b40); }
+.shop-preview.avatar-mage { background: linear-gradient(145deg, #9aa8ff, #5f72d6); }
+.shop-preview.avatar-priest { color: #5a4524; background: linear-gradient(145deg, #fff3a8, #f1c44e); }
+.shop-preview.avatar-paladin { background: linear-gradient(145deg, #f7cd6e, #d99735); }
+.shop-preview.avatar-assassin { background: linear-gradient(145deg, #90a7ff, #4b84d8); }
+.shop-preview.avatar-death-knight { background: linear-gradient(145deg, #8ca0ba, #536982); }
+.shop-preview.avatar-druid { color: #244128; background: linear-gradient(145deg, #b9f49d, #78ca58); }
 
-.shop-preview.avatar-warrior {
-  background: linear-gradient(145deg, #3d897c, #2f6791);
-  border-radius: 16px;
-}
-
-.shop-preview.avatar-paladin {
-  color: #fff;
-  background: linear-gradient(145deg, #3d897c, #2f6791);
-  border-radius: 16px;
-}
-
-.shop-preview.avatar-assassin {
-  background: linear-gradient(145deg, #3d897c, #2f6791);
-  border-radius: 16px;
-}
-
-.shop-preview.avatar-death-knight {
-  color: #eff6ff;
-  background: linear-gradient(145deg, #3d897c, #2f6791);
-  border-radius: 16px;
-}
-
-.shop-preview.avatar-druid {
-  color: #fff;
-  background: linear-gradient(145deg, #3d897c, #2f6791);
-  border-radius: 16px;
+#heroEquippedAvatar[data-avatar="w"] { background: linear-gradient(145deg, #74c7b8, #2f6791); }
+#heroEquippedAvatar[data-avatar="warrior"] { background: linear-gradient(145deg, #ffb08c, #d86b40); }
+#heroEquippedAvatar[data-avatar="mage"] { background: linear-gradient(145deg, #9aa8ff, #5f72d6); }
+#heroEquippedAvatar[data-avatar="priest"] { color: #5a4524; background: linear-gradient(145deg, #fff3a8, #f1c44e); }
+#heroEquippedAvatar[data-avatar="paladin"] { background: linear-gradient(145deg, #f7cd6e, #d99735); }
+#heroEquippedAvatar[data-avatar="assassin"] { background: linear-gradient(145deg, #90a7ff, #4b84d8); }
+#heroEquippedAvatar[data-avatar="death-knight"] { background: linear-gradient(145deg, #8ca0ba, #536982); }
+#heroEquippedAvatar[data-avatar="druid"] { color: #244128; background: linear-gradient(145deg, #b9f49d, #78ca58); }
 }
 
 .shop-preview.frame-mint::before,
@@ -2643,10 +2731,15 @@ body.is-dimmed .spell-panel {
   .summary-band,
   .dashboard-grid,
   .adventure-hero,
+  .hero-reward-showcase,
   .adventure-grid,
   .toolbar,
   .audit-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-reward-panel {
+    grid-column: auto;
   }
 
   .toolbar {
