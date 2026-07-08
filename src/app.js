@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v0.9";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v0.9";
-import { QUESTION_BANK } from "../data/questions.js?v=v0.9";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.0";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.0";
+import { QUESTION_BANK } from "../data/questions.js?v=v1.0";
 
-const APP_VERSION = "v0.9";
+const APP_VERSION = "v1.0";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -130,7 +130,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_SCHOOL_SERIES,
       label: "高中單字庫",
-      path: "../data/highschool.js?v=v0.9",
+      path: "../data/highschool.js?v=v1.0",
       exportName: "HIGH_SCHOOL_VOCABULARY",
       apply: (items) => {
         highSchoolVocabulary = prepareHighSchoolVocabulary(items);
@@ -141,7 +141,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=v0.9",
+      path: "../data/highFrequency.js?v=v1.0",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
