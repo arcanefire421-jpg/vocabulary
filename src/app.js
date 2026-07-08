@@ -1,8 +1,8 @@
-import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.1-hero-badges";
-import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.1-hero-badges";
-import { QUESTION_BANK } from "../data/questions.js?v=v1.1-hero-badges";
+import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.2-showcase-heroes";
+import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.2-showcase-heroes";
+import { QUESTION_BANK } from "../data/questions.js?v=v1.2-showcase-heroes";
 
-const APP_VERSION = "V1.1 勇者傳說版";
+const APP_VERSION = "V1.2 勇者傳說版";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -261,6 +261,7 @@ function normalizeAdventure(value) {
     lastActiveDate: data.lastActiveDate || todayKey(),
     daily: data.daily && typeof data.daily === "object" ? data.daily : {},
     achievements: data.achievements && typeof data.achievements === "object" ? data.achievements : {},
+    showcaseBadges: Array.isArray(data.showcaseBadges) ? data.showcaseBadges.filter((id) => typeof id === "string").slice(0, 6) : [],
     missionClaims: data.missionClaims && typeof data.missionClaims === "object" ? data.missionClaims : {},
     ownedAvatars: ownedAvatars.includes("w") ? ownedAvatars : ["w", ...ownedAvatars],
     ownedFrames: ownedFrames.includes("plain") ? ownedFrames : ["plain", ...ownedFrames],
@@ -371,7 +372,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_SCHOOL_SERIES,
       label: "高中單字庫",
-      path: "../data/highschool.js?v=v1.1-hero-badges",
+      path: "../data/highschool.js?v=v1.2-showcase-heroes",
       exportName: "HIGH_SCHOOL_VOCABULARY",
       apply: (items) => {
         highSchoolVocabulary = prepareHighSchoolVocabulary(items);
@@ -382,7 +383,7 @@ async function ensureSeriesLoaded(seriesValue) {
     await ensureLazySeriesLoaded({
       series: HIGH_FREQUENCY_SERIES,
       label: "高中高頻單字庫",
-      path: "../data/highFrequency.js?v=v1.1-hero-badges",
+      path: "../data/highFrequency.js?v=v1.2-showcase-heroes",
       exportName: "HIGH_FREQUENCY_VOCABULARY",
       apply: (items) => {
         highFrequencyVocabulary = items;
@@ -807,9 +808,11 @@ function renderAdventure() {
       return a.index - b.index;
     });
   $("#achievementGrid").innerHTML = sortedAchievements.map(({ achievement, unlocked, progress }) => {
+    const isShowcased = Array.isArray(adventure.showcaseBadges) && adventure.showcaseBadges.includes(achievement.id);
+    const canShowcaseMore = (adventure.showcaseBadges?.length || 0) < 6;
     return `
       <div class="achievement-item${unlocked ? " is-unlocked" : ""}">
-        <div class="achievement-icon"><i data-lucide="${achievement.icon}"></i></div>
+        <div class="achievement-icon badge-art badge-art-${escapeHtml(achievement.metric)}"><i data-lucide="${achievement.icon}"></i></div>
         <div>
           <strong>${escapeHtml(achievement.title)}</strong>
           <p>${escapeHtml(achievement.description)}</p>
@@ -818,10 +821,18 @@ function renderAdventure() {
             <div class="level-track"><span style="width:${progress.pct}%"></span></div>
             <span>${escapeHtml(progress.label)}</span>
           </div>
+          ${unlocked ? `
+            <button class="achievement-showcase-button${isShowcased ? " is-active" : ""}" type="button" data-showcase-badge="${escapeHtml(achievement.id)}">
+              ${isShowcased ? "展示中" : canShowcaseMore ? "放到榮耀展示" : "替換展示"}
+            </button>
+          ` : ""}
         </div>
       </div>
     `;
   }).join("");
+  $$("[data-showcase-badge]").forEach((button) => {
+    button.addEventListener("click", () => toggleShowcaseBadge(button.dataset.showcaseBadge));
+  });
 
   const heroText = unlockedCount
     ? `已解鎖 ${unlockedCount} 枚徽章，累積 ${snapshot.attempts} 次練習。`
@@ -852,32 +863,22 @@ function renderHeroRewards(avatar, frame) {
     </div>
   `).join("");
 
-  const unlockedFrames = FRAME_ITEMS.filter((item) => adventure.ownedFrames.includes(item.id) && item.id !== "plain").slice(-3);
-  const unlockedBadges = ADVENTURE_ACHIEVEMENTS.filter((achievement) => adventure.achievements?.[achievement.id]).slice(-4);
-  const rewards = [
-    ...unlockedFrames.map((item) => ({
-      type: "frame",
-      className: `frame-preview ${item.className}`,
-      icon: "W",
-      title: item.name
-    })),
-    ...unlockedBadges.map((achievement) => ({
-      type: "badge",
-      className: "badge-showcase",
-      icon: achievement.icon,
-      title: achievement.title
-    }))
-  ];
+  const unlockedBadges = ADVENTURE_ACHIEVEMENTS.filter((achievement) => adventure.achievements?.[achievement.id]);
+  const selectedBadgeIds = (adventure.showcaseBadges || []).filter((id) => adventure.achievements?.[id]).slice(0, 6);
+  const showcasedBadges = selectedBadgeIds.length
+    ? selectedBadgeIds.map((id) => ADVENTURE_ACHIEVEMENTS.find((achievement) => achievement.id === id)).filter(Boolean)
+    : unlockedBadges.slice(-6);
 
-  $("#heroRewardShelf").innerHTML = rewards.length
-    ? rewards.map((reward) => `
-      <div class="hero-reward ${reward.className}" title="${escapeHtml(reward.title)}">
-        ${reward.type === "badge" ? `<i data-lucide="${reward.icon}"></i>` : '<span class="frame-inner">W</span>'}
+  $("#heroRewardShelf").innerHTML = showcasedBadges.length
+    ? showcasedBadges.map((achievement) => `
+      <div class="hero-reward badge-showcase badge-art badge-art-${escapeHtml(achievement.metric)}" title="${escapeHtml(achievement.title)}">
+        <i data-lucide="${achievement.icon}"></i>
+        <span>${escapeHtml(achievement.title)}</span>
       </div>
     `).join("")
     : `
       <div class="hero-reward reward-locked">?</div>
-      <span class="hero-reward-hint">完成任務後，徽章和頭像框會在這裡亮起。</span>
+      <span class="hero-reward-hint">完成任務後，可以挑選徽章放到這裡展示。</span>
     `;
 
   const stats = characterStats(level.level, avatar);
@@ -900,6 +901,18 @@ function renderHeroRewards(avatar, frame) {
       `).join("")}
     </div>
   `;
+}
+
+function toggleShowcaseBadge(badgeId) {
+  if (!adventure.achievements?.[badgeId]) return;
+  const current = Array.isArray(adventure.showcaseBadges) ? adventure.showcaseBadges.filter((id) => adventure.achievements?.[id]) : [];
+  if (current.includes(badgeId)) {
+    adventure.showcaseBadges = current.filter((id) => id !== badgeId);
+  } else {
+    adventure.showcaseBadges = current.length >= 6 ? [...current.slice(1), badgeId] : [...current, badgeId];
+  }
+  saveState();
+  renderAdventure();
 }
 
 function slotIcon(slot) {
