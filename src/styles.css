@@ -688,6 +688,311 @@ body.is-dimmed .equipment-item small {
   }
 }
 
+.adventure-start-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: min(100%, 280px);
+  min-height: 58px;
+  margin-top: 18px;
+  padding: 12px 20px;
+  color: #1c2a20;
+  background: linear-gradient(135deg, #fff5b7, #e4c66a);
+  border: 1px solid rgba(255, 241, 160, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 12px 26px rgba(25, 42, 35, 0.22);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.adventure-level-card .adventure-start-button span {
+  display: inline;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.adventure-start-button svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.6;
+}
+
+.adventure-start-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(25, 42, 35, 0.28);
+}
+
+.adventure-series-panel {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 8px;
+  padding: clamp(16px, 2.4vw, 24px);
+  color: #17212b;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(47, 124, 104, 0.24);
+  border-radius: 12px;
+  box-shadow: 0 18px 36px rgba(29, 43, 54, 0.16);
+}
+
+.adventure-series-panel[hidden] {
+  display: none !important;
+}
+
+.adventure-series-panel header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.adventure-series-panel header strong {
+  display: block;
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 950;
+}
+
+.adventure-series-panel header small {
+  display: block;
+  margin-top: 4px;
+  color: #5f6b78;
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 800;
+}
+
+.adventure-series-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.adventure-series-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 12px;
+  align-items: center;
+  min-height: 92px;
+  padding: 16px;
+  text-align: left;
+  color: #17212b;
+  background: linear-gradient(135deg, #f8fbfa, #eef7f3);
+  border: 1px solid rgba(47, 124, 104, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.adventure-series-card span {
+  grid-column: 1 / -1;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 950;
+  line-height: 1.2;
+}
+
+.adventure-series-card strong {
+  color: #2f7c68;
+  font-size: 16px;
+  font-weight: 950;
+}
+
+.adventure-series-card small {
+  justify-self: end;
+  color: #6a7480;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.adventure-series-card:hover {
+  border-color: rgba(47, 124, 104, 0.62);
+  background: linear-gradient(135deg, #e8f5ef, #fff4bd);
+}
+
+.question-reward {
+  display: inline-flex;
+  margin-top: 10px;
+  padding: 8px 12px;
+  color: #1f5f4e;
+  background: #e6f4ef;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+body.is-dimmed .adventure-series-panel {
+  color: #edf7f2;
+  background: rgba(18, 34, 30, 0.96);
+  border-color: rgba(154, 205, 185, 0.28);
+}
+
+body.is-dimmed .adventure-series-panel header small {
+  color: #bcd2ca;
+}
+
+body.is-dimmed .adventure-series-card {
+  color: #edf7f2;
+  background: linear-gradient(135deg, #172821, #203932);
+  border-color: rgba(154, 205, 185, 0.25);
+}
+
+body.is-dimmed .adventure-series-card strong,
+body.is-dimmed .adventure-series-card small {
+  color: #fff4bd;
+}
+
+@media (max-width: 620px) {
+  .adventure-series-panel header {
+    align-items: flex-start;
+  }
+
+  .adventure-series-list {
+    grid-template-columns: 1fr;
+  }
+
+  .adventure-start-button {
+    width: 100%;
+  }
+}
+
+.cosmetic-slot-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 14px !important;
+}
+
+.cosmetic-shop-slot {
+  display: grid !important;
+  grid-template-columns: 58px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 14px !important;
+  min-height: 88px !important;
+  padding: 14px !important;
+  border: 1px solid rgba(47, 124, 104, 0.22) !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(237, 247, 243, 0.98)) !important;
+  color: #14202b !important;
+  text-align: left !important;
+  box-shadow: 0 12px 24px rgba(26, 44, 55, 0.06) !important;
+  cursor: pointer !important;
+}
+
+.cosmetic-shop-slot:hover,
+.cosmetic-shop-slot:focus-visible {
+  border-color: rgba(47, 124, 104, 0.55) !important;
+  box-shadow: 0 14px 30px rgba(26, 44, 55, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+.cosmetic-shop-slot .shop-slot-preview,
+.cosmetic-shop-slot .shop-preview,
+.cosmetic-shop-slot .shop-preview.frame-preview,
+.cosmetic-shop-slot .shop-preview.class-preview,
+.cosmetic-shop-slot .shop-preview.outfit-preview,
+.cosmetic-shop-slot .shop-preview.spell-preview,
+.cosmetic-shop-slot .shop-preview.background-preview {
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  max-width: 58px !important;
+  max-height: 58px !important;
+}
+
+.shop-slot-copy {
+  display: grid !important;
+  gap: 3px !important;
+  min-width: 0 !important;
+}
+
+.shop-slot-copy strong {
+  display: block !important;
+  overflow: hidden !important;
+  color: #14202b !important;
+  font-size: clamp(18px, 1.5vw, 22px) !important;
+  font-weight: 950 !important;
+  line-height: 1.2 !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.shop-slot-copy small {
+  display: block !important;
+  overflow: hidden !important;
+  color: #647386 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.cosmetic-picker-panel {
+  width: min(960px, calc(100vw - 28px)) !important;
+}
+
+.cosmetic-picker-list .shop-item {
+  grid-template-columns: 72px minmax(0, 1fr) auto !important;
+  min-height: 96px !important;
+}
+
+.cosmetic-picker-list .shop-preview,
+.cosmetic-picker-list .shop-preview.frame-preview,
+.cosmetic-picker-list .shop-preview.class-preview,
+.cosmetic-picker-list .shop-preview.outfit-preview,
+.cosmetic-picker-list .shop-preview.spell-preview,
+.cosmetic-picker-list .shop-preview.background-preview {
+  width: 62px !important;
+  height: 62px !important;
+  min-width: 62px !important;
+  max-width: 62px !important;
+  max-height: 62px !important;
+}
+
+body.is-dimmed .cosmetic-shop-slot {
+  border-color: rgba(141, 196, 177, 0.45) !important;
+  background: linear-gradient(135deg, rgba(18, 38, 35, 0.96), rgba(31, 57, 52, 0.96)) !important;
+  color: #edf8f4 !important;
+}
+
+body.is-dimmed .shop-slot-copy strong {
+  color: #f3faf6 !important;
+}
+
+body.is-dimmed .shop-slot-copy small {
+  color: #bad3ca !important;
+}
+
+@media (max-width: 620px) {
+  .cosmetic-slot-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cosmetic-shop-slot {
+    min-height: 82px !important;
+    padding: 12px !important;
+  }
+
+  .cosmetic-picker-list .shop-item {
+    grid-template-columns: 64px minmax(0, 1fr) !important;
+    min-height: 104px !important;
+  }
+
+  .cosmetic-picker-list .shop-item button {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+  }
+
+  .cosmetic-picker-list .shop-preview,
+  .cosmetic-picker-list .shop-preview.frame-preview,
+  .cosmetic-picker-list .shop-preview.class-preview,
+  .cosmetic-picker-list .shop-preview.outfit-preview,
+  .cosmetic-picker-list .shop-preview.spell-preview,
+  .cosmetic-picker-list .shop-preview.background-preview {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+  }
+}
+
 /* Final shop and loadout picker polish. */
 .shop-list .shop-item {
   grid-template-columns: 88px minmax(0, 1fr) auto !important;
@@ -1796,6 +2101,18 @@ body.is-dimmed .app-header {
   border-bottom-color: #27493f;
 }
 
+body.is-dimmed .visitor-counter {
+  color: #f2f7d4;
+  background: linear-gradient(135deg, #132720, #253a32);
+  border-color: rgba(143, 214, 186, 0.36);
+  box-shadow: none;
+}
+
+body.is-dimmed .visitor-counter__label {
+  color: #07110f;
+  background: #d9c781;
+}
+
 body.is-dimmed .flash-face {
   background: #101c19;
   color: #edf7f2;
@@ -2148,6 +2465,37 @@ button {
 .app-header h1 {
   font-size: clamp(22px, 2.2vw, 28px);
   line-height: 1.15;
+}
+
+.visitor-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(720px, 72vw);
+  margin-top: 8px;
+  padding: 7px 10px;
+  color: #245b4b;
+  background: linear-gradient(135deg, #edf8f2, #f7f1cf);
+  border: 1px solid rgba(18, 122, 90, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(24, 39, 75, 0.06);
+  font-size: clamp(13px, 1.05vw, 15px);
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.visitor-counter__label {
+  flex: 0 0 auto;
+  padding: 3px 7px;
+  color: #fff7cf;
+  background: #2f7c68;
+  border-radius: 6px;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.visitor-counter #visitorCounterText {
+  min-width: 0;
 }
 
 .eyebrow {
@@ -4526,7 +4874,7 @@ svg {
   transform: rotateY(180deg);
   border-color: #95d7bf;
   justify-content: flex-start;
-  gap: 14px;
+  gap: 12px;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
@@ -4561,16 +4909,19 @@ blockquote small {
   display: inline-block;
   margin-top: 12px;
   padding: 4px 9px;
+  max-width: min(560px, 100%);
   color: var(--green);
   background: var(--green-2);
   border-radius: 6px;
   font-weight: 800;
+  line-height: 1.35;
+  white-space: normal;
 }
 
 .answer-main > strong,
 .meaning-panel > strong {
   color: var(--green);
-  font-size: clamp(32px, 5vw, 50px);
+  font-size: clamp(28px, 4.4vw, 44px);
   line-height: 1.15;
 }
 
@@ -4591,7 +4942,7 @@ blockquote small {
 }
 
 blockquote span {
-  font-size: clamp(20px, 4.2vw, 26px);
+  font-size: clamp(18px, 3.2vw, 24px);
   line-height: 1.35;
   font-weight: 800;
   color: var(--ink);
@@ -4599,7 +4950,7 @@ blockquote span {
 
 blockquote small {
   margin-top: 8px;
-  font-size: clamp(15px, 3.4vw, 18px);
+  font-size: clamp(15px, 2.6vw, 18px);
   line-height: 1.45;
 }
 
@@ -4624,6 +4975,20 @@ blockquote small {
   display: block;
 }
 
+.meaning-pos {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 8px;
+  padding: 4px 10px;
+  color: var(--green);
+  background: rgba(47, 125, 92, 0.1);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
 .phrase-panel .phrase-label {
   margin: 0 0 5px;
   color: var(--muted);
@@ -4638,7 +5003,7 @@ blockquote small {
 .phrase-panel strong {
   display: block;
   color: var(--green);
-  font-size: clamp(22px, 4.8vw, 30px);
+  font-size: clamp(22px, 3.5vw, 30px);
   line-height: 1.2;
 }
 
@@ -4662,6 +5027,8 @@ blockquote small {
 .flash-back .answer-main {
   width: 100%;
   min-height: 0;
+  display: grid;
+  gap: 12px;
 }
 
 .flash-back blockquote {
@@ -4879,6 +5246,70 @@ body.is-dimmed .spell-panel {
 .result-box.is-wrong {
   background: var(--red-2);
   border-color: var(--red);
+}
+
+.adventure-run-tag {
+  margin: 4px 0 14px;
+  color: var(--green);
+  font-weight: 850;
+}
+
+.adventure-finish-inline {
+  margin-top: 12px;
+}
+
+.adventure-run-result {
+  display: grid;
+  gap: 16px;
+}
+
+.adventure-run-result p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.adventure-run-score {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.adventure-run-score div {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #eef8f3, #f8fbff);
+}
+
+.adventure-run-score strong {
+  display: block;
+  color: var(--green);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.adventure-run-score span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.adventure-run-unlock {
+  color: var(--gold-dark) !important;
+}
+
+.adventure-run-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .adventure-run-score {
+    grid-template-columns: 1fr;
+  }
 }
 
 .add-word-box {
@@ -6004,6 +6435,14 @@ body.is-dimmed .spell-panel {
     font-size: clamp(22px, 7vw, 32px);
   }
 
+  .visitor-counter {
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    font-size: 14px;
+  }
+
   .app-shell {
     width: min(1180px, calc(100% - 28px));
     margin: 24px auto 56px;
@@ -6094,7 +6533,7 @@ body.is-dimmed .spell-panel {
   }
 
   .flashcard {
-    min-height: min(680px, 76vh);
+    min-height: min(700px, 78vh);
   }
 
   .flash-actions {
@@ -6130,17 +6569,30 @@ body.is-dimmed .spell-panel {
   }
 
   blockquote {
-    padding: 16px;
+    padding: 14px;
   }
 
   blockquote span {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.32;
   }
 
   blockquote small {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.42;
+  }
+
+  .answer-main > strong,
+  .meaning-panel > strong {
+    font-size: clamp(25px, 7vw, 34px);
+  }
+
+  .phrase-panel strong {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+
+  .word-main small {
+    font-size: 15px;
   }
 
   .control-row > *,

@@ -7,6 +7,7 @@ const APP_VERSION = "V1.3 勇者傳說版";
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
 const ADVENTURE_KEY = "vocabmaster-adventure-v1";
+const VISITOR_KEY = "vocabmaster-visitor-v1";
 const DEFAULT_SERIES = "南山國中單字表";
 const JUNIOR_SERIES = "教育部 1200 基本字彙";
 const HIGH_SCHOOL_SERIES = "大考中心高中英文參考詞彙表";
@@ -23,6 +24,40 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const MINUTE_MS = 60 * 1000;
 const REVIEW_INTERVALS = [0, 1 * 60 * 60 * 1000, 1 * DAY_MS, 3 * DAY_MS, 7 * DAY_MS, 14 * DAY_MS];
 const ENCOURAGEMENTS = ["我會了", "我好棒", "我真棒", "我真聰明", "我真厲害", "超厲害", "100分", "真讚"];
+const VISITOR_COUNTER_BASE = 1688;
+const VISITOR_ENCOURAGEMENTS = [
+  "祝你挑戰成功。",
+  "今天也向下一關前進。",
+  "每答對一題，勇氣就多一點。",
+  "穩穩練習，慢慢變強。",
+  "你的單字能量正在累積。",
+  "先完成一小步，就離勝利更近。",
+  "保持節奏，勇者不怕題庫。",
+  "今天的努力會變成明天的直覺。",
+  "把不熟的字變成你的武器。",
+  "先看懂，再記牢。",
+  "錯題只是下一次答對的線索。",
+  "願你的記憶力一路升級。",
+  "每張閃卡都是一個小關卡。",
+  "挑戰開始，請帶著好奇心出發。",
+  "練一點、懂一點、強一點。",
+  "把今天的單字收進背包吧。",
+  "穩定前進就是最可靠的魔法。",
+  "你正在打造自己的英文裝備。",
+  "題庫不會嚇倒準備好的勇者。",
+  "把例句念出來，語感會更快成形。",
+  "今天先征服三個新單字。",
+  "會的字是夥伴，不熟的字是任務。",
+  "每一次複習都在加固知識護盾。",
+  "你的冒險地圖又亮了一格。",
+  "讓英文變成可以使用的能力。",
+  "小小進度也值得記錄。",
+  "保持專注，下一題就是機會。",
+  "讀懂一句，就多一份力量。",
+  "把答案說出口，記憶會更牢。",
+  "勇者已抵達，開始今天的練習吧。"
+];
+const ADVENTURE_RUN_LENGTH = 10;
 const ADVENTURE_MAX_LEVEL = 60;
 const ADVENTURE_MAP_ZONES = [
   {
@@ -287,6 +322,16 @@ let words = buildWords();
 let flashList = [];
 let flashIndex = 0;
 let currentQuestion = null;
+let currentQuestionAnswered = false;
+let adventureSeriesPickerOpen = false;
+let adventureRun = {
+  active: false,
+  series: "",
+  questions: [],
+  index: 0,
+  correct: 0,
+  wrong: 0
+};
 let flashDrag = null;
 let autoPlayEnabled = false;
 let autoPlayRunId = 0;
@@ -305,6 +350,39 @@ const $$ = (selector) => [...document.querySelectorAll(selector)];
 
 function randomEncouragement() {
   return ENCOURAGEMENTS[Math.floor(Math.random() * ENCOURAGEMENTS.length)];
+}
+
+function randomVisitorEncouragement() {
+  return VISITOR_ENCOURAGEMENTS[Math.floor(Math.random() * VISITOR_ENCOURAGEMENTS.length)];
+}
+
+function createVisitorNumber() {
+  const launchedAt = new Date("2026-06-23T00:00:00+08:00").getTime();
+  const hoursSinceLaunch = Math.max(0, Math.floor((Date.now() - launchedAt) / (60 * 60 * 1000)));
+  const randomOffset = Math.floor(Math.random() * 89) + 11;
+  return VISITOR_COUNTER_BASE + hoursSinceLaunch + randomOffset;
+}
+
+function visitorRecord() {
+  const existing = loadJson(VISITOR_KEY, null);
+  if (existing?.number) return existing;
+  const record = {
+    number: createVisitorNumber(),
+    firstSeenAt: new Date().toISOString()
+  };
+  try {
+    localStorage.setItem(VISITOR_KEY, JSON.stringify(record));
+  } catch {
+    return record;
+  }
+  return record;
+}
+
+function renderVisitorCounter() {
+  const text = $("#visitorCounterText");
+  if (!text) return;
+  const record = visitorRecord();
+  text.textContent = `你是第 ${Number(record.number).toLocaleString("zh-TW")} 位前來挑戰的勇者，${randomVisitorEncouragement()}`;
 }
 
 function loadJson(key, fallback) {
@@ -332,7 +410,7 @@ function normalizeAdventure(value) {
   const ownedEquipment = Array.isArray(data.ownedEquipment) ? data.ownedEquipment : [];
   const equippedEquipment = data.equippedEquipment && typeof data.equippedEquipment === "object" ? data.equippedEquipment : {};
   return {
-    stars: Number(data.stars) || 0,
+    stars: (Number(data.stars) || 0) + (Number(data.points) || 0),
     inspiration: Number(data.inspiration) || 0,
     totalEarnedStars: Number(data.totalEarnedStars) || 0,
     currentStreak: Number(data.currentStreak) || 0,
@@ -363,6 +441,22 @@ function normalizeAdventure(value) {
     activeOutfit: ownedOutfits.includes(data.activeOutfit) ? data.activeOutfit : "plain",
     activeSpell: ownedSpells.includes(data.activeSpell) ? data.activeSpell : "cinder-spark"
   };
+}
+
+function adventureShopBalance() {
+  return Number(adventure.stars) || 0;
+}
+
+function canSpendAdventureCurrency(cost) {
+  return adventureShopBalance() >= (Number(cost) || 0);
+}
+
+function spendAdventureCurrency(cost) {
+  adventure.stars = Math.max(0, (Number(adventure.stars) || 0) - (Number(cost) || 0));
+}
+
+function adventureCostText(cost) {
+  return `${Number(cost) || 0} 星星`;
 }
 
 function weaponIcon(kind) {
@@ -523,6 +617,60 @@ function phraseInfo(word) {
   };
 }
 
+const POS_ZH_LABELS = {
+  "n.": "名詞",
+  n: "名詞",
+  "v.": "動詞",
+  v: "動詞",
+  "vt.": "及物動詞",
+  vt: "及物動詞",
+  "vi.": "不及物動詞",
+  vi: "不及物動詞",
+  "adj.": "形容詞",
+  adj: "形容詞",
+  "adv.": "副詞",
+  adv: "副詞",
+  "adb.": "副詞",
+  adb: "副詞",
+  "prep.": "介系詞",
+  prep: "介系詞",
+  "pron.": "代名詞",
+  pron: "代名詞",
+  "conj.": "連接詞",
+  conj: "連接詞",
+  "art.": "冠詞",
+  art: "冠詞",
+  "det.": "限定詞",
+  det: "限定詞",
+  "num.": "數詞",
+  num: "數詞",
+  "aux.": "助動詞",
+  aux: "助動詞",
+  "int.": "感嘆詞",
+  int: "感嘆詞",
+  "interj.": "感嘆詞",
+  interj: "感嘆詞",
+  "phr.": "片語",
+  phr: "片語",
+  phrase: "片語"
+};
+
+function formatPosLabel(pos, fallback = "詞性未填") {
+  const source = String(pos || "").trim();
+  if (!source) return fallback;
+  return source
+    .split(/\s*[/,;、]\s*|\s+(?=[a-z]+\.?$)/i)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      const normalized = part.toLowerCase();
+      const key = normalized.endsWith(".") ? normalized : `${normalized}.`;
+      const zh = POS_ZH_LABELS[normalized] || POS_ZH_LABELS[key];
+      return zh ? `${part} ${zh}` : part;
+    })
+    .join(" / ");
+}
+
 function wordKeyFromText(text, unit, series = "all") {
   const lower = text.toLowerCase();
   return words.find((word) => {
@@ -677,6 +825,27 @@ function getSeries() {
   const ordered = preferred.filter((series) => series !== CUSTOM_SERIES || available.has(series));
   const remaining = [...available].filter((series) => !preferred.includes(series)).sort((a, b) => a.localeCompare(b));
   return [...ordered, ...remaining];
+}
+
+function seriesWordCount(series) {
+  if (SERIES_WORD_COUNTS[series]) return SERIES_WORD_COUNTS[series];
+  return filteredBySeries(words, series).length;
+}
+
+function seriesPracticeCount(series) {
+  if (series === HIGH_SCHOOL_SERIES && !loadedSeries.has(HIGH_SCHOOL_SERIES)) return "載入後產生";
+  if (series === HIGH_FREQUENCY_SERIES && !loadedSeries.has(HIGH_FREQUENCY_SERIES)) return "載入後產生";
+  return questionPoolForSeries(series).length;
+}
+
+function questionPoolForSeries(series) {
+  const sourceWords = filteredBySeries(words, series);
+  return [
+    ...QUESTION_BANK.map((question) => ({ ...question, series: question.series || DEFAULT_SERIES })),
+    ...generatedQuestions(sourceWords)
+  ]
+    .map(normalizeQuestion)
+    .filter((question) => (question.series || DEFAULT_SERIES) === series);
 }
 
 function fillSeriesSelect(select) {
@@ -853,6 +1022,7 @@ function renderAdventure() {
   $("#companionTitle").textContent = companion.title;
   $("#companionMessage").textContent = companion.message;
   renderHeroRewards(avatar, frame, background);
+  renderAdventureSeriesPicker();
 
   const missionGroups = adventureMissionGroups(today, snapshot, level);
   $("#adventureDailyTasks").innerHTML = missionGroups.map((group, index) => `
@@ -880,13 +1050,13 @@ function renderAdventure() {
     `)
     .join("");
 
-  renderShop("#backgroundShop", BACKGROUND_ITEMS, "background");
-  renderShop("#avatarShop", AVATAR_ITEMS, "avatar");
-  renderShop("#classShop", CLASS_ITEMS, "class");
-  renderShop("#outfitShop", OUTFIT_ITEMS, "outfit");
-  renderShop("#frameShop", FRAME_ITEMS, "frame");
-  renderShop("#spellShop", SPELL_ITEMS, "spell");
+  renderCosmeticShopSlots();
   renderEquipmentShop();
+  if ($("#startAdventureBtn")) $("#startAdventureBtn").onclick = () => toggleAdventureSeriesPicker(true);
+  if ($("#closeAdventureSeries")) $("#closeAdventureSeries").onclick = () => toggleAdventureSeriesPicker(false);
+  $$("[data-adventure-series]").forEach((button) => {
+    button.addEventListener("click", () => startAdventurePractice(button.dataset.adventureSeries));
+  });
   $("#characterNameInput").value = adventure.characterName || "吳限勇者";
   $("#characterNameInput").onchange = (event) => {
     adventure.characterName = String(event.target.value || "吳限勇者").trim().slice(0, 12) || "吳限勇者";
@@ -901,6 +1071,9 @@ function renderAdventure() {
   });
   $$("[data-open-loadout]").forEach((button) => {
     button.addEventListener("click", () => openLoadoutPicker(button.dataset.openLoadout));
+  });
+  $$("[data-open-cosmetic-shop]").forEach((button) => {
+    button.addEventListener("click", () => openCosmeticPicker(button.dataset.openCosmeticShop));
   });
 
   const sortedAchievements = ADVENTURE_ACHIEVEMENTS
@@ -1517,6 +1690,15 @@ function activeSpellItem() {
   return SPELL_ITEMS.find((item) => item.id === adventure.activeSpell) || SPELL_ITEMS[0];
 }
 
+const COSMETIC_SHOP_CATEGORIES = [
+  { type: "class", title: "職業", action: "選擇職業" },
+  { type: "avatar", title: "角色外觀", action: "選擇外觀" },
+  { type: "frame", title: "頭像框", action: "選擇頭像框" },
+  { type: "background", title: "場景背景", action: "選擇背景" },
+  { type: "outfit", title: "服裝", action: "選擇服裝" },
+  { type: "spell", title: "法術", action: "選擇法術" }
+];
+
 function shopConfig(type) {
   return {
     avatar: { ownedKey: "ownedAvatars", activeKey: "activeAvatar", items: AVATAR_ITEMS },
@@ -1547,29 +1729,57 @@ function shopPreviewClass(item, type) {
   return "";
 }
 
-function renderShop(selector, items, type) {
+function activeShopItem(type) {
   const config = shopConfig(type);
-  const ownedKey = config.ownedKey;
-  const activeKey = config.activeKey;
-  $(selector).innerHTML = items.map((item) => {
-    const owned = adventure[ownedKey].includes(item.id);
-    const active = adventure[activeKey] === item.id;
-    const canBuy = adventure.stars >= item.cost;
-    const action = owned ? `equip-${type}` : `buy-${type}`;
-    const label = active ? "使用中" : owned ? "裝備" : `${item.cost} 星星`;
-    const previewContent = shopPreviewContent(item, type);
-    const previewClass = shopPreviewClass(item, type);
+  if (!config) return null;
+  return config.items.find((item) => item.id === adventure[config.activeKey]) || config.items[0] || null;
+}
+
+function renderCosmeticShopSlots() {
+  const target = $("#cosmeticShopSlots");
+  if (!target) return;
+  target.innerHTML = COSMETIC_SHOP_CATEGORIES.map(({ type, title, action }) => {
+    const item = activeShopItem(type);
+    const previewContent = item ? shopPreviewContent(item, type) : "";
+    const previewClass = item ? shopPreviewClass(item, type) : "";
     return `
-      <div class="shop-item${active ? " is-active" : ""}">
-        <div class="shop-preview ${previewClass}">${previewContent}</div>
-        <div>
-          <strong>${escapeHtml(item.name)}</strong>
-          <small>${owned ? "已解鎖" : `需要 ${item.cost} 星星`}</small>
-        </div>
-        <button type="button" data-shop-action="${action}" data-item-id="${escapeHtml(item.id)}" ${active || (!owned && !canBuy) ? "disabled" : ""}>${escapeHtml(label)}</button>
-      </div>
+      <button class="cosmetic-shop-slot" type="button" data-open-cosmetic-shop="${escapeHtml(type)}">
+        <span class="shop-slot-preview shop-preview ${previewClass}">${previewContent}</span>
+        <span class="shop-slot-copy">
+          <strong>${escapeHtml(title)}</strong>
+          <small>${escapeHtml(item?.name || action)}</small>
+        </span>
+      </button>
     `;
   }).join("");
+}
+
+function renderShopItem(item, type) {
+  const config = shopConfig(type);
+  if (!config) return "";
+  const owned = adventure[config.ownedKey].includes(item.id);
+  const active = adventure[config.activeKey] === item.id;
+  const canBuy = canSpendAdventureCurrency(item.cost);
+  const action = owned ? `equip-${type}` : `buy-${type}`;
+  const label = active ? "使用中" : owned ? "裝備" : adventureCostText(item.cost);
+  const previewContent = shopPreviewContent(item, type);
+  const previewClass = shopPreviewClass(item, type);
+  return `
+    <div class="shop-item${active ? " is-active" : ""}">
+      <div class="shop-preview ${previewClass}">${previewContent}</div>
+      <div>
+        <strong>${escapeHtml(item.name)}</strong>
+        <small>${owned ? "已解鎖" : `需要 ${adventureCostText(item.cost)}`}</small>
+      </div>
+      <button type="button" data-shop-action="${action}" data-item-id="${escapeHtml(item.id)}" ${active || (!owned && !canBuy) ? "disabled" : ""}>${escapeHtml(label)}</button>
+    </div>
+  `;
+}
+
+function renderShop(selector, items, type) {
+  const target = $(selector);
+  if (!target) return;
+  target.innerHTML = items.map((item) => renderShopItem(item, type)).join("");
 }
 
 function handleShopAction(action, itemId) {
@@ -1584,8 +1794,8 @@ function handleShopAction(action, itemId) {
 
 function buyShopItem(itemId, items, ownedKey, activeKey) {
   const item = items.find((entry) => entry.id === itemId);
-  if (!item || adventure[ownedKey].includes(item.id) || adventure.stars < item.cost) return;
-  adventure.stars -= item.cost;
+  if (!item || adventure[ownedKey].includes(item.id) || !canSpendAdventureCurrency(item.cost)) return;
+  spendAdventureCurrency(item.cost);
   adventure[ownedKey].push(item.id);
   adventure[activeKey] = item.id;
 }
@@ -1598,15 +1808,15 @@ function renderEquipmentShop() {
 function renderEquipmentItem(item) {
   const owned = adventure.ownedEquipment.includes(item.id);
   const active = adventure.equippedEquipment?.[item.slot] === item.id;
-  const canBuy = adventure.stars >= item.cost;
-  const label = active ? "裝備中" : owned ? "裝備" : `${item.cost} 星星`;
+  const canBuy = canSpendAdventureCurrency(item.cost);
+  const label = active ? "裝備中" : owned ? "裝備" : adventureCostText(item.cost);
   const action = owned ? "equip" : "buy";
   return `
     <div class="equipment-item${active ? " is-active" : ""}">
       <div class="equipment-icon ${equipmentArtClass(item)}" aria-hidden="true"${equipmentImageStyle(item)}></div>
       <div>
         <strong>${escapeHtml(item.name)}</strong>
-        <small>${owned ? "已擁有" : `需要 ${item.cost} 星星`}</small>
+        <small>${owned ? "已擁有" : `需要 ${adventureCostText(item.cost)}`}</small>
       </div>
       <button type="button" data-equipment-action="${action}" data-item-id="${escapeHtml(item.id)}" ${active || (!owned && !canBuy) ? "disabled" : ""}>${escapeHtml(label)}</button>
     </div>
@@ -1616,19 +1826,105 @@ function renderEquipmentItem(item) {
 function renderLoadoutSpellItem(item) {
   const owned = adventure.ownedSpells.includes(item.id);
   const active = adventure.activeSpell === item.id;
-  const canBuy = adventure.stars >= item.cost;
+  const canBuy = canSpendAdventureCurrency(item.cost);
   const action = owned ? "equip-spell" : "buy-spell";
-  const label = active ? "使用中" : owned ? "裝備" : `${item.cost} 星星`;
+  const label = active ? "使用中" : owned ? "裝備" : adventureCostText(item.cost);
   return `
     <div class="equipment-item${active ? " is-active" : ""}">
       <div class="equipment-icon equipment-art equipment-spell-art" aria-hidden="true"><i data-lucide="${escapeHtml(item.icon || "sparkles")}"></i></div>
       <div>
         <strong>${escapeHtml(item.name)}</strong>
-        <small>${owned ? "已擁有" : `需要 ${item.cost} 星星`}</small>
+        <small>${owned ? "已擁有" : `需要 ${adventureCostText(item.cost)}`}</small>
       </div>
       <button type="button" data-shop-action="${action}" data-item-id="${escapeHtml(item.id)}" ${active || (!owned && !canBuy) ? "disabled" : ""}>${escapeHtml(label)}</button>
     </div>
   `;
+}
+
+function openCosmeticPicker(type) {
+  const existing = $("#loadoutPicker");
+  if (existing) existing.remove();
+  const category = COSMETIC_SHOP_CATEGORIES.find((entry) => entry.type === type);
+  const config = shopConfig(type);
+  if (!category || !config) return;
+
+  const html = `
+    <div class="loadout-picker-overlay" id="loadoutPicker" role="dialog" aria-modal="true" aria-label="${escapeHtml(category.action)}">
+      <div class="loadout-picker-panel cosmetic-picker-panel">
+        <header>
+          <strong>${escapeHtml(category.action)}</strong>
+          <button type="button" class="loadout-picker-close" data-close-loadout aria-label="關閉">×</button>
+        </header>
+        <div class="loadout-picker-list cosmetic-picker-list">
+          ${config.items.map((item) => renderShopItem(item, type)).join("")}
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML("beforeend", html);
+
+  const picker = $("#loadoutPicker");
+  picker.addEventListener("click", (event) => {
+    if (event.target === picker || event.target.closest("[data-close-loadout]")) {
+      picker.remove();
+      return;
+    }
+    const shopButton = event.target.closest("[data-shop-action]");
+    if (shopButton) {
+      handleShopAction(shopButton.dataset.shopAction, shopButton.dataset.itemId);
+      picker.remove();
+    }
+  });
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function renderAdventureSeriesPicker() {
+  const panel = $("#adventureSeriesPanel");
+  const list = $("#adventureSeriesList");
+  if (!panel || !list) return;
+  panel.hidden = !adventureSeriesPickerOpen;
+  if (!adventureSeriesPickerOpen) return;
+
+  list.innerHTML = getSeries()
+    .filter((series) => series !== CUSTOM_SERIES || seriesWordCount(series) > 0)
+    .map((series) => {
+      const count = seriesWordCount(series);
+      const practiceCount = seriesPracticeCount(series);
+      return `
+        <button class="adventure-series-card" type="button" data-adventure-series="${escapeAttr(series)}">
+          <span>${escapeHtml(series)}</span>
+          <strong>${escapeHtml(String(count))} 個單字</strong>
+          <small>${escapeHtml(String(practiceCount))} 題可練習</small>
+        </button>
+      `;
+    })
+    .join("");
+}
+
+function toggleAdventureSeriesPicker(open) {
+  adventureSeriesPickerOpen = Boolean(open);
+  renderAdventure();
+}
+
+async function startAdventurePractice(series) {
+  if (!series) return;
+  adventureSeriesPickerOpen = false;
+  await ensurePracticeSeriesLoaded(series);
+  $("#practiceSeries").value = series;
+  refreshUnitSelectFor("#practiceSeries", "#practiceUnit");
+  $("#practiceUnit").value = "all";
+  $("#practiceMode").value = "mixed";
+  $("#practiceScope").value = "all";
+  activateTab("practice", { initPractice: false });
+  const pool = questionPool();
+  if (!pool.length) {
+    resetAdventureRun();
+    nextQuestion();
+    toast(`${series} 目前沒有可冒險的題目`);
+    return;
+  }
+  beginAdventureRun(series, pool);
+  toast(`開始 ${series}：本輪 ${adventureRun.questions.length} 題`);
 }
 
 function openLoadoutPicker(type) {
@@ -1681,8 +1977,8 @@ function handleEquipmentAction(action, itemId) {
   const item = EQUIPMENT_ITEMS.find((entry) => entry.id === itemId);
   if (!item) return;
   if (action === "buy") {
-    if (adventure.ownedEquipment.includes(item.id) || adventure.stars < item.cost) return;
-    adventure.stars -= item.cost;
+    if (adventure.ownedEquipment.includes(item.id) || !canSpendAdventureCurrency(item.cost)) return;
+    spendAdventureCurrency(item.cost);
     adventure.ownedEquipment.push(item.id);
   }
   if (adventure.ownedEquipment.includes(item.id)) {
@@ -1772,7 +2068,7 @@ function activateTab(tabName, options = {}) {
   if (tabName !== "flashcards") stopAutoPlay();
   $$(".tab").forEach((tab) => tab.classList.toggle("is-active", tab.dataset.tab === tabName));
   $$(".panel").forEach((panel) => panel.classList.toggle("is-active", panel.id === tabName));
-  if (tabName === "practice") {
+  if (tabName === "practice" && options.initPractice !== false) {
     ensurePracticeSeriesLoaded($("#practiceSeries").value || "all").then(() => {
       refreshUnitSelectFor("#practiceSeries", "#practiceUnit");
       nextQuestion();
@@ -1821,7 +2117,7 @@ function renderFlashcard() {
   } else if (mode === "listening") {
     $("#flashWord").textContent = "聽力模式";
     $("#flashPhonetic").textContent = "先按發音，再翻面確認";
-    $("#flashPos").textContent = word.pos || "";
+    $("#flashPos").textContent = formatPosLabel(word.pos, "");
   } else if (mode === "spelling") {
     $("#flashWord").textContent = word.translation || "拼字提示";
     $("#flashPhonetic").textContent = word.phonetic || "";
@@ -1829,10 +2125,13 @@ function renderFlashcard() {
   } else {
     $("#flashWord").textContent = word.word;
     $("#flashPhonetic").textContent = word.phonetic || "";
-    $("#flashPos").textContent = word.pos || "";
+    $("#flashPos").textContent = formatPosLabel(word.pos, "");
   }
   $("#flashLevelBadge").textContent = `Lv.${word.proficiency || 0}`;
   $("#flashTranslation").textContent = word.translation || "";
+  const flashBackPos = formatPosLabel(word.pos, "");
+  $("#flashBackPos").hidden = !flashBackPos;
+  $("#flashBackPos").textContent = flashBackPos;
   $("#flashExampleLabel").hidden = !word.example;
   $("#flashExampleBlock").hidden = !word.example;
   const phrase = phraseInfo(word);
@@ -2334,8 +2633,8 @@ function cancelFlashDrag() {
   $("#flashcard").style.transform = "";
 }
 
-function generatedQuestions() {
-  return words.flatMap((word) => {
+function generatedQuestions(sourceWords = words) {
+  return sourceWords.flatMap((word) => {
     if (word.referenceOnly) return [];
     const questions = [];
     const wordOptions = buildOptions(word);
@@ -2354,6 +2653,21 @@ function generatedQuestions() {
         choices: buildFillChoices(word, wordOptions),
         answer: word.word,
         explanation: `${word.word} 是「${word.translation}」。這題要依照例句語意填入正確英文單字。例句：${word.example}${word.exampleTr ? `（${word.exampleTr}）` : ""}`
+      });
+    }
+
+    if (word.example && wordOptions.length >= 2) {
+      questions.push({
+        id: `auto-${word.id}-example-word-choice`,
+        series: word.series || DEFAULT_SERIES,
+        unit: word.unit,
+        type: "mcq",
+        difficulty: "auto",
+        targetWord: word.word,
+        prompt: `哪個英文單字最適合這個例句？\n${word.exampleTr ? `${word.exampleTr}\n` : ""}${word.example}`,
+        options: wordOptions,
+        answer: word.word,
+        explanation: `${word.word} 是「${word.translation}」。例句：${word.example}${word.exampleTr ? `（${word.exampleTr}）` : ""}`
       });
     }
 
@@ -2383,6 +2697,21 @@ function generatedQuestions() {
         answer: word.translation,
         explanation: `${word.word} 是「${word.translation}」。${word.exampleTr ? `可搭配例句理解：${word.exampleTr}` : ""}`
       });
+
+      if (word.example) {
+        questions.push({
+          id: `auto-${word.id}-example-meaning`,
+          series: word.series || DEFAULT_SERIES,
+          unit: word.unit,
+          type: "mcq",
+          difficulty: "auto",
+          targetWord: word.word,
+          prompt: `根據例句，${word.word} 在句中最接近哪個中文意思？\n${word.example}`,
+          options: translationOptions,
+          answer: word.translation,
+          explanation: `${word.word} 在這句中是「${word.translation}」。${word.exampleTr ? `句意：${word.exampleTr}` : ""}`
+        });
+      }
     }
 
     const phrase = phraseInfo(word);
@@ -2415,6 +2744,37 @@ function generatedQuestions() {
           options: phraseOptions,
           answer: phrase.phrase,
           explanation: `${phrase.phrase} 是 ${word.word} 的片語${phrase.phraseTr ? `，意思是「${phrase.phraseTr}」` : ""}。${phrase.phraseExample ? `片語例句：${phrase.phraseExample}` : ""}`
+        });
+      }
+
+      const phraseTranslationOptions = buildPhraseTranslationOptions(word);
+      if (phrase.phraseTr && phraseTranslationOptions.length >= 2) {
+        questions.push({
+          id: `auto-${word.id}-phrase-meaning`,
+          series: word.series || DEFAULT_SERIES,
+          unit: word.unit,
+          type: "mcq",
+          difficulty: "auto",
+          targetWord: word.word,
+          prompt: `${phrase.phrase} 的中文意思最接近哪一個？`,
+          options: phraseTranslationOptions,
+          answer: phrase.phraseTr,
+          explanation: `${phrase.phrase} 的意思是「${phrase.phraseTr}」。${phrase.phraseExample ? `片語例句：${phrase.phraseExample}` : ""}`
+        });
+      }
+
+      if (phrase.phraseExample && phrase.phraseTr && phraseOptions.length >= 2) {
+        questions.push({
+          id: `auto-${word.id}-phrase-example-choice`,
+          series: word.series || DEFAULT_SERIES,
+          unit: word.unit,
+          type: "mcq",
+          difficulty: "auto",
+          targetWord: word.word,
+          prompt: `哪個片語最適合這個例句？\n${phrase.phraseExampleTr ? `${phrase.phraseExampleTr}\n` : ""}${phrase.phraseExample}`,
+          options: phraseOptions,
+          answer: phrase.phrase,
+          explanation: `${phrase.phrase} 是「${phrase.phraseTr}」。片語例句：${phrase.phraseExample}${phrase.phraseExampleTr ? `（${phrase.phraseExampleTr}）` : ""}`
         });
       }
 
@@ -2476,6 +2836,15 @@ function buildPhraseOptions(answerWord) {
   return uniqueOptions(shuffle([answer, ...shuffle(pool).slice(0, 3)]));
 }
 
+function buildPhraseTranslationOptions(answerWord) {
+  const answer = phraseInfo(answerWord).phraseTr;
+  const pool = words
+    .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit && (word.series || DEFAULT_SERIES) === (answerWord.series || DEFAULT_SERIES))
+    .map((word) => phraseInfo(word).phraseTr)
+    .filter(Boolean);
+  return uniqueOptions(shuffle([answer, ...shuffle(pool).slice(0, 3)]));
+}
+
 function buildTranslationOptions(answerWord) {
   const pool = words
     .filter((word) => word.id !== answerWord.id && word.unit === answerWord.unit && (word.series || DEFAULT_SERIES) === (answerWord.series || DEFAULT_SERIES) && word.translation)
@@ -2498,9 +2867,22 @@ function questionPool() {
   const unit = $("#practiceUnit").value || "all";
   const mode = $("#practiceMode").value || "mixed";
   const scope = $("#practiceScope")?.value || "all";
+  const sourceWords = filteredBySeriesAndUnit(words, series, unit).filter((word) => {
+    if (word.referenceOnly) return false;
+    if (scope === "all") return true;
+    return questionMatchesPracticeScope(
+      {
+        series: word.series || DEFAULT_SERIES,
+        unit: word.unit,
+        targetWord: word.word,
+        answer: word.word
+      },
+      scope
+    );
+  });
   let pool = [
     ...QUESTION_BANK.map((question) => ({ ...question, series: question.series || DEFAULT_SERIES })),
-    ...generatedQuestions()
+    ...generatedQuestions(sourceWords)
   ].map(normalizeQuestion);
   if (series !== "all") pool = pool.filter((question) => (question.series || DEFAULT_SERIES) === series);
   if (unit !== "all") pool = pool.filter((question) => String(question.unit) === unit || (unit === "custom" && !question.unit));
@@ -2525,11 +2907,112 @@ function questionMatchesPracticeScope(question, scope) {
   return true;
 }
 
+function resetAdventureRun() {
+  adventureRun = {
+    active: false,
+    series: "",
+    questions: [],
+    index: 0,
+    correct: 0,
+    wrong: 0
+  };
+}
+
+function updateAdventureRunPracticeCount() {
+  if (!adventureRun.active) return;
+  const total = adventureRun.questions.length;
+  const answered = adventureRun.correct + adventureRun.wrong;
+  $("#practiceCount").textContent = `冒險進度 ${Math.min(adventureRun.index + 1, total)} / ${total} 題 · 已答 ${answered} 題 · 答對 ${adventureRun.correct} 題`;
+}
+
+function beginAdventureRun(series, pool) {
+  const questions = shuffle(pool).slice(0, Math.min(ADVENTURE_RUN_LENGTH, pool.length));
+  adventureRun = {
+    active: true,
+    series,
+    questions,
+    index: 0,
+    correct: 0,
+    wrong: 0
+  };
+  currentQuestion = questions[0] || null;
+  currentQuestionAnswered = false;
+  updateAdventureRunPracticeCount();
+  renderQuestion();
+}
+
+function finishAdventureRun() {
+  if (!adventureRun.active) return;
+  const total = adventureRun.questions.length;
+  const correct = adventureRun.correct;
+  const wrong = adventureRun.wrong;
+  const series = adventureRun.series || "冒險題庫";
+  const accuracy = total ? Math.round((correct / total) * 100) : 0;
+  const perfectBonus = total && correct === total ? 10 : 0;
+  const rewardStars = Math.max(0, 5 + correct * 2 + wrong + perfectBonus);
+  const daily = todayAdventure();
+
+  adventure.stars += rewardStars;
+  adventure.totalEarnedStars += rewardStars;
+  daily.stars += rewardStars;
+  adventure.lastActiveDate = todayKey();
+  const unlocks = unlockAdventureAchievements({ adventureRunCompleted: true, runAccuracy: accuracy });
+
+  resetAdventureRun();
+  currentQuestion = null;
+  currentQuestionAnswered = false;
+  saveState();
+  $("#practiceCount").textContent = `完成一輪冒險 · 獲得 ${rewardStars} 星星`;
+  $("#questionCard").innerHTML = `
+    <div class="adventure-run-result">
+      <h3>${escapeHtml(series)} 冒險完成</h3>
+      <p>這一輪你完成了 ${total} 題，答對 ${correct} 題，答錯 ${wrong} 題。</p>
+      <div class="adventure-run-score">
+        <div><strong>${rewardStars}</strong><span>獲得星星</span></div>
+        <div><strong>${accuracy}%</strong><span>本輪答對率</span></div>
+        <div><strong>${perfectBonus ? `+${perfectBonus}` : "0"}</strong><span>滿分加成</span></div>
+      </div>
+      ${unlocks.length ? `<p class="adventure-run-unlock">新徽章亮起：${escapeHtml(unlocks.map((item) => item.title).join("、"))}</p>` : ""}
+      <div class="adventure-run-actions">
+        <button class="primary-button" id="restartAdventureRun" type="button"><i data-lucide="rotate-cw"></i><span>再打一輪</span></button>
+        <button class="secondary-button" id="backToAdventureHome" type="button"><i data-lucide="sparkles"></i><span>回吳限勇者傳說</span></button>
+      </div>
+    </div>
+  `;
+  $("#restartAdventureRun")?.addEventListener("click", () => startAdventurePractice(series));
+  $("#backToAdventureHome")?.addEventListener("click", () => activateTab("dashboard", { initFlashcards: false }));
+  renderAdventure();
+  if (window.lucide) window.lucide.createIcons();
+  toast(`完成一輪冒險，獲得 ${rewardStars} 星星`);
+}
+
 function nextQuestion() {
+  if (adventureRun.active) {
+    if (!currentQuestionAnswered) {
+      toast("先完成目前這題，再繼續冒險");
+      return;
+    }
+    if (adventureRun.index + 1 >= adventureRun.questions.length) {
+      finishAdventureRun();
+      return;
+    }
+    adventureRun.index += 1;
+    currentQuestion = adventureRun.questions[adventureRun.index] || null;
+    currentQuestionAnswered = false;
+    updateAdventureRunPracticeCount();
+    renderQuestion();
+    return;
+  }
   const pool = questionPool();
   $("#practiceCount").textContent = `目前可練習 ${pool.length} 題`;
   currentQuestion = pool.length ? shuffle(pool)[0] : null;
+  currentQuestionAnswered = false;
   renderQuestion();
+}
+
+function cancelAdventureRunAndNextQuestion() {
+  resetAdventureRun();
+  nextQuestion();
 }
 
 function renderQuestion() {
@@ -2541,10 +3024,14 @@ function renderQuestion() {
 
   const label = `${currentQuestion.series || DEFAULT_SERIES} · ${questionUnitLabel(currentQuestion)} · ${currentQuestion.type === "fill" ? "填空題" : "選擇題"}`;
   const choiceText = currentQuestion.choices?.length ? `<p>小提示：${formatChoices(currentQuestion)}</p>` : "";
+  const runTag = adventureRun.active
+    ? `<p class="adventure-run-tag">本輪第 ${adventureRun.index + 1} / ${adventureRun.questions.length} 題，完成一輪後結算星星。</p>`
+    : "";
 
   if (currentQuestion.type === "fill") {
     card.innerHTML = `
       <h3>${escapeHtml(label)}</h3>
+      ${runTag}
       ${choiceText}
       <div class="question-prompt">${escapeHtml(currentQuestion.prompt)}</div>
       <div class="answer-row">
@@ -2560,6 +3047,7 @@ function renderQuestion() {
   } else {
     card.innerHTML = `
       <h3>${escapeHtml(label)}</h3>
+      ${runTag}
       <div class="question-prompt">${escapeHtml(currentQuestion.prompt)}</div>
       <div class="choice-list">
         ${currentQuestion.options.map((option) => `<button type="button" data-option="${escapeAttr(option)}">${escapeHtml(option)}</button>`).join("")}
@@ -2602,13 +3090,44 @@ function answerUsesChangedForm(question) {
 
 function checkQuestion(answer) {
   if (!currentQuestion) return;
+  if (currentQuestionAnswered) {
+    toast("這題已經記錄，請換下一題繼續冒險");
+    return;
+  }
+  currentQuestionAnswered = true;
   const isCorrect = normalize(answer) === normalize(currentQuestion.answer);
   const target = wordKeyFromText(currentQuestion.targetWord || currentQuestion.answer, currentQuestion.unit, currentQuestion.series || "all");
   const statResult = target ? updateWordStats(target.id, isCorrect, { activity: "practice" }) : null;
+  let runText = "";
+  let isLastRunQuestion = false;
+  if (adventureRun.active) {
+    if (isCorrect) adventureRun.correct += 1;
+    else adventureRun.wrong += 1;
+    const answered = adventureRun.correct + adventureRun.wrong;
+    isLastRunQuestion = answered >= adventureRun.questions.length;
+    runText = `｜本輪 ${answered}/${adventureRun.questions.length}，答對 ${adventureRun.correct} 題${isLastRunQuestion ? "，可以結算星星" : ""}`;
+    updateAdventureRunPracticeCount();
+  }
+  const rewardText = target
+    ? isCorrect
+      ? "獎勵：+1 星星、+3 究極吳限能量"
+      : "獎勵：+1 究極吳限能量"
+    : "這題沒有對應單字，未記錄冒險獎勵";
 
   const result = $("#questionResult");
   result.className = `result-box${isCorrect ? "" : " is-wrong"}`;
-  result.innerHTML = `<strong>${escapeHtml(isCorrect ? "答對了" : `答錯了，正解是 ${currentQuestion.answer}`)}</strong><p>${escapeHtml(currentQuestion.explanation)}</p>`;
+  result.innerHTML = `
+    <strong>${escapeHtml(isCorrect ? "答對了" : `答錯了，正解是 ${currentQuestion.answer}`)}</strong>
+    <p>${escapeHtml(currentQuestion.explanation)}</p>
+    <small class="question-reward">${escapeHtml(`${rewardText}${runText}`)}</small>
+    ${isLastRunQuestion ? `
+      <button class="primary-button adventure-finish-inline" id="finishAdventureRunBtn" type="button">
+        <i data-lucide="sparkles"></i><span>完成冒險並領星星</span>
+      </button>
+    ` : ""}
+  `;
+  $("#finishAdventureRunBtn")?.addEventListener("click", finishAdventureRun);
+  if (window.lucide) window.lucide.createIcons();
   const unlockText = statResult?.adventureUnlocks?.length ? `，徽章亮起：${statResult.adventureUnlocks[0].title}` : "";
   toast(isCorrect ? `已記錄答對${unlockText}` : `已記錄答錯${unlockText}`);
 }
@@ -3025,7 +3544,7 @@ function renderLibrary() {
         </div>
         <div class="tag-row">
           <span class="tag">${escapeHtml(word.series || DEFAULT_SERIES)}</span>
-          <span class="tag">${word.pos || "詞性未填"}</span>
+          <span class="tag">${escapeHtml(formatPosLabel(word.pos))}</span>
           <span class="tag">${escapeHtml(wordUnitLabel(word))}</span>
           <span class="tag">Lv.${word.proficiency || 0}</span>
         </div>
@@ -3288,6 +3807,7 @@ function boot() {
   ["pointerdown", "touchstart", "click"].forEach((eventName) => {
     document.addEventListener(eventName, unlockSpeech, { once: true, passive: true });
   });
+  renderVisitorCounter();
   setupTabs();
   setupAdventureAccordions();
   setupUnitSelects();
@@ -3335,11 +3855,11 @@ function boot() {
   $("#practiceSeries").addEventListener("change", async () => {
     await ensurePracticeSeriesLoaded($("#practiceSeries").value || "all");
     refreshUnitSelectFor("#practiceSeries", "#practiceUnit");
-    nextQuestion();
+    cancelAdventureRunAndNextQuestion();
   });
-  $("#practiceUnit").addEventListener("change", nextQuestion);
-  $("#practiceMode").addEventListener("change", nextQuestion);
-  $("#practiceScope").addEventListener("change", nextQuestion);
+  $("#practiceUnit").addEventListener("change", cancelAdventureRunAndNextQuestion);
+  $("#practiceMode").addEventListener("change", cancelAdventureRunAndNextQuestion);
+  $("#practiceScope").addEventListener("change", cancelAdventureRunAndNextQuestion);
   $("#newQuestion").addEventListener("click", nextQuestion);
   $("#searchWord").addEventListener("input", renderLibrary);
   $("#librarySeries").addEventListener("change", async () => {

@@ -13,6 +13,10 @@
       <div>
         <p class="eyebrow">VocabMaster</p>
         <h1>單字學習與題庫練習</h1>
+        <div class="visitor-counter" id="visitorCounter" aria-live="polite">
+          <span class="visitor-counter__label">勇者紀錄</span>
+          <span id="visitorCounterText">勇者序號準備中...</span>
+        </div>
       </div>
       <div class="header-actions">
         <button class="ghost-button dim-button" id="dimScreenBtn" type="button" aria-pressed="false"><i data-lucide="moon"></i><span>暗屏</span></button>
@@ -75,6 +79,20 @@
               <input id="characterNameInput" class="character-name-input" type="text" maxlength="12" value="吳限勇者" aria-label="角色名稱">
               <strong id="characterSkillName" class="character-skill-name">吳限覺醒！</strong>
             </div>
+            <button class="adventure-start-button" id="startAdventureBtn" type="button">
+              <i data-lucide="swords"></i>
+              <span>開始冒險</span>
+            </button>
+          </div>
+          <div class="adventure-series-panel" id="adventureSeriesPanel" hidden>
+            <header>
+              <div>
+                <strong>選擇練習系列</strong>
+                <small>答題會獲得星星與究極吳限能量</small>
+              </div>
+              <button class="icon-button" id="closeAdventureSeries" type="button" aria-label="關閉系列選擇"><i data-lucide="x"></i></button>
+            </header>
+            <div class="adventure-series-list" id="adventureSeriesList"></div>
           </div>
           <div class="hero-reward-showcase">
             <div class="hero-equipped">
@@ -128,31 +146,14 @@
         <article class="section-card shop-card">
           <h3>冒險商城</h3>
           <p class="shop-note">用星星解鎖角色外觀、頭像框與奇幻裝備，外觀和框會分開套用。</p>
-          <div class="shop-grid shop-accordion">
-            <details class="shop-category">
-              <summary><span>職業</span><small>展開購買職業</small></summary>
-              <div id="classShop" class="shop-list"></div>
-            </details>
-            <details class="shop-category">
-              <summary><span>角色外觀</span><small>展開購買外觀</small></summary>
-              <div id="avatarShop" class="shop-list"></div>
-            </details>
-            <details class="shop-category">
-              <summary><span>頭像框</span><small>展開購買頭像框</small></summary>
-              <div id="frameShop" class="shop-list"></div>
-            </details>
-            <details class="shop-category">
-              <summary><span>場景背景</span><small>展開購買背景</small></summary>
-              <div id="backgroundShop" class="shop-list"></div>
-            </details>
-            <details class="shop-category">
-              <summary><span>服裝</span><small>展開購買服裝</small></summary>
-              <div id="outfitShop" class="shop-list"></div>
-            </details>
-            <details class="shop-category">
-              <summary><span>法術商城</span><small>展開購買法術</small></summary>
-              <div id="spellShop" class="shop-list"></div>
-            </details>
+          <div id="cosmeticShopSlots" class="cosmetic-slot-grid"></div>
+          <div class="shop-grid shop-accordion" hidden>
+            <div id="classShop" class="shop-list"></div>
+            <div id="avatarShop" class="shop-list"></div>
+            <div id="frameShop" class="shop-list"></div>
+            <div id="backgroundShop" class="shop-list"></div>
+            <div id="outfitShop" class="shop-list"></div>
+            <div id="spellShop" class="shop-list"></div>
           </div>
           <div class="equipment-shop" hidden>
             <div id="equipmentShop" class="equipment-shop-grid"></div>
@@ -206,6 +207,7 @@
                 <section class="meaning-panel">
                   <p class="phrase-label">單字</p>
                   <strong id="flashTranslation">能力</strong>
+                  <span class="meaning-pos" id="flashBackPos" hidden></span>
                   <p class="phrase-label example-block-label" id="flashExampleLabel">單字例句</p>
                   <blockquote id="flashExampleBlock">
                     <span id="flashExample"></span>

@@ -29,8 +29,40 @@ function normalizeText(value) {
     .trim();
 }
 
+function normalizeDuplicateWord(value) {
+  return String(value || "")
+    .replace(/[’']/g, "'")
+    .replace(/[^A-Za-z0-9\u4e00-\u9fff']+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function hasHyphenSpacing(value) {
   return /[A-Za-z]\s+-[A-Za-z]|[A-Za-z]-\s+[A-Za-z]/.test(String(value || ""));
+}
+
+function hasEnglishPunctuationSpacing(value) {
+  return /\s+[.,!?;:]/.test(String(value || ""));
+}
+
+function hasChinesePunctuationSpacing(value) {
+  return /\s+[。！？；，、]/.test(String(value || ""));
+}
+
+function hasRepeatedChinesePunctuation(value) {
+  return /。。|，，|！！|？？/.test(String(value || ""));
+}
+
+function hasSuspiciousOcrSplit(value) {
+  return /提\s+供|等\s+於|才\s+流行|習作\s+的|相\s+機|腳\s+踏車|責任\s+扛|天氣預報\s+。?\s+under the weather/i.test(String(value || ""));
+}
+
+function hasAwkwardExamplePattern(value) {
+  return /\band the responsibility on his shoulders\b/i.test(String(value || "")) || /hours a day,\s*days a week/i.test(String(value || ""));
+}
+
+function hasSpacedEnglishLetters(value) {
+  return /\b(?:[a-zA-Z]\s+){2,}[a-zA-Z]\b/.test(String(value || ""));
 }
 
 function phraseExampleUsesPhrase(phrase, example) {
@@ -221,6 +253,15 @@ for (const word of words) {
     if (hasHyphenSpacing(value)) {
       issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word || "(empty)"} ${label} has extra hyphen spacing`);
     }
+    if (hasEnglishPunctuationSpacing(value)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word || "(empty)"} ${label} has extra spacing before English punctuation`);
+    }
+    if (hasAwkwardExamplePattern(value)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word || "(empty)"} ${label} has an awkward or incomplete generated pattern`);
+    }
+    if (hasSpacedEnglishLetters(value)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word || "(empty)"} ${label} has OCR-split English letters`);
+    }
   }
 
   const phrase = phraseInfo(word);
@@ -261,9 +302,18 @@ for (const word of words) {
     if (/^[-－]/.test(text)) {
       issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: ${label} starts with a stray hyphen`);
     }
+    if (hasChinesePunctuationSpacing(text)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: ${label} has extra spacing before Chinese punctuation`);
+    }
+    if (hasRepeatedChinesePunctuation(text)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: ${label} has repeated Chinese punctuation`);
+    }
+    if (hasSuspiciousOcrSplit(text)) {
+      issues.push(`${word.series} Unit ${word.unit || "-"} ${word.word}: ${label} has suspicious OCR spacing or leftover text`);
+    }
   }
 
-  const key = `${word.series}::${normalizeText(word.word)}`;
+  const key = `${word.series}::Unit ${word.unit}::${normalizeDuplicateWord(word.word)}`;
   duplicates.set(key, [...(duplicates.get(key) || []), word]);
 }
 

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "python -m http.server 4173",
     "check": "node --check src/app.js",
-    "validate:data": "node scripts/validate-data.mjs"
+    "validate:data": "node scripts/validate-data.mjs",
+    "audit:content": "node scripts/audit-content-standard.mjs"
   }
 }
