@@ -7135,3 +7135,62 @@ body.is-dimmed .spell-panel {
     grid-template-columns: 1fr !important;
   }
 }
+
+
+body .loadout-picker-overlay {
+  z-index: 3000 !important;
+  overflow: auto !important;
+  overscroll-behavior: contain !important;
+}
+
+body .loadout-picker-panel {
+  width: min(920px, calc(100vw - 32px)) !important;
+  max-height: min(760px, calc(100vh - 32px)) !important;
+  overflow: hidden !important;
+}
+
+body .loadout-picker-list {
+  max-height: calc(100vh - 140px) !important;
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+/* Absolute final iPad/shop override. Must remain at EOF. */
+body #adventureDailyTasks.daily-task-list {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  align-items: start !important;
+}
+body #adventureDailyTasks .mission-group { min-width: 0 !important; overflow: hidden !important; border-radius: 8px !important; }
+body #adventureDailyTasks .mission-group + .mission-group { margin-top: 0 !important; }
+body #adventureDailyTasks .mission-group > summary { min-height: 48px !important; grid-template-columns: minmax(0, 1fr) auto !important; gap: 8px !important; padding: 10px 12px !important; }
+body #adventureDailyTasks .mission-group > summary span { font-size: clamp(15px, 1.2vw, 18px) !important; line-height: 1.2 !important; }
+body #adventureDailyTasks .mission-group > summary small { grid-column: 1 / -1 !important; font-size: 12px !important; line-height: 1.25 !important; }
+body #adventureDailyTasks .mission-group > summary::after { content: "展開" !important; min-width: 48px !important; width: auto !important; padding: 6px 8px !important; font-size: 13px !important; }
+body #adventureDailyTasks .mission-group[open] > summary::after { content: "收合" !important; }
+body #adventureDailyTasks .mission-group-body { grid-template-columns: 1fr !important; gap: 8px !important; max-height: 270px !important; overflow: auto !important; padding: 0 10px 10px !important; }
+body #adventureDailyTasks .mission-task { min-height: 0 !important; padding: 10px !important; border-radius: 8px !important; }
+body #adventureDailyTasks .mission-task p { display: -webkit-box !important; -webkit-box-orient: vertical !important; -webkit-line-clamp: 2 !important; overflow: hidden !important; min-height: 0 !important; margin: 0 0 8px !important; font-size: 13px !important; line-height: 1.35 !important; }
+body #adventureDailyTasks .mission-task button { min-height: 32px !important; margin-top: 8px !important; padding: 6px 10px !important; }
+body .hero-reward-showcase { grid-template-columns: minmax(0, 1fr) !important; overflow: visible !important; }
+body .hero-reward-showcase .hero-equipped { grid-template-columns: minmax(150px, 200px) minmax(0, 1fr) !important; align-items: center !important; overflow: visible !important; }
+body #heroEquippedAvatar { width: clamp(120px, 13vw, 168px) !important; height: clamp(120px, 13vw, 168px) !important; justify-self: center !important; }
+body .hero-loadout { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; min-width: 0 !important; overflow: visible !important; }
+body .loadout-slot { min-width: 0 !important; overflow: hidden !important; }
+body .loadout-slot small { min-width: 0 !important; overflow-wrap: anywhere !important; }
+body .hero-stat-grid, body .hero-stat-grid-primary, body .hero-stat-grid-secondary { grid-template-columns: repeat(auto-fit, minmax(138px, 1fr)) !important; gap: 10px !important; }
+body .cosmetic-slot-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important; }
+body .cosmetic-shop-slot, body .shop-item { min-width: 0 !important; }
+body .cosmetic-shop-slot .shop-slot-copy, body .shop-item > div:not(.shop-preview) { min-width: 0 !important; }
+body .cosmetic-shop-slot strong, body .cosmetic-shop-slot small, body .shop-item strong, body .shop-item small { overflow-wrap: anywhere !important; }
+@media screen and (min-width: 701px) and (max-width: 1180px) {
+  body .hero-stat-grid, body .hero-stat-grid-primary, body .hero-stat-grid-secondary { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+@media screen and (max-width: 900px) {
+  body #adventureDailyTasks.daily-task-list { grid-template-columns: 1fr !important; }
+  body #adventureDailyTasks .mission-group-body { max-height: none !important; }
+}
+@media screen and (max-width: 700px) {
+  body .hero-reward-showcase .hero-equipped, body .hero-loadout, body .cosmetic-slot-grid { grid-template-columns: 1fr !important; }
+  body .hero-stat-grid, body .hero-stat-grid-primary, body .hero-stat-grid-secondary { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}

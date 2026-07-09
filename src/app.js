@@ -287,9 +287,9 @@ const ACHIEVEMENT_SPECS = [
   ["level_30", "tower-control", "高塔三十階", "冒險等級達到 Lv.30", "level", 30, 82],
   ["level_45", "cloud-lightning", "雲端四十五階", "冒險等級達到 Lv.45", "level", 45, 112],
   ["level_60", "crown", "吳限頂點", "冒險等級達到 Lv.60", "level", 60, 150],
-  ["avatar_2", "user-round-plus", "夥伴集結", "解鎖 2 個職業頭像", "ownedAvatars", 2, 18],
-  ["avatar_4", "users-round", "四職同行", "解鎖 4 個職業頭像", "ownedAvatars", 4, 30],
-  ["avatar_8", "sparkles", "全職開放", "解鎖全部職業頭像", "ownedAvatars", 8, 60],
+  ["avatar_2", "user-round-plus", "夥伴集結", "解鎖 2 個職業造型", "ownedClasses", 2, 18],
+  ["avatar_4", "users-round", "四職同行", "解鎖 4 個職業造型", "ownedClasses", 4, 30],
+  ["avatar_8", "sparkles", "全職開放", "解鎖 8 個職業造型", "ownedClasses", 8, 60],
   ["frame_2", "panel-top", "框之初光", "解鎖 2 個頭像框", "ownedFrames", 2, 18],
   ["frame_4", "panel-top-open", "框之收藏", "解鎖 4 個頭像框", "ownedFrames", 4, 34],
   ["frame_5", "badge", "框之殿堂", "解鎖全部頭像框", "ownedFrames", 5, 50],
@@ -404,7 +404,13 @@ function normalizeAdventure(value) {
   const ownedAvatars = Array.isArray(data.ownedAvatars) ? data.ownedAvatars : ["w"];
   const ownedFrames = Array.isArray(data.ownedFrames) ? data.ownedFrames : ["plain"];
   const ownedBackgrounds = Array.isArray(data.ownedBackgrounds) ? data.ownedBackgrounds : ["meadow"];
+  const validClassIds = new Set(CLASS_ITEMS.map((item) => item.id));
   const ownedClasses = Array.isArray(data.ownedClasses) ? data.ownedClasses : ["novice"];
+  const mergedOwnedClasses = Array.from(new Set([
+    "novice",
+    ...ownedClasses.filter((id) => validClassIds.has(id)),
+    ...ownedAvatars.filter((id) => validClassIds.has(id))
+  ]));
   const ownedOutfits = Array.isArray(data.ownedOutfits) ? data.ownedOutfits : ["plain"];
   const ownedSpells = Array.isArray(data.ownedSpells) ? data.ownedSpells : ["cinder-spark"];
   const ownedEquipment = Array.isArray(data.ownedEquipment) ? data.ownedEquipment : [];
@@ -423,7 +429,7 @@ function normalizeAdventure(value) {
     ownedAvatars: ownedAvatars.includes("w") ? ownedAvatars : ["w", ...ownedAvatars],
     ownedFrames: ownedFrames.includes("plain") ? ownedFrames : ["plain", ...ownedFrames],
     ownedBackgrounds: ownedBackgrounds.includes("meadow") ? ownedBackgrounds : ["meadow", ...ownedBackgrounds],
-    ownedClasses: ownedClasses.includes("novice") ? ownedClasses : ["novice", ...ownedClasses],
+    ownedClasses: mergedOwnedClasses,
     ownedOutfits: ownedOutfits.includes("plain") ? ownedOutfits : ["plain", ...ownedOutfits],
     ownedSpells: ownedSpells.includes("cinder-spark") ? ownedSpells : ["cinder-spark", ...ownedSpells],
     ownedEquipment,
@@ -434,10 +440,14 @@ function normalizeAdventure(value) {
       boots: equippedEquipment.boots || ""
     },
     characterName: String(data.characterName || "吳限勇者").slice(0, 12),
-    activeAvatar: ownedAvatars.includes(data.activeAvatar) ? data.activeAvatar : "w",
+    activeAvatar: "w",
     activeFrame: ownedFrames.includes(data.activeFrame) ? data.activeFrame : "plain",
     activeBackground: ownedBackgrounds.includes(data.activeBackground) ? data.activeBackground : "meadow",
-    activeClass: ownedClasses.includes(data.activeClass) ? data.activeClass : "novice",
+    activeClass: mergedOwnedClasses.includes(data.activeClass)
+      ? data.activeClass
+      : mergedOwnedClasses.includes(data.activeAvatar)
+        ? data.activeAvatar
+        : "novice",
     activeOutfit: ownedOutfits.includes(data.activeOutfit) ? data.activeOutfit : "plain",
     activeSpell: ownedSpells.includes(data.activeSpell) ? data.activeSpell : "cinder-spark"
   };
@@ -486,6 +496,28 @@ function formatAdventureDateKey(date) {
 function todayKey(now = new Date()) {
   const resetHour = 8;
   return formatAdventureDateKey(new Date(now.getTime() - resetHour * 60 * 60 * 1000));
+}
+
+function weeklyMissionKey(now = new Date()) {
+  const shifted = new Date(now.getTime() - 6 * 60 * 60 * 1000);
+  const day = shifted.getDay() || 7;
+  shifted.setDate(shifted.getDate() - day + 1);
+  return `week-${formatAdventureDateKey(shifted)}`;
+}
+
+function monthlyMissionKey(now = new Date()) {
+  const shifted = new Date(now.getTime() - 6 * 60 * 60 * 1000);
+  const year = shifted.getFullYear();
+  const month = String(shifted.getMonth() + 1).padStart(2, "0");
+  return `month-${year}-${month}`;
+}
+
+function nextWeeklyResetLabel() {
+  return "下次更新：週一 06:00";
+}
+
+function nextMonthlyResetLabel() {
+  return "下次更新：每月 1 日 06:00";
 }
 
 function todayAdventure(source = adventure) {
@@ -1015,9 +1047,9 @@ function renderAdventure() {
   const avatar = activeAvatarItem();
   const frame = activeFrameItem();
   const background = activeBackgroundItem();
-  $("#companionAvatar").textContent = avatar.icon;
+  $("#companionAvatar").textContent = activeClassItem().icon || avatar.icon;
   $("#companionAvatar").dataset.mood = companion.mood;
-  $("#companionAvatar").dataset.avatar = avatar.id;
+  $("#companionAvatar").dataset.avatar = activeClassItem().id;
   $("#companionAvatar").dataset.frame = frame.id;
   $("#companionTitle").textContent = companion.title;
   $("#companionMessage").textContent = companion.message;
@@ -1132,8 +1164,8 @@ function renderHeroRewards(avatar, frame, background) {
   }
   const equipped = $("#heroEquippedAvatar");
   const classItem = activeClassItem();
-  equipped.innerHTML = renderAvatarPortrait({ ...avatar, id: classItem.id || avatar.id, icon: classItem.icon || avatar.icon });
-  equipped.dataset.avatar = avatar.id;
+  equipped.innerHTML = renderAvatarPortrait({ ...classItem, icon: classItem.icon || avatar.icon });
+  equipped.dataset.avatar = classItem.id;
   equipped.dataset.frame = frame.id;
   equipped.dataset.outfit = activeOutfitItem().id;
   const skillList = AVATAR_SKILLS[classItem.id] || [`${classItem.name}覺醒！`, "吳限連擊！", "知識護盾！"];
@@ -1175,7 +1207,7 @@ function renderHeroRewards(avatar, frame, background) {
       <span class="hero-reward-hint">完成任務後，可以挑選徽章放到這裡展示。</span>
     `;
 
-  const stats = characterStats(level.level, avatar);
+  const stats = characterStats(level.level);
   $("#heroStats").innerHTML = `
     <div class="hero-stat-grid hero-stat-grid-primary">
       ${RPG_STAT_LABELS.slice(0, 4).map(({ key, label, suffix }) => `
@@ -1387,7 +1419,7 @@ const RPG_STAT_LABELS = [
   { key: "faith", label: "信仰" }
 ];
 
-function characterStats(level, avatar) {
+function characterStats(level) {
   const base = {
     hp: 80 + level * 8,
     mp: 28 + level * 3,
@@ -1401,7 +1433,7 @@ function characterStats(level, avatar) {
     virtue: 50 + Math.floor(level / 2),
     faith: 45 + Math.floor(level / 2)
   };
-  const total = addStats(base, avatar.stats || {});
+  const total = addStats(base, {});
   addStats(total, activeClassItem().stats || {});
   addStats(total, activeOutfitItem().stats || {});
   Object.values(adventure.equippedEquipment || {}).forEach((itemId) => {
@@ -1557,6 +1589,8 @@ function adventureMissionGroups(today, snapshot, level) {
   const consecutiveDays = adventureConsecutiveDays();
   const unlockedCount = Object.keys(adventure.achievements || {}).length;
   const todayId = todayKey();
+  const weekId = weeklyMissionKey();
+  const monthId = monthlyMissionKey();
   const dailyTasks = dailyMissionTemplates(todayId).map((template) =>
     missionTask(
       template.id,
@@ -1577,21 +1611,21 @@ function adventureMissionGroups(today, snapshot, level) {
     },
     {
       title: "多日連續型任務",
-      note: "長期累積，不會每天清空",
+      note: nextWeeklyResetLabel(),
       tasks: [
-        missionTask("streak_days_2", "連續", "連續學習 2 天", "每天一點點，比一次衝很多更穩。", consecutiveDays, 2, 12, "once"),
-        missionTask("streak_days_5", "連續", "連續學習 5 天", "讓學習變成固定的小習慣。", consecutiveDays, 5, 25, "once"),
-        missionTask("streak_correct_10", "連續", "連續答對 10 題", "進入專注狀態時，小夥伴會一起發光。", adventure.bestStreak || 0, 10, 18, "once")
+        missionTask("streak_days_2", "連續", "連續學習 2 天", "每天一點點，比一次衝很多更穩。", consecutiveDays, 2, 12, weekId),
+        missionTask("streak_days_5", "連續", "連續學習 5 天", "讓學習變成固定的小習慣。", consecutiveDays, 5, 25, weekId),
+        missionTask("streak_correct_10", "連續", "連續答對 10 題", "進入專注狀態時，小夥伴會一起發光。", adventure.bestStreak || 0, 10, 18, weekId)
       ]
     },
     {
       title: "累積型任務",
-      note: "完成一次即可領取",
+      note: nextMonthlyResetLabel(),
       tasks: [
-        missionTask("total_attempt_50", "累積", "累積練習 50 次", "每一次點擊都算在冒險裡。", snapshot.attempts, 50, 30, "once"),
-        missionTask("total_correct_30", "累積", "累積答對 30 題", "把會的單字慢慢變成自己的。", snapshot.correct, 30, 35, "once"),
-        missionTask("level_10", "累積", "冒險等級 Lv.10", "抵達第一張地圖的終點。", level.level, 10, 45, "once"),
-        missionTask("badge_3", "累積", "解鎖 3 枚徽章", "徽章收藏冊開始有故事了。", unlockedCount, 3, 40, "once")
+        missionTask("total_attempt_50", "累積", "累積練習 50 次", "每一次點擊都算在冒險裡。", snapshot.attempts, 50, 30, monthId),
+        missionTask("total_correct_30", "累積", "累積答對 30 題", "把會的單字慢慢變成自己的。", snapshot.correct, 30, 35, monthId),
+        missionTask("level_10", "累積", "冒險等級 Lv.10", "抵達第一張地圖的終點。", level.level, 10, 45, monthId),
+        missionTask("badge_3", "累積", "解鎖 3 枚徽章", "徽章收藏冊開始有故事了。", unlockedCount, 3, 40, monthId)
       ]
     }
   ];
@@ -1691,8 +1725,7 @@ function activeSpellItem() {
 }
 
 const COSMETIC_SHOP_CATEGORIES = [
-  { type: "class", title: "職業", action: "選擇職業" },
-  { type: "avatar", title: "角色外觀", action: "選擇外觀" },
+  { type: "class", title: "職業造型", action: "選擇職業造型" },
   { type: "frame", title: "頭像框", action: "選擇頭像框" },
   { type: "background", title: "場景背景", action: "選擇背景" },
   { type: "outfit", title: "服裝", action: "選擇服裝" },
