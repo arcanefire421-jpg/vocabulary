@@ -2,7 +2,7 @@ import { BASE_VOCABULARY } from "../data/vocabulary.js?v=v1.3-rpg-shop";
 import { JUNIOR_1200_VOCABULARY } from "../data/junior1200.js?v=v1.3-rpg-shop";
 import { QUESTION_BANK } from "../data/questions.js?v=v1.3-rpg-shop";
 
-const APP_VERSION = "V1.3 勇者傳說版";
+const APP_VERSION = "V1.4 勇者傳說版";
 
 const STORAGE_KEY = "vocabmaster-state-v1";
 const CUSTOM_KEY = "vocabmaster-custom-v1";
@@ -1056,18 +1056,8 @@ function renderAdventure() {
   renderHeroRewards(avatar, frame, background);
   renderAdventureSeriesPicker();
 
-  const missionGroups = adventureMissionGroups(today, snapshot, level);
-  $("#adventureDailyTasks").innerHTML = missionGroups.map((group, index) => `
-    <details class="mission-group" ${index === 0 ? "open" : ""}>
-      <summary>
-        <span>${escapeHtml(group.title)}</span>
-        ${group.note ? `<small>${escapeHtml(group.note)}</small>` : ""}
-      </summary>
-      <div class="mission-group-body">
-        ${group.tasks.map((task) => renderMissionTask(task)).join("")}
-      </div>
-    </details>
-  `).join("");
+  const missionTasks = adventureMissionGroups(today, snapshot, level).flatMap((group) => group.tasks);
+  $("#adventureDailyTasks").innerHTML = missionTasks.map((task) => renderMissionTask(task)).join("");
   $$("[data-claim-mission]").forEach((button) => {
     button.addEventListener("click", () => claimMissionReward(button.dataset.claimMission));
   });
@@ -1107,6 +1097,16 @@ function renderAdventure() {
   $$("[data-open-cosmetic-shop]").forEach((button) => {
     button.addEventListener("click", () => openCosmeticPicker(button.dataset.openCosmeticShop));
   });
+  $$("[data-open-equipment-shop]").forEach((button) => {
+    button.addEventListener("click", () => openLoadoutPicker(button.dataset.openEquipmentShop));
+  });
+  if ($("#openAchievementPicker")) $("#openAchievementPicker").onclick = openAchievementPicker;
+  if ($("#closeAchievementPicker")) $("#closeAchievementPicker").onclick = closeAchievementPicker;
+  if ($("#achievementPicker")) {
+    $("#achievementPicker").onclick = (event) => {
+      if (event.target === $("#achievementPicker")) closeAchievementPicker();
+    };
+  }
 
   const sortedAchievements = ADVENTURE_ACHIEVEMENTS
     .map((achievement, index) => {
@@ -1146,12 +1146,57 @@ function renderAdventure() {
   $$("[data-showcase-badge]").forEach((button) => {
     button.addEventListener("click", () => toggleShowcaseBadge(button.dataset.showcaseBadge));
   });
+  renderAchievementSummary(sortedAchievements);
 
   const heroText = unlockedCount
     ? `已解鎖 ${unlockedCount} 枚徽章，累積 ${snapshot.attempts} 次練習。`
     : "完成第一次練習後，第一枚徽章就會亮起來。";
   $(".adventure-hero p:last-child").textContent = heroText;
   if (window.lucide) window.lucide.createIcons();
+}
+
+function renderAchievementSummary(sortedAchievements) {
+  const target = $("#achievementSummaryShelf");
+  if (!target) return;
+  const unlocked = sortedAchievements.filter(({ unlocked }) => unlocked).length;
+  const next = sortedAchievements.find(({ unlocked }) => !unlocked);
+  const showcased = (adventure.showcaseBadges || [])
+    .map((id) => ADVENTURE_ACHIEVEMENTS.find((achievement) => achievement.id === id))
+    .filter(Boolean)
+    .slice(0, 6);
+  const fallback = sortedAchievements
+    .filter(({ unlocked }) => unlocked)
+    .slice(-6)
+    .map(({ achievement }) => achievement);
+  const badges = showcased.length ? showcased : fallback;
+
+  target.innerHTML = `
+    <div class="achievement-summary-meter">
+      <strong>${unlocked}</strong>
+      <span>已解鎖</span>
+      <small>${next ? `下一枚：${escapeHtml(next.achievement.title)} ${escapeHtml(next.progress.label)}` : "所有徽章都已完成"}</small>
+    </div>
+    <div class="achievement-summary-badges">
+      ${badges.length ? badges.map((achievement) => `
+        <span class="hero-reward badge-showcase badge-art badge-art-${escapeHtml(achievement.metric)}" title="${escapeHtml(achievement.title)}">
+          <i data-lucide="${achievement.icon}"></i>
+          <small>${escapeHtml(achievement.title)}</small>
+        </span>
+      `).join("") : `<span class="hero-reward reward-locked">?</span><small>完成任務後徽章會在這裡亮起。</small>`}
+    </div>
+  `;
+}
+
+function openAchievementPicker() {
+  const picker = $("#achievementPicker");
+  if (!picker) return;
+  picker.hidden = false;
+}
+
+function closeAchievementPicker() {
+  const picker = $("#achievementPicker");
+  if (!picker) return;
+  picker.hidden = true;
 }
 
 function renderHeroRewards(avatar, frame, background) {
@@ -1209,16 +1254,8 @@ function renderHeroRewards(avatar, frame, background) {
 
   const stats = characterStats(level.level);
   $("#heroStats").innerHTML = `
-    <div class="hero-stat-grid hero-stat-grid-primary">
-      ${RPG_STAT_LABELS.slice(0, 4).map(({ key, label, suffix }) => `
-        <div class="hero-stat">
-          <span>${escapeHtml(label)}</span>
-          <strong>${stats[key]}${suffix || ""}</strong>
-        </div>
-      `).join("")}
-    </div>
-    <div class="hero-stat-grid hero-stat-grid-secondary">
-      ${RPG_STAT_LABELS.slice(4).map(({ key, label, suffix }) => `
+    <div class="hero-stat-grid hero-stat-grid-all">
+      ${RPG_STAT_LABELS.map(({ key, label, suffix }) => `
         <div class="hero-stat">
           <span>${escapeHtml(label)}</span>
           <strong>${stats[key]}${suffix || ""}</strong>
@@ -1731,6 +1768,15 @@ const COSMETIC_SHOP_CATEGORIES = [
   { type: "outfit", title: "服裝", action: "選擇服裝" },
   { type: "spell", title: "法術", action: "選擇法術" }
 ];
+const ADVENTURE_SHOP_CATEGORIES = [
+  ...COSMETIC_SHOP_CATEGORIES.map((category) => ({ ...category, kind: "cosmetic" })),
+  ...EQUIPMENT_CATEGORIES.map((category) => ({
+    type: category.id,
+    title: category.title,
+    action: `選擇${category.title}`,
+    kind: "equipment"
+  }))
+];
 
 function shopConfig(type) {
   return {
@@ -1768,15 +1814,31 @@ function activeShopItem(type) {
   return config.items.find((item) => item.id === adventure[config.activeKey]) || config.items[0] || null;
 }
 
+function activeEquipmentItem(slot) {
+  const items = EQUIPMENT_ITEMS.filter((item) => item.slot === slot);
+  return items.find((item) => item.id === adventure.equippedEquipment?.[slot])
+    || items.find((item) => adventure.ownedEquipment?.includes(item.id))
+    || items[0]
+    || null;
+}
+
 function renderCosmeticShopSlots() {
   const target = $("#cosmeticShopSlots");
   if (!target) return;
-  target.innerHTML = COSMETIC_SHOP_CATEGORIES.map(({ type, title, action }) => {
-    const item = activeShopItem(type);
-    const previewContent = item ? shopPreviewContent(item, type) : "";
-    const previewClass = item ? shopPreviewClass(item, type) : "";
+  target.innerHTML = ADVENTURE_SHOP_CATEGORIES.map(({ type, title, action, kind }) => {
+    const isEquipment = kind === "equipment";
+    const item = isEquipment ? activeEquipmentItem(type) : activeShopItem(type);
+    const previewContent = item
+      ? isEquipment
+        ? `<span class="equipment-icon ${equipmentArtClass(item)}" aria-hidden="true"${equipmentImageStyle(item)}></span>`
+        : shopPreviewContent(item, type)
+      : "";
+    const previewClass = item && !isEquipment ? shopPreviewClass(item, type) : "equipment-slot-preview";
+    const dataAttr = isEquipment
+      ? `data-open-equipment-shop="${escapeHtml(type)}"`
+      : `data-open-cosmetic-shop="${escapeHtml(type)}"`;
     return `
-      <button class="cosmetic-shop-slot" type="button" data-open-cosmetic-shop="${escapeHtml(type)}">
+      <button class="cosmetic-shop-slot" type="button" ${dataAttr}>
         <span class="shop-slot-preview shop-preview ${previewClass}">${previewContent}</span>
         <span class="shop-slot-copy">
           <strong>${escapeHtml(title)}</strong>
@@ -3790,10 +3852,11 @@ function mergeAdventureIntoDashboard() {
   const adventurePanel = $("#adventure");
   const adventureTab = document.querySelector('[data-tab="adventure"]');
   if (!dashboard || !adventurePanel || dashboard.querySelector(".adventure-hero")) return;
+  dashboard.classList.add("dashboard-home");
   const adventureBlock = document.createElement("div");
   adventureBlock.className = "dashboard-adventure";
   while (adventurePanel.firstChild) adventureBlock.appendChild(adventurePanel.firstChild);
-  dashboard.appendChild(adventureBlock);
+  dashboard.insertBefore(adventureBlock, dashboard.firstChild);
   adventurePanel.remove();
   if (adventureTab) adventureTab.hidden = true;
 }

@@ -160,10 +160,29 @@
           </div>
         </article>
 
-        <details class="section-card achievement-card collapsible-card">
-          <summary><span>徽章收藏冊</span><small>展開查看成就</small></summary>
-          <div id="achievementGrid" class="achievement-grid"></div>
-        </details>
+        <article class="section-card achievement-card achievement-summary-card">
+          <header>
+            <div>
+              <h3>徽章收藏冊</h3>
+              <p>挑選已解鎖徽章，放到榮耀展示。</p>
+            </div>
+            <button class="loadout-picker-button achievement-manage-button" id="openAchievementPicker" type="button">
+              <i data-lucide="award"></i>
+              <span>管理徽章</span>
+            </button>
+          </header>
+          <div id="achievementSummaryShelf" class="achievement-summary-shelf"></div>
+        </article>
+
+        <div class="loadout-picker-overlay" id="achievementPicker" role="dialog" aria-modal="true" aria-label="徽章收藏冊" hidden>
+          <div class="loadout-picker-panel achievement-picker-panel">
+            <header>
+              <strong>徽章收藏冊</strong>
+              <button type="button" class="loadout-picker-close" id="closeAchievementPicker" aria-label="關閉">×</button>
+            </header>
+            <div id="achievementGrid" class="achievement-grid loadout-picker-list"></div>
+          </div>
+        </div>
       </section>
 
       <section class="panel" id="flashcards">

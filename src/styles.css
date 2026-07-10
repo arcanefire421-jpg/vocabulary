@@ -897,6 +897,19 @@ body.is-dimmed .adventure-series-card small {
   max-height: 58px !important;
 }
 
+.cosmetic-shop-slot .equipment-slot-preview {
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+}
+
+.cosmetic-shop-slot .equipment-slot-preview .equipment-icon {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  border-radius: 12px !important;
+}
+
 .shop-slot-copy {
   display: grid !important;
   gap: 3px !important;
@@ -7193,4 +7206,657 @@ body .cosmetic-shop-slot strong, body .cosmetic-shop-slot small, body .shop-item
 @media screen and (max-width: 700px) {
   body .hero-reward-showcase .hero-equipped, body .hero-loadout, body .cosmetic-slot-grid { grid-template-columns: 1fr !important; }
   body .hero-stat-grid, body .hero-stat-grid-primary, body .hero-stat-grid-secondary { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+/* Homepage compact command center. Keep after legacy overrides. */
+body .loadout-picker-overlay[hidden],
+body #achievementPicker[hidden] {
+  display: none !important;
+}
+
+body #dashboard.dashboard-home {
+  display: grid !important;
+  gap: 18px !important;
+}
+
+body #dashboard.dashboard-home > .dashboard-adventure {
+  order: 1 !important;
+  display: grid !important;
+  gap: 16px !important;
+  margin-top: 0 !important;
+}
+
+body #dashboard.dashboard-home > .summary-band {
+  order: 2 !important;
+  min-height: 0 !important;
+  padding: clamp(18px, 2vw, 28px) !important;
+  border-radius: 10px !important;
+}
+
+body #dashboard.dashboard-home > .dashboard-grid {
+  order: 3 !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 18px !important;
+}
+
+body #dashboard .adventure-hero,
+body #dashboard .adventure-grid,
+body #dashboard .adventure-map-card,
+body #dashboard .shop-card,
+body #dashboard .achievement-summary-card {
+  margin-top: 0 !important;
+}
+
+body #dashboard .adventure-hero {
+  display: grid !important;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(320px, 1.2fr) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+}
+
+body #dashboard .adventure-hero > div:first-child {
+  display: none !important;
+}
+
+body #dashboard .adventure-level-card {
+  min-height: 260px !important;
+  border-radius: 10px !important;
+}
+
+body #dashboard .hero-reward-showcase {
+  grid-template-columns: minmax(0, 1fr) !important;
+  min-width: 0 !important;
+}
+
+body #dashboard .adventure-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 16px !important;
+}
+
+body #dashboard .adventure-grid > .section-card:nth-child(3) {
+  grid-column: 1 / -1 !important;
+}
+
+body #dashboard .shop-card,
+body #dashboard .achievement-summary-card {
+  overflow: visible !important;
+}
+
+body #dashboard .shop-card h3,
+body #dashboard .achievement-summary-card h3 {
+  margin: 0 !important;
+}
+
+body #dashboard .shop-note,
+body #dashboard .achievement-summary-card p {
+  margin: 4px 0 14px !important;
+  color: #5f6b78 !important;
+  font-size: clamp(14px, 1.1vw, 17px) !important;
+  line-height: 1.45 !important;
+}
+
+body #dashboard .achievement-summary-card > header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  margin-bottom: 14px !important;
+}
+
+body .achievement-manage-button {
+  min-height: 54px !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  white-space: nowrap !important;
+}
+
+body .achievement-summary-shelf {
+  display: grid !important;
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.3fr) !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+}
+
+body .achievement-summary-meter {
+  min-height: 96px !important;
+  padding: 16px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, #163f34, #2f7c68) !important;
+  color: #f9f1bf !important;
+  display: grid !important;
+  align-content: center !important;
+  gap: 2px !important;
+}
+
+body .achievement-summary-meter strong {
+  font-size: clamp(32px, 4vw, 54px) !important;
+  line-height: 1 !important;
+}
+
+body .achievement-summary-meter span,
+body .achievement-summary-meter small {
+  color: #edf7f2 !important;
+  font-weight: 900 !important;
+}
+
+body .achievement-summary-badges {
+  min-height: 96px !important;
+  padding: 12px !important;
+  border-radius: 10px !important;
+  background: #f7faf8 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  align-items: center !important;
+}
+
+body .achievement-summary-badges .hero-reward {
+  width: 86px !important;
+  min-height: 86px !important;
+  flex: 0 0 auto !important;
+}
+
+body .achievement-summary-badges .hero-reward small {
+  max-width: 72px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+body .achievement-picker-panel {
+  width: min(1080px, calc(100vw - 28px)) !important;
+}
+
+body #achievementGrid.achievement-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  max-height: calc(100vh - 145px) !important;
+  overflow: auto !important;
+  padding-right: 4px !important;
+}
+
+body #achievementGrid .achievement-item {
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+body #achievementGrid .achievement-item p,
+body #achievementGrid .achievement-item small,
+body #achievementGrid .achievement-progress span {
+  overflow-wrap: anywhere !important;
+}
+
+@media screen and (max-width: 1180px) {
+  body #dashboard .adventure-hero,
+  body #dashboard .adventure-grid,
+  body #dashboard.dashboard-home > .dashboard-grid,
+  body .achievement-summary-shelf {
+    grid-template-columns: 1fr !important;
+  }
+
+  body #dashboard .adventure-level-card {
+    min-height: 220px !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  body #dashboard.dashboard-home {
+    gap: 14px !important;
+  }
+
+  body #dashboard.dashboard-home > .summary-band {
+    grid-template-columns: 1fr !important;
+  }
+
+  body #dashboard .hero-reward-showcase .hero-equipped,
+  body #dashboard .hero-loadout,
+  body #dashboard .cosmetic-slot-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body #dashboard .achievement-summary-card > header {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+
+  body .achievement-manage-button {
+    width: 100% !important;
+  }
+
+  body .achievement-summary-badges .hero-reward {
+    width: 78px !important;
+    min-height: 78px !important;
+  }
+}
+
+/* Space pass: keep dashboard blocks close to adventure-map card scale. */
+body #dashboard.dashboard-home > .dashboard-adventure {
+  gap: 14px !important;
+}
+
+body #dashboard .adventure-hero {
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr) !important;
+  gap: 14px !important;
+  padding: clamp(14px, 1.8vw, 20px) !important;
+  align-items: stretch !important;
+}
+
+body #dashboard .adventure-level-card {
+  min-height: 0 !important;
+  height: 100% !important;
+  padding: clamp(14px, 1.7vw, 20px) !important;
+  border-radius: 10px !important;
+}
+
+body #dashboard .adventure-level-card span {
+  font-size: clamp(42px, 4.8vw, 68px) !important;
+  line-height: 1 !important;
+}
+
+body #dashboard .adventure-level-card small,
+body #dashboard .adventure-level-card .character-stage {
+  margin-top: 6px !important;
+}
+
+body #dashboard .adventure-level-card .adventure-start-button {
+  margin-top: 14px !important;
+  min-height: 52px !important;
+  padding: 10px 18px !important;
+}
+
+body #dashboard .hero-reward-showcase {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) !important;
+  gap: 12px !important;
+  padding: clamp(12px, 1.5vw, 18px) !important;
+  min-height: 0 !important;
+}
+
+body #dashboard .hero-reward-showcase .hero-equipped {
+  grid-template-columns: minmax(116px, 148px) minmax(0, 1fr) !important;
+  gap: 12px !important;
+  padding: 12px !important;
+  min-height: 0 !important;
+}
+
+body #dashboard #heroEquippedAvatar {
+  width: clamp(108px, 10vw, 140px) !important;
+  height: clamp(108px, 10vw, 140px) !important;
+}
+
+body #dashboard .hero-loadout {
+  gap: 8px !important;
+}
+
+body #dashboard .loadout-slot {
+  min-height: 64px !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+}
+
+body #dashboard .loadout-slot .shop-preview,
+body #dashboard .loadout-slot .loadout-icon {
+  width: 42px !important;
+  height: 42px !important;
+  flex: 0 0 42px !important;
+}
+
+body #dashboard .hero-reward-showcase .hero-stats {
+  padding: 0 !important;
+  min-height: 0 !important;
+}
+
+body #dashboard .hero-stats h4 {
+  display: none !important;
+}
+
+body #dashboard .hero-stat-grid,
+body #dashboard .hero-stat-grid-primary,
+body #dashboard .hero-stat-grid-secondary {
+  grid-template-columns: repeat(auto-fit, minmax(108px, 1fr)) !important;
+  gap: 8px !important;
+}
+
+body #dashboard .hero-stat-grid + .hero-stat-grid {
+  margin-top: 8px !important;
+}
+
+body #dashboard .hero-stat {
+  min-height: 58px !important;
+  padding: 9px 11px !important;
+  border-radius: 8px !important;
+  align-items: center !important;
+}
+
+body #dashboard .hero-stat span {
+  font-size: clamp(13px, 1vw, 16px) !important;
+}
+
+body #dashboard .hero-stat strong {
+  font-size: clamp(20px, 2.1vw, 30px) !important;
+}
+
+body #dashboard .hero-reward-panel {
+  grid-column: 1 / -1 !important;
+  padding: 10px 12px !important;
+  min-height: 0 !important;
+}
+
+body #dashboard .hero-reward-panel h4 {
+  margin-bottom: 8px !important;
+}
+
+body #dashboard .hero-reward-panel .hero-reward-shelf {
+  display: flex !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  padding-bottom: 2px !important;
+}
+
+body #dashboard .hero-reward-panel .hero-reward {
+  width: 72px !important;
+  min-height: 72px !important;
+  flex: 0 0 72px !important;
+  border-radius: 10px !important;
+}
+
+body #dashboard .adventure-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+body #dashboard .adventure-grid > .section-card:nth-child(3) {
+  grid-column: auto !important;
+}
+
+body #dashboard .adventure-grid .section-card,
+body #dashboard .adventure-map-card,
+body #dashboard .shop-card,
+body #dashboard .achievement-summary-card {
+  min-height: 0 !important;
+  padding: clamp(14px, 1.6vw, 20px) !important;
+}
+
+body #dashboard .adventure-map-track {
+  min-height: 220px !important;
+}
+
+body #dashboard .shop-card,
+body #dashboard .achievement-summary-card {
+  max-height: 520px !important;
+  overflow: hidden !important;
+}
+
+body #dashboard .shop-card .cosmetic-slot-grid,
+body #dashboard #achievementSummaryShelf {
+  max-height: 390px !important;
+  overflow: auto !important;
+  padding-right: 4px !important;
+}
+
+@media screen and (min-width: 1181px) {
+  body #dashboard.dashboard-home > .dashboard-adventure {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    align-items: start !important;
+  }
+
+  body #dashboard .adventure-hero,
+  body #dashboard .adventure-map-card,
+  body #dashboard .adventure-grid {
+    grid-column: 1 / -1 !important;
+  }
+
+  body #dashboard .shop-card,
+  body #dashboard .achievement-summary-card {
+    grid-column: auto !important;
+  }
+}
+
+@media screen and (min-width: 761px) and (max-width: 1180px) {
+  body #dashboard .adventure-hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  body #dashboard .hero-reward-showcase {
+    grid-template-columns: 1fr !important;
+  }
+
+  body #dashboard .hero-reward-showcase .hero-equipped {
+    grid-template-columns: minmax(104px, 128px) minmax(0, 1fr) !important;
+  }
+
+  body #dashboard .hero-stat-grid,
+  body #dashboard .hero-stat-grid-primary,
+  body #dashboard .hero-stat-grid-secondary {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  body #dashboard .adventure-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body #dashboard .adventure-grid > .section-card:nth-child(3) {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  body #dashboard .adventure-hero,
+  body #dashboard .hero-reward-showcase,
+  body #dashboard .adventure-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body #dashboard .hero-reward-showcase .hero-equipped {
+    grid-template-columns: 1fr !important;
+  }
+
+  body #dashboard .hero-stat-grid,
+  body #dashboard .hero-stat-grid-primary,
+  body #dashboard .hero-stat-grid-secondary {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body #dashboard .shop-card,
+  body #dashboard .achievement-summary-card {
+    max-height: none !important;
+  }
+}
+
+/* Equal-card dashboard sizing: align hero, map, tasks, shop and achievements. */
+body #dashboard.dashboard-home {
+  --dashboard-card-height: clamp(300px, 30vw, 360px);
+}
+
+body #dashboard .adventure-hero,
+body #dashboard .adventure-map-card,
+body #dashboard .shop-card,
+body #dashboard .achievement-summary-card {
+  min-height: var(--dashboard-card-height) !important;
+  max-height: var(--dashboard-card-height) !important;
+  overflow: hidden !important;
+}
+
+body #dashboard .adventure-grid > .section-card {
+  min-height: var(--dashboard-card-height) !important;
+  max-height: var(--dashboard-card-height) !important;
+  overflow: hidden !important;
+}
+
+body #dashboard .adventure-grid > .section-card > *:last-child,
+body #dashboard .shop-card .cosmetic-slot-grid,
+body #dashboard .achievement-summary-shelf,
+body #dashboard .adventure-map-track {
+  max-height: calc(var(--dashboard-card-height) - 86px) !important;
+  overflow: auto !important;
+}
+
+body #dashboard .adventure-hero {
+  overflow: hidden !important;
+}
+
+body #dashboard .hero-reward-showcase {
+  max-height: calc(var(--dashboard-card-height) - 28px) !important;
+  overflow: hidden !important;
+}
+
+body #dashboard .hero-reward-showcase .hero-equipped,
+body #dashboard .hero-reward-showcase .hero-stats {
+  max-height: calc(var(--dashboard-card-height) - 56px) !important;
+  overflow: hidden !important;
+}
+
+body #dashboard .hero-reward-panel {
+  display: none !important;
+}
+
+body #dashboard .adventure-level-card {
+  align-content: center !important;
+}
+
+body #dashboard .adventure-level-card .adventure-start-button {
+  width: min(100%, 340px) !important;
+  justify-self: center !important;
+}
+
+body #dashboard .adventure-grid .mission-group-body,
+body #dashboard #adventureDailyTasks .mission-group-body {
+  max-height: 190px !important;
+  overflow: auto !important;
+}
+
+@media screen and (max-width: 1180px) {
+  body #dashboard.dashboard-home {
+    --dashboard-card-height: 320px;
+  }
+
+  body #dashboard .adventure-hero,
+  body #dashboard .adventure-map-card,
+  body #dashboard .shop-card,
+  body #dashboard .achievement-summary-card,
+  body #dashboard .adventure-grid > .section-card {
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  body #dashboard .adventure-hero,
+  body #dashboard .adventure-map-card,
+  body #dashboard .shop-card,
+  body #dashboard .achievement-summary-card {
+    height: auto !important;
+  }
+
+  body #dashboard .hero-reward-showcase,
+  body #dashboard .hero-reward-showcase .hero-equipped,
+  body #dashboard .hero-reward-showcase .hero-stats {
+    max-height: none !important;
+  }
+}
+
+/* Keep RPG stats in one responsive flow so tablet/narrow layouts do not leave gaps. */
+body #dashboard .hero-stat-grid.hero-stat-grid-all {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)) !important;
+  grid-auto-flow: row dense !important;
+  gap: 10px !important;
+  width: 100% !important;
+  align-items: stretch !important;
+}
+
+body #dashboard .hero-stat-grid.hero-stat-grid-all .hero-stat {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+@media (min-width: 1181px) {
+  body #dashboard .hero-stat-grid.hero-stat-grid-all {
+    grid-template-columns: repeat(auto-fit, minmax(116px, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body #dashboard .hero-stat-grid.hero-stat-grid-all {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Mission center now uses direct compact cards, matching the adventure map density. */
+body #dashboard #adventureDailyTasks.daily-task-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)) !important;
+  gap: 10px !important;
+  align-items: stretch !important;
+  max-height: calc(var(--dashboard-card-height, 320px) - 86px) !important;
+  overflow: auto !important;
+  padding-right: 2px !important;
+}
+
+body #dashboard #adventureDailyTasks .mission-task {
+  display: grid !important;
+  grid-template-rows: auto auto 8px auto !important;
+  gap: 8px !important;
+  min-height: 126px !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--border) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(232, 244, 238, 0.9)) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+body.dark-mode #dashboard #adventureDailyTasks .mission-task {
+  background: linear-gradient(135deg, rgba(31, 46, 43, 0.96), rgba(24, 37, 35, 0.92)) !important;
+  border-color: rgba(178, 214, 200, 0.22) !important;
+}
+
+body #dashboard #adventureDailyTasks .mission-task header {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  gap: 8px !important;
+  align-items: start !important;
+}
+
+body #dashboard #adventureDailyTasks .mission-task header strong {
+  display: block !important;
+  min-width: 0 !important;
+  font-size: clamp(16px, 1.25vw, 20px) !important;
+  line-height: 1.22 !important;
+  overflow-wrap: anywhere !important;
+}
+
+body #dashboard #adventureDailyTasks .mission-task header strong span {
+  display: none !important;
+}
+
+body #dashboard #adventureDailyTasks .mission-task header em {
+  white-space: nowrap !important;
+  font-size: clamp(15px, 1.2vw, 18px) !important;
+  color: var(--accent) !important;
+}
+
+body #dashboard #adventureDailyTasks .mission-task p {
+  display: none !important;
+}
+
+body #dashboard #adventureDailyTasks .mission-task .level-track {
+  height: 8px !important;
+  margin: 0 !important;
+}
+
+body #dashboard #adventureDailyTasks .mission-task button {
+  min-height: 36px !important;
+  margin: 0 !important;
+  padding: 7px 10px !important;
+  border-radius: 8px !important;
+}
+
+@media (max-width: 760px) {
+  body #dashboard #adventureDailyTasks.daily-task-list {
+    grid-template-columns: 1fr !important;
+    max-height: none !important;
+  }
 }
