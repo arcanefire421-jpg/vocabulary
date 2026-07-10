@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VocabMaster 單字學習</title>
-    <link rel="stylesheet" href="./src/styles.css?v=v1.5-shop-merge" />
+    <link rel="stylesheet" href="./src/styles.css?v=v1.6-learning-focus" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script type="module" src="./src/app.js?v=v1.5-shop-merge"></script>
+    <script type="module" src="./src/app.js?v=v1.6-learning-focus"></script>
   </head>
   <body>
     <header class="app-header">
@@ -31,8 +31,7 @@
 
     <main class="app-shell">
       <nav class="tabs" aria-label="主要功能">
-        <button class="tab is-active" data-tab="dashboard" type="button"><i data-lucide="layout-dashboard"></i><span>吳限勇者傳說</span></button>
-        <button class="tab" data-tab="adventure" type="button"><i data-lucide="sparkles"></i><span>吳限冒險</span></button>
+        <button class="tab is-active" data-tab="dashboard" type="button"><i data-lucide="layout-dashboard"></i><span>學習總覽</span></button>
         <button class="tab" data-tab="flashcards" type="button"><i data-lucide="copy"></i><span>閃記卡</span></button>
         <button class="tab" data-tab="practice" type="button"><i data-lucide="file-question"></i><span>題庫練習</span></button>
         <button class="tab" data-tab="library" type="button"><i data-lucide="book-open"></i><span>單字庫</span></button>
@@ -65,7 +64,7 @@
         </div>
       </section>
 
-      <section class="panel" id="adventure">
+      <section class="panel" id="adventure" hidden>
         <div class="adventure-hero">
           <div>
             <p class="eyebrow">吳限定律</p>
