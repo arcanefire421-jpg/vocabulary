@@ -4880,6 +4880,7 @@ svg {
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -8119,7 +8120,7 @@ input[type="text"],
   width: 100%;
   min-height: clamp(390px, 58vh, 640px);
   border-radius: var(--study-radius);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .flash-face {
